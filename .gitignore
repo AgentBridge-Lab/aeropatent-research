@@ -1,0 +1,24 @@
+# Runtime and dependencies
+node_modules/
+.npm/
+.cache/
+.DS_Store
+Thumbs.db
+
+# Secrets and local credentials
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*service-account*.json
+*credentials*.json
+keys/
+
+# Raw collection outputs are large and reproducible.
+raw/
+
+# Local logs and temp outputs
+*.log
+*.tmp

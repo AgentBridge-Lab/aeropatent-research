@@ -1,0 +1,6427 @@
+{
+  "generatedAt": "2026-06-28T17:47:15.577Z",
+  "dataSnapshotId": "aeropatent-bq-20260629",
+  "summary": {
+    "rowCount": 2522788,
+    "publicationCount": 2005337,
+    "familyCount": 747998,
+    "fieldCount": 9,
+    "publicationCountryCount": 74,
+    "displayCountries": [
+      "US",
+      "EP",
+      "CN",
+      "JP",
+      "KR"
+    ],
+    "analysisTimeZone": "Asia/Seoul",
+    "analysisDate": 20260629,
+    "currentYear": 2026,
+    "recent5StartYear": 2021,
+    "recent3StartYear": 2023,
+    "recent5StartDate": 20210629,
+    "recent3StartDate": 20230629,
+    "topField": {
+      "id": "space_materials_tps_coatings",
+      "domain": "space",
+      "labelKo": "우주재료·TPS·코팅",
+      "shortLabelKo": "재료·TPS",
+      "labelEn": "Space materials, TPS, and coatings",
+      "color": "#d65a9d",
+      "familyCount": 235954,
+      "publicationCount": 607475,
+      "recent5FamilyCount": 90303,
+      "recent3FamilyCount": 44543,
+      "recentMomentum": 0.1888,
+      "countryFamilyCounts": {
+        "US": 41089,
+        "CN": 183406,
+        "WO": 45392,
+        "ZA": 501,
+        "KR": 37449,
+        "TW": 13019,
+        "EA": 170,
+        "CZ": 269,
+        "AU": 3050,
+        "EP": 27667,
+        "UA": 153,
+        "CL": 306,
+        "DE": 6000,
+        "AR": 503,
+        "AT": 225,
+        "PE": 155,
+        "PL": 1864,
+        "PT": 381,
+        "RU": 1775,
+        "SE": 356,
+        "SG": 574,
+        "NL": 342,
+        "PH": 280,
+        "BR": 3013,
+        "TR": 156,
+        "CA": 5385,
+        "LU": 149,
+        "MA": 228,
+        "MX": 3943,
+        "MY": 506,
+        "GB": 1422,
+        "HU": 427,
+        "ES": 2541,
+        "IL": 574,
+        "CO": 338,
+        "FI": 405,
+        "HR": 130,
+        "CH": 169,
+        "DK": 491,
+        "FR": 1990,
+        "SK": 19,
+        "SI": 139,
+        "BE": 188,
+        "UY": 22,
+        "LT": 86,
+        "CU": 1,
+        "SA": 98,
+        "NZ": 136,
+        "RO": 27,
+        "GE": 7,
+        "RS": 131,
+        "GR": 55,
+        "NO": 50,
+        "TN": 13,
+        "PY": 17,
+        "DO": 7,
+        "EC": 27,
+        "IT": 913,
+        "CR": 37,
+        "BG": 17,
+        "LV": 5,
+        "JP": 28958,
+        "JO": 26,
+        "SM": 17,
+        "EE": 2,
+        "CY": 8,
+        "MD": 2,
+        "HK": 14,
+        "IE": 8,
+        "IN": 4,
+        "IS": 1,
+        "NI": 1
+      },
+      "regionFamilyCounts": {
+        "NORTH_AMERICA": 41732,
+        "EAST_ASIA": 210731,
+        "INTERNATIONAL": 45392,
+        "AFRICA": 666,
+        "OTHER_WORLD": 4184,
+        "OCEANIA": 3065,
+        "EUROPE": 34928,
+        "LATIN_AMERICA": 3512,
+        "MIDDLE_EAST": 809,
+        "SOUTH_ASIA": 4
+      },
+      "topApplicants": [
+        {
+          "key": "NITTO DENKO CORP",
+          "count": 1617
+        },
+        {
+          "key": "FUJIFILM CORP",
+          "count": 907
+        },
+        {
+          "key": "LG CHEMICAL LTD",
+          "count": 825
+        },
+        {
+          "key": "SAINT GOBAIN",
+          "count": 801
+        },
+        {
+          "key": "AGC INC",
+          "count": 782
+        },
+        {
+          "key": "SUMITOMO CHEMICAL CO",
+          "count": 742
+        },
+        {
+          "key": "SAMSUNG DISPLAY CO LTD",
+          "count": 676
+        },
+        {
+          "key": "DAINIPPON PRINTING CO LTD",
+          "count": 587
+        }
+      ],
+      "topCpcCodes": [
+        {
+          "key": "C04B2235",
+          "count": 562605
+        },
+        {
+          "key": "B32B27",
+          "count": 506067
+        },
+        {
+          "key": "B32B2307",
+          "count": 442986
+        },
+        {
+          "key": "C04B35",
+          "count": 307375
+        },
+        {
+          "key": "C09D5",
+          "count": 234360
+        },
+        {
+          "key": "C09D7",
+          "count": 193075
+        },
+        {
+          "key": "B32B7",
+          "count": 183948
+        },
+        {
+          "key": "B32B5",
+          "count": 183471
+        },
+        {
+          "key": "B32B15",
+          "count": 158976
+        },
+        {
+          "key": "B32B37",
+          "count": 144732
+        }
+      ],
+      "koreaPublicationGapOpportunityScore": 0.1618,
+      "koreaAssigneeGapOpportunityScore": 0.1708
+    },
+    "fastestRecentMomentumField": {
+      "id": "space_launch_propulsion_recovery",
+      "domain": "space",
+      "labelKo": "발사체 추진·회수",
+      "shortLabelKo": "발사체",
+      "labelEn": "Launch vehicle, propulsion, and recovery",
+      "color": "#e54b4b",
+      "familyCount": 17160,
+      "publicationCount": 36429,
+      "recent5FamilyCount": 8464,
+      "recent3FamilyCount": 4532,
+      "recentMomentum": 0.2641,
+      "countryFamilyCounts": {
+        "US": 2916,
+        "WO": 1888,
+        "CN": 11736,
+        "KR": 992,
+        "EP": 1482,
+        "RU": 1024,
+        "AU": 205,
+        "CA": 318,
+        "TW": 32,
+        "ES": 191,
+        "DE": 303,
+        "PL": 66,
+        "FR": 373,
+        "ZA": 19,
+        "LU": 10,
+        "SG": 19,
+        "TR": 17,
+        "UA": 8,
+        "EA": 18,
+        "BE": 2,
+        "GB": 174,
+        "CZ": 9,
+        "CH": 6,
+        "NZ": 19,
+        "FI": 12,
+        "IL": 102,
+        "AT": 12,
+        "EC": 3,
+        "SI": 4,
+        "PT": 8,
+        "BR": 40,
+        "AR": 8,
+        "MX": 17,
+        "LT": 5,
+        "JP": 701,
+        "BG": 5,
+        "RO": 5,
+        "UY": 2,
+        "HU": 8,
+        "IT": 67,
+        "DK": 13,
+        "SE": 12,
+        "NL": 5,
+        "GR": 2,
+        "SA": 2,
+        "IE": 1,
+        "NO": 2,
+        "MY": 2,
+        "MD": 1,
+        "RS": 1,
+        "MA": 5,
+        "CO": 3,
+        "PH": 1
+      },
+      "regionFamilyCounts": {
+        "NORTH_AMERICA": 2943,
+        "INTERNATIONAL": 1888,
+        "EAST_ASIA": 13116,
+        "EUROPE": 2018,
+        "OTHER_WORLD": 1116,
+        "OCEANIA": 211,
+        "AFRICA": 22,
+        "MIDDLE_EAST": 120,
+        "LATIN_AMERICA": 50
+      },
+      "topApplicants": [
+        {
+          "key": "HARBIN INST TECHNOLOGY",
+          "count": 499
+        },
+        {
+          "key": "SHANGHAI SATELLITE ENG INST",
+          "count": 446
+        },
+        {
+          "key": "UNIV BEIHANG",
+          "count": 400
+        },
+        {
+          "key": "UNIV NORTHWESTERN POLYTECHNICAL",
+          "count": 381
+        },
+        {
+          "key": "SHANGHAI AEROSPACE SYSTEM ENGINEERING INST",
+          "count": 357
+        },
+        {
+          "key": "BEIJING INST SPACECRAFT SYSTEM ENGINEERING",
+          "count": 354
+        },
+        {
+          "key": "BEIJING INST CONTROL ENG",
+          "count": 331
+        },
+        {
+          "key": "XIAN AEROSPACE PROPULSION INSTITUTE",
+          "count": 328
+        }
+      ],
+      "topCpcCodes": [
+        {
+          "key": "B64G1",
+          "count": 96796
+        },
+        {
+          "key": "F02K9",
+          "count": 26466
+        },
+        {
+          "key": "H04B7",
+          "count": 3550
+        },
+        {
+          "key": "F03H1",
+          "count": 2547
+        },
+        {
+          "key": "H01Q1",
+          "count": 2335
+        },
+        {
+          "key": "B64G3",
+          "count": 1751
+        },
+        {
+          "key": "F05D2260",
+          "count": 1489
+        },
+        {
+          "key": "Y02E10",
+          "count": 1324
+        },
+        {
+          "key": "G06F30",
+          "count": 1215
+        },
+        {
+          "key": "G01S13",
+          "count": 1194
+        }
+      ],
+      "koreaPublicationGapOpportunityScore": 0.2492,
+      "koreaAssigneeGapOpportunityScore": 0.2511
+    },
+    "topKoreaOpportunityField": {
+      "id": "space_launch_propulsion_recovery",
+      "domain": "space",
+      "labelKo": "발사체 추진·회수",
+      "shortLabelKo": "발사체",
+      "labelEn": "Launch vehicle, propulsion, and recovery",
+      "color": "#e54b4b",
+      "familyCount": 17160,
+      "publicationCount": 36429,
+      "recent5FamilyCount": 8464,
+      "recent3FamilyCount": 4532,
+      "recentMomentum": 0.2641,
+      "countryFamilyCounts": {
+        "US": 2916,
+        "WO": 1888,
+        "CN": 11736,
+        "KR": 992,
+        "EP": 1482,
+        "RU": 1024,
+        "AU": 205,
+        "CA": 318,
+        "TW": 32,
+        "ES": 191,
+        "DE": 303,
+        "PL": 66,
+        "FR": 373,
+        "ZA": 19,
+        "LU": 10,
+        "SG": 19,
+        "TR": 17,
+        "UA": 8,
+        "EA": 18,
+        "BE": 2,
+        "GB": 174,
+        "CZ": 9,
+        "CH": 6,
+        "NZ": 19,
+        "FI": 12,
+        "IL": 102,
+        "AT": 12,
+        "EC": 3,
+        "SI": 4,
+        "PT": 8,
+        "BR": 40,
+        "AR": 8,
+        "MX": 17,
+        "LT": 5,
+        "JP": 701,
+        "BG": 5,
+        "RO": 5,
+        "UY": 2,
+        "HU": 8,
+        "IT": 67,
+        "DK": 13,
+        "SE": 12,
+        "NL": 5,
+        "GR": 2,
+        "SA": 2,
+        "IE": 1,
+        "NO": 2,
+        "MY": 2,
+        "MD": 1,
+        "RS": 1,
+        "MA": 5,
+        "CO": 3,
+        "PH": 1
+      },
+      "regionFamilyCounts": {
+        "NORTH_AMERICA": 2943,
+        "INTERNATIONAL": 1888,
+        "EAST_ASIA": 13116,
+        "EUROPE": 2018,
+        "OTHER_WORLD": 1116,
+        "OCEANIA": 211,
+        "AFRICA": 22,
+        "MIDDLE_EAST": 120,
+        "LATIN_AMERICA": 50
+      },
+      "topApplicants": [
+        {
+          "key": "HARBIN INST TECHNOLOGY",
+          "count": 499
+        },
+        {
+          "key": "SHANGHAI SATELLITE ENG INST",
+          "count": 446
+        },
+        {
+          "key": "UNIV BEIHANG",
+          "count": 400
+        },
+        {
+          "key": "UNIV NORTHWESTERN POLYTECHNICAL",
+          "count": 381
+        },
+        {
+          "key": "SHANGHAI AEROSPACE SYSTEM ENGINEERING INST",
+          "count": 357
+        },
+        {
+          "key": "BEIJING INST SPACECRAFT SYSTEM ENGINEERING",
+          "count": 354
+        },
+        {
+          "key": "BEIJING INST CONTROL ENG",
+          "count": 331
+        },
+        {
+          "key": "XIAN AEROSPACE PROPULSION INSTITUTE",
+          "count": 328
+        }
+      ],
+      "topCpcCodes": [
+        {
+          "key": "B64G1",
+          "count": 96796
+        },
+        {
+          "key": "F02K9",
+          "count": 26466
+        },
+        {
+          "key": "H04B7",
+          "count": 3550
+        },
+        {
+          "key": "F03H1",
+          "count": 2547
+        },
+        {
+          "key": "H01Q1",
+          "count": 2335
+        },
+        {
+          "key": "B64G3",
+          "count": 1751
+        },
+        {
+          "key": "F05D2260",
+          "count": 1489
+        },
+        {
+          "key": "Y02E10",
+          "count": 1324
+        },
+        {
+          "key": "G06F30",
+          "count": 1215
+        },
+        {
+          "key": "G01S13",
+          "count": 1194
+        }
+      ],
+      "koreaPublicationGapOpportunityScore": 0.2492,
+      "koreaAssigneeGapOpportunityScore": 0.2511
+    }
+  },
+  "dashboard": {
+    "majorCountries": [
+      {
+        "country": "US",
+        "labelKo": "미국",
+        "familyCount": 206494,
+        "publicationCount": 397532,
+        "recent5FamilyCount": 58228
+      },
+      {
+        "country": "EP",
+        "labelKo": "유럽특허청",
+        "familyCount": 107712,
+        "publicationCount": 208204,
+        "recent5FamilyCount": 34147
+      },
+      {
+        "country": "CN",
+        "labelKo": "중국",
+        "familyCount": 524392,
+        "publicationCount": 762593,
+        "recent5FamilyCount": 243253
+      },
+      {
+        "country": "JP",
+        "labelKo": "일본",
+        "familyCount": 70356,
+        "publicationCount": 128952,
+        "recent5FamilyCount": 19810
+      },
+      {
+        "country": "KR",
+        "labelKo": "한국",
+        "familyCount": 95405,
+        "publicationCount": 140674,
+        "recent5FamilyCount": 35118
+      }
+    ],
+    "topCountries": [
+      {
+        "country": "CN",
+        "labelKo": "중국",
+        "familyCount": 524392,
+        "publicationCount": 762593,
+        "recent5FamilyCount": 243253
+      },
+      {
+        "country": "US",
+        "labelKo": "미국",
+        "familyCount": 206494,
+        "publicationCount": 397532,
+        "recent5FamilyCount": 58228
+      },
+      {
+        "country": "WO",
+        "labelKo": "PCT",
+        "familyCount": 155250,
+        "publicationCount": 164136,
+        "recent5FamilyCount": 57225
+      },
+      {
+        "country": "EP",
+        "labelKo": "유럽특허청",
+        "familyCount": 107712,
+        "publicationCount": 208204,
+        "recent5FamilyCount": 34147
+      },
+      {
+        "country": "KR",
+        "labelKo": "한국",
+        "familyCount": 95405,
+        "publicationCount": 140674,
+        "recent5FamilyCount": 35118
+      },
+      {
+        "country": "JP",
+        "labelKo": "일본",
+        "familyCount": 70356,
+        "publicationCount": 128952,
+        "recent5FamilyCount": 19810
+      },
+      {
+        "country": "DE",
+        "labelKo": "DE",
+        "familyCount": 29645,
+        "publicationCount": 34124,
+        "recent5FamilyCount": 9478
+      },
+      {
+        "country": "TW",
+        "labelKo": "TW",
+        "familyCount": 20439,
+        "publicationCount": 33920,
+        "recent5FamilyCount": 6711
+      },
+      {
+        "country": "CA",
+        "labelKo": "CA",
+        "familyCount": 15098,
+        "publicationCount": 19086,
+        "recent5FamilyCount": 3061
+      },
+      {
+        "country": "AU",
+        "labelKo": "AU",
+        "familyCount": 9929,
+        "publicationCount": 17210,
+        "recent5FamilyCount": 2712
+      },
+      {
+        "country": "FR",
+        "labelKo": "FR",
+        "familyCount": 9439,
+        "publicationCount": 16257,
+        "recent5FamilyCount": 3591
+      },
+      {
+        "country": "GB",
+        "labelKo": "GB",
+        "familyCount": 7770,
+        "publicationCount": 18511,
+        "recent5FamilyCount": 2945
+      }
+    ],
+    "topRegions": [
+      {
+        "region": "EAST_ASIA",
+        "labelKo": "동아시아",
+        "familyCount": 608289,
+        "publicationCount": 1066190,
+        "publicationCountryCount": 5,
+        "recent5FamilyCount": 276835
+      },
+      {
+        "region": "NORTH_AMERICA",
+        "labelKo": "북미",
+        "familyCount": 207772,
+        "publicationCount": 423640,
+        "publicationCountryCount": 3,
+        "recent5FamilyCount": 58930
+      },
+      {
+        "region": "INTERNATIONAL",
+        "labelKo": "국제공개",
+        "familyCount": 155250,
+        "publicationCount": 164136,
+        "publicationCountryCount": 1,
+        "recent5FamilyCount": 57225
+      },
+      {
+        "region": "EUROPE",
+        "labelKo": "유럽",
+        "familyCount": 142646,
+        "publicationCount": 297760,
+        "publicationCountryCount": 15,
+        "recent5FamilyCount": 47338
+      },
+      {
+        "region": "OTHER_WORLD",
+        "labelKo": "기타",
+        "familyCount": 12403,
+        "publicationCount": 17749,
+        "publicationCountryCount": 37,
+        "recent5FamilyCount": 1007
+      },
+      {
+        "region": "OCEANIA",
+        "labelKo": "오세아니아",
+        "familyCount": 9971,
+        "publicationCount": 17589,
+        "publicationCountryCount": 2,
+        "recent5FamilyCount": 2713
+      },
+      {
+        "region": "LATIN_AMERICA",
+        "labelKo": "중남미",
+        "familyCount": 8367,
+        "publicationCount": 10963,
+        "publicationCountryCount": 5,
+        "recent5FamilyCount": 687
+      },
+      {
+        "region": "MIDDLE_EAST",
+        "labelKo": "중동",
+        "familyCount": 3145,
+        "publicationCount": 5670,
+        "publicationCountryCount": 3,
+        "recent5FamilyCount": 872
+      }
+    ],
+    "opportunityFields": [
+      "space_launch_propulsion_recovery",
+      "space_remote_sensing_payload",
+      "space_gnc_rendezvous_servicing",
+      "aviation_avionics_flight_control_autonomy",
+      "space_comm_leo_network",
+      "aviation_propulsion_sustainable"
+    ]
+  },
+  "fields": [
+    {
+      "id": "space_launch_propulsion_recovery",
+      "domain": "space",
+      "labelKo": "발사체 추진·회수",
+      "shortLabelKo": "발사체",
+      "labelEn": "Launch vehicle, propulsion, and recovery",
+      "color": "#e54b4b",
+      "familyCount": 17160,
+      "publicationCount": 36429,
+      "recent5FamilyCount": 8464,
+      "recent3FamilyCount": 4532,
+      "recentMomentum": 0.2641,
+      "countryFamilyCounts": {
+        "US": 2916,
+        "WO": 1888,
+        "CN": 11736,
+        "KR": 992,
+        "EP": 1482,
+        "RU": 1024,
+        "AU": 205,
+        "CA": 318,
+        "TW": 32,
+        "ES": 191,
+        "DE": 303,
+        "PL": 66,
+        "FR": 373,
+        "ZA": 19,
+        "LU": 10,
+        "SG": 19,
+        "TR": 17,
+        "UA": 8,
+        "EA": 18,
+        "BE": 2,
+        "GB": 174,
+        "CZ": 9,
+        "CH": 6,
+        "NZ": 19,
+        "FI": 12,
+        "IL": 102,
+        "AT": 12,
+        "EC": 3,
+        "SI": 4,
+        "PT": 8,
+        "BR": 40,
+        "AR": 8,
+        "MX": 17,
+        "LT": 5,
+        "JP": 701,
+        "BG": 5,
+        "RO": 5,
+        "UY": 2,
+        "HU": 8,
+        "IT": 67,
+        "DK": 13,
+        "SE": 12,
+        "NL": 5,
+        "GR": 2,
+        "SA": 2,
+        "IE": 1,
+        "NO": 2,
+        "MY": 2,
+        "MD": 1,
+        "RS": 1,
+        "MA": 5,
+        "CO": 3,
+        "PH": 1
+      },
+      "regionFamilyCounts": {
+        "NORTH_AMERICA": 2943,
+        "INTERNATIONAL": 1888,
+        "EAST_ASIA": 13116,
+        "EUROPE": 2018,
+        "OTHER_WORLD": 1116,
+        "OCEANIA": 211,
+        "AFRICA": 22,
+        "MIDDLE_EAST": 120,
+        "LATIN_AMERICA": 50
+      },
+      "topCountries": [
+        {
+          "key": "CN",
+          "count": 11736
+        },
+        {
+          "key": "US",
+          "count": 2916
+        },
+        {
+          "key": "WO",
+          "count": 1888
+        },
+        {
+          "key": "EP",
+          "count": 1482
+        },
+        {
+          "key": "RU",
+          "count": 1024
+        },
+        {
+          "key": "KR",
+          "count": 992
+        },
+        {
+          "key": "JP",
+          "count": 701
+        },
+        {
+          "key": "FR",
+          "count": 373
+        }
+      ],
+      "topRegions": [
+        {
+          "key": "EAST_ASIA",
+          "count": 13116
+        },
+        {
+          "key": "NORTH_AMERICA",
+          "count": 2943
+        },
+        {
+          "key": "EUROPE",
+          "count": 2018
+        },
+        {
+          "key": "INTERNATIONAL",
+          "count": 1888
+        },
+        {
+          "key": "OTHER_WORLD",
+          "count": 1116
+        },
+        {
+          "key": "OCEANIA",
+          "count": 211
+        },
+        {
+          "key": "MIDDLE_EAST",
+          "count": 120
+        },
+        {
+          "key": "LATIN_AMERICA",
+          "count": 50
+        }
+      ],
+      "topApplicants": [
+        {
+          "key": "HARBIN INST TECHNOLOGY",
+          "count": 499
+        },
+        {
+          "key": "SHANGHAI SATELLITE ENG INST",
+          "count": 446
+        },
+        {
+          "key": "UNIV BEIHANG",
+          "count": 400
+        },
+        {
+          "key": "UNIV NORTHWESTERN POLYTECHNICAL",
+          "count": 381
+        },
+        {
+          "key": "SHANGHAI AEROSPACE SYSTEM ENGINEERING INST",
+          "count": 357
+        },
+        {
+          "key": "BEIJING INST SPACECRAFT SYSTEM ENGINEERING",
+          "count": 354
+        },
+        {
+          "key": "BEIJING INST CONTROL ENG",
+          "count": 331
+        },
+        {
+          "key": "XIAN AEROSPACE PROPULSION INSTITUTE",
+          "count": 328
+        }
+      ],
+      "topCpcCodes": [
+        {
+          "key": "B64G1",
+          "count": 96796
+        },
+        {
+          "key": "F02K9",
+          "count": 26466
+        },
+        {
+          "key": "H04B7",
+          "count": 3550
+        },
+        {
+          "key": "F03H1",
+          "count": 2547
+        },
+        {
+          "key": "H01Q1",
+          "count": 2335
+        },
+        {
+          "key": "B64G3",
+          "count": 1751
+        },
+        {
+          "key": "F05D2260",
+          "count": 1489
+        },
+        {
+          "key": "Y02E10",
+          "count": 1324
+        },
+        {
+          "key": "G06F30",
+          "count": 1215
+        },
+        {
+          "key": "G01S13",
+          "count": 1194
+        }
+      ],
+      "koreaPublicationGapOpportunityScore": 0.2492,
+      "koreaAssigneeGapOpportunityScore": 0.2511,
+      "taxonomy": [
+        {
+          "txCode": "TX01",
+          "role": "primary"
+        },
+        {
+          "txCode": "TX09",
+          "role": "secondary"
+        },
+        {
+          "txCode": "TX17",
+          "role": "secondary"
+        },
+        {
+          "txCode": "TX15",
+          "role": "secondary"
+        }
+      ],
+      "queryTerms": [
+        "재사용 발사체",
+        "액체로켓 엔진",
+        "발사체 회수",
+        "수직착륙",
+        "추진기관",
+        "reusable launch vehicle",
+        "rocket engine",
+        "booster recovery",
+        "vertical landing",
+        "launch vehicle propulsion"
+      ],
+      "proposalUse": "발사체 공고의 기술동향, 경쟁기술, 회수/착륙 차별성 문단에 사용한다.",
+      "report": {
+        "programId": "space-kari-discovered-18659",
+        "programTitle": "2026년도 차세대발사체개발사업 1단계 신규 위탁연구과제 공모",
+        "evidenceStrength": "context_only",
+        "patentTrendSummary": "2026년도 차세대발사체개발사업 1단계 신규 위탁연구과제 공모은 발사체 추진·회수 특허 landscape와 참고 연결된다. BigQuery 본수집 기준 17,160개 families, 36,429개 공개문헌이 확인됐고 최근 5년 families는 8,464개다. 이 값은 broad CPC 기반 분야 단위 context이며 공고별 강한 근거, 개별 특허 권리범위, FTO 판단은 포함하지 않는다.",
+        "proposalReadyBullets": [
+          "발사체 추진·회수 분야는 최근 10년 priority date 기준 17,160개 patent families와 36,429개 공개문헌이 있는 큰 기술 축으로 참고할 수 있다.",
+          "공개 관할 기준 최다 국가는 중국이며 11,736개 families가 확인된다.",
+          "최근 5년 family는 8,464개이고 최근 3년 momentum은 0.2641이다.",
+          "주요 출원인 예시는 HARBIN INST TECHNOLOGY이며, 대표 CPC 축은 B64G1이다.",
+          "AgentBridge 제안서에서는 발사체 공고의 기술동향, 경쟁기술, 회수/착륙 차별성 문단에 사용한다.로만 활용하고, 강한 주장에는 초록/청구항/대표 특허 검증 후 사용한다."
+        ],
+        "opportunityNotes": [
+          "한국 공개 gap score 0.2492, 한국 출원인 gap score 0.2511.",
+          "상위 공개 관할: 중국 11,736, 미국 2,916, PCT 1,888, 유럽 1,482."
+        ],
+        "riskNotes": [
+          "metadata-first 수집이므로 개별 특허의 청구항 범위, 법적 상태, 패밀리 대표성은 별도 검증이 필요하다.",
+          "CPC-first 분류는 넓은 후보를 포착하기 위한 방식이라 분야 간 중복과 주변기술이 포함될 수 있다."
+        ],
+        "limitations": [
+          "공고별 match는 기존 seed pack 또는 키워드 crosswalk 기반이며, 초록/청구항 의미검색으로 검증되지 않았다.",
+          "법적 권리판단, FTO, 침해/무효 판단을 제공하지 않는다.",
+          "초록/청구항 원문 기반 의미검색과 대표 특허 선별은 후속 수집 단계에서 보강한다."
+        ]
+      }
+    },
+    {
+      "id": "space_satellite_bus_thermal_power",
+      "domain": "space",
+      "labelKo": "위성 플랫폼·열제어·전력",
+      "shortLabelKo": "위성 플랫폼",
+      "labelEn": "Satellite bus, thermal control, and power",
+      "color": "#f4b942",
+      "familyCount": 30620,
+      "publicationCount": 65608,
+      "recent5FamilyCount": 10879,
+      "recent3FamilyCount": 4638,
+      "recentMomentum": 0.1515,
+      "countryFamilyCounts": {
+        "US": 11269,
+        "WO": 2873,
+        "CN": 13338,
+        "KR": 6327,
+        "EP": 1956,
+        "TW": 532,
+        "AU": 224,
+        "RU": 756,
+        "CA": 367,
+        "ES": 189,
+        "DE": 509,
+        "MX": 42,
+        "FR": 342,
+        "ZA": 30,
+        "BR": 68,
+        "TR": 22,
+        "UA": 7,
+        "LU": 12,
+        "EA": 16,
+        "GB": 199,
+        "CH": 5,
+        "NZ": 17,
+        "SG": 24,
+        "FI": 33,
+        "IL": 98,
+        "AT": 20,
+        "SE": 15,
+        "PL": 50,
+        "DK": 19,
+        "MY": 4,
+        "SI": 6,
+        "PT": 7,
+        "AR": 15,
+        "RO": 4,
+        "NO": 5,
+        "LT": 4,
+        "JP": 1285,
+        "BG": 3,
+        "BE": 3,
+        "UY": 2,
+        "HU": 10,
+        "CO": 3,
+        "IT": 73,
+        "SA": 6,
+        "NL": 9,
+        "GR": 2,
+        "CL": 4,
+        "CZ": 5,
+        "JO": 2,
+        "MD": 1,
+        "PE": 1,
+        "MA": 4,
+        "HK": 1,
+        "EC": 2,
+        "PH": 3
+      },
+      "regionFamilyCounts": {
+        "NORTH_AMERICA": 11302,
+        "INTERNATIONAL": 2873,
+        "EAST_ASIA": 20181,
+        "EUROPE": 2709,
+        "OCEANIA": 229,
+        "OTHER_WORLD": 847,
+        "AFRICA": 33,
+        "LATIN_AMERICA": 86,
+        "MIDDLE_EAST": 124
+      },
+      "topCountries": [
+        {
+          "key": "CN",
+          "count": 13338
+        },
+        {
+          "key": "US",
+          "count": 11269
+        },
+        {
+          "key": "KR",
+          "count": 6327
+        },
+        {
+          "key": "WO",
+          "count": 2873
+        },
+        {
+          "key": "EP",
+          "count": 1956
+        },
+        {
+          "key": "JP",
+          "count": 1285
+        },
+        {
+          "key": "RU",
+          "count": 756
+        },
+        {
+          "key": "TW",
+          "count": 532
+        }
+      ],
+      "topRegions": [
+        {
+          "key": "EAST_ASIA",
+          "count": 20181
+        },
+        {
+          "key": "NORTH_AMERICA",
+          "count": 11302
+        },
+        {
+          "key": "INTERNATIONAL",
+          "count": 2873
+        },
+        {
+          "key": "EUROPE",
+          "count": 2709
+        },
+        {
+          "key": "OTHER_WORLD",
+          "count": 847
+        },
+        {
+          "key": "OCEANIA",
+          "count": 229
+        },
+        {
+          "key": "MIDDLE_EAST",
+          "count": 124
+        },
+        {
+          "key": "LATIN_AMERICA",
+          "count": 86
+        }
+      ],
+      "topApplicants": [
+        {
+          "key": "HARBIN INST TECHNOLOGY",
+          "count": 496
+        },
+        {
+          "key": "SHANGHAI SATELLITE ENG INST",
+          "count": 456
+        },
+        {
+          "key": "LG ELECTRONICS INC",
+          "count": 422
+        },
+        {
+          "key": "BEIJING INST SPACECRAFT SYSTEM ENGINEERING",
+          "count": 382
+        },
+        {
+          "key": "SHANGHAI AEROSPACE SYSTEM ENGINEERING INST",
+          "count": 331
+        },
+        {
+          "key": "BEIJING INST CONTROL ENG",
+          "count": 304
+        },
+        {
+          "key": "UNIV BEIHANG",
+          "count": 249
+        },
+        {
+          "key": "SHANGHAI ENG CT MICROSATELLITES",
+          "count": 229
+        }
+      ],
+      "topCpcCodes": [
+        {
+          "key": "B64G1",
+          "count": 96796
+        },
+        {
+          "key": "F28D15",
+          "count": 45295
+        },
+        {
+          "key": "H10F77",
+          "count": 44260
+        },
+        {
+          "key": "H01L31",
+          "count": 42631
+        },
+        {
+          "key": "H05K7",
+          "count": 19187
+        },
+        {
+          "key": "Y02E10",
+          "count": 16921
+        },
+        {
+          "key": "H10F39",
+          "count": 16222
+        },
+        {
+          "key": "H10F19",
+          "count": 14733
+        },
+        {
+          "key": "H10F71",
+          "count": 13699
+        },
+        {
+          "key": "H10W40",
+          "count": 11858
+        }
+      ],
+      "koreaPublicationGapOpportunityScore": 0.1295,
+      "koreaAssigneeGapOpportunityScore": 0.1321,
+      "taxonomy": [
+        {
+          "txCode": "TX14",
+          "role": "primary"
+        },
+        {
+          "txCode": "TX03",
+          "role": "secondary"
+        },
+        {
+          "txCode": "TX12",
+          "role": "secondary"
+        }
+      ],
+      "queryTerms": [
+        "위성 플랫폼",
+        "위성 열제어",
+        "히트파이프",
+        "위성 전력",
+        "태양전지판",
+        "satellite bus",
+        "spacecraft thermal control",
+        "heat pipe",
+        "spacecraft power",
+        "solar array"
+      ],
+      "proposalUse": "위성 시스템 공고의 플랫폼 신뢰성, 열/전력 설계, 국산화 필요성 근거에 사용한다.",
+      "report": {
+        "programId": "space-kari-discovered-18434",
+        "programTitle": "2026년도 달 착륙선 개발 사업 위탁연구과제 공모(2차)",
+        "evidenceStrength": "context_only",
+        "patentTrendSummary": "2026년도 달 착륙선 개발 사업 위탁연구과제 공모(2차)은 위성 플랫폼·열제어·전력 특허 landscape와 참고 연결된다. BigQuery 본수집 기준 30,620개 families, 65,608개 공개문헌이 확인됐고 최근 5년 families는 10,879개다. 이 값은 broad CPC 기반 분야 단위 context이며 공고별 강한 근거, 개별 특허 권리범위, FTO 판단은 포함하지 않는다.",
+        "proposalReadyBullets": [
+          "위성 플랫폼·열제어·전력 분야는 최근 10년 priority date 기준 30,620개 patent families와 65,608개 공개문헌이 있는 큰 기술 축으로 참고할 수 있다.",
+          "공개 관할 기준 최다 국가는 중국이며 13,338개 families가 확인된다.",
+          "최근 5년 family는 10,879개이고 최근 3년 momentum은 0.1515이다.",
+          "주요 출원인 예시는 HARBIN INST TECHNOLOGY이며, 대표 CPC 축은 B64G1이다.",
+          "AgentBridge 제안서에서는 위성 시스템 공고의 플랫폼 신뢰성, 열/전력 설계, 국산화 필요성 근거에 사용한다.로만 활용하고, 강한 주장에는 초록/청구항/대표 특허 검증 후 사용한다."
+        ],
+        "opportunityNotes": [
+          "한국 공개 gap score 0.1295, 한국 출원인 gap score 0.1321.",
+          "상위 공개 관할: 중국 13,338, 미국 11,269, PCT 2,873, 유럽 1,956."
+        ],
+        "riskNotes": [
+          "metadata-first 수집이므로 개별 특허의 청구항 범위, 법적 상태, 패밀리 대표성은 별도 검증이 필요하다.",
+          "CPC-first 분류는 넓은 후보를 포착하기 위한 방식이라 분야 간 중복과 주변기술이 포함될 수 있다."
+        ],
+        "limitations": [
+          "공고별 match는 기존 seed pack 또는 키워드 crosswalk 기반이며, 초록/청구항 의미검색으로 검증되지 않았다.",
+          "법적 권리판단, FTO, 침해/무효 판단을 제공하지 않는다.",
+          "초록/청구항 원문 기반 의미검색과 대표 특허 선별은 후속 수집 단계에서 보강한다."
+        ]
+      }
+    },
+    {
+      "id": "space_comm_leo_network",
+      "domain": "space",
+      "labelKo": "위성통신·LEO 네트워크",
+      "shortLabelKo": "위성통신",
+      "labelEn": "Satellite communications and LEO networks",
+      "color": "#2ca58d",
+      "familyCount": 143280,
+      "publicationCount": 471479,
+      "recent5FamilyCount": 67655,
+      "recent3FamilyCount": 33242,
+      "recentMomentum": 0.232,
+      "countryFamilyCounts": {
+        "US": 58737,
+        "ES": 1416,
+        "CN": 96203,
+        "WO": 51820,
+        "KR": 15751,
+        "TW": 3421,
+        "ZA": 305,
+        "AU": 2286,
+        "EP": 33473,
+        "DE": 1964,
+        "TR": 95,
+        "PL": 313,
+        "RU": 816,
+        "SG": 630,
+        "GB": 1510,
+        "IL": 454,
+        "AR": 116,
+        "HU": 115,
+        "BR": 2274,
+        "CA": 2700,
+        "MX": 1185,
+        "PH": 349,
+        "UA": 11,
+        "CO": 211,
+        "CR": 15,
+        "CL": 90,
+        "MY": 141,
+        "FI": 292,
+        "FR": 716,
+        "MA": 17,
+        "SE": 73,
+        "PE": 22,
+        "BG": 10,
+        "AT": 16,
+        "DK": 162,
+        "PT": 125,
+        "LU": 59,
+        "DO": 9,
+        "BE": 10,
+        "NL": 37,
+        "SA": 41,
+        "EA": 23,
+        "SI": 3,
+        "CZ": 23,
+        "NO": 6,
+        "NZ": 49,
+        "CH": 5,
+        "JP": 11751,
+        "IT": 82,
+        "HR": 20,
+        "JO": 11,
+        "LT": 16,
+        "GR": 8,
+        "HK": 12,
+        "RS": 5,
+        "SM": 2,
+        "IE": 2,
+        "IN": 4,
+        "CY": 3,
+        "CU": 1,
+        "EC": 3,
+        "SV": 1
+      },
+      "regionFamilyCounts": {
+        "NORTH_AMERICA": 58928,
+        "EUROPE": 36272,
+        "EAST_ASIA": 108688,
+        "INTERNATIONAL": 51820,
+        "AFRICA": 314,
+        "OCEANIA": 2293,
+        "MIDDLE_EAST": 580,
+        "OTHER_WORLD": 1868,
+        "LATIN_AMERICA": 2501,
+        "SOUTH_ASIA": 4
+      },
+      "topCountries": [
+        {
+          "key": "CN",
+          "count": 96203
+        },
+        {
+          "key": "US",
+          "count": 58737
+        },
+        {
+          "key": "WO",
+          "count": 51820
+        },
+        {
+          "key": "EP",
+          "count": 33473
+        },
+        {
+          "key": "KR",
+          "count": 15751
+        },
+        {
+          "key": "JP",
+          "count": 11751
+        },
+        {
+          "key": "TW",
+          "count": 3421
+        },
+        {
+          "key": "CA",
+          "count": 2700
+        }
+      ],
+      "topRegions": [
+        {
+          "key": "EAST_ASIA",
+          "count": 108688
+        },
+        {
+          "key": "NORTH_AMERICA",
+          "count": 58928
+        },
+        {
+          "key": "INTERNATIONAL",
+          "count": 51820
+        },
+        {
+          "key": "EUROPE",
+          "count": 36272
+        },
+        {
+          "key": "LATIN_AMERICA",
+          "count": 2501
+        },
+        {
+          "key": "OCEANIA",
+          "count": 2293
+        },
+        {
+          "key": "OTHER_WORLD",
+          "count": 1868
+        },
+        {
+          "key": "MIDDLE_EAST",
+          "count": 580
+        }
+      ],
+      "topApplicants": [
+        {
+          "key": "HUAWEI TECH CO LTD",
+          "count": 7672
+        },
+        {
+          "key": "QUALCOMM INC",
+          "count": 7454
+        },
+        {
+          "key": "SAMSUNG ELECTRONICS CO LTD",
+          "count": 4536
+        },
+        {
+          "key": "LG ELECTRONICS INC",
+          "count": 3055
+        },
+        {
+          "key": "ERICSSON TELEFON AB L M",
+          "count": 3038
+        },
+        {
+          "key": "ZTE CORP",
+          "count": 2418
+        },
+        {
+          "key": "NOKIA TECHNOLOGIES OY",
+          "count": 1877
+        },
+        {
+          "key": "CISCO TECH INC",
+          "count": 1867
+        }
+      ],
+      "topCpcCodes": [
+        {
+          "key": "H04B7",
+          "count": 840622
+        },
+        {
+          "key": "H04L5",
+          "count": 403039
+        },
+        {
+          "key": "H04W72",
+          "count": 364045
+        },
+        {
+          "key": "H04L45",
+          "count": 329335
+        },
+        {
+          "key": "H04W84",
+          "count": 267753
+        },
+        {
+          "key": "H04W76",
+          "count": 162029
+        },
+        {
+          "key": "H04L1",
+          "count": 151241
+        },
+        {
+          "key": "H04W4",
+          "count": 147714
+        },
+        {
+          "key": "H04W24",
+          "count": 142381
+        },
+        {
+          "key": "H04W52",
+          "count": 130006
+        }
+      ],
+      "koreaPublicationGapOpportunityScore": 0.2105,
+      "koreaAssigneeGapOpportunityScore": 0.2099,
+      "taxonomy": [
+        {
+          "txCode": "TX05",
+          "role": "primary"
+        },
+        {
+          "txCode": "TX11",
+          "role": "secondary"
+        },
+        {
+          "txCode": "TX16",
+          "role": "secondary"
+        }
+      ],
+      "queryTerms": [
+        "위성통신",
+        "저궤도 위성망",
+        "위성 간 링크",
+        "빔 호핑",
+        "위성 네트워크",
+        "satellite communication",
+        "LEO constellation",
+        "inter-satellite link",
+        "beam hopping",
+        "satellite network"
+      ],
+      "proposalUse": "통신/네트워크 공고의 시장성, 표준화, 경쟁사 watchlist 근거에 사용한다.",
+      "report": {
+        "programId": "space-kasa-discovered-B000000003163Ho2oI1",
+        "programTitle": "2026년도 신규프로젝트 탐색연구(인공위성부문) 신규기획과제 공고",
+        "evidenceStrength": "context_only",
+        "patentTrendSummary": "2026년도 신규프로젝트 탐색연구(인공위성부문) 신규기획과제 공고은 위성통신·LEO 네트워크 특허 landscape와 참고 연결된다. BigQuery 본수집 기준 143,280개 families, 471,479개 공개문헌이 확인됐고 최근 5년 families는 67,655개다. 이 값은 broad CPC 기반 분야 단위 context이며 공고별 강한 근거, 개별 특허 권리범위, FTO 판단은 포함하지 않는다.",
+        "proposalReadyBullets": [
+          "위성통신·LEO 네트워크 분야는 최근 10년 priority date 기준 143,280개 patent families와 471,479개 공개문헌이 있는 큰 기술 축으로 참고할 수 있다.",
+          "공개 관할 기준 최다 국가는 중국이며 96,203개 families가 확인된다.",
+          "최근 5년 family는 67,655개이고 최근 3년 momentum은 0.232이다.",
+          "주요 출원인 예시는 HUAWEI TECH CO LTD이며, 대표 CPC 축은 H04B7이다.",
+          "AgentBridge 제안서에서는 통신/네트워크 공고의 시장성, 표준화, 경쟁사 watchlist 근거에 사용한다.로만 활용하고, 강한 주장에는 초록/청구항/대표 특허 검증 후 사용한다."
+        ],
+        "opportunityNotes": [
+          "한국 공개 gap score 0.2105, 한국 출원인 gap score 0.2099.",
+          "상위 공개 관할: 중국 96,203, 미국 58,737, PCT 51,820, 유럽 33,473."
+        ],
+        "riskNotes": [
+          "metadata-first 수집이므로 개별 특허의 청구항 범위, 법적 상태, 패밀리 대표성은 별도 검증이 필요하다.",
+          "CPC-first 분류는 넓은 후보를 포착하기 위한 방식이라 분야 간 중복과 주변기술이 포함될 수 있다."
+        ],
+        "limitations": [
+          "공고별 match는 기존 seed pack 또는 키워드 crosswalk 기반이며, 초록/청구항 의미검색으로 검증되지 않았다.",
+          "법적 권리판단, FTO, 침해/무효 판단을 제공하지 않는다.",
+          "초록/청구항 원문 기반 의미검색과 대표 특허 선별은 후속 수집 단계에서 보강한다."
+        ]
+      }
+    },
+    {
+      "id": "space_remote_sensing_payload",
+      "domain": "space",
+      "labelKo": "SAR·원격탐사 페이로드",
+      "shortLabelKo": "SAR 페이로드",
+      "labelEn": "SAR and remote-sensing payload",
+      "color": "#4d8cf5",
+      "familyCount": 120249,
+      "publicationCount": 318311,
+      "recent5FamilyCount": 61372,
+      "recent3FamilyCount": 31099,
+      "recentMomentum": 0.2586,
+      "countryFamilyCounts": {
+        "US": 34623,
+        "CN": 83405,
+        "WO": 24008,
+        "KR": 12566,
+        "EA": 34,
+        "TW": 1903,
+        "AU": 1339,
+        "EP": 17163,
+        "DE": 10146,
+        "AR": 43,
+        "CZ": 42,
+        "RU": 1328,
+        "SE": 166,
+        "SG": 208,
+        "PH": 41,
+        "ZA": 91,
+        "UA": 10,
+        "IL": 689,
+        "HU": 61,
+        "ES": 554,
+        "BR": 462,
+        "TR": 42,
+        "CA": 1760,
+        "DK": 132,
+        "AT": 70,
+        "MX": 365,
+        "GB": 1139,
+        "NL": 125,
+        "BE": 43,
+        "CL": 66,
+        "PL": 194,
+        "FR": 1366,
+        "MA": 22,
+        "FI": 175,
+        "LU": 137,
+        "CY": 3,
+        "CH": 28,
+        "CO": 24,
+        "BG": 6,
+        "NZ": 42,
+        "RS": 8,
+        "MY": 35,
+        "NO": 64,
+        "SA": 32,
+        "PE": 16,
+        "PT": 40,
+        "IT": 260,
+        "LT": 17,
+        "JP": 11455,
+        "SI": 9,
+        "EC": 1,
+        "HK": 9,
+        "GR": 10,
+        "HR": 24,
+        "TN": 1,
+        "PY": 2,
+        "GE": 2,
+        "UY": 3,
+        "LV": 1,
+        "CR": 1,
+        "RO": 3,
+        "IE": 1,
+        "IN": 1,
+        "MT": 1,
+        "SM": 2
+      },
+      "regionFamilyCounts": {
+        "NORTH_AMERICA": 34776,
+        "EAST_ASIA": 96353,
+        "INTERNATIONAL": 24008,
+        "OTHER_WORLD": 1911,
+        "OCEANIA": 1340,
+        "EUROPE": 27085,
+        "LATIN_AMERICA": 544,
+        "AFRICA": 110,
+        "MIDDLE_EAST": 755,
+        "SOUTH_ASIA": 1
+      },
+      "topCountries": [
+        {
+          "key": "CN",
+          "count": 83405
+        },
+        {
+          "key": "US",
+          "count": 34623
+        },
+        {
+          "key": "WO",
+          "count": 24008
+        },
+        {
+          "key": "EP",
+          "count": 17163
+        },
+        {
+          "key": "KR",
+          "count": 12566
+        },
+        {
+          "key": "JP",
+          "count": 11455
+        },
+        {
+          "key": "DE",
+          "count": 10146
+        },
+        {
+          "key": "TW",
+          "count": 1903
+        }
+      ],
+      "topRegions": [
+        {
+          "key": "EAST_ASIA",
+          "count": 96353
+        },
+        {
+          "key": "NORTH_AMERICA",
+          "count": 34776
+        },
+        {
+          "key": "EUROPE",
+          "count": 27085
+        },
+        {
+          "key": "INTERNATIONAL",
+          "count": 24008
+        },
+        {
+          "key": "OTHER_WORLD",
+          "count": 1911
+        },
+        {
+          "key": "OCEANIA",
+          "count": 1340
+        },
+        {
+          "key": "MIDDLE_EAST",
+          "count": 755
+        },
+        {
+          "key": "LATIN_AMERICA",
+          "count": 544
+        }
+      ],
+      "topApplicants": [
+        {
+          "key": "UNIV XIDIAN",
+          "count": 2230
+        },
+        {
+          "key": "BOSCH GMBH ROBERT",
+          "count": 1844
+        },
+        {
+          "key": "SAMSUNG ELECTRONICS CO LTD",
+          "count": 1103
+        },
+        {
+          "key": "HUAWEI TECH CO LTD",
+          "count": 1057
+        },
+        {
+          "key": "BEIJING INSTITUTE TECH",
+          "count": 1005
+        },
+        {
+          "key": "UNIV ELECTRONIC SCI & TECH CHINA",
+          "count": 982
+        },
+        {
+          "key": "QUALCOMM INC",
+          "count": 879
+        },
+        {
+          "key": "SONY SEMICONDUCTOR SOLUTIONS CORP",
+          "count": 834
+        }
+      ],
+      "topCpcCodes": [
+        {
+          "key": "G01S7",
+          "count": 610100
+        },
+        {
+          "key": "G01S13",
+          "count": 387922
+        },
+        {
+          "key": "G01S17",
+          "count": 291800
+        },
+        {
+          "key": "G01J3",
+          "count": 179460
+        },
+        {
+          "key": "G01N21",
+          "count": 73267
+        },
+        {
+          "key": "G01S15",
+          "count": 62719
+        },
+        {
+          "key": "G01S2013",
+          "count": 61697
+        },
+        {
+          "key": "A61B8",
+          "count": 54923
+        },
+        {
+          "key": "G06T2207",
+          "count": 47148
+        },
+        {
+          "key": "G06T7",
+          "count": 38005
+        }
+      ],
+      "koreaPublicationGapOpportunityScore": 0.2366,
+      "koreaAssigneeGapOpportunityScore": 0.2395,
+      "taxonomy": [
+        {
+          "txCode": "TX08",
+          "role": "primary"
+        },
+        {
+          "txCode": "TX11",
+          "role": "secondary"
+        }
+      ],
+      "queryTerms": [
+        "SAR",
+        "원격탐사",
+        "지구관측",
+        "디지털 빔포밍",
+        "다중분광",
+        "synthetic aperture radar",
+        "remote sensing satellite",
+        "earth observation",
+        "digital beamforming",
+        "multispectral imaging"
+      ],
+      "proposalUse": "탑재체/관측 공고의 센서 성능, 데이터 처리, AI 활용 근거에 사용한다.",
+      "report": {
+        "programId": "space-kari-discovered-18406",
+        "programTitle": "2026년도 스페이스파이오니어사업 신규과제 재공모",
+        "evidenceStrength": "context_only",
+        "patentTrendSummary": "2026년도 스페이스파이오니어사업 신규과제 재공모은 SAR·원격탐사 페이로드 특허 landscape와 참고 연결된다. BigQuery 본수집 기준 120,249개 families, 318,311개 공개문헌이 확인됐고 최근 5년 families는 61,372개다. 이 값은 broad CPC 기반 분야 단위 context이며 공고별 강한 근거, 개별 특허 권리범위, FTO 판단은 포함하지 않는다.",
+        "proposalReadyBullets": [
+          "SAR·원격탐사 페이로드 분야는 최근 10년 priority date 기준 120,249개 patent families와 318,311개 공개문헌이 있는 큰 기술 축으로 참고할 수 있다.",
+          "공개 관할 기준 최다 국가는 중국이며 83,405개 families가 확인된다.",
+          "최근 5년 family는 61,372개이고 최근 3년 momentum은 0.2586이다.",
+          "주요 출원인 예시는 UNIV XIDIAN이며, 대표 CPC 축은 G01S7이다.",
+          "AgentBridge 제안서에서는 탑재체/관측 공고의 센서 성능, 데이터 처리, AI 활용 근거에 사용한다.로만 활용하고, 강한 주장에는 초록/청구항/대표 특허 검증 후 사용한다."
+        ],
+        "opportunityNotes": [
+          "한국 공개 gap score 0.2366, 한국 출원인 gap score 0.2395.",
+          "상위 공개 관할: 중국 83,405, 미국 34,623, PCT 24,008, 유럽 17,163."
+        ],
+        "riskNotes": [
+          "metadata-first 수집이므로 개별 특허의 청구항 범위, 법적 상태, 패밀리 대표성은 별도 검증이 필요하다.",
+          "CPC-first 분류는 넓은 후보를 포착하기 위한 방식이라 분야 간 중복과 주변기술이 포함될 수 있다."
+        ],
+        "limitations": [
+          "공고별 match는 기존 seed pack 또는 키워드 crosswalk 기반이며, 초록/청구항 의미검색으로 검증되지 않았다.",
+          "법적 권리판단, FTO, 침해/무효 판단을 제공하지 않는다.",
+          "초록/청구항 원문 기반 의미검색과 대표 특허 선별은 후속 수집 단계에서 보강한다."
+        ]
+      }
+    },
+    {
+      "id": "space_gnc_rendezvous_servicing",
+      "domain": "space",
+      "labelKo": "GNC·랑데부·온오빗 서비스",
+      "shortLabelKo": "GNC",
+      "labelEn": "GNC, rendezvous, docking, and on-orbit servicing",
+      "color": "#8b5cf6",
+      "familyCount": 163221,
+      "publicationCount": 408561,
+      "recent5FamilyCount": 75430,
+      "recent3FamilyCount": 39296,
+      "recentMomentum": 0.2408,
+      "countryFamilyCounts": {
+        "US": 44713,
+        "CN": 116903,
+        "WO": 25281,
+        "KR": 15677,
+        "DE": 8684,
+        "NO": 102,
+        "ES": 876,
+        "TW": 1307,
+        "CZ": 21,
+        "AU": 2609,
+        "EP": 16872,
+        "CA": 2744,
+        "AR": 48,
+        "AT": 91,
+        "SE": 361,
+        "RU": 1673,
+        "SG": 470,
+        "NL": 126,
+        "PE": 41,
+        "ZA": 158,
+        "GB": 1623,
+        "DK": 208,
+        "BR": 899,
+        "IL": 534,
+        "HU": 66,
+        "MX": 612,
+        "CH": 44,
+        "EA": 41,
+        "PL": 277,
+        "CL": 111,
+        "CR": 7,
+        "PH": 72,
+        "PT": 68,
+        "UA": 26,
+        "UY": 6,
+        "RS": 18,
+        "LT": 24,
+        "FR": 1473,
+        "FI": 166,
+        "BE": 39,
+        "LU": 129,
+        "TR": 68,
+        "CO": 41,
+        "CU": 2,
+        "RO": 7,
+        "SA": 62,
+        "NZ": 90,
+        "MY": 78,
+        "SM": 6,
+        "MA": 29,
+        "MD": 2,
+        "CY": 3,
+        "SI": 25,
+        "JP": 14173,
+        "EC": 13,
+        "BG": 5,
+        "IT": 377,
+        "EE": 2,
+        "JO": 10,
+        "PY": 4,
+        "HR": 29,
+        "GR": 16,
+        "DO": 4,
+        "HK": 8,
+        "IS": 1,
+        "IE": 1
+      },
+      "regionFamilyCounts": {
+        "NORTH_AMERICA": 44870,
+        "EAST_ASIA": 133760,
+        "INTERNATIONAL": 25281,
+        "EUROPE": 26163,
+        "OTHER_WORLD": 2554,
+        "OCEANIA": 2621,
+        "LATIN_AMERICA": 1015,
+        "AFRICA": 177,
+        "MIDDLE_EAST": 658
+      },
+      "topCountries": [
+        {
+          "key": "CN",
+          "count": 116903
+        },
+        {
+          "key": "US",
+          "count": 44713
+        },
+        {
+          "key": "WO",
+          "count": 25281
+        },
+        {
+          "key": "EP",
+          "count": 16872
+        },
+        {
+          "key": "KR",
+          "count": 15677
+        },
+        {
+          "key": "JP",
+          "count": 14173
+        },
+        {
+          "key": "DE",
+          "count": 8684
+        },
+        {
+          "key": "CA",
+          "count": 2744
+        }
+      ],
+      "topRegions": [
+        {
+          "key": "EAST_ASIA",
+          "count": 133760
+        },
+        {
+          "key": "NORTH_AMERICA",
+          "count": 44870
+        },
+        {
+          "key": "EUROPE",
+          "count": 26163
+        },
+        {
+          "key": "INTERNATIONAL",
+          "count": 25281
+        },
+        {
+          "key": "OCEANIA",
+          "count": 2621
+        },
+        {
+          "key": "OTHER_WORLD",
+          "count": 2554
+        },
+        {
+          "key": "LATIN_AMERICA",
+          "count": 1015
+        },
+        {
+          "key": "MIDDLE_EAST",
+          "count": 658
+        }
+      ],
+      "topApplicants": [
+        {
+          "key": "TOYOTA MOTOR CO LTD",
+          "count": 2282
+        },
+        {
+          "key": "TOYOTA MOTOR CORP",
+          "count": 2010
+        },
+        {
+          "key": "UNIV BEIHANG",
+          "count": 1492
+        },
+        {
+          "key": "HONDA MOTOR CO LTD",
+          "count": 1370
+        },
+        {
+          "key": "HYUNDAI MOTOR CO LTD",
+          "count": 1336
+        },
+        {
+          "key": "BEIJING INSTITUTE TECH",
+          "count": 1229
+        },
+        {
+          "key": "UNIV NORTHWESTERN POLYTECHNICAL",
+          "count": 1163
+        },
+        {
+          "key": "FORD GLOBAL TECH LLC",
+          "count": 1153
+        }
+      ],
+      "topCpcCodes": [
+        {
+          "key": "G05D1",
+          "count": 579735
+        },
+        {
+          "key": "G01C21",
+          "count": 463858
+        },
+        {
+          "key": "G08G1",
+          "count": 153355
+        },
+        {
+          "key": "B64G1",
+          "count": 96796
+        },
+        {
+          "key": "G06V20",
+          "count": 78950
+        },
+        {
+          "key": "G08G5",
+          "count": 75991
+        },
+        {
+          "key": "G06Q10",
+          "count": 73135
+        },
+        {
+          "key": "H04W4",
+          "count": 71959
+        },
+        {
+          "key": "B60W30",
+          "count": 70602
+        },
+        {
+          "key": "G06N3",
+          "count": 60799
+        }
+      ],
+      "koreaPublicationGapOpportunityScore": 0.2199,
+      "koreaAssigneeGapOpportunityScore": 0.2223,
+      "taxonomy": [
+        {
+          "txCode": "TX17",
+          "role": "primary"
+        },
+        {
+          "txCode": "TX10",
+          "role": "secondary"
+        },
+        {
+          "txCode": "TX04",
+          "role": "secondary"
+        },
+        {
+          "txCode": "TX05",
+          "role": "secondary"
+        }
+      ],
+      "queryTerms": [
+        "유도항법제어",
+        "랑데부",
+        "도킹",
+        "온오빗 서비스",
+        "우주잔해 제거",
+        "guidance navigation control",
+        "rendezvous",
+        "docking",
+        "on-orbit servicing",
+        "debris removal"
+      ],
+      "proposalUse": "자율운용, 임무안전, 궤도상 서비스 공고의 기술성/위험요소 근거에 사용한다.",
+      "report": {
+        "programId": "space-add-discovered-1712",
+        "programTitle": "[공모] 미래도전국방기술 연구개발사업 `26년 국과연 주관 PM과제(세부과제) 제안서 공모(스텔스 전투기 세부형상 설계, 스텔스 소요기술 통합 Testbed 구축 및 RCS 검증)",
+        "evidenceStrength": "context_only",
+        "patentTrendSummary": "[공모] 미래도전국방기술 연구개발사업 `26년 국과연 주관 PM과제(세부과제) 제안서 공모(스텔스 전투기 세부형상 설계, 스텔스 소요기술 통합 Testbed 구축 및 RCS 검증)은 GNC·랑데부·온오빗 서비스 특허 landscape와 참고 연결된다. BigQuery 본수집 기준 163,221개 families, 408,561개 공개문헌이 확인됐고 최근 5년 families는 75,430개다. 이 값은 broad CPC 기반 분야 단위 context이며 공고별 강한 근거, 개별 특허 권리범위, FTO 판단은 포함하지 않는다.",
+        "proposalReadyBullets": [
+          "GNC·랑데부·온오빗 서비스 분야는 최근 10년 priority date 기준 163,221개 patent families와 408,561개 공개문헌이 있는 큰 기술 축으로 참고할 수 있다.",
+          "공개 관할 기준 최다 국가는 중국이며 116,903개 families가 확인된다.",
+          "최근 5년 family는 75,430개이고 최근 3년 momentum은 0.2408이다.",
+          "주요 출원인 예시는 TOYOTA MOTOR CO LTD이며, 대표 CPC 축은 G05D1이다.",
+          "AgentBridge 제안서에서는 자율운용, 임무안전, 궤도상 서비스 공고의 기술성/위험요소 근거에 사용한다.로만 활용하고, 강한 주장에는 초록/청구항/대표 특허 검증 후 사용한다."
+        ],
+        "opportunityNotes": [
+          "한국 공개 gap score 0.2199, 한국 출원인 gap score 0.2223.",
+          "상위 공개 관할: 중국 116,903, 미국 44,713, PCT 25,281, 유럽 16,872."
+        ],
+        "riskNotes": [
+          "metadata-first 수집이므로 개별 특허의 청구항 범위, 법적 상태, 패밀리 대표성은 별도 검증이 필요하다.",
+          "CPC-first 분류는 넓은 후보를 포착하기 위한 방식이라 분야 간 중복과 주변기술이 포함될 수 있다."
+        ],
+        "limitations": [
+          "공고별 match는 기존 seed pack 또는 키워드 crosswalk 기반이며, 초록/청구항 의미검색으로 검증되지 않았다.",
+          "법적 권리판단, FTO, 침해/무효 판단을 제공하지 않는다.",
+          "초록/청구항 원문 기반 의미검색과 대표 특허 선별은 후속 수집 단계에서 보강한다."
+        ]
+      }
+    },
+    {
+      "id": "space_materials_tps_coatings",
+      "domain": "space",
+      "labelKo": "우주재료·TPS·코팅",
+      "shortLabelKo": "재료·TPS",
+      "labelEn": "Space materials, TPS, and coatings",
+      "color": "#d65a9d",
+      "familyCount": 235954,
+      "publicationCount": 607475,
+      "recent5FamilyCount": 90303,
+      "recent3FamilyCount": 44543,
+      "recentMomentum": 0.1888,
+      "countryFamilyCounts": {
+        "US": 41089,
+        "CN": 183406,
+        "WO": 45392,
+        "ZA": 501,
+        "KR": 37449,
+        "TW": 13019,
+        "EA": 170,
+        "CZ": 269,
+        "AU": 3050,
+        "EP": 27667,
+        "UA": 153,
+        "CL": 306,
+        "DE": 6000,
+        "AR": 503,
+        "AT": 225,
+        "PE": 155,
+        "PL": 1864,
+        "PT": 381,
+        "RU": 1775,
+        "SE": 356,
+        "SG": 574,
+        "NL": 342,
+        "PH": 280,
+        "BR": 3013,
+        "TR": 156,
+        "CA": 5385,
+        "LU": 149,
+        "MA": 228,
+        "MX": 3943,
+        "MY": 506,
+        "GB": 1422,
+        "HU": 427,
+        "ES": 2541,
+        "IL": 574,
+        "CO": 338,
+        "FI": 405,
+        "HR": 130,
+        "CH": 169,
+        "DK": 491,
+        "FR": 1990,
+        "SK": 19,
+        "SI": 139,
+        "BE": 188,
+        "UY": 22,
+        "LT": 86,
+        "CU": 1,
+        "SA": 98,
+        "NZ": 136,
+        "RO": 27,
+        "GE": 7,
+        "RS": 131,
+        "GR": 55,
+        "NO": 50,
+        "TN": 13,
+        "PY": 17,
+        "DO": 7,
+        "EC": 27,
+        "IT": 913,
+        "CR": 37,
+        "BG": 17,
+        "LV": 5,
+        "JP": 28958,
+        "JO": 26,
+        "SM": 17,
+        "EE": 2,
+        "CY": 8,
+        "MD": 2,
+        "HK": 14,
+        "IE": 8,
+        "IN": 4,
+        "IS": 1,
+        "NI": 1
+      },
+      "regionFamilyCounts": {
+        "NORTH_AMERICA": 41732,
+        "EAST_ASIA": 210731,
+        "INTERNATIONAL": 45392,
+        "AFRICA": 666,
+        "OTHER_WORLD": 4184,
+        "OCEANIA": 3065,
+        "EUROPE": 34928,
+        "LATIN_AMERICA": 3512,
+        "MIDDLE_EAST": 809,
+        "SOUTH_ASIA": 4
+      },
+      "topCountries": [
+        {
+          "key": "CN",
+          "count": 183406
+        },
+        {
+          "key": "WO",
+          "count": 45392
+        },
+        {
+          "key": "US",
+          "count": 41089
+        },
+        {
+          "key": "KR",
+          "count": 37449
+        },
+        {
+          "key": "JP",
+          "count": 28958
+        },
+        {
+          "key": "EP",
+          "count": 27667
+        },
+        {
+          "key": "TW",
+          "count": 13019
+        },
+        {
+          "key": "DE",
+          "count": 6000
+        }
+      ],
+      "topRegions": [
+        {
+          "key": "EAST_ASIA",
+          "count": 210731
+        },
+        {
+          "key": "INTERNATIONAL",
+          "count": 45392
+        },
+        {
+          "key": "NORTH_AMERICA",
+          "count": 41732
+        },
+        {
+          "key": "EUROPE",
+          "count": 34928
+        },
+        {
+          "key": "OTHER_WORLD",
+          "count": 4184
+        },
+        {
+          "key": "LATIN_AMERICA",
+          "count": 3512
+        },
+        {
+          "key": "OCEANIA",
+          "count": 3065
+        },
+        {
+          "key": "MIDDLE_EAST",
+          "count": 809
+        }
+      ],
+      "topApplicants": [
+        {
+          "key": "NITTO DENKO CORP",
+          "count": 1617
+        },
+        {
+          "key": "FUJIFILM CORP",
+          "count": 907
+        },
+        {
+          "key": "LG CHEMICAL LTD",
+          "count": 825
+        },
+        {
+          "key": "SAINT GOBAIN",
+          "count": 801
+        },
+        {
+          "key": "AGC INC",
+          "count": 782
+        },
+        {
+          "key": "SUMITOMO CHEMICAL CO",
+          "count": 742
+        },
+        {
+          "key": "SAMSUNG DISPLAY CO LTD",
+          "count": 676
+        },
+        {
+          "key": "DAINIPPON PRINTING CO LTD",
+          "count": 587
+        }
+      ],
+      "topCpcCodes": [
+        {
+          "key": "C04B2235",
+          "count": 562605
+        },
+        {
+          "key": "B32B27",
+          "count": 506067
+        },
+        {
+          "key": "B32B2307",
+          "count": 442986
+        },
+        {
+          "key": "C04B35",
+          "count": 307375
+        },
+        {
+          "key": "C09D5",
+          "count": 234360
+        },
+        {
+          "key": "C09D7",
+          "count": 193075
+        },
+        {
+          "key": "B32B7",
+          "count": 183948
+        },
+        {
+          "key": "B32B5",
+          "count": 183471
+        },
+        {
+          "key": "B32B15",
+          "count": 158976
+        },
+        {
+          "key": "B32B37",
+          "count": 144732
+        }
+      ],
+      "koreaPublicationGapOpportunityScore": 0.1618,
+      "koreaAssigneeGapOpportunityScore": 0.1708,
+      "taxonomy": [
+        {
+          "txCode": "TX12",
+          "role": "primary"
+        },
+        {
+          "txCode": "TX14",
+          "role": "secondary"
+        },
+        {
+          "txCode": "TX09",
+          "role": "secondary"
+        }
+      ],
+      "queryTerms": [
+        "열보호",
+        "우주 코팅",
+        "방사선 차폐",
+        "삭마재",
+        "고온 코팅",
+        "thermal protection",
+        "spacecraft coating",
+        "radiation shielding",
+        "ablative material",
+        "high temperature coating"
+      ],
+      "proposalUse": "재료/구조 공고의 내열성, 내환경성, 제조성, 시험평가 근거에 사용한다.",
+      "report": null
+    },
+    {
+      "id": "aviation_propulsion_sustainable",
+      "domain": "aviation",
+      "labelKo": "민간항공 추진·전기·수소·SAF",
+      "shortLabelKo": "항공 추진",
+      "labelEn": "Commercial aviation propulsion, electric, hydrogen, and SAF",
+      "color": "#00a7a7",
+      "familyCount": 27068,
+      "publicationCount": 84378,
+      "recent5FamilyCount": 11360,
+      "recent3FamilyCount": 4938,
+      "recentMomentum": 0.1824,
+      "countryFamilyCounts": {
+        "US": 12691,
+        "WO": 3934,
+        "CN": 14189,
+        "KR": 2458,
+        "EP": 7837,
+        "DE": 1388,
+        "TW": 81,
+        "AU": 285,
+        "ES": 246,
+        "CA": 1528,
+        "RU": 545,
+        "AT": 5,
+        "SI": 8,
+        "BR": 221,
+        "MX": 79,
+        "FR": 2760,
+        "CZ": 12,
+        "DK": 15,
+        "PL": 175,
+        "SE": 17,
+        "GB": 1323,
+        "SA": 19,
+        "BE": 67,
+        "FI": 19,
+        "LU": 12,
+        "CH": 48,
+        "BG": 8,
+        "EA": 17,
+        "CL": 7,
+        "NO": 13,
+        "MY": 9,
+        "TR": 16,
+        "ZA": 17,
+        "SG": 34,
+        "NZ": 14,
+        "DO": 2,
+        "JP": 1801,
+        "IL": 94,
+        "MA": 4,
+        "NL": 17,
+        "PT": 7,
+        "RO": 2,
+        "IT": 134,
+        "PH": 11,
+        "UA": 4,
+        "AR": 8,
+        "GR": 4,
+        "RS": 4,
+        "CO": 1,
+        "HU": 7,
+        "HR": 4,
+        "SK": 2,
+        "IE": 1
+      },
+      "regionFamilyCounts": {
+        "NORTH_AMERICA": 12741,
+        "INTERNATIONAL": 3934,
+        "EAST_ASIA": 16460,
+        "EUROPE": 10889,
+        "OCEANIA": 288,
+        "OTHER_WORLD": 666,
+        "LATIN_AMERICA": 232,
+        "MIDDLE_EAST": 127,
+        "AFRICA": 20
+      },
+      "topCountries": [
+        {
+          "key": "CN",
+          "count": 14189
+        },
+        {
+          "key": "US",
+          "count": 12691
+        },
+        {
+          "key": "EP",
+          "count": 7837
+        },
+        {
+          "key": "WO",
+          "count": 3934
+        },
+        {
+          "key": "FR",
+          "count": 2760
+        },
+        {
+          "key": "KR",
+          "count": 2458
+        },
+        {
+          "key": "JP",
+          "count": 1801
+        },
+        {
+          "key": "CA",
+          "count": 1528
+        }
+      ],
+      "topRegions": [
+        {
+          "key": "EAST_ASIA",
+          "count": 16460
+        },
+        {
+          "key": "NORTH_AMERICA",
+          "count": 12741
+        },
+        {
+          "key": "EUROPE",
+          "count": 10889
+        },
+        {
+          "key": "INTERNATIONAL",
+          "count": 3934
+        },
+        {
+          "key": "OTHER_WORLD",
+          "count": 666
+        },
+        {
+          "key": "OCEANIA",
+          "count": 288
+        },
+        {
+          "key": "LATIN_AMERICA",
+          "count": 232
+        },
+        {
+          "key": "MIDDLE_EAST",
+          "count": 127
+        }
+      ],
+      "topApplicants": [
+        {
+          "key": "GEN ELECTRIC",
+          "count": 1904
+        },
+        {
+          "key": "SAFRAN AIRCRAFT ENGINES",
+          "count": 1164
+        },
+        {
+          "key": "RAYTHEON TECH CORP",
+          "count": 1019
+        },
+        {
+          "key": "ROLLS ROYCE PLC",
+          "count": 998
+        },
+        {
+          "key": "PRATT & WHITNEY CANADA",
+          "count": 919
+        },
+        {
+          "key": "RTX CORP",
+          "count": 864
+        },
+        {
+          "key": "UNITED TECHNOLOGIES CORP",
+          "count": 774
+        },
+        {
+          "key": "AIRBUS OPERATIONS SAS",
+          "count": 561
+        }
+      ],
+      "topCpcCodes": [
+        {
+          "key": "F02C7",
+          "count": 124867
+        },
+        {
+          "key": "B64D27",
+          "count": 75191
+        },
+        {
+          "key": "F05D2260",
+          "count": 65266
+        },
+        {
+          "key": "F05D2220",
+          "count": 40925
+        },
+        {
+          "key": "F01D25",
+          "count": 36534
+        },
+        {
+          "key": "F23R3",
+          "count": 32547
+        },
+        {
+          "key": "F05D2240",
+          "count": 29464
+        },
+        {
+          "key": "Y02T50",
+          "count": 26154
+        },
+        {
+          "key": "F02C9",
+          "count": 22686
+        },
+        {
+          "key": "F02C3",
+          "count": 21812
+        }
+      ],
+      "koreaPublicationGapOpportunityScore": 0.1709,
+      "koreaAssigneeGapOpportunityScore": 0.1752,
+      "taxonomy": [
+        {
+          "txCode": "TX01",
+          "role": "primary"
+        },
+        {
+          "txCode": "TX03",
+          "role": "secondary"
+        },
+        {
+          "txCode": "TX15",
+          "role": "secondary"
+        }
+      ],
+      "queryTerms": [
+        "상용항공 추진",
+        "전기추진 항공기",
+        "수소 항공기",
+        "SAF",
+        "연료전지 항공기",
+        "commercial aviation propulsion",
+        "electric propulsion aircraft",
+        "hydrogen aircraft",
+        "sustainable aviation fuel",
+        "fuel cell aircraft"
+      ],
+      "proposalUse": "민간/상용항공 공고의 탄소저감, 추진계 전환, 사업개발 기회 근거에 사용한다.",
+      "report": {
+        "programId": "space-kaia-discovered-12952",
+        "programTitle": "(공고-국-제11호) 2026년 공항 조류탐지 및 한국형 조류관리 핵심기술 개발 사업 시행 공고",
+        "evidenceStrength": "context_only",
+        "patentTrendSummary": "(공고-국-제11호) 2026년 공항 조류탐지 및 한국형 조류관리 핵심기술 개발 사업 시행 공고은 민간항공 추진·전기·수소·SAF 특허 landscape와 참고 연결된다. BigQuery 본수집 기준 27,068개 families, 84,378개 공개문헌이 확인됐고 최근 5년 families는 11,360개다. 이 값은 broad CPC 기반 분야 단위 context이며 공고별 강한 근거, 개별 특허 권리범위, FTO 판단은 포함하지 않는다.",
+        "proposalReadyBullets": [
+          "민간항공 추진·전기·수소·SAF 분야는 최근 10년 priority date 기준 27,068개 patent families와 84,378개 공개문헌이 있는 큰 기술 축으로 참고할 수 있다.",
+          "공개 관할 기준 최다 국가는 중국이며 14,189개 families가 확인된다.",
+          "최근 5년 family는 11,360개이고 최근 3년 momentum은 0.1824이다.",
+          "주요 출원인 예시는 GEN ELECTRIC이며, 대표 CPC 축은 F02C7이다.",
+          "AgentBridge 제안서에서는 민간/상용항공 공고의 탄소저감, 추진계 전환, 사업개발 기회 근거에 사용한다.로만 활용하고, 강한 주장에는 초록/청구항/대표 특허 검증 후 사용한다."
+        ],
+        "opportunityNotes": [
+          "한국 공개 gap score 0.1709, 한국 출원인 gap score 0.1752.",
+          "상위 공개 관할: 중국 14,189, 미국 12,691, PCT 3,934, 유럽 7,837."
+        ],
+        "riskNotes": [
+          "metadata-first 수집이므로 개별 특허의 청구항 범위, 법적 상태, 패밀리 대표성은 별도 검증이 필요하다.",
+          "CPC-first 분류는 넓은 후보를 포착하기 위한 방식이라 분야 간 중복과 주변기술이 포함될 수 있다."
+        ],
+        "limitations": [
+          "공고별 match는 기존 seed pack 또는 키워드 crosswalk 기반이며, 초록/청구항 의미검색으로 검증되지 않았다.",
+          "법적 권리판단, FTO, 침해/무효 판단을 제공하지 않는다.",
+          "초록/청구항 원문 기반 의미검색과 대표 특허 선별은 후속 수집 단계에서 보강한다."
+        ]
+      }
+    },
+    {
+      "id": "aviation_structures_aero_composites",
+      "domain": "aviation",
+      "labelKo": "항공 구조·복합재·공력",
+      "shortLabelKo": "항공 구조",
+      "labelEn": "Aircraft structures, composites, and aerodynamics",
+      "color": "#5c8dff",
+      "familyCount": 51306,
+      "publicationCount": 124095,
+      "recent5FamilyCount": 18991,
+      "recent3FamilyCount": 7550,
+      "recentMomentum": 0.1472,
+      "countryFamilyCounts": {
+        "US": 14836,
+        "WO": 6745,
+        "CN": 28140,
+        "KR": 9527,
+        "TW": 545,
+        "AU": 758,
+        "EP": 6428,
+        "CA": 1263,
+        "DE": 1987,
+        "AT": 68,
+        "CZ": 50,
+        "PL": 341,
+        "ZA": 66,
+        "ES": 801,
+        "BR": 653,
+        "LU": 34,
+        "GB": 978,
+        "MX": 309,
+        "DK": 206,
+        "UA": 14,
+        "FI": 78,
+        "PT": 96,
+        "RU": 744,
+        "FR": 1138,
+        "PH": 24,
+        "RS": 19,
+        "CL": 22,
+        "MA": 35,
+        "CO": 18,
+        "SK": 4,
+        "EA": 18,
+        "CH": 36,
+        "NL": 153,
+        "SG": 91,
+        "UY": 2,
+        "CU": 3,
+        "AR": 25,
+        "TR": 60,
+        "GR": 25,
+        "BG": 21,
+        "NZ": 22,
+        "PY": 3,
+        "IL": 245,
+        "IT": 206,
+        "BE": 25,
+        "NO": 23,
+        "MY": 23,
+        "SE": 42,
+        "RO": 10,
+        "HU": 57,
+        "PE": 13,
+        "LT": 11,
+        "SA": 34,
+        "JP": 3245,
+        "CR": 4,
+        "CY": 2,
+        "SI": 17,
+        "HR": 20,
+        "JO": 2,
+        "HK": 3,
+        "SM": 2,
+        "IE": 2,
+        "IN": 1,
+        "EC": 2,
+        "DO": 1,
+        "LV": 2,
+        "IS": 1
+      },
+      "regionFamilyCounts": {
+        "NORTH_AMERICA": 14930,
+        "INTERNATIONAL": 6745,
+        "EAST_ASIA": 37532,
+        "OCEANIA": 764,
+        "EUROPE": 9490,
+        "OTHER_WORLD": 1154,
+        "AFRICA": 98,
+        "LATIN_AMERICA": 684,
+        "MIDDLE_EAST": 337,
+        "SOUTH_ASIA": 1
+      },
+      "topCountries": [
+        {
+          "key": "CN",
+          "count": 28140
+        },
+        {
+          "key": "US",
+          "count": 14836
+        },
+        {
+          "key": "KR",
+          "count": 9527
+        },
+        {
+          "key": "WO",
+          "count": 6745
+        },
+        {
+          "key": "EP",
+          "count": 6428
+        },
+        {
+          "key": "JP",
+          "count": 3245
+        },
+        {
+          "key": "DE",
+          "count": 1987
+        },
+        {
+          "key": "CA",
+          "count": 1263
+        }
+      ],
+      "topRegions": [
+        {
+          "key": "EAST_ASIA",
+          "count": 37532
+        },
+        {
+          "key": "NORTH_AMERICA",
+          "count": 14930
+        },
+        {
+          "key": "EUROPE",
+          "count": 9490
+        },
+        {
+          "key": "INTERNATIONAL",
+          "count": 6745
+        },
+        {
+          "key": "OTHER_WORLD",
+          "count": 1154
+        },
+        {
+          "key": "OCEANIA",
+          "count": 764
+        },
+        {
+          "key": "LATIN_AMERICA",
+          "count": 684
+        },
+        {
+          "key": "MIDDLE_EAST",
+          "count": 337
+        }
+      ],
+      "topApplicants": [
+        {
+          "key": "BOEING CO",
+          "count": 1312
+        },
+        {
+          "key": "SZ DJI TECHNOLOGY CO LTD",
+          "count": 504
+        },
+        {
+          "key": "UNIV NANJING AERONAUTICS & ASTRONAUTICS",
+          "count": 410
+        },
+        {
+          "key": "AIRBUS OPERATIONS GMBH",
+          "count": 375
+        },
+        {
+          "key": "UNIV BEIHANG",
+          "count": 372
+        },
+        {
+          "key": "AIRBUS OPERATIONS LTD",
+          "count": 329
+        },
+        {
+          "key": "UNIV NORTHWESTERN POLYTECHNICAL",
+          "count": 266
+        },
+        {
+          "key": "SAFRAN AIRCRAFT ENGINES",
+          "count": 238
+        }
+      ],
+      "topCpcCodes": [
+        {
+          "key": "B29C70",
+          "count": 176479
+        },
+        {
+          "key": "B64C39",
+          "count": 50628
+        },
+        {
+          "key": "B64U2101",
+          "count": 37973
+        },
+        {
+          "key": "B64C3",
+          "count": 37574
+        },
+        {
+          "key": "B29L2031",
+          "count": 33019
+        },
+        {
+          "key": "G08G5",
+          "count": 30578
+        },
+        {
+          "key": "G05D1",
+          "count": 29582
+        },
+        {
+          "key": "B64U10",
+          "count": 28835
+        },
+        {
+          "key": "B64U2201",
+          "count": 25281
+        },
+        {
+          "key": "B64C2201",
+          "count": 21650
+        }
+      ],
+      "koreaPublicationGapOpportunityScore": 0.1213,
+      "koreaAssigneeGapOpportunityScore": 0.1234,
+      "taxonomy": [
+        {
+          "txCode": "TX15",
+          "role": "primary"
+        },
+        {
+          "txCode": "TX12",
+          "role": "secondary"
+        }
+      ],
+      "queryTerms": [
+        "항공기 날개",
+        "동체",
+        "복합재 구조",
+        "층류",
+        "모핑 윙",
+        "aircraft wing",
+        "fuselage",
+        "composite aircraft structure",
+        "laminar flow",
+        "morphing wing"
+      ],
+      "proposalUse": "항공 구조/공력 공고의 성능 개선, 경량화, 제조기술 차별성 근거에 사용한다.",
+      "report": {
+        "programId": "space-kari-discovered-18446",
+        "programTitle": "2026년도 대전규제자유특구 연구개발사업 신규 위탁연구과제 재공모",
+        "evidenceStrength": "context_only",
+        "patentTrendSummary": "2026년도 대전규제자유특구 연구개발사업 신규 위탁연구과제 재공모은 항공 구조·복합재·공력 특허 landscape와 참고 연결된다. BigQuery 본수집 기준 51,306개 families, 124,095개 공개문헌이 확인됐고 최근 5년 families는 18,991개다. 이 값은 broad CPC 기반 분야 단위 context이며 공고별 강한 근거, 개별 특허 권리범위, FTO 판단은 포함하지 않는다.",
+        "proposalReadyBullets": [
+          "항공 구조·복합재·공력 분야는 최근 10년 priority date 기준 51,306개 patent families와 124,095개 공개문헌이 있는 큰 기술 축으로 참고할 수 있다.",
+          "공개 관할 기준 최다 국가는 중국이며 28,140개 families가 확인된다.",
+          "최근 5년 family는 18,991개이고 최근 3년 momentum은 0.1472이다.",
+          "주요 출원인 예시는 BOEING CO이며, 대표 CPC 축은 B29C70이다.",
+          "AgentBridge 제안서에서는 항공 구조/공력 공고의 성능 개선, 경량화, 제조기술 차별성 근거에 사용한다.로만 활용하고, 강한 주장에는 초록/청구항/대표 특허 검증 후 사용한다."
+        ],
+        "opportunityNotes": [
+          "한국 공개 gap score 0.1213, 한국 출원인 gap score 0.1234.",
+          "상위 공개 관할: 중국 28,140, 미국 14,836, PCT 6,745, 유럽 6,428."
+        ],
+        "riskNotes": [
+          "metadata-first 수집이므로 개별 특허의 청구항 범위, 법적 상태, 패밀리 대표성은 별도 검증이 필요하다.",
+          "CPC-first 분류는 넓은 후보를 포착하기 위한 방식이라 분야 간 중복과 주변기술이 포함될 수 있다."
+        ],
+        "limitations": [
+          "공고별 match는 기존 seed pack 또는 키워드 crosswalk 기반이며, 초록/청구항 의미검색으로 검증되지 않았다.",
+          "법적 권리판단, FTO, 침해/무효 판단을 제공하지 않는다.",
+          "초록/청구항 원문 기반 의미검색과 대표 특허 선별은 후속 수집 단계에서 보강한다."
+        ]
+      }
+    },
+    {
+      "id": "aviation_avionics_flight_control_autonomy",
+      "domain": "aviation",
+      "labelKo": "항전·비행제어·자율비행",
+      "shortLabelKo": "항전·자율",
+      "labelEn": "Avionics, flight control, and autonomy",
+      "color": "#7c5cff",
+      "familyCount": 160119,
+      "publicationCount": 406452,
+      "recent5FamilyCount": 73659,
+      "recent3FamilyCount": 38182,
+      "recentMomentum": 0.2385,
+      "countryFamilyCounts": {
+        "US": 46237,
+        "CN": 113150,
+        "WO": 25247,
+        "KR": 15934,
+        "DE": 8739,
+        "NO": 103,
+        "ES": 825,
+        "TW": 1321,
+        "CZ": 23,
+        "AU": 2592,
+        "EP": 18013,
+        "CA": 2919,
+        "AR": 42,
+        "AT": 89,
+        "SE": 360,
+        "RU": 1143,
+        "SG": 477,
+        "NL": 132,
+        "PE": 41,
+        "ZA": 161,
+        "GB": 1713,
+        "DK": 211,
+        "BR": 1063,
+        "IL": 508,
+        "HU": 64,
+        "MX": 623,
+        "CH": 43,
+        "EA": 29,
+        "PL": 280,
+        "UA": 20,
+        "CL": 112,
+        "CR": 7,
+        "PH": 75,
+        "PT": 68,
+        "UY": 4,
+        "RS": 18,
+        "LT": 23,
+        "FR": 1595,
+        "FI": 165,
+        "BE": 42,
+        "LU": 133,
+        "CO": 39,
+        "CU": 2,
+        "RO": 4,
+        "SA": 65,
+        "TR": 84,
+        "MY": 83,
+        "NZ": 81,
+        "SM": 6,
+        "MA": 26,
+        "MD": 1,
+        "CY": 4,
+        "SI": 25,
+        "JP": 14154,
+        "EC": 11,
+        "IT": 347,
+        "BG": 3,
+        "EE": 2,
+        "JO": 11,
+        "PY": 4,
+        "HR": 33,
+        "GR": 18,
+        "DO": 4,
+        "HK": 10,
+        "IS": 1,
+        "IE": 1
+      },
+      "regionFamilyCounts": {
+        "NORTH_AMERICA": 46400,
+        "EAST_ASIA": 130106,
+        "INTERNATIONAL": 25247,
+        "EUROPE": 27475,
+        "OTHER_WORLD": 2015,
+        "OCEANIA": 2600,
+        "LATIN_AMERICA": 1172,
+        "AFRICA": 178,
+        "MIDDLE_EAST": 649
+      },
+      "topCountries": [
+        {
+          "key": "CN",
+          "count": 113150
+        },
+        {
+          "key": "US",
+          "count": 46237
+        },
+        {
+          "key": "WO",
+          "count": 25247
+        },
+        {
+          "key": "EP",
+          "count": 18013
+        },
+        {
+          "key": "KR",
+          "count": 15934
+        },
+        {
+          "key": "JP",
+          "count": 14154
+        },
+        {
+          "key": "DE",
+          "count": 8739
+        },
+        {
+          "key": "CA",
+          "count": 2919
+        }
+      ],
+      "topRegions": [
+        {
+          "key": "EAST_ASIA",
+          "count": 130106
+        },
+        {
+          "key": "NORTH_AMERICA",
+          "count": 46400
+        },
+        {
+          "key": "EUROPE",
+          "count": 27475
+        },
+        {
+          "key": "INTERNATIONAL",
+          "count": 25247
+        },
+        {
+          "key": "OCEANIA",
+          "count": 2600
+        },
+        {
+          "key": "OTHER_WORLD",
+          "count": 2015
+        },
+        {
+          "key": "LATIN_AMERICA",
+          "count": 1172
+        },
+        {
+          "key": "MIDDLE_EAST",
+          "count": 649
+        }
+      ],
+      "topApplicants": [
+        {
+          "key": "TOYOTA MOTOR CO LTD",
+          "count": 2285
+        },
+        {
+          "key": "TOYOTA MOTOR CORP",
+          "count": 2013
+        },
+        {
+          "key": "HONDA MOTOR CO LTD",
+          "count": 1377
+        },
+        {
+          "key": "UNIV BEIHANG",
+          "count": 1351
+        },
+        {
+          "key": "HYUNDAI MOTOR CO LTD",
+          "count": 1348
+        },
+        {
+          "key": "FORD GLOBAL TECH LLC",
+          "count": 1163
+        },
+        {
+          "key": "BOSCH GMBH ROBERT",
+          "count": 1082
+        },
+        {
+          "key": "BEIJING INSTITUTE TECH",
+          "count": 1080
+        }
+      ],
+      "topCpcCodes": [
+        {
+          "key": "G05D1",
+          "count": 579735
+        },
+        {
+          "key": "G01C21",
+          "count": 463858
+        },
+        {
+          "key": "G08G5",
+          "count": 166165
+        },
+        {
+          "key": "G08G1",
+          "count": 155585
+        },
+        {
+          "key": "G06V20",
+          "count": 80558
+        },
+        {
+          "key": "G06Q10",
+          "count": 76196
+        },
+        {
+          "key": "H04W4",
+          "count": 76097
+        },
+        {
+          "key": "B60W30",
+          "count": 70678
+        },
+        {
+          "key": "G06N3",
+          "count": 62781
+        },
+        {
+          "key": "G06T2207",
+          "count": 57902
+        }
+      ],
+      "koreaPublicationGapOpportunityScore": 0.2172,
+      "koreaAssigneeGapOpportunityScore": 0.2196,
+      "taxonomy": [
+        {
+          "txCode": "TX02",
+          "role": "primary"
+        },
+        {
+          "txCode": "TX17",
+          "role": "secondary"
+        },
+        {
+          "txCode": "TX10",
+          "role": "secondary"
+        },
+        {
+          "txCode": "TX11",
+          "role": "secondary"
+        },
+        {
+          "txCode": "TX16",
+          "role": "secondary"
+        }
+      ],
+      "queryTerms": [
+        "항전장비",
+        "비행제어",
+        "자율비행",
+        "sense and avoid",
+        "비행관리시스템",
+        "avionics",
+        "flight control",
+        "autonomous aircraft",
+        "sense and avoid",
+        "flight management system"
+      ],
+      "proposalUse": "자율항공/항전 공고의 안전성, 인증, AI/소프트웨어, 교통관리 연계 근거에 사용한다.",
+      "report": null
+    }
+  ],
+  "graph": {
+    "nodes": [
+      {
+        "id": "corpus:aeropatent-bigquery",
+        "type": "corpus",
+        "label": "AeroPatent BigQuery Landscape"
+      },
+      {
+        "id": "field:space_launch_propulsion_recovery",
+        "type": "patent_field",
+        "label": "발사체 추진·회수",
+        "metadata": {
+          "familyCount": 17160,
+          "recentMomentum": 0.2641
+        }
+      },
+      {
+        "id": "field:space_satellite_bus_thermal_power",
+        "type": "patent_field",
+        "label": "위성 플랫폼·열제어·전력",
+        "metadata": {
+          "familyCount": 30620,
+          "recentMomentum": 0.1515
+        }
+      },
+      {
+        "id": "field:space_comm_leo_network",
+        "type": "patent_field",
+        "label": "위성통신·LEO 네트워크",
+        "metadata": {
+          "familyCount": 143280,
+          "recentMomentum": 0.232
+        }
+      },
+      {
+        "id": "field:space_remote_sensing_payload",
+        "type": "patent_field",
+        "label": "SAR·원격탐사 페이로드",
+        "metadata": {
+          "familyCount": 120249,
+          "recentMomentum": 0.2586
+        }
+      },
+      {
+        "id": "field:space_gnc_rendezvous_servicing",
+        "type": "patent_field",
+        "label": "GNC·랑데부·온오빗 서비스",
+        "metadata": {
+          "familyCount": 163221,
+          "recentMomentum": 0.2408
+        }
+      },
+      {
+        "id": "field:space_materials_tps_coatings",
+        "type": "patent_field",
+        "label": "우주재료·TPS·코팅",
+        "metadata": {
+          "familyCount": 235954,
+          "recentMomentum": 0.1888
+        }
+      },
+      {
+        "id": "field:aviation_propulsion_sustainable",
+        "type": "patent_field",
+        "label": "민간항공 추진·전기·수소·SAF",
+        "metadata": {
+          "familyCount": 27068,
+          "recentMomentum": 0.1824
+        }
+      },
+      {
+        "id": "field:aviation_structures_aero_composites",
+        "type": "patent_field",
+        "label": "항공 구조·복합재·공력",
+        "metadata": {
+          "familyCount": 51306,
+          "recentMomentum": 0.1472
+        }
+      },
+      {
+        "id": "field:aviation_avionics_flight_control_autonomy",
+        "type": "patent_field",
+        "label": "항전·비행제어·자율비행",
+        "metadata": {
+          "familyCount": 160119,
+          "recentMomentum": 0.2385
+        }
+      },
+      {
+        "id": "country:US",
+        "type": "country",
+        "label": "미국"
+      },
+      {
+        "id": "country:EP",
+        "type": "country",
+        "label": "유럽"
+      },
+      {
+        "id": "country:CN",
+        "type": "country",
+        "label": "중국"
+      },
+      {
+        "id": "country:JP",
+        "type": "country",
+        "label": "일본"
+      },
+      {
+        "id": "country:KR",
+        "type": "country",
+        "label": "한국"
+      },
+      {
+        "id": "country:WO",
+        "type": "country",
+        "label": "PCT"
+      },
+      {
+        "id": "program:space-kari-discovered-18659",
+        "type": "program",
+        "label": "2026년도 차세대발사체개발사업 1단계 신규 위탁연구과제 공모"
+      },
+      {
+        "id": "program:space-kari-discovered-18446",
+        "type": "program",
+        "label": "2026년도 대전규제자유특구 연구개발사업 신규 위탁연구과제 재공모"
+      },
+      {
+        "id": "program:space-kari-discovered-18439",
+        "type": "program",
+        "label": "2026년도 대전규제자유특구 연구개발사업 신규 위탁연구과제 공모"
+      },
+      {
+        "id": "program:space-kari-discovered-18434",
+        "type": "program",
+        "label": "2026년도 달 착륙선 개발 사업 위탁연구과제 공모(2차)"
+      },
+      {
+        "id": "program:space-kari-discovered-18416",
+        "type": "program",
+        "label": "2026년도 달 착륙선 개발 사업 위탁연구과제 재 공모"
+      },
+      {
+        "id": "program:space-kari-discovered-18412",
+        "type": "program",
+        "label": "2026년도 기본사업 신규 위탁연구과제 재공모 안내"
+      },
+      {
+        "id": "program:space-kari-discovered-18411",
+        "type": "program",
+        "label": "2026년도 달 착륙선 개발 사업 위탁연구과제 공모"
+      },
+      {
+        "id": "program:space-kari-discovered-18410",
+        "type": "program",
+        "label": "2026년도 스페이스파이오니어사업 신규과제 재공모(마이크로파 라디오미터 준광학 안테나시스템 및 저잡음 수신기)"
+      },
+      {
+        "id": "program:space-kari-discovered-18408",
+        "type": "program",
+        "label": "2026년도 기본사업 신규 위탁연구과제 1차 공모 안내"
+      },
+      {
+        "id": "program:space-kari-discovered-18406",
+        "type": "program",
+        "label": "2026년도 스페이스파이오니어사업 신규과제 재공모"
+      },
+      {
+        "id": "program:space-kasi-discovered-32235",
+        "type": "program",
+        "label": "우주과학탐사 전문가 국제회의 참석 지원 프로그램 공고"
+      },
+      {
+        "id": "program:space-kasa-discovered-B000000003183Wu6dI0",
+        "type": "program",
+        "label": "2026년도 신규프로젝트 탐색연구 5차 신규과제(탐사) 공고"
+      },
+      {
+        "id": "program:space-kasa-discovered-B000000003163Ho2oI1",
+        "type": "program",
+        "label": "2026년도 신규프로젝트 탐색연구(인공위성부문) 신규기획과제 공고"
+      },
+      {
+        "id": "program:space-kasa-discovered-B000000003132Me0lQ5",
+        "type": "program",
+        "label": "2026년도 지속가능 열가소성 항공기 부품 핵심기술개발 사업 신규과제 3차 공고"
+      },
+      {
+        "id": "program:space-kasa-discovered-B000000003115Dq3dE9",
+        "type": "program",
+        "label": "2026년 투·융자 연계 기술개발사업 정책지정형(우주항공 분야) 시행계획 재공고"
+      },
+      {
+        "id": "program:space-kasa-discovered-B000000003147Pn1pS7",
+        "type": "program",
+        "label": "2026년도 차세대 항공 기체 부품 첨단제조 실증 지원 기반구축 사업 공고"
+      },
+      {
+        "id": "program:space-add-discovered-1712",
+        "type": "program",
+        "label": "[공모] 미래도전국방기술 연구개발사업 `26년 국과연 주관 PM과제(세부과제) 제안서 공모(스텔스 전투기 세부형상 설계, 스텔스 소요기술 통합 Testbed 구축 및 RCS 검증)"
+      },
+      {
+        "id": "program:space-add-discovered-1711",
+        "type": "program",
+        "label": "[공모] 미래도전국방기술 연구개발사업 `26년 국과연 주관 PM과제(세부과제) 제안서 공모(항공용 다기능 복합소재 및 저피탐 센서 기술)"
+      },
+      {
+        "id": "program:space-add-discovered-1710",
+        "type": "program",
+        "label": "[공모] 미래도전국방기술 연구개발사업 `26년 국과연 주관 PM과제(세부과제) 제안서 공모(군집드론 통제를 위한 LLM, 음성인식 기반 HMI 및 지능형 임무분석기술)"
+      },
+      {
+        "id": "program:space-kstartup-discovered-178002",
+        "type": "program",
+        "label": "'26-2차 방산 중소기업 컨설팅 지원사업 지원대상기업 모집 공고문"
+      },
+      {
+        "id": "program:space-kstartup-discovered-177853",
+        "type": "program",
+        "label": "항공우주기술 기반 예비창업자 지원사업 「2026 STAR-Exploration」"
+      },
+      {
+        "id": "program:space-tipa-smtech-discovered-2026-DCP-32",
+        "type": "program",
+        "label": "(2026-DCP-32_방산·우주항공·해양_딥테크 챌린지 프로젝트(DCP*))"
+      },
+      {
+        "id": "program:space-djtp-discovered-2026-01-0092",
+        "type": "program",
+        "label": "[2026-01-0092]2026년 우주산업 혁신 기반 조성사업 하반기 지원기업 모집 공고"
+      },
+      {
+        "id": "program:space-djtp-discovered-2026-01-0072",
+        "type": "program",
+        "label": "[2026-01-0072]국방·우주 소부장 3D프린팅 공동제조센터 구축사업-3D프린팅 시제품제작지원사업 모집 공고"
+      },
+      {
+        "id": "program:space-djtp-discovered-2026-01-0070",
+        "type": "program",
+        "label": "[2026-01-0070]「2026 대전 방산혁신클러스터 시험장비 구축 및 지원」 국방·드론분야 기술지원 (보유장비활용)"
+      },
+      {
+        "id": "program:space-djtp-discovered-2026-01-0086",
+        "type": "program",
+        "label": "[2026-01-0086]대전 방산혁신클러스터 국방·드론분야 기술사업화 지원사업 \"제품화패키지\" 지원기업 모집 공고"
+      },
+      {
+        "id": "program:space-djtp-discovered-2026-01-0080",
+        "type": "program",
+        "label": "[2026-01-0080]대전 방산혁신클러스터 국방·드론분야 기술사업화 지원사업 \"민-군 브릿지 코디네이터\" 지원기업 모집 공고"
+      },
+      {
+        "id": "program:space-djtp-discovered-2026-01-0033",
+        "type": "program",
+        "label": "[2026-01-0033]대전 방산혁신클러스터 국방·드론분야 기술사업화 지원사업 \"사업화패키지\" 지원기업 모집 공고"
+      },
+      {
+        "id": "program:space-djtp-discovered-2026-01-0034",
+        "type": "program",
+        "label": "[2026-01-0034]대전 방산혁신클러스터 국방·드론분야 기술사업화 지원사업 \"고도화패키지\" 지원기업 모집 공고"
+      },
+      {
+        "id": "program:space-jntp-discovered-1070",
+        "type": "program",
+        "label": "「순천형 위성 개발 및 실증 사업」 참여기업 모집공고(연장)"
+      },
+      {
+        "id": "program:space-itp-discovered-10697",
+        "type": "program",
+        "label": "2026년 파브(PAV) 실증기 개발 지원사업 모집공고(본공고)"
+      },
+      {
+        "id": "program:space-gntp-discovered-3772",
+        "type": "program",
+        "label": "2026-2차 타깃마케팅(영국)모집 추가 공고"
+      },
+      {
+        "id": "program:space-gntp-discovered-3766",
+        "type": "program",
+        "label": "2026년도 우주항공AI 국산화 상용기술개발 지원기업 추가 모집"
+      },
+      {
+        "id": "program:space-kaia-discovered-12952",
+        "type": "program",
+        "label": "(공고-국-제11호) 2026년 공항 조류탐지 및 한국형 조류관리 핵심기술 개발 사업 시행 공고"
+      },
+      {
+        "id": "program:space-bizinfo-discovered-PBLN_000000000122927",
+        "type": "program",
+        "label": "[대전] 2026년 하반기 우주산업 혁신 기반 조성사업 지원기업 모집 공고"
+      },
+      {
+        "id": "program:space-bizinfo-discovered-PBLN_000000000122923",
+        "type": "program",
+        "label": "[대전] 2026년 K-방산 생태계 활성화 및 강소기업 맞춤형 패키지 지원사업 대한민국국제방위산업전(KADEX 2026) 대전관(기업공동홍보관) 참여기업 모집 공고"
+      },
+      {
+        "id": "program:space-bizinfo-discovered-PBLN_000000000122853",
+        "type": "program",
+        "label": "2026년 2차 방산 중소기업 컨설팅 지원사업 지원대상기업 모집 공고"
+      },
+      {
+        "id": "program:space-bizinfo-discovered-PBLN_000000000122701",
+        "type": "program",
+        "label": "2026년 2차 민관협력 오픈이노베이션 지원 사업 방산 스타트업 챌린지(모두의 챌린지–방산) 수요기업 협업 과제 모집 공고"
+      },
+      {
+        "id": "program:space-bizinfo-discovered-PBLN_000000000122663",
+        "type": "program",
+        "label": "2026년 2차 고흥드론센터 입주기업 역량강화 지원사업 모집 공고"
+      },
+      {
+        "id": "program:space-bizinfo-discovered-PBLN_000000000122555",
+        "type": "program",
+        "label": "[전북] 2026년 탄소소재 활용 방산 관련기업 기술사업화 지원사업 지원계획 연장 공고"
+      },
+      {
+        "id": "program:space-bizinfo-discovered-PBLN_000000000122391",
+        "type": "program",
+        "label": "[부산] 2026년 항공부품산업 기술고도화 지원사업 인증 및 컨설팅 지원 모집 공고"
+      },
+      {
+        "id": "program:space-bizinfo-discovered-PBLN_000000000122300",
+        "type": "program",
+        "label": "[전남] 순천시 위성 개발 및 실증 사업 참여기업 모집 공고"
+      },
+      {
+        "id": "program:space-bizinfo-discovered-PBLN_000000000122260",
+        "type": "program",
+        "label": "[경남] 2026년 특화개발지원사업(방산 스타트업 인큐베이팅 시범사업) 참여기업 모집 공고"
+      },
+      {
+        "id": "program:space-bizinfo-discovered-PBLN_000000000122250",
+        "type": "program",
+        "label": "[경북] 2026년 로컬 맞춤형 R&D 방위 R&D Spin-On 방산기업 제품 고도화 지원 참여기업 추가 모집 공고"
+      },
+      {
+        "id": "program:space-bizinfo-discovered-PBLN_000000000122087",
+        "type": "program",
+        "label": "[인천] 2026년 드론 도시관리 실증(지정) 지원사업 참여기업 모집 공고"
+      },
+      {
+        "id": "program:space-bizinfo-discovered-PBLN_000000000122053",
+        "type": "program",
+        "label": "[경남] 창원시 2026년 국가산단 기계ㆍ방산 분야 제조기업 대상 제조 DXㆍAX 확산 컨설팅 수혜기업 모집 공고"
+      },
+      {
+        "id": "program:space-bizinfo-discovered-PBLN_000000000122051",
+        "type": "program",
+        "label": "2026년 경남 우주산업 혁신생태계 조성 지원 사업 수혜기업 추가 모집 공고"
+      },
+      {
+        "id": "program:space-bizinfo-discovered-PBLN_000000000122046",
+        "type": "program",
+        "label": "[경기] 2026년 드론산업 육성 지원사업 드론기업 수요맞춤형 지원 모집 공고"
+      },
+      {
+        "id": "program:space-bizinfo-discovered-PBLN_000000000122044",
+        "type": "program",
+        "label": "[대전] 2026년 방산혁신클러스터 국방ㆍ드론분야 기술사업화 민-군 브릿지 코디네이터 지원기업 모집 공고"
+      },
+      {
+        "id": "program:space-bizinfo-discovered-PBLN_000000000122043",
+        "type": "program",
+        "label": "[대전] 2026년 방산혁신클러스터 국방ㆍ드론분야 기술사업화 제품화 패키지 지원사업 지원기업 통합 모집 공고"
+      },
+      {
+        "id": "program:space-bizinfo-discovered-PBLN_000000000122000",
+        "type": "program",
+        "label": "[경남] 진주시ㆍ사천시 2026년 우주항공용 세라믹섬유 융복합 소재 활용 사업화지원사업(3차연도) 시행 연장 공고"
+      },
+      {
+        "id": "evidence:patent-field:space_launch_propulsion_recovery:landscape",
+        "type": "evidence",
+        "label": "patent_landscape_summary",
+        "metadata": {
+          "fieldId": "space_launch_propulsion_recovery"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_launch_propulsion_recovery:country-trend",
+        "type": "evidence",
+        "label": "patent_country_trend",
+        "metadata": {
+          "fieldId": "space_launch_propulsion_recovery"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_launch_propulsion_recovery:top-applicants",
+        "type": "evidence",
+        "label": "patent_top_applicants",
+        "metadata": {
+          "fieldId": "space_launch_propulsion_recovery"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_launch_propulsion_recovery:top-cpc",
+        "type": "evidence",
+        "label": "patent_top_cpc",
+        "metadata": {
+          "fieldId": "space_launch_propulsion_recovery"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_satellite_bus_thermal_power:landscape",
+        "type": "evidence",
+        "label": "patent_landscape_summary",
+        "metadata": {
+          "fieldId": "space_satellite_bus_thermal_power"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_satellite_bus_thermal_power:country-trend",
+        "type": "evidence",
+        "label": "patent_country_trend",
+        "metadata": {
+          "fieldId": "space_satellite_bus_thermal_power"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_satellite_bus_thermal_power:top-applicants",
+        "type": "evidence",
+        "label": "patent_top_applicants",
+        "metadata": {
+          "fieldId": "space_satellite_bus_thermal_power"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_satellite_bus_thermal_power:top-cpc",
+        "type": "evidence",
+        "label": "patent_top_cpc",
+        "metadata": {
+          "fieldId": "space_satellite_bus_thermal_power"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_comm_leo_network:landscape",
+        "type": "evidence",
+        "label": "patent_landscape_summary",
+        "metadata": {
+          "fieldId": "space_comm_leo_network"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_comm_leo_network:country-trend",
+        "type": "evidence",
+        "label": "patent_country_trend",
+        "metadata": {
+          "fieldId": "space_comm_leo_network"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_comm_leo_network:top-applicants",
+        "type": "evidence",
+        "label": "patent_top_applicants",
+        "metadata": {
+          "fieldId": "space_comm_leo_network"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_comm_leo_network:top-cpc",
+        "type": "evidence",
+        "label": "patent_top_cpc",
+        "metadata": {
+          "fieldId": "space_comm_leo_network"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_remote_sensing_payload:landscape",
+        "type": "evidence",
+        "label": "patent_landscape_summary",
+        "metadata": {
+          "fieldId": "space_remote_sensing_payload"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_remote_sensing_payload:country-trend",
+        "type": "evidence",
+        "label": "patent_country_trend",
+        "metadata": {
+          "fieldId": "space_remote_sensing_payload"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_remote_sensing_payload:top-applicants",
+        "type": "evidence",
+        "label": "patent_top_applicants",
+        "metadata": {
+          "fieldId": "space_remote_sensing_payload"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_remote_sensing_payload:top-cpc",
+        "type": "evidence",
+        "label": "patent_top_cpc",
+        "metadata": {
+          "fieldId": "space_remote_sensing_payload"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_gnc_rendezvous_servicing:landscape",
+        "type": "evidence",
+        "label": "patent_landscape_summary",
+        "metadata": {
+          "fieldId": "space_gnc_rendezvous_servicing"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_gnc_rendezvous_servicing:country-trend",
+        "type": "evidence",
+        "label": "patent_country_trend",
+        "metadata": {
+          "fieldId": "space_gnc_rendezvous_servicing"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_gnc_rendezvous_servicing:top-applicants",
+        "type": "evidence",
+        "label": "patent_top_applicants",
+        "metadata": {
+          "fieldId": "space_gnc_rendezvous_servicing"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_gnc_rendezvous_servicing:top-cpc",
+        "type": "evidence",
+        "label": "patent_top_cpc",
+        "metadata": {
+          "fieldId": "space_gnc_rendezvous_servicing"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_materials_tps_coatings:landscape",
+        "type": "evidence",
+        "label": "patent_landscape_summary",
+        "metadata": {
+          "fieldId": "space_materials_tps_coatings"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_materials_tps_coatings:country-trend",
+        "type": "evidence",
+        "label": "patent_country_trend",
+        "metadata": {
+          "fieldId": "space_materials_tps_coatings"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_materials_tps_coatings:top-applicants",
+        "type": "evidence",
+        "label": "patent_top_applicants",
+        "metadata": {
+          "fieldId": "space_materials_tps_coatings"
+        }
+      },
+      {
+        "id": "evidence:patent-field:space_materials_tps_coatings:top-cpc",
+        "type": "evidence",
+        "label": "patent_top_cpc",
+        "metadata": {
+          "fieldId": "space_materials_tps_coatings"
+        }
+      },
+      {
+        "id": "evidence:patent-field:aviation_propulsion_sustainable:landscape",
+        "type": "evidence",
+        "label": "patent_landscape_summary",
+        "metadata": {
+          "fieldId": "aviation_propulsion_sustainable"
+        }
+      },
+      {
+        "id": "evidence:patent-field:aviation_propulsion_sustainable:country-trend",
+        "type": "evidence",
+        "label": "patent_country_trend",
+        "metadata": {
+          "fieldId": "aviation_propulsion_sustainable"
+        }
+      },
+      {
+        "id": "evidence:patent-field:aviation_propulsion_sustainable:top-applicants",
+        "type": "evidence",
+        "label": "patent_top_applicants",
+        "metadata": {
+          "fieldId": "aviation_propulsion_sustainable"
+        }
+      },
+      {
+        "id": "evidence:patent-field:aviation_propulsion_sustainable:top-cpc",
+        "type": "evidence",
+        "label": "patent_top_cpc",
+        "metadata": {
+          "fieldId": "aviation_propulsion_sustainable"
+        }
+      },
+      {
+        "id": "evidence:patent-field:aviation_structures_aero_composites:landscape",
+        "type": "evidence",
+        "label": "patent_landscape_summary",
+        "metadata": {
+          "fieldId": "aviation_structures_aero_composites"
+        }
+      },
+      {
+        "id": "evidence:patent-field:aviation_structures_aero_composites:country-trend",
+        "type": "evidence",
+        "label": "patent_country_trend",
+        "metadata": {
+          "fieldId": "aviation_structures_aero_composites"
+        }
+      },
+      {
+        "id": "evidence:patent-field:aviation_structures_aero_composites:top-applicants",
+        "type": "evidence",
+        "label": "patent_top_applicants",
+        "metadata": {
+          "fieldId": "aviation_structures_aero_composites"
+        }
+      },
+      {
+        "id": "evidence:patent-field:aviation_structures_aero_composites:top-cpc",
+        "type": "evidence",
+        "label": "patent_top_cpc",
+        "metadata": {
+          "fieldId": "aviation_structures_aero_composites"
+        }
+      },
+      {
+        "id": "evidence:patent-field:aviation_avionics_flight_control_autonomy:landscape",
+        "type": "evidence",
+        "label": "patent_landscape_summary",
+        "metadata": {
+          "fieldId": "aviation_avionics_flight_control_autonomy"
+        }
+      },
+      {
+        "id": "evidence:patent-field:aviation_avionics_flight_control_autonomy:country-trend",
+        "type": "evidence",
+        "label": "patent_country_trend",
+        "metadata": {
+          "fieldId": "aviation_avionics_flight_control_autonomy"
+        }
+      },
+      {
+        "id": "evidence:patent-field:aviation_avionics_flight_control_autonomy:top-applicants",
+        "type": "evidence",
+        "label": "patent_top_applicants",
+        "metadata": {
+          "fieldId": "aviation_avionics_flight_control_autonomy"
+        }
+      },
+      {
+        "id": "evidence:patent-field:aviation_avionics_flight_control_autonomy:top-cpc",
+        "type": "evidence",
+        "label": "patent_top_cpc",
+        "metadata": {
+          "fieldId": "aviation_avionics_flight_control_autonomy"
+        }
+      },
+      {
+        "id": "taxonomy:TX01",
+        "type": "taxonomy",
+        "label": "TX01"
+      },
+      {
+        "id": "taxonomy:TX09",
+        "type": "taxonomy",
+        "label": "TX09"
+      },
+      {
+        "id": "taxonomy:TX17",
+        "type": "taxonomy",
+        "label": "TX17"
+      },
+      {
+        "id": "taxonomy:TX15",
+        "type": "taxonomy",
+        "label": "TX15"
+      },
+      {
+        "id": "taxonomy:TX14",
+        "type": "taxonomy",
+        "label": "TX14"
+      },
+      {
+        "id": "taxonomy:TX03",
+        "type": "taxonomy",
+        "label": "TX03"
+      },
+      {
+        "id": "taxonomy:TX12",
+        "type": "taxonomy",
+        "label": "TX12"
+      },
+      {
+        "id": "taxonomy:TX05",
+        "type": "taxonomy",
+        "label": "TX05"
+      },
+      {
+        "id": "taxonomy:TX11",
+        "type": "taxonomy",
+        "label": "TX11"
+      },
+      {
+        "id": "taxonomy:TX16",
+        "type": "taxonomy",
+        "label": "TX16"
+      },
+      {
+        "id": "taxonomy:TX08",
+        "type": "taxonomy",
+        "label": "TX08"
+      },
+      {
+        "id": "taxonomy:TX10",
+        "type": "taxonomy",
+        "label": "TX10"
+      },
+      {
+        "id": "taxonomy:TX04",
+        "type": "taxonomy",
+        "label": "TX04"
+      },
+      {
+        "id": "taxonomy:TX02",
+        "type": "taxonomy",
+        "label": "TX02"
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge:0",
+        "source": "corpus:aeropatent-bigquery",
+        "target": "field:space_launch_propulsion_recovery",
+        "type": "contains",
+        "weight": 1
+      },
+      {
+        "id": "edge:1",
+        "source": "field:space_launch_propulsion_recovery",
+        "target": "country:CN",
+        "type": "published_in",
+        "weight": 11736
+      },
+      {
+        "id": "edge:2",
+        "source": "field:space_launch_propulsion_recovery",
+        "target": "country:US",
+        "type": "published_in",
+        "weight": 2916
+      },
+      {
+        "id": "edge:3",
+        "source": "field:space_launch_propulsion_recovery",
+        "target": "country:WO",
+        "type": "published_in",
+        "weight": 1888
+      },
+      {
+        "id": "edge:4",
+        "source": "field:space_launch_propulsion_recovery",
+        "target": "country:EP",
+        "type": "published_in",
+        "weight": 1482
+      },
+      {
+        "id": "edge:5",
+        "source": "field:space_launch_propulsion_recovery",
+        "target": "country:KR",
+        "type": "published_in",
+        "weight": 992
+      },
+      {
+        "id": "edge:6",
+        "source": "field:space_launch_propulsion_recovery",
+        "target": "country:JP",
+        "type": "published_in",
+        "weight": 701
+      },
+      {
+        "id": "edge:7",
+        "source": "field:space_launch_propulsion_recovery",
+        "target": "taxonomy:TX01",
+        "type": "primary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:8",
+        "source": "field:space_launch_propulsion_recovery",
+        "target": "taxonomy:TX09",
+        "type": "secondary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:9",
+        "source": "field:space_launch_propulsion_recovery",
+        "target": "taxonomy:TX17",
+        "type": "secondary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:10",
+        "source": "field:space_launch_propulsion_recovery",
+        "target": "taxonomy:TX15",
+        "type": "secondary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:11",
+        "source": "corpus:aeropatent-bigquery",
+        "target": "field:space_satellite_bus_thermal_power",
+        "type": "contains",
+        "weight": 1
+      },
+      {
+        "id": "edge:12",
+        "source": "field:space_satellite_bus_thermal_power",
+        "target": "country:CN",
+        "type": "published_in",
+        "weight": 13338
+      },
+      {
+        "id": "edge:13",
+        "source": "field:space_satellite_bus_thermal_power",
+        "target": "country:US",
+        "type": "published_in",
+        "weight": 11269
+      },
+      {
+        "id": "edge:14",
+        "source": "field:space_satellite_bus_thermal_power",
+        "target": "country:WO",
+        "type": "published_in",
+        "weight": 2873
+      },
+      {
+        "id": "edge:15",
+        "source": "field:space_satellite_bus_thermal_power",
+        "target": "country:EP",
+        "type": "published_in",
+        "weight": 1956
+      },
+      {
+        "id": "edge:16",
+        "source": "field:space_satellite_bus_thermal_power",
+        "target": "country:KR",
+        "type": "published_in",
+        "weight": 6327
+      },
+      {
+        "id": "edge:17",
+        "source": "field:space_satellite_bus_thermal_power",
+        "target": "country:JP",
+        "type": "published_in",
+        "weight": 1285
+      },
+      {
+        "id": "edge:18",
+        "source": "field:space_satellite_bus_thermal_power",
+        "target": "taxonomy:TX14",
+        "type": "primary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:19",
+        "source": "field:space_satellite_bus_thermal_power",
+        "target": "taxonomy:TX03",
+        "type": "secondary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:20",
+        "source": "field:space_satellite_bus_thermal_power",
+        "target": "taxonomy:TX12",
+        "type": "secondary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:21",
+        "source": "corpus:aeropatent-bigquery",
+        "target": "field:space_comm_leo_network",
+        "type": "contains",
+        "weight": 1
+      },
+      {
+        "id": "edge:22",
+        "source": "field:space_comm_leo_network",
+        "target": "country:CN",
+        "type": "published_in",
+        "weight": 96203
+      },
+      {
+        "id": "edge:23",
+        "source": "field:space_comm_leo_network",
+        "target": "country:US",
+        "type": "published_in",
+        "weight": 58737
+      },
+      {
+        "id": "edge:24",
+        "source": "field:space_comm_leo_network",
+        "target": "country:WO",
+        "type": "published_in",
+        "weight": 51820
+      },
+      {
+        "id": "edge:25",
+        "source": "field:space_comm_leo_network",
+        "target": "country:EP",
+        "type": "published_in",
+        "weight": 33473
+      },
+      {
+        "id": "edge:26",
+        "source": "field:space_comm_leo_network",
+        "target": "country:KR",
+        "type": "published_in",
+        "weight": 15751
+      },
+      {
+        "id": "edge:27",
+        "source": "field:space_comm_leo_network",
+        "target": "country:JP",
+        "type": "published_in",
+        "weight": 11751
+      },
+      {
+        "id": "edge:28",
+        "source": "field:space_comm_leo_network",
+        "target": "taxonomy:TX05",
+        "type": "primary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:29",
+        "source": "field:space_comm_leo_network",
+        "target": "taxonomy:TX11",
+        "type": "secondary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:30",
+        "source": "field:space_comm_leo_network",
+        "target": "taxonomy:TX16",
+        "type": "secondary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:31",
+        "source": "corpus:aeropatent-bigquery",
+        "target": "field:space_remote_sensing_payload",
+        "type": "contains",
+        "weight": 1
+      },
+      {
+        "id": "edge:32",
+        "source": "field:space_remote_sensing_payload",
+        "target": "country:CN",
+        "type": "published_in",
+        "weight": 83405
+      },
+      {
+        "id": "edge:33",
+        "source": "field:space_remote_sensing_payload",
+        "target": "country:US",
+        "type": "published_in",
+        "weight": 34623
+      },
+      {
+        "id": "edge:34",
+        "source": "field:space_remote_sensing_payload",
+        "target": "country:WO",
+        "type": "published_in",
+        "weight": 24008
+      },
+      {
+        "id": "edge:35",
+        "source": "field:space_remote_sensing_payload",
+        "target": "country:EP",
+        "type": "published_in",
+        "weight": 17163
+      },
+      {
+        "id": "edge:36",
+        "source": "field:space_remote_sensing_payload",
+        "target": "country:KR",
+        "type": "published_in",
+        "weight": 12566
+      },
+      {
+        "id": "edge:37",
+        "source": "field:space_remote_sensing_payload",
+        "target": "country:JP",
+        "type": "published_in",
+        "weight": 11455
+      },
+      {
+        "id": "edge:38",
+        "source": "field:space_remote_sensing_payload",
+        "target": "taxonomy:TX08",
+        "type": "primary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:39",
+        "source": "field:space_remote_sensing_payload",
+        "target": "taxonomy:TX11",
+        "type": "secondary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:40",
+        "source": "corpus:aeropatent-bigquery",
+        "target": "field:space_gnc_rendezvous_servicing",
+        "type": "contains",
+        "weight": 1
+      },
+      {
+        "id": "edge:41",
+        "source": "field:space_gnc_rendezvous_servicing",
+        "target": "country:CN",
+        "type": "published_in",
+        "weight": 116903
+      },
+      {
+        "id": "edge:42",
+        "source": "field:space_gnc_rendezvous_servicing",
+        "target": "country:US",
+        "type": "published_in",
+        "weight": 44713
+      },
+      {
+        "id": "edge:43",
+        "source": "field:space_gnc_rendezvous_servicing",
+        "target": "country:WO",
+        "type": "published_in",
+        "weight": 25281
+      },
+      {
+        "id": "edge:44",
+        "source": "field:space_gnc_rendezvous_servicing",
+        "target": "country:EP",
+        "type": "published_in",
+        "weight": 16872
+      },
+      {
+        "id": "edge:45",
+        "source": "field:space_gnc_rendezvous_servicing",
+        "target": "country:KR",
+        "type": "published_in",
+        "weight": 15677
+      },
+      {
+        "id": "edge:46",
+        "source": "field:space_gnc_rendezvous_servicing",
+        "target": "country:JP",
+        "type": "published_in",
+        "weight": 14173
+      },
+      {
+        "id": "edge:47",
+        "source": "field:space_gnc_rendezvous_servicing",
+        "target": "taxonomy:TX17",
+        "type": "primary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:48",
+        "source": "field:space_gnc_rendezvous_servicing",
+        "target": "taxonomy:TX10",
+        "type": "secondary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:49",
+        "source": "field:space_gnc_rendezvous_servicing",
+        "target": "taxonomy:TX04",
+        "type": "secondary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:50",
+        "source": "field:space_gnc_rendezvous_servicing",
+        "target": "taxonomy:TX05",
+        "type": "secondary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:51",
+        "source": "corpus:aeropatent-bigquery",
+        "target": "field:space_materials_tps_coatings",
+        "type": "contains",
+        "weight": 1
+      },
+      {
+        "id": "edge:52",
+        "source": "field:space_materials_tps_coatings",
+        "target": "country:CN",
+        "type": "published_in",
+        "weight": 183406
+      },
+      {
+        "id": "edge:53",
+        "source": "field:space_materials_tps_coatings",
+        "target": "country:US",
+        "type": "published_in",
+        "weight": 41089
+      },
+      {
+        "id": "edge:54",
+        "source": "field:space_materials_tps_coatings",
+        "target": "country:WO",
+        "type": "published_in",
+        "weight": 45392
+      },
+      {
+        "id": "edge:55",
+        "source": "field:space_materials_tps_coatings",
+        "target": "country:EP",
+        "type": "published_in",
+        "weight": 27667
+      },
+      {
+        "id": "edge:56",
+        "source": "field:space_materials_tps_coatings",
+        "target": "country:KR",
+        "type": "published_in",
+        "weight": 37449
+      },
+      {
+        "id": "edge:57",
+        "source": "field:space_materials_tps_coatings",
+        "target": "country:JP",
+        "type": "published_in",
+        "weight": 28958
+      },
+      {
+        "id": "edge:58",
+        "source": "field:space_materials_tps_coatings",
+        "target": "taxonomy:TX12",
+        "type": "primary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:59",
+        "source": "field:space_materials_tps_coatings",
+        "target": "taxonomy:TX14",
+        "type": "secondary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:60",
+        "source": "field:space_materials_tps_coatings",
+        "target": "taxonomy:TX09",
+        "type": "secondary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:61",
+        "source": "corpus:aeropatent-bigquery",
+        "target": "field:aviation_propulsion_sustainable",
+        "type": "contains",
+        "weight": 1
+      },
+      {
+        "id": "edge:62",
+        "source": "field:aviation_propulsion_sustainable",
+        "target": "country:CN",
+        "type": "published_in",
+        "weight": 14189
+      },
+      {
+        "id": "edge:63",
+        "source": "field:aviation_propulsion_sustainable",
+        "target": "country:US",
+        "type": "published_in",
+        "weight": 12691
+      },
+      {
+        "id": "edge:64",
+        "source": "field:aviation_propulsion_sustainable",
+        "target": "country:WO",
+        "type": "published_in",
+        "weight": 3934
+      },
+      {
+        "id": "edge:65",
+        "source": "field:aviation_propulsion_sustainable",
+        "target": "country:EP",
+        "type": "published_in",
+        "weight": 7837
+      },
+      {
+        "id": "edge:66",
+        "source": "field:aviation_propulsion_sustainable",
+        "target": "country:KR",
+        "type": "published_in",
+        "weight": 2458
+      },
+      {
+        "id": "edge:67",
+        "source": "field:aviation_propulsion_sustainable",
+        "target": "country:JP",
+        "type": "published_in",
+        "weight": 1801
+      },
+      {
+        "id": "edge:68",
+        "source": "field:aviation_propulsion_sustainable",
+        "target": "taxonomy:TX01",
+        "type": "primary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:69",
+        "source": "field:aviation_propulsion_sustainable",
+        "target": "taxonomy:TX03",
+        "type": "secondary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:70",
+        "source": "field:aviation_propulsion_sustainable",
+        "target": "taxonomy:TX15",
+        "type": "secondary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:71",
+        "source": "corpus:aeropatent-bigquery",
+        "target": "field:aviation_structures_aero_composites",
+        "type": "contains",
+        "weight": 1
+      },
+      {
+        "id": "edge:72",
+        "source": "field:aviation_structures_aero_composites",
+        "target": "country:CN",
+        "type": "published_in",
+        "weight": 28140
+      },
+      {
+        "id": "edge:73",
+        "source": "field:aviation_structures_aero_composites",
+        "target": "country:US",
+        "type": "published_in",
+        "weight": 14836
+      },
+      {
+        "id": "edge:74",
+        "source": "field:aviation_structures_aero_composites",
+        "target": "country:WO",
+        "type": "published_in",
+        "weight": 6745
+      },
+      {
+        "id": "edge:75",
+        "source": "field:aviation_structures_aero_composites",
+        "target": "country:EP",
+        "type": "published_in",
+        "weight": 6428
+      },
+      {
+        "id": "edge:76",
+        "source": "field:aviation_structures_aero_composites",
+        "target": "country:KR",
+        "type": "published_in",
+        "weight": 9527
+      },
+      {
+        "id": "edge:77",
+        "source": "field:aviation_structures_aero_composites",
+        "target": "country:JP",
+        "type": "published_in",
+        "weight": 3245
+      },
+      {
+        "id": "edge:78",
+        "source": "field:aviation_structures_aero_composites",
+        "target": "taxonomy:TX15",
+        "type": "primary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:79",
+        "source": "field:aviation_structures_aero_composites",
+        "target": "taxonomy:TX12",
+        "type": "secondary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:80",
+        "source": "corpus:aeropatent-bigquery",
+        "target": "field:aviation_avionics_flight_control_autonomy",
+        "type": "contains",
+        "weight": 1
+      },
+      {
+        "id": "edge:81",
+        "source": "field:aviation_avionics_flight_control_autonomy",
+        "target": "country:CN",
+        "type": "published_in",
+        "weight": 113150
+      },
+      {
+        "id": "edge:82",
+        "source": "field:aviation_avionics_flight_control_autonomy",
+        "target": "country:US",
+        "type": "published_in",
+        "weight": 46237
+      },
+      {
+        "id": "edge:83",
+        "source": "field:aviation_avionics_flight_control_autonomy",
+        "target": "country:WO",
+        "type": "published_in",
+        "weight": 25247
+      },
+      {
+        "id": "edge:84",
+        "source": "field:aviation_avionics_flight_control_autonomy",
+        "target": "country:EP",
+        "type": "published_in",
+        "weight": 18013
+      },
+      {
+        "id": "edge:85",
+        "source": "field:aviation_avionics_flight_control_autonomy",
+        "target": "country:KR",
+        "type": "published_in",
+        "weight": 15934
+      },
+      {
+        "id": "edge:86",
+        "source": "field:aviation_avionics_flight_control_autonomy",
+        "target": "country:JP",
+        "type": "published_in",
+        "weight": 14154
+      },
+      {
+        "id": "edge:87",
+        "source": "field:aviation_avionics_flight_control_autonomy",
+        "target": "taxonomy:TX02",
+        "type": "primary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:88",
+        "source": "field:aviation_avionics_flight_control_autonomy",
+        "target": "taxonomy:TX17",
+        "type": "secondary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:89",
+        "source": "field:aviation_avionics_flight_control_autonomy",
+        "target": "taxonomy:TX10",
+        "type": "secondary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:90",
+        "source": "field:aviation_avionics_flight_control_autonomy",
+        "target": "taxonomy:TX11",
+        "type": "secondary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:91",
+        "source": "field:aviation_avionics_flight_control_autonomy",
+        "target": "taxonomy:TX16",
+        "type": "secondary_tx",
+        "weight": 1
+      },
+      {
+        "id": "edge:92",
+        "source": "program:space-kari-discovered-18659",
+        "target": "field:space_launch_propulsion_recovery",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:93",
+        "source": "program:space-kari-discovered-18659",
+        "target": "evidence:patent-field:space_launch_propulsion_recovery:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:94",
+        "source": "program:space-kari-discovered-18659",
+        "target": "evidence:patent-field:space_launch_propulsion_recovery:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:95",
+        "source": "program:space-kari-discovered-18659",
+        "target": "evidence:patent-field:space_launch_propulsion_recovery:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:96",
+        "source": "program:space-kari-discovered-18659",
+        "target": "evidence:patent-field:space_launch_propulsion_recovery:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:97",
+        "source": "program:space-kari-discovered-18446",
+        "target": "field:aviation_structures_aero_composites",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:98",
+        "source": "program:space-kari-discovered-18446",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:99",
+        "source": "program:space-kari-discovered-18446",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:100",
+        "source": "program:space-kari-discovered-18446",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:101",
+        "source": "program:space-kari-discovered-18446",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:102",
+        "source": "program:space-kari-discovered-18439",
+        "target": "field:aviation_structures_aero_composites",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:103",
+        "source": "program:space-kari-discovered-18439",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:104",
+        "source": "program:space-kari-discovered-18439",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:105",
+        "source": "program:space-kari-discovered-18439",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:106",
+        "source": "program:space-kari-discovered-18439",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:107",
+        "source": "program:space-kari-discovered-18434",
+        "target": "field:space_satellite_bus_thermal_power",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:108",
+        "source": "program:space-kari-discovered-18434",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:109",
+        "source": "program:space-kari-discovered-18434",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:110",
+        "source": "program:space-kari-discovered-18434",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:111",
+        "source": "program:space-kari-discovered-18434",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:112",
+        "source": "program:space-kari-discovered-18416",
+        "target": "field:space_satellite_bus_thermal_power",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:113",
+        "source": "program:space-kari-discovered-18416",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:114",
+        "source": "program:space-kari-discovered-18416",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:115",
+        "source": "program:space-kari-discovered-18416",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:116",
+        "source": "program:space-kari-discovered-18416",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:117",
+        "source": "program:space-kari-discovered-18412",
+        "target": "field:aviation_structures_aero_composites",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:118",
+        "source": "program:space-kari-discovered-18412",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:119",
+        "source": "program:space-kari-discovered-18412",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:120",
+        "source": "program:space-kari-discovered-18412",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:121",
+        "source": "program:space-kari-discovered-18412",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:122",
+        "source": "program:space-kari-discovered-18411",
+        "target": "field:space_satellite_bus_thermal_power",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:123",
+        "source": "program:space-kari-discovered-18411",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:124",
+        "source": "program:space-kari-discovered-18411",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:125",
+        "source": "program:space-kari-discovered-18411",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:126",
+        "source": "program:space-kari-discovered-18411",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:127",
+        "source": "program:space-kari-discovered-18410",
+        "target": "field:space_satellite_bus_thermal_power",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:128",
+        "source": "program:space-kari-discovered-18410",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:129",
+        "source": "program:space-kari-discovered-18410",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:130",
+        "source": "program:space-kari-discovered-18410",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:131",
+        "source": "program:space-kari-discovered-18410",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:132",
+        "source": "program:space-kari-discovered-18408",
+        "target": "field:aviation_structures_aero_composites",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:133",
+        "source": "program:space-kari-discovered-18408",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:134",
+        "source": "program:space-kari-discovered-18408",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:135",
+        "source": "program:space-kari-discovered-18408",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:136",
+        "source": "program:space-kari-discovered-18408",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:137",
+        "source": "program:space-kari-discovered-18406",
+        "target": "field:space_remote_sensing_payload",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:138",
+        "source": "program:space-kari-discovered-18406",
+        "target": "evidence:patent-field:space_remote_sensing_payload:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:139",
+        "source": "program:space-kari-discovered-18406",
+        "target": "evidence:patent-field:space_remote_sensing_payload:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:140",
+        "source": "program:space-kari-discovered-18406",
+        "target": "evidence:patent-field:space_remote_sensing_payload:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:141",
+        "source": "program:space-kari-discovered-18406",
+        "target": "evidence:patent-field:space_remote_sensing_payload:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:142",
+        "source": "program:space-kasi-discovered-32235",
+        "target": "field:space_remote_sensing_payload",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:143",
+        "source": "program:space-kasi-discovered-32235",
+        "target": "evidence:patent-field:space_remote_sensing_payload:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:144",
+        "source": "program:space-kasi-discovered-32235",
+        "target": "evidence:patent-field:space_remote_sensing_payload:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:145",
+        "source": "program:space-kasi-discovered-32235",
+        "target": "evidence:patent-field:space_remote_sensing_payload:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:146",
+        "source": "program:space-kasi-discovered-32235",
+        "target": "evidence:patent-field:space_remote_sensing_payload:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:147",
+        "source": "program:space-kasa-discovered-B000000003183Wu6dI0",
+        "target": "field:space_satellite_bus_thermal_power",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:148",
+        "source": "program:space-kasa-discovered-B000000003183Wu6dI0",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:149",
+        "source": "program:space-kasa-discovered-B000000003183Wu6dI0",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:150",
+        "source": "program:space-kasa-discovered-B000000003183Wu6dI0",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:151",
+        "source": "program:space-kasa-discovered-B000000003183Wu6dI0",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:152",
+        "source": "program:space-kasa-discovered-B000000003163Ho2oI1",
+        "target": "field:space_comm_leo_network",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:153",
+        "source": "program:space-kasa-discovered-B000000003163Ho2oI1",
+        "target": "evidence:patent-field:space_comm_leo_network:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:154",
+        "source": "program:space-kasa-discovered-B000000003163Ho2oI1",
+        "target": "evidence:patent-field:space_comm_leo_network:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:155",
+        "source": "program:space-kasa-discovered-B000000003163Ho2oI1",
+        "target": "evidence:patent-field:space_comm_leo_network:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:156",
+        "source": "program:space-kasa-discovered-B000000003163Ho2oI1",
+        "target": "evidence:patent-field:space_comm_leo_network:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:157",
+        "source": "program:space-kasa-discovered-B000000003132Me0lQ5",
+        "target": "field:aviation_structures_aero_composites",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:158",
+        "source": "program:space-kasa-discovered-B000000003132Me0lQ5",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:159",
+        "source": "program:space-kasa-discovered-B000000003132Me0lQ5",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:160",
+        "source": "program:space-kasa-discovered-B000000003132Me0lQ5",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:161",
+        "source": "program:space-kasa-discovered-B000000003132Me0lQ5",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:162",
+        "source": "program:space-kasa-discovered-B000000003115Dq3dE9",
+        "target": "field:space_comm_leo_network",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:163",
+        "source": "program:space-kasa-discovered-B000000003115Dq3dE9",
+        "target": "evidence:patent-field:space_comm_leo_network:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:164",
+        "source": "program:space-kasa-discovered-B000000003115Dq3dE9",
+        "target": "evidence:patent-field:space_comm_leo_network:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:165",
+        "source": "program:space-kasa-discovered-B000000003115Dq3dE9",
+        "target": "evidence:patent-field:space_comm_leo_network:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:166",
+        "source": "program:space-kasa-discovered-B000000003115Dq3dE9",
+        "target": "evidence:patent-field:space_comm_leo_network:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:167",
+        "source": "program:space-kasa-discovered-B000000003147Pn1pS7",
+        "target": "field:aviation_structures_aero_composites",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:168",
+        "source": "program:space-kasa-discovered-B000000003147Pn1pS7",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:169",
+        "source": "program:space-kasa-discovered-B000000003147Pn1pS7",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:170",
+        "source": "program:space-kasa-discovered-B000000003147Pn1pS7",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:171",
+        "source": "program:space-kasa-discovered-B000000003147Pn1pS7",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:172",
+        "source": "program:space-add-discovered-1712",
+        "target": "field:space_gnc_rendezvous_servicing",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:173",
+        "source": "program:space-add-discovered-1712",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:174",
+        "source": "program:space-add-discovered-1712",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:175",
+        "source": "program:space-add-discovered-1712",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:176",
+        "source": "program:space-add-discovered-1712",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:177",
+        "source": "program:space-add-discovered-1711",
+        "target": "field:space_gnc_rendezvous_servicing",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:178",
+        "source": "program:space-add-discovered-1711",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:179",
+        "source": "program:space-add-discovered-1711",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:180",
+        "source": "program:space-add-discovered-1711",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:181",
+        "source": "program:space-add-discovered-1711",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:182",
+        "source": "program:space-add-discovered-1710",
+        "target": "field:space_gnc_rendezvous_servicing",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:183",
+        "source": "program:space-add-discovered-1710",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:184",
+        "source": "program:space-add-discovered-1710",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:185",
+        "source": "program:space-add-discovered-1710",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:186",
+        "source": "program:space-add-discovered-1710",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:187",
+        "source": "program:space-kstartup-discovered-178002",
+        "target": "field:space_gnc_rendezvous_servicing",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:188",
+        "source": "program:space-kstartup-discovered-178002",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:189",
+        "source": "program:space-kstartup-discovered-178002",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:190",
+        "source": "program:space-kstartup-discovered-178002",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:191",
+        "source": "program:space-kstartup-discovered-178002",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:192",
+        "source": "program:space-kstartup-discovered-177853",
+        "target": "field:space_comm_leo_network",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:193",
+        "source": "program:space-kstartup-discovered-177853",
+        "target": "evidence:patent-field:space_comm_leo_network:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:194",
+        "source": "program:space-kstartup-discovered-177853",
+        "target": "evidence:patent-field:space_comm_leo_network:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:195",
+        "source": "program:space-kstartup-discovered-177853",
+        "target": "evidence:patent-field:space_comm_leo_network:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:196",
+        "source": "program:space-kstartup-discovered-177853",
+        "target": "evidence:patent-field:space_comm_leo_network:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:197",
+        "source": "program:space-tipa-smtech-discovered-2026-DCP-32",
+        "target": "field:space_gnc_rendezvous_servicing",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:198",
+        "source": "program:space-tipa-smtech-discovered-2026-DCP-32",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:199",
+        "source": "program:space-tipa-smtech-discovered-2026-DCP-32",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:200",
+        "source": "program:space-tipa-smtech-discovered-2026-DCP-32",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:201",
+        "source": "program:space-tipa-smtech-discovered-2026-DCP-32",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:202",
+        "source": "program:space-djtp-discovered-2026-01-0092",
+        "target": "field:space_comm_leo_network",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:203",
+        "source": "program:space-djtp-discovered-2026-01-0092",
+        "target": "evidence:patent-field:space_comm_leo_network:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:204",
+        "source": "program:space-djtp-discovered-2026-01-0092",
+        "target": "evidence:patent-field:space_comm_leo_network:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:205",
+        "source": "program:space-djtp-discovered-2026-01-0092",
+        "target": "evidence:patent-field:space_comm_leo_network:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:206",
+        "source": "program:space-djtp-discovered-2026-01-0092",
+        "target": "evidence:patent-field:space_comm_leo_network:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:207",
+        "source": "program:space-djtp-discovered-2026-01-0072",
+        "target": "field:space_gnc_rendezvous_servicing",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:208",
+        "source": "program:space-djtp-discovered-2026-01-0072",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:209",
+        "source": "program:space-djtp-discovered-2026-01-0072",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:210",
+        "source": "program:space-djtp-discovered-2026-01-0072",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:211",
+        "source": "program:space-djtp-discovered-2026-01-0072",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:212",
+        "source": "program:space-djtp-discovered-2026-01-0070",
+        "target": "field:space_gnc_rendezvous_servicing",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:213",
+        "source": "program:space-djtp-discovered-2026-01-0070",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:214",
+        "source": "program:space-djtp-discovered-2026-01-0070",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:215",
+        "source": "program:space-djtp-discovered-2026-01-0070",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:216",
+        "source": "program:space-djtp-discovered-2026-01-0070",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:217",
+        "source": "program:space-djtp-discovered-2026-01-0086",
+        "target": "field:space_gnc_rendezvous_servicing",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:218",
+        "source": "program:space-djtp-discovered-2026-01-0086",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:219",
+        "source": "program:space-djtp-discovered-2026-01-0086",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:220",
+        "source": "program:space-djtp-discovered-2026-01-0086",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:221",
+        "source": "program:space-djtp-discovered-2026-01-0086",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:222",
+        "source": "program:space-djtp-discovered-2026-01-0080",
+        "target": "field:space_gnc_rendezvous_servicing",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:223",
+        "source": "program:space-djtp-discovered-2026-01-0080",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:224",
+        "source": "program:space-djtp-discovered-2026-01-0080",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:225",
+        "source": "program:space-djtp-discovered-2026-01-0080",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:226",
+        "source": "program:space-djtp-discovered-2026-01-0080",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:227",
+        "source": "program:space-djtp-discovered-2026-01-0033",
+        "target": "field:space_gnc_rendezvous_servicing",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:228",
+        "source": "program:space-djtp-discovered-2026-01-0033",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:229",
+        "source": "program:space-djtp-discovered-2026-01-0033",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:230",
+        "source": "program:space-djtp-discovered-2026-01-0033",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:231",
+        "source": "program:space-djtp-discovered-2026-01-0033",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:232",
+        "source": "program:space-djtp-discovered-2026-01-0034",
+        "target": "field:space_gnc_rendezvous_servicing",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:233",
+        "source": "program:space-djtp-discovered-2026-01-0034",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:234",
+        "source": "program:space-djtp-discovered-2026-01-0034",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:235",
+        "source": "program:space-djtp-discovered-2026-01-0034",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:236",
+        "source": "program:space-djtp-discovered-2026-01-0034",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:237",
+        "source": "program:space-jntp-discovered-1070",
+        "target": "field:space_satellite_bus_thermal_power",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:238",
+        "source": "program:space-jntp-discovered-1070",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:239",
+        "source": "program:space-jntp-discovered-1070",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:240",
+        "source": "program:space-jntp-discovered-1070",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:241",
+        "source": "program:space-jntp-discovered-1070",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:242",
+        "source": "program:space-itp-discovered-10697",
+        "target": "field:aviation_structures_aero_composites",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:243",
+        "source": "program:space-itp-discovered-10697",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:244",
+        "source": "program:space-itp-discovered-10697",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:245",
+        "source": "program:space-itp-discovered-10697",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:246",
+        "source": "program:space-itp-discovered-10697",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:247",
+        "source": "program:space-gntp-discovered-3772",
+        "target": "field:space_comm_leo_network",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:248",
+        "source": "program:space-gntp-discovered-3772",
+        "target": "evidence:patent-field:space_comm_leo_network:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:249",
+        "source": "program:space-gntp-discovered-3772",
+        "target": "evidence:patent-field:space_comm_leo_network:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:250",
+        "source": "program:space-gntp-discovered-3772",
+        "target": "evidence:patent-field:space_comm_leo_network:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:251",
+        "source": "program:space-gntp-discovered-3772",
+        "target": "evidence:patent-field:space_comm_leo_network:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:252",
+        "source": "program:space-gntp-discovered-3766",
+        "target": "field:space_comm_leo_network",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:253",
+        "source": "program:space-gntp-discovered-3766",
+        "target": "evidence:patent-field:space_comm_leo_network:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:254",
+        "source": "program:space-gntp-discovered-3766",
+        "target": "evidence:patent-field:space_comm_leo_network:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:255",
+        "source": "program:space-gntp-discovered-3766",
+        "target": "evidence:patent-field:space_comm_leo_network:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:256",
+        "source": "program:space-gntp-discovered-3766",
+        "target": "evidence:patent-field:space_comm_leo_network:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:257",
+        "source": "program:space-kaia-discovered-12952",
+        "target": "field:aviation_propulsion_sustainable",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:258",
+        "source": "program:space-kaia-discovered-12952",
+        "target": "evidence:patent-field:aviation_propulsion_sustainable:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:259",
+        "source": "program:space-kaia-discovered-12952",
+        "target": "evidence:patent-field:aviation_propulsion_sustainable:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:260",
+        "source": "program:space-kaia-discovered-12952",
+        "target": "evidence:patent-field:aviation_propulsion_sustainable:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:261",
+        "source": "program:space-kaia-discovered-12952",
+        "target": "evidence:patent-field:aviation_propulsion_sustainable:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:262",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122927",
+        "target": "field:space_comm_leo_network",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:263",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122927",
+        "target": "evidence:patent-field:space_comm_leo_network:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:264",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122927",
+        "target": "evidence:patent-field:space_comm_leo_network:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:265",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122927",
+        "target": "evidence:patent-field:space_comm_leo_network:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:266",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122927",
+        "target": "evidence:patent-field:space_comm_leo_network:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:267",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122923",
+        "target": "field:space_gnc_rendezvous_servicing",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:268",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122923",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:269",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122923",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:270",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122923",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:271",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122923",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:272",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122853",
+        "target": "field:space_gnc_rendezvous_servicing",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:273",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122853",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:274",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122853",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:275",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122853",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:276",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122853",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:277",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122701",
+        "target": "field:space_gnc_rendezvous_servicing",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:278",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122701",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:279",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122701",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:280",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122701",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:281",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122701",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:282",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122663",
+        "target": "field:aviation_structures_aero_composites",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:283",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122663",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:284",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122663",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:285",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122663",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:286",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122663",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:287",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122555",
+        "target": "field:space_gnc_rendezvous_servicing",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:288",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122555",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:289",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122555",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:290",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122555",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:291",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122555",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:292",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122391",
+        "target": "field:aviation_propulsion_sustainable",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:293",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122391",
+        "target": "evidence:patent-field:aviation_propulsion_sustainable:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:294",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122391",
+        "target": "evidence:patent-field:aviation_propulsion_sustainable:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:295",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122391",
+        "target": "evidence:patent-field:aviation_propulsion_sustainable:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:296",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122391",
+        "target": "evidence:patent-field:aviation_propulsion_sustainable:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:297",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122300",
+        "target": "field:space_satellite_bus_thermal_power",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:298",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122300",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:299",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122300",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:300",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122300",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:301",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122300",
+        "target": "evidence:patent-field:space_satellite_bus_thermal_power:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:302",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122260",
+        "target": "field:space_gnc_rendezvous_servicing",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:303",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122260",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:304",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122260",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:305",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122260",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:306",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122260",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:307",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122250",
+        "target": "field:space_gnc_rendezvous_servicing",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:308",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122250",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:309",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122250",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:310",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122250",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:311",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122250",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:312",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122087",
+        "target": "field:aviation_structures_aero_composites",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:313",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122087",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:314",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122087",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:315",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122087",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:316",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122087",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:317",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122053",
+        "target": "field:space_gnc_rendezvous_servicing",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:318",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122053",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:319",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122053",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:320",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122053",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:321",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122053",
+        "target": "evidence:patent-field:space_gnc_rendezvous_servicing:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:322",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122051",
+        "target": "field:space_comm_leo_network",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:323",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122051",
+        "target": "evidence:patent-field:space_comm_leo_network:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:324",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122051",
+        "target": "evidence:patent-field:space_comm_leo_network:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:325",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122051",
+        "target": "evidence:patent-field:space_comm_leo_network:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:326",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122051",
+        "target": "evidence:patent-field:space_comm_leo_network:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:327",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122046",
+        "target": "field:aviation_structures_aero_composites",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:328",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122046",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:329",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122046",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:330",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122046",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:331",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122046",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:332",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122044",
+        "target": "field:aviation_structures_aero_composites",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:333",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122044",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:334",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122044",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:335",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122044",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:336",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122044",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:337",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122043",
+        "target": "field:aviation_structures_aero_composites",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:338",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122043",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:339",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122043",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:340",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122043",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:341",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122043",
+        "target": "evidence:patent-field:aviation_structures_aero_composites:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:342",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122000",
+        "target": "field:space_comm_leo_network",
+        "type": "uses_patent_landscape",
+        "weight": 1
+      },
+      {
+        "id": "edge:343",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122000",
+        "target": "evidence:patent-field:space_comm_leo_network:landscape",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:344",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122000",
+        "target": "evidence:patent-field:space_comm_leo_network:country-trend",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:345",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122000",
+        "target": "evidence:patent-field:space_comm_leo_network:top-applicants",
+        "type": "has_evidence",
+        "weight": 1
+      },
+      {
+        "id": "edge:346",
+        "source": "program:space-bizinfo-discovered-PBLN_000000000122000",
+        "target": "evidence:patent-field:space_comm_leo_network:top-cpc",
+        "type": "has_evidence",
+        "weight": 1
+      }
+    ]
+  }
+}

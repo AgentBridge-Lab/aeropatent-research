@@ -1,0 +1,144 @@
+{
+  "rowCount": 2,
+  "publicationCount": 2,
+  "familyCount": 2,
+  "fieldCount": 9,
+  "publicationCountryCount": 2,
+  "displayCountries": [
+    "US",
+    "EP",
+    "CN",
+    "JP",
+    "KR"
+  ],
+  "analysisTimeZone": "Asia/Seoul",
+  "analysisDate": 20260629,
+  "currentYear": 2026,
+  "recent5StartYear": 2021,
+  "recent3StartYear": 2023,
+  "recent5StartDate": 20210629,
+  "recent3StartDate": 20230629,
+  "topField": {
+    "id": "space_launch_propulsion_recovery",
+    "domain": "space",
+    "labelKo": "발사체 추진·회수",
+    "shortLabelKo": "발사체",
+    "labelEn": "Launch vehicle, propulsion, and recovery",
+    "color": "#e54b4b",
+    "familyCount": 1,
+    "publicationCount": 1,
+    "recent5FamilyCount": 1,
+    "recent3FamilyCount": 1,
+    "recentMomentum": 1,
+    "countryFamilyCounts": {
+      "US": 1
+    },
+    "regionFamilyCounts": {
+      "NORTH_AMERICA": 1
+    },
+    "topApplicants": [
+      {
+        "key": "Example Aerospace",
+        "count": 1
+      },
+      {
+        "key": "Korea Partner Lab",
+        "count": 1
+      }
+    ],
+    "topCpcCodes": [
+      {
+        "key": "B64G1",
+        "count": 1
+      },
+      {
+        "key": "F02K9",
+        "count": 1
+      }
+    ],
+    "koreaPublicationGapOpportunityScore": 1,
+    "koreaAssigneeGapOpportunityScore": 0
+  },
+  "fastestRecentMomentumField": {
+    "id": "space_launch_propulsion_recovery",
+    "domain": "space",
+    "labelKo": "발사체 추진·회수",
+    "shortLabelKo": "발사체",
+    "labelEn": "Launch vehicle, propulsion, and recovery",
+    "color": "#e54b4b",
+    "familyCount": 1,
+    "publicationCount": 1,
+    "recent5FamilyCount": 1,
+    "recent3FamilyCount": 1,
+    "recentMomentum": 1,
+    "countryFamilyCounts": {
+      "US": 1
+    },
+    "regionFamilyCounts": {
+      "NORTH_AMERICA": 1
+    },
+    "topApplicants": [
+      {
+        "key": "Example Aerospace",
+        "count": 1
+      },
+      {
+        "key": "Korea Partner Lab",
+        "count": 1
+      }
+    ],
+    "topCpcCodes": [
+      {
+        "key": "B64G1",
+        "count": 1
+      },
+      {
+        "key": "F02K9",
+        "count": 1
+      }
+    ],
+    "koreaPublicationGapOpportunityScore": 1,
+    "koreaAssigneeGapOpportunityScore": 0
+  },
+  "topKoreaOpportunityField": {
+    "id": "space_launch_propulsion_recovery",
+    "domain": "space",
+    "labelKo": "발사체 추진·회수",
+    "shortLabelKo": "발사체",
+    "labelEn": "Launch vehicle, propulsion, and recovery",
+    "color": "#e54b4b",
+    "familyCount": 1,
+    "publicationCount": 1,
+    "recent5FamilyCount": 1,
+    "recent3FamilyCount": 1,
+    "recentMomentum": 1,
+    "countryFamilyCounts": {
+      "US": 1
+    },
+    "regionFamilyCounts": {
+      "NORTH_AMERICA": 1
+    },
+    "topApplicants": [
+      {
+        "key": "Example Aerospace",
+        "count": 1
+      },
+      {
+        "key": "Korea Partner Lab",
+        "count": 1
+      }
+    ],
+    "topCpcCodes": [
+      {
+        "key": "B64G1",
+        "count": 1
+      },
+      {
+        "key": "F02K9",
+        "count": 1
+      }
+    ],
+    "koreaPublicationGapOpportunityScore": 1,
+    "koreaAssigneeGapOpportunityScore": 0
+  }
+}

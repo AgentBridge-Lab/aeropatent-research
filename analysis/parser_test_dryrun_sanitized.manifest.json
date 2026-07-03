@@ -1,0 +1,92 @@
+{
+  "generatedAt": "2026-06-28T16:51:38.136Z",
+  "mode": "dry-run-only",
+  "projectId": "aeropatent-research",
+  "sqlPath": "sql/99_literal_candidate_rows_parser_test.sql",
+  "maxBytes": 1048576,
+  "dryRun": {
+    "dryRun": true,
+    "jobComplete": true,
+    "totalRows": 0,
+    "totalBytesProcessed": 0,
+    "totalBytesBilled": 0,
+    "totalGiBProcessed": 0,
+    "totalGiBBilled": 0,
+    "cacheHit": true,
+    "jobReference": {
+      "projectId": "aeropatent-research",
+      "location": "US"
+    },
+    "schema": {
+      "fields": [
+        {
+          "name": "publication_number",
+          "type": "STRING",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "publication_country_code",
+          "type": "STRING",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "family_id",
+          "type": "STRING",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "publication_date",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "priority_date",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "grant_date",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "field_id",
+          "type": "STRING",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "assignees",
+          "type": "RECORD",
+          "mode": "REPEATED",
+          "fields": [
+            {
+              "name": "name",
+              "type": "STRING",
+              "mode": "NULLABLE"
+            },
+            {
+              "name": "country_code",
+              "type": "STRING",
+              "mode": "NULLABLE"
+            }
+          ]
+        },
+        {
+          "name": "assignee_country_codes",
+          "type": "STRING",
+          "mode": "REPEATED"
+        },
+        {
+          "name": "cpc_codes",
+          "type": "STRING",
+          "mode": "REPEATED"
+        },
+        {
+          "name": "cpc_hit",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        }
+      ]
+    }
+  }
+}

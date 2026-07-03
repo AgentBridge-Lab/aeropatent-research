@@ -1,0 +1,333 @@
+[
+  {
+    "id": "report-card:launch_recovery",
+    "type": "field_summary",
+    "title": "재사용 발사체/회수",
+    "metric": 8,
+    "metric_label": "시드 문헌",
+    "description": "재사용 발사체/회수 분야는 현재 시드 코퍼스에서 8건이며, 국가 분포는 CN 2, EP 2, JP 1, KR 1, US 2이다.",
+    "country_counts": {
+      "CN": 2,
+      "EP": 2,
+      "JP": 1,
+      "KR": 1,
+      "US": 2
+    },
+    "top_patents": [
+      {
+        "publication_number": "JP7603675B2",
+        "title": "Hybrid propulsion systems for spacecraft",
+        "authority": "JP",
+        "score": 8.2
+      },
+      {
+        "publication_number": "EP3650358A1",
+        "title": "Return to base space launch vehicles, systems and methods",
+        "authority": "EP",
+        "score": 6.4
+      },
+      {
+        "publication_number": "EP4140898A1",
+        "title": "Landing apparatus for a reusable launch vehicle",
+        "authority": "EP",
+        "score": 6.4
+      }
+    ],
+    "graph_focus_node": "field:launch_recovery"
+  },
+  {
+    "id": "report-card:satellite_thermal",
+    "type": "field_summary",
+    "title": "위성 열제어/플랫폼",
+    "metric": 12,
+    "metric_label": "시드 문헌",
+    "description": "위성 열제어/플랫폼 분야는 현재 시드 코퍼스에서 12건이며, 국가 분포는 CN 3, EP 2, JP 2, KR 2, US 3이다.",
+    "country_counts": {
+      "CN": 3,
+      "EP": 2,
+      "JP": 2,
+      "KR": 2,
+      "US": 3
+    },
+    "top_patents": [
+      {
+        "publication_number": "KR102742715B1",
+        "title": "Solar, electronic, RF radiator for self-contained structures for space-based arrays",
+        "authority": "KR",
+        "score": 7.8
+      },
+      {
+        "publication_number": "CN107848635B",
+        "title": "Satellite radiator panel with combined reinforcing sheet/heat pipe",
+        "authority": "CN",
+        "score": 7.2
+      },
+      {
+        "publication_number": "JP6763875B2",
+        "title": "Artificial satellite heat dissipation panel with combined reinforcement / heat pipe",
+        "authority": "JP",
+        "score": 7.2
+      }
+    ],
+    "graph_focus_node": "field:satellite_thermal"
+  },
+  {
+    "id": "report-card:space_comm",
+    "type": "field_summary",
+    "title": "위성통신/LEO 네트워크",
+    "metric": 11,
+    "metric_label": "시드 문헌",
+    "description": "위성통신/LEO 네트워크 분야는 현재 시드 코퍼스에서 11건이며, 국가 분포는 CN 3, EP 2, JP 2, KR 2, US 2이다.",
+    "country_counts": {
+      "CN": 3,
+      "EP": 2,
+      "JP": 2,
+      "KR": 2,
+      "US": 2
+    },
+    "top_patents": [
+      {
+        "publication_number": "EP3329612B1",
+        "title": "Flexible capacity satellite constellation",
+        "authority": "EP",
+        "score": 8.2
+      },
+      {
+        "publication_number": "CN109417827B",
+        "title": "Low earth orbit satellite constellation system and method of use",
+        "authority": "CN",
+        "score": 7.2
+      },
+      {
+        "publication_number": "EP4143990A2",
+        "title": "Edge computing in satellite connectivity environments",
+        "authority": "EP",
+        "score": 7.2
+      }
+    ],
+    "graph_focus_node": "field:space_comm"
+  },
+  {
+    "id": "report-card:remote_sensing_payload",
+    "type": "field_summary",
+    "title": "SAR/원격탐사 페이로드",
+    "metric": 10,
+    "metric_label": "시드 문헌",
+    "description": "SAR/원격탐사 페이로드 분야는 현재 시드 코퍼스에서 10건이며, 국가 분포는 CN 1, EP 2, JP 2, KR 3, US 2이다.",
+    "country_counts": {
+      "CN": 1,
+      "EP": 2,
+      "JP": 2,
+      "KR": 3,
+      "US": 2
+    },
+    "top_patents": [
+      {
+        "publication_number": "KR102876480B1",
+        "title": "High resolution wide swath synthetic aperture radar system",
+        "authority": "KR",
+        "score": 7.4
+      },
+      {
+        "publication_number": "EP3432027B1",
+        "title": "High resolution wide swath synthetic aperture radar system",
+        "authority": "EP",
+        "score": 6.4
+      },
+      {
+        "publication_number": "JP7582444B2",
+        "title": "Change detection device and change detection method",
+        "authority": "JP",
+        "score": 4.7
+      }
+    ],
+    "graph_focus_node": "field:remote_sensing_payload"
+  },
+  {
+    "id": "report-card:gnc_rendezvous",
+    "type": "field_summary",
+    "title": "GNC/랑데부/온오빗 서비스",
+    "metric": 11,
+    "metric_label": "시드 문헌",
+    "description": "GNC/랑데부/온오빗 서비스 분야는 현재 시드 코퍼스에서 11건이며, 국가 분포는 CN 3, EP 2, JP 2, KR 1, US 3이다.",
+    "country_counts": {
+      "CN": 3,
+      "EP": 2,
+      "JP": 2,
+      "KR": 1,
+      "US": 3
+    },
+    "top_patents": [
+      {
+        "publication_number": "EP3932810B1",
+        "title": "Flight control intelligent data analysis and decision support system for spacecraft rendezvous and docking",
+        "authority": "EP",
+        "score": 7.0
+      },
+      {
+        "publication_number": "EP3186151B1",
+        "title": "Docking system and method for satellites",
+        "authority": "EP",
+        "score": 6.8
+      },
+      {
+        "publication_number": "JP6670837B2",
+        "title": "Docking system and docking method for satellite",
+        "authority": "JP",
+        "score": 6.8
+      }
+    ],
+    "graph_focus_node": "field:gnc_rendezvous"
+  },
+  {
+    "id": "report-card:materials_tps",
+    "type": "field_summary",
+    "title": "우주재료/TPS/코팅",
+    "metric": 11,
+    "metric_label": "시드 문헌",
+    "description": "우주재료/TPS/코팅 분야는 현재 시드 코퍼스에서 11건이며, 국가 분포는 CN 3, EP 2, JP 2, KR 1, US 3이다.",
+    "country_counts": {
+      "CN": 3,
+      "EP": 2,
+      "JP": 2,
+      "KR": 1,
+      "US": 3
+    },
+    "top_patents": [
+      {
+        "publication_number": "US20240002672A1",
+        "title": "Spacecraft, coating and method",
+        "authority": "US",
+        "score": 7.0
+      },
+      {
+        "publication_number": "US10717836B1",
+        "title": "Alternative resin systems for thermal protection materials",
+        "authority": "US",
+        "score": 5.6
+      },
+      {
+        "publication_number": "CN1641200A",
+        "title": "Elastomerized phenolic resin ablative insulation for rocket motors",
+        "authority": "CN",
+        "score": 4.8
+      }
+    ],
+    "graph_focus_node": "field:materials_tps"
+  },
+  {
+    "id": "report-card:US",
+    "type": "country_summary",
+    "title": "미국",
+    "metric": 15,
+    "metric_label": "시드 문헌",
+    "description": "미국은/는 GNC/랑데부/온오빗 서비스 축의 대표 문헌이 먼저 보인다.",
+    "field_counts": {
+      "gnc_rendezvous": 3,
+      "launch_recovery": 2,
+      "materials_tps": 3,
+      "remote_sensing_payload": 2,
+      "satellite_thermal": 3,
+      "space_comm": 2
+    },
+    "representative_patents": [
+      "US10666352B2",
+      "US20240002672A1",
+      "US20210276736A1",
+      "US20160288926A1"
+    ],
+    "graph_focus_node": "country:US"
+  },
+  {
+    "id": "report-card:EP",
+    "type": "country_summary",
+    "title": "유럽",
+    "metric": 12,
+    "metric_label": "시드 문헌",
+    "description": "유럽은/는 GNC/랑데부/온오빗 서비스 축의 대표 문헌이 먼저 보인다.",
+    "field_counts": {
+      "gnc_rendezvous": 2,
+      "launch_recovery": 2,
+      "materials_tps": 2,
+      "remote_sensing_payload": 2,
+      "satellite_thermal": 2,
+      "space_comm": 2
+    },
+    "representative_patents": [
+      "EP3329612B1",
+      "EP4143990A2",
+      "EP3932810B1",
+      "EP3877263B1"
+    ],
+    "graph_focus_node": "country:EP"
+  },
+  {
+    "id": "report-card:JP",
+    "type": "country_summary",
+    "title": "일본",
+    "metric": 11,
+    "metric_label": "시드 문헌",
+    "description": "일본은/는 GNC/랑데부/온오빗 서비스 축의 대표 문헌이 먼저 보인다.",
+    "field_counts": {
+      "gnc_rendezvous": 2,
+      "launch_recovery": 1,
+      "materials_tps": 2,
+      "remote_sensing_payload": 2,
+      "satellite_thermal": 2,
+      "space_comm": 2
+    },
+    "representative_patents": [
+      "JP7603675B2",
+      "JP6763875B2",
+      "JP6896982B2",
+      "JP6670837B2"
+    ],
+    "graph_focus_node": "country:JP"
+  },
+  {
+    "id": "report-card:CN",
+    "type": "country_summary",
+    "title": "중국",
+    "metric": 15,
+    "metric_label": "시드 문헌",
+    "description": "중국은/는 GNC/랑데부/온오빗 서비스 축의 대표 문헌이 먼저 보인다.",
+    "field_counts": {
+      "gnc_rendezvous": 3,
+      "launch_recovery": 2,
+      "materials_tps": 3,
+      "remote_sensing_payload": 1,
+      "satellite_thermal": 3,
+      "space_comm": 3
+    },
+    "representative_patents": [
+      "CN107848635B",
+      "CN109417827B",
+      "CN107108047A",
+      "CN1641200A"
+    ],
+    "graph_focus_node": "country:CN"
+  },
+  {
+    "id": "report-card:KR",
+    "type": "country_summary",
+    "title": "한국",
+    "metric": 10,
+    "metric_label": "시드 문헌",
+    "description": "한국은/는 SAR/원격탐사 페이로드 축의 대표 문헌이 먼저 보인다.",
+    "field_counts": {
+      "gnc_rendezvous": 1,
+      "launch_recovery": 1,
+      "materials_tps": 1,
+      "remote_sensing_payload": 3,
+      "satellite_thermal": 2,
+      "space_comm": 2
+    },
+    "representative_patents": [
+      "KR102742715B1",
+      "KR102876480B1",
+      "KR102124242B1",
+      "KR102165365B1"
+    ],
+    "graph_focus_node": "country:KR"
+  }
+]

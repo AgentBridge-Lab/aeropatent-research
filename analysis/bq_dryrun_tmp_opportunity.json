@@ -1,0 +1,90 @@
+{
+  "projectId": "aeropatent-research",
+  "keyFile": "<GOOGLE_APPLICATION_CREDENTIALS>",
+  "mode": "dry-run",
+  "maxBytes": 10737418240,
+  "result": {
+    "status": 200,
+    "dryRun": true,
+    "jobComplete": true,
+    "totalRows": "0",
+    "totalBytesProcessed": 0,
+    "totalBytesBilled": 0,
+    "totalGiBProcessed": 0,
+    "totalGiBBilled": 0,
+    "cacheHit": false,
+    "jobReference": {
+      "projectId": "aeropatent-research",
+      "location": "US"
+    },
+    "schema": {
+      "fields": [
+        {
+          "name": "field_id",
+          "type": "STRING",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "global_family_count",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "global_recent_3y_family_count",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "global_recent_5y_family_count",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "kr_publication_family_count",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "kr_publication_recent_5y_family_count",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "kr_assignee_family_count",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "kr_assignee_recent_5y_family_count",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "global_recent_momentum",
+          "type": "FLOAT",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "kr_publication_recent_share",
+          "type": "FLOAT",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "kr_assignee_recent_share",
+          "type": "FLOAT",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "korea_publication_gap_opportunity_score",
+          "type": "FLOAT",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "korea_assignee_gap_opportunity_score",
+          "type": "FLOAT",
+          "mode": "NULLABLE"
+        }
+      ]
+    }
+  }
+}

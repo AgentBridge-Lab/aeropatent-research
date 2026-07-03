@@ -1,0 +1,50 @@
+{
+  "projectId": "aeropatent-research",
+  "keyFile": "<GOOGLE_APPLICATION_CREDENTIALS>",
+  "mode": "dry-run",
+  "maxBytes": 10737418240,
+  "result": {
+    "status": 200,
+    "dryRun": true,
+    "jobComplete": true,
+    "totalRows": "0",
+    "totalBytesProcessed": 0,
+    "totalBytesBilled": 0,
+    "totalGiBProcessed": 0,
+    "totalGiBBilled": 0,
+    "cacheHit": false,
+    "jobReference": {
+      "projectId": "aeropatent-research",
+      "location": "US"
+    },
+    "schema": {
+      "fields": [
+        {
+          "name": "field_id",
+          "type": "STRING",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "assignee_country_code",
+          "type": "STRING",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "priority_year",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "family_count",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "publication_count",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        }
+      ]
+    }
+  }
+}

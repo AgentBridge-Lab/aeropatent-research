@@ -1,0 +1,81 @@
+{
+  "version": "2026-06-26",
+  "purpose": "Ensure aerospace/aviation patent landscape metrics are not over-interpreted.",
+  "risk_controls": [
+    {
+      "risk": "sample bias from LIMIT",
+      "control": "Production metric queries must not use LIMIT. LIMIT is allowed only in preview/sample queries."
+    },
+    {
+      "risk": "family double counting",
+      "control": "Global technology volume uses COUNT(DISTINCT family_id) at field level, not a sum of country-level counts."
+    },
+    {
+      "risk": "publication country confused with assignee country",
+      "control": "Dashboards label publication-country views as patent-office activity. Competitor/threat views use assignee_country_codes."
+    },
+    {
+      "risk": "classification false positives from broad CPC prefixes",
+      "control": "Run field-level validation samples. Use representative_field only after CPC + keyword scoring and manual precision review."
+    },
+    {
+      "risk": "language bias",
+      "control": "Use English title/abstract when available, otherwise fallback to first localized title/abstract and preserve language code."
+    },
+    {
+      "risk": "legal status overclaim",
+      "control": "Use grant_date as a registration signal only. Do not label it as active/enforceable without official legal status data."
+    },
+    {
+      "risk": "BigQuery cost exceeding zero-dollar target",
+      "control": "Run dry-run first, set maximumBytesBilled, prefer CPC-first, and configure project query quotas."
+    }
+  ],
+  "classification_validation": {
+    "sample_size_per_field": 50,
+    "minimum_precision_for_dashboard": 0.8,
+    "minimum_precision_for_report_claims": 0.9,
+    "review_labels": [
+      "true_positive",
+      "partially_relevant",
+      "false_positive",
+      "wrong_field",
+      "needs_text_review"
+    ],
+    "fields_to_review": [
+      "field_id",
+      "publication_number",
+      "title_text",
+      "abstract_text",
+      "cpc_codes",
+      "assignees",
+      "review_label",
+      "review_note"
+    ],
+    "output_file": "analysis/classification_validation_reviews.csv"
+  },
+  "confidence_labels": [
+    {
+      "id": "high",
+      "label_ko": "높음",
+      "criteria": "CPC + keyword match, precision >= 0.9, representative samples verified"
+    },
+    {
+      "id": "medium",
+      "label_ko": "보통",
+      "criteria": "CPC-only or keyword-only match, precision 0.8-0.9"
+    },
+    {
+      "id": "exploratory",
+      "label_ko": "탐색",
+      "criteria": "Broad CPC match or unreviewed field; use for discovery, not firm claims"
+    }
+  ],
+  "ui_copy_rules": [
+    "Use '공개국가 기준' when showing country_code metrics.",
+    "Use '출원인 국적/소재지 기준' when showing assignee_country_codes metrics.",
+    "Use '권리화 신호' for grant_date metrics, not '유효 특허'.",
+    "Use '한국 공백 후보' instead of '한국 취약 분야' unless manually reviewed."
+  ]
+}
+

@@ -1,0 +1,119 @@
+{
+  "programId": "space-djtp-discovered-2026-01-0072",
+  "programTitle": "[2026-01-0072]국방·우주 소부장 3D프린팅 공동제조센터 구축사업-3D프린팅 시제품제작지원사업 모집 공고",
+  "queryTopic": "우주산업",
+  "taxonomyVersion": "NASA_2024",
+  "generatedAt": "2026-06-28T15:45:47.912Z",
+  "dataStatus": "no_seed_corpus_evidence",
+  "sourceCorpus": {
+    "name": "aeropatent-research",
+    "path": "<repo-root>",
+    "limitation": "현재 결과는 seed corpus 기반이며 BigQuery 전체 수집 후 재생성해야 한다."
+  },
+  "selectedPatentField": {
+    "aeropatentFieldId": "space_gnc_rendezvous_servicing",
+    "legacyFieldIds": [
+      "gnc_rendezvous"
+    ],
+    "labelKo": "GNC/랑데부/온오빗 서비스",
+    "score": 0.65
+  },
+  "nasaTaxonomy": [
+    {
+      "taxonomyVersion": "NASA_2024",
+      "txCode": "TX17",
+      "txName": "Guidance, Navigation, and Control (GN&C)",
+      "labelKo": "유도/항법/제어",
+      "confidence": 0.65,
+      "matchedKeywords": [
+        "GNC/랑데부/온오빗 서비스",
+        "유도항법제어",
+        "랑데부",
+        "도킹"
+      ],
+      "reason": "GNC/랑데부/온오빗 서비스 분야의 대표 NASA TX"
+    },
+    {
+      "taxonomyVersion": "NASA_2024",
+      "txCode": "TX10",
+      "txName": "Autonomous Systems",
+      "labelKo": "자율 시스템",
+      "confidence": 0.58,
+      "matchedKeywords": [
+        "GNC/랑데부/온오빗 서비스",
+        "유도항법제어",
+        "랑데부",
+        "도킹"
+      ],
+      "reason": "GNC/랑데부/온오빗 서비스 분야의 보조 NASA TX"
+    },
+    {
+      "taxonomyVersion": "NASA_2024",
+      "txCode": "TX04",
+      "txName": "Robotic Systems",
+      "labelKo": "로봇 시스템",
+      "confidence": 0.58,
+      "matchedKeywords": [
+        "GNC/랑데부/온오빗 서비스",
+        "유도항법제어",
+        "랑데부",
+        "도킹"
+      ],
+      "reason": "GNC/랑데부/온오빗 서비스 분야의 보조 NASA TX"
+    }
+  ],
+  "generatedQueries": [
+    "우주산업",
+    "우주항공 소부장",
+    "시제품 제작",
+    "사업화",
+    "유도항법제어",
+    "랑데부",
+    "도킹",
+    "온오빗 서비스",
+    "우주잔해 제거",
+    "guidance navigation control",
+    "rendezvous",
+    "docking",
+    "on-orbit servicing",
+    "debris removal"
+  ],
+  "patentTrendSummary": "[2026-01-0072]국방·우주 소부장 3D프린팅 공동제조센터 구축사업-3D프린팅 시제품제작지원사업 모집 공고은 GNC/랑데부/온오빗 서비스 특허군과 연결되지만, 현재 seed corpus에서 공고 키워드와 직접 맞는 대표 특허를 찾지 못했다. 제안서에는 특허 동향 확정값 대신 추가 수집 필요 상태로 표시한다.",
+  "countryTrend": {},
+  "periodTrend": {
+    "tenYear": "최근 10년 backbone 수집 기준으로 장기 판세를 계산하도록 설계됨",
+    "fiveYear": "최근 5년 기본 대시보드 지표는 BigQuery 후보 테이블 생성 후 갱신",
+    "threeYearEmerging": "최근 3년 급상승 분야는 family count 성장률로 계산 예정",
+    "twelveMonthWatch": "최근 12개월 공개문헌 watchlist는 monthly CPC-first 수집으로 갱신"
+  },
+  "topApplicants": [
+    "seed corpus에서 출원인 집계 부족"
+  ],
+  "topCpcOrIpc": [],
+  "metrics": {
+    "representativePatentCount": 0,
+    "candidatePatentCount": 0,
+    "latestPublicationYear": null,
+    "countryCount": 0
+  },
+  "representativePatents": [],
+  "opportunityNotes": [
+    "GNC/랑데부/온오빗 서비스 분야는 공고와 직접 연결되는 대표 특허를 추가 수집한 뒤 기회/공백을 판단한다."
+  ],
+  "riskNotes": [
+    "자동 분류 결과이므로 대표 특허와 강한 제안서 문장은 수동 검토 후 사용해야 한다.",
+    "공개국가 기준과 출원인 국적 기준은 다를 수 있다.",
+    "FTO, 유효성, 침해 판단은 제공하지 않는다."
+  ],
+  "proposalReadyBullets": [
+    "[2026-01-0072]국방·우주 소부장 3D프린팅 공동제조센터 구축사업-3D프린팅 시제품제작지원사업 모집 공고의 기술범위는 GNC/랑데부/온오빗 서비스 특허군과 연결되지만, 현재 seed corpus에서 공고 키워드와 직접 맞는 대표 특허가 확인되지 않았다.",
+    "제안서에는 특허 동향을 확정값으로 쓰지 않고 추가 조사 필요 항목으로 표시한다.",
+    "BigQuery 전체 후보 수집과 수동 검증 후 대표 특허와 차별화 문장을 확정한다."
+  ],
+  "evidenceIds": [],
+  "limitations": [
+    "seed corpus 기반 1차 결과이다.",
+    "BigQuery 전체 후보 수집과 KIPRIS 보강 후 수량 지표가 바뀔 수 있다.",
+    "청구항 전문 분석 전까지 권리범위 해석은 하지 않는다."
+  ]
+}

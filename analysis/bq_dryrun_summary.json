@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-06-26",
+  "project": "aeropatent-research",
+  "mode": "dry-run only",
+  "currency_risk": "No query bytes were billed during this validation. Dry-run estimates were used for planning.",
+  "results": [
+    {
+      "query": "sql/00_schema_check.sql",
+      "purpose": "schema validation",
+      "estimated_gib_processed": 0.0098,
+      "decision": "safe"
+    },
+    {
+      "query": "sql/01a_candidate_10y_cpc_first_dryrun.sql",
+      "purpose": "10-year candidate discovery using CPC/date/country metadata only",
+      "estimated_gib_processed": 24.6887,
+      "decision": "approved after explicit review; run only with --max-bytes 32212254720"
+    },
+    {
+      "query": "sql/02a_monthly_watch_cpc_first.sql",
+      "purpose": "monthly publication monitoring using CPC/date/country metadata only",
+      "estimated_gib_processed": 24.6887,
+      "decision": "approved after explicit review; run at most monthly with --max-bytes 32212254720"
+    },
+    {
+      "query": "sql/01_candidate_10y_core_dryrun.sql",
+      "purpose": "10-year candidate discovery using direct title/abstract text search",
+      "estimated_gib_processed": 233.9753,
+      "decision": "do not run as a first-pass or scheduled query; use after CPC-first narrowing only"
+    },
+    {
+      "query": "sql/02_monthly_watch_publications.sql",
+      "purpose": "monthly publication monitoring using direct title/abstract text search",
+      "estimated_gib_processed": 235.9841,
+      "decision": "do not run as a monthly job"
+    }
+  ],
+  "zero_cost_policy": {
+    "goal": "monthly USD 0",
+    "basis": "Keep total monthly BigQuery query processing under the free tier and set maximumBytesBilled on every run.",
+    "safe_operating_model": [
+      "Use CPC-first queries for scheduled runs.",
+      "Use direct title/abstract text queries only for one-off reviewed exploration.",
+      "Export local JSON/JSONL for the website.",
+      "Never make the website query BigQuery live."
+    ]
+  }
+}

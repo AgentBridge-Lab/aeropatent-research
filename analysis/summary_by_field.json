@@ -1,0 +1,266 @@
+{
+  "launch_recovery": {
+    "field_label_ko": "재사용 발사체/회수",
+    "count": 8,
+    "country_counts": {
+      "CN": 2,
+      "EP": 2,
+      "JP": 1,
+      "KR": 1,
+      "US": 2
+    },
+    "latest_year": 2024,
+    "top_patents": [
+      {
+        "publication_number": "JP7603675B2",
+        "title": "Hybrid propulsion systems for spacecraft",
+        "authority": "JP",
+        "score": 8.2
+      },
+      {
+        "publication_number": "EP3650358A1",
+        "title": "Return to base space launch vehicles, systems and methods",
+        "authority": "EP",
+        "score": 6.4
+      },
+      {
+        "publication_number": "EP4140898A1",
+        "title": "Landing apparatus for a reusable launch vehicle",
+        "authority": "EP",
+        "score": 6.4
+      },
+      {
+        "publication_number": "KR20230029274A",
+        "title": "Landing apparatus for reusable launch vehicle",
+        "authority": "KR",
+        "score": 6.4
+      },
+      {
+        "publication_number": "US10822122B2",
+        "title": "Vertical landing systems for space vehicles and associated methods",
+        "authority": "US",
+        "score": 5.6
+      }
+    ]
+  },
+  "satellite_thermal": {
+    "field_label_ko": "위성 열제어/플랫폼",
+    "count": 12,
+    "country_counts": {
+      "CN": 3,
+      "EP": 2,
+      "JP": 2,
+      "KR": 2,
+      "US": 3
+    },
+    "latest_year": 2024,
+    "top_patents": [
+      {
+        "publication_number": "KR102742715B1",
+        "title": "Solar, electronic, RF radiator for self-contained structures for space-based arrays",
+        "authority": "KR",
+        "score": 7.8
+      },
+      {
+        "publication_number": "CN107848635B",
+        "title": "Satellite radiator panel with combined reinforcing sheet/heat pipe",
+        "authority": "CN",
+        "score": 7.2
+      },
+      {
+        "publication_number": "JP6763875B2",
+        "title": "Artificial satellite heat dissipation panel with combined reinforcement / heat pipe",
+        "authority": "JP",
+        "score": 7.2
+      },
+      {
+        "publication_number": "KR102124242B1",
+        "title": "Satellite radiator panels with combined stiffener/heat pipe",
+        "authority": "KR",
+        "score": 7.2
+      },
+      {
+        "publication_number": "EP3877263B1",
+        "title": "Satellite",
+        "authority": "EP",
+        "score": 7.0
+      }
+    ]
+  },
+  "space_comm": {
+    "field_label_ko": "위성통신/LEO 네트워크",
+    "count": 11,
+    "country_counts": {
+      "CN": 3,
+      "EP": 2,
+      "JP": 2,
+      "KR": 2,
+      "US": 2
+    },
+    "latest_year": 2025,
+    "top_patents": [
+      {
+        "publication_number": "EP3329612B1",
+        "title": "Flexible capacity satellite constellation",
+        "authority": "EP",
+        "score": 8.2
+      },
+      {
+        "publication_number": "CN109417827B",
+        "title": "Low earth orbit satellite constellation system and method of use",
+        "authority": "CN",
+        "score": 7.2
+      },
+      {
+        "publication_number": "EP4143990A2",
+        "title": "Edge computing in satellite connectivity environments",
+        "authority": "EP",
+        "score": 7.2
+      },
+      {
+        "publication_number": "JP6896982B2",
+        "title": "Earth low earth orbit satellite constellation for communications with geostationary satellite spectrum reuse",
+        "authority": "JP",
+        "score": 7.2
+      },
+      {
+        "publication_number": "KR102165365B1",
+        "title": "Low-orbit satellite star cluster system for communication in which geostationary satellite spectrum is reused",
+        "authority": "KR",
+        "score": 7.2
+      }
+    ]
+  },
+  "remote_sensing_payload": {
+    "field_label_ko": "SAR/원격탐사 페이로드",
+    "count": 10,
+    "country_counts": {
+      "CN": 1,
+      "EP": 2,
+      "JP": 2,
+      "KR": 3,
+      "US": 2
+    },
+    "latest_year": 2025,
+    "top_patents": [
+      {
+        "publication_number": "KR102876480B1",
+        "title": "High resolution wide swath synthetic aperture radar system",
+        "authority": "KR",
+        "score": 7.4
+      },
+      {
+        "publication_number": "EP3432027B1",
+        "title": "High resolution wide swath synthetic aperture radar system",
+        "authority": "EP",
+        "score": 6.4
+      },
+      {
+        "publication_number": "JP7582444B2",
+        "title": "Change detection device and change detection method",
+        "authority": "JP",
+        "score": 4.7
+      },
+      {
+        "publication_number": "KR20240129160A",
+        "title": "High-resolution wide-area swath SAR imaging",
+        "authority": "KR",
+        "score": 4.7
+      },
+      {
+        "publication_number": "KR101920379B1",
+        "title": "Bistatic synthetic aperture radar system based on global navigation satellite system",
+        "authority": "KR",
+        "score": 4.6
+      }
+    ]
+  },
+  "gnc_rendezvous": {
+    "field_label_ko": "GNC/랑데부/온오빗 서비스",
+    "count": 11,
+    "country_counts": {
+      "CN": 3,
+      "EP": 2,
+      "JP": 2,
+      "KR": 1,
+      "US": 3
+    },
+    "latest_year": 2024,
+    "top_patents": [
+      {
+        "publication_number": "EP3932810B1",
+        "title": "Flight control intelligent data analysis and decision support system for spacecraft rendezvous and docking",
+        "authority": "EP",
+        "score": 7.0
+      },
+      {
+        "publication_number": "EP3186151B1",
+        "title": "Docking system and method for satellites",
+        "authority": "EP",
+        "score": 6.8
+      },
+      {
+        "publication_number": "JP6670837B2",
+        "title": "Docking system and docking method for satellite",
+        "authority": "JP",
+        "score": 6.8
+      },
+      {
+        "publication_number": "CN107108047A",
+        "title": "Docking system and method for satellite",
+        "authority": "CN",
+        "score": 5.8
+      },
+      {
+        "publication_number": "US9302793B2",
+        "title": "Spacecraft docking system",
+        "authority": "US",
+        "score": 5.8
+      }
+    ]
+  },
+  "materials_tps": {
+    "field_label_ko": "우주재료/TPS/코팅",
+    "count": 11,
+    "country_counts": {
+      "CN": 3,
+      "EP": 2,
+      "JP": 2,
+      "KR": 1,
+      "US": 3
+    },
+    "latest_year": 2024,
+    "top_patents": [
+      {
+        "publication_number": "US20240002672A1",
+        "title": "Spacecraft, coating and method",
+        "authority": "US",
+        "score": 7.0
+      },
+      {
+        "publication_number": "US10717836B1",
+        "title": "Alternative resin systems for thermal protection materials",
+        "authority": "US",
+        "score": 5.6
+      },
+      {
+        "publication_number": "CN1641200A",
+        "title": "Elastomerized phenolic resin ablative insulation for rocket motors",
+        "authority": "CN",
+        "score": 4.8
+      },
+      {
+        "publication_number": "JP2003509279A",
+        "title": "Elastomer-treated phenolic resin ablative insulator for rocket motors",
+        "authority": "JP",
+        "score": 4.8
+      },
+      {
+        "publication_number": "CN104561882A",
+        "title": "High-temperature oxidation resistant coating on niobium alloy surface and preparation method of high-temperature oxidation resistant coating",
+        "authority": "CN",
+        "score": 4.6
+      }
+    ]
+  }
+}

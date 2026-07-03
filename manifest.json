@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-06-20T15:36:18.696578+00:00",
+  "root": "<repo-root>",
+  "seed_count": 65,
+  "patents": 65,
+  "chunks": 188,
+  "nodes": 200,
+  "edges": 413,
+  "fetched": 65,
+  "fetch_failures": [],
+  "target_country_counts": {
+    "US": 15,
+    "EP": 12,
+    "JP": 11,
+    "CN": 15,
+    "KR": 10
+  },
+  "files": [
+    "config/taxonomy.json",
+    "config/source_registry.json",
+    "config/search_protocol.json",
+    "normalized/patents.jsonl",
+    "normalized/evidence_chunks.jsonl",
+    "normalized/claims.jsonl",
+    "normalized/patent_families.jsonl",
+    "normalized/llm_wiki_index.json",
+    "graph/nodes.jsonl",
+    "graph/edges.jsonl",
+    "analysis/summary_by_country.json",
+    "analysis/summary_by_field.json",
+    "analysis/yearly_trends.json",
+    "analysis/period_buckets.json",
+    "analysis/top_patents.json",
+    "analysis/cluster_reports.json",
+    "reports/site_report_cards.json",
+    "reports/aeropatent_landscape_report_ko.md",
+    "reports/source_limitations.md"
+  ]
+}

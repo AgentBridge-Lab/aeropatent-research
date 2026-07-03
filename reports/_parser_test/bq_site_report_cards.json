@@ -1,0 +1,155 @@
+[
+  {
+    "id": "bq-field:space_launch_propulsion_recovery",
+    "type": "field_summary",
+    "title": "발사체 추진·회수",
+    "metric": 1,
+    "metricLabel": "family",
+    "description": "발사체 추진·회수 분야는 최근 10년 우선권 기준 1개 패밀리, 1개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 1개입니다.",
+    "countryFamilyCounts": {
+      "US": 1
+    },
+    "regionFamilyCounts": {
+      "NORTH_AMERICA": 1
+    },
+    "topApplicants": [
+      {
+        "key": "Example Aerospace",
+        "count": 1
+      },
+      {
+        "key": "Korea Partner Lab",
+        "count": 1
+      }
+    ],
+    "topCpcCodes": [
+      {
+        "key": "B64G1",
+        "count": 1
+      },
+      {
+        "key": "F02K9",
+        "count": 1
+      }
+    ],
+    "graphFocusNode": "field:space_launch_propulsion_recovery"
+  },
+  {
+    "id": "bq-field:space_satellite_bus_thermal_power",
+    "type": "field_summary",
+    "title": "위성 플랫폼·열제어·전력",
+    "metric": 0,
+    "metricLabel": "family",
+    "description": "위성 플랫폼·열제어·전력 분야는 최근 10년 우선권 기준 0개 패밀리, 0개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 0개입니다.",
+    "countryFamilyCounts": {},
+    "regionFamilyCounts": {},
+    "topApplicants": [],
+    "topCpcCodes": [],
+    "graphFocusNode": "field:space_satellite_bus_thermal_power"
+  },
+  {
+    "id": "bq-field:space_comm_leo_network",
+    "type": "field_summary",
+    "title": "위성통신·LEO 네트워크",
+    "metric": 0,
+    "metricLabel": "family",
+    "description": "위성통신·LEO 네트워크 분야는 최근 10년 우선권 기준 0개 패밀리, 0개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 0개입니다.",
+    "countryFamilyCounts": {},
+    "regionFamilyCounts": {},
+    "topApplicants": [],
+    "topCpcCodes": [],
+    "graphFocusNode": "field:space_comm_leo_network"
+  },
+  {
+    "id": "bq-field:space_remote_sensing_payload",
+    "type": "field_summary",
+    "title": "SAR·원격탐사 페이로드",
+    "metric": 1,
+    "metricLabel": "family",
+    "description": "SAR·원격탐사 페이로드 분야는 최근 10년 우선권 기준 1개 패밀리, 1개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 1개입니다.",
+    "countryFamilyCounts": {
+      "EP": 1
+    },
+    "regionFamilyCounts": {
+      "EUROPE": 1
+    },
+    "topApplicants": [
+      {
+        "key": "Orbital Imaging",
+        "count": 1
+      }
+    ],
+    "topCpcCodes": [
+      {
+        "key": "G01S13",
+        "count": 1
+      }
+    ],
+    "graphFocusNode": "field:space_remote_sensing_payload"
+  },
+  {
+    "id": "bq-field:space_gnc_rendezvous_servicing",
+    "type": "field_summary",
+    "title": "GNC·랑데부·온오빗 서비스",
+    "metric": 0,
+    "metricLabel": "family",
+    "description": "GNC·랑데부·온오빗 서비스 분야는 최근 10년 우선권 기준 0개 패밀리, 0개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 0개입니다.",
+    "countryFamilyCounts": {},
+    "regionFamilyCounts": {},
+    "topApplicants": [],
+    "topCpcCodes": [],
+    "graphFocusNode": "field:space_gnc_rendezvous_servicing"
+  },
+  {
+    "id": "bq-field:space_materials_tps_coatings",
+    "type": "field_summary",
+    "title": "우주재료·TPS·코팅",
+    "metric": 0,
+    "metricLabel": "family",
+    "description": "우주재료·TPS·코팅 분야는 최근 10년 우선권 기준 0개 패밀리, 0개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 0개입니다.",
+    "countryFamilyCounts": {},
+    "regionFamilyCounts": {},
+    "topApplicants": [],
+    "topCpcCodes": [],
+    "graphFocusNode": "field:space_materials_tps_coatings"
+  },
+  {
+    "id": "bq-field:aviation_propulsion_sustainable",
+    "type": "field_summary",
+    "title": "민간항공 추진·전기·수소·SAF",
+    "metric": 0,
+    "metricLabel": "family",
+    "description": "민간항공 추진·전기·수소·SAF 분야는 최근 10년 우선권 기준 0개 패밀리, 0개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 0개입니다.",
+    "countryFamilyCounts": {},
+    "regionFamilyCounts": {},
+    "topApplicants": [],
+    "topCpcCodes": [],
+    "graphFocusNode": "field:aviation_propulsion_sustainable"
+  },
+  {
+    "id": "bq-field:aviation_structures_aero_composites",
+    "type": "field_summary",
+    "title": "항공 구조·복합재·공력",
+    "metric": 0,
+    "metricLabel": "family",
+    "description": "항공 구조·복합재·공력 분야는 최근 10년 우선권 기준 0개 패밀리, 0개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 0개입니다.",
+    "countryFamilyCounts": {},
+    "regionFamilyCounts": {},
+    "topApplicants": [],
+    "topCpcCodes": [],
+    "graphFocusNode": "field:aviation_structures_aero_composites"
+  },
+  {
+    "id": "bq-field:aviation_avionics_flight_control_autonomy",
+    "type": "field_summary",
+    "title": "항전·비행제어·자율비행",
+    "metric": 0,
+    "metricLabel": "family",
+    "description": "항전·비행제어·자율비행 분야는 최근 10년 우선권 기준 0개 패밀리, 0개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 0개입니다.",
+    "countryFamilyCounts": {},
+    "regionFamilyCounts": {},
+    "topApplicants": [],
+    "topCpcCodes": [],
+    "graphFocusNode": "field:aviation_avionics_flight_control_autonomy"
+  }
+]

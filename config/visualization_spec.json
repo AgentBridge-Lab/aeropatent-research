@@ -1,0 +1,342 @@
+{
+  "version": "2026-06-26",
+  "product": "AEROPATENT",
+  "visual_thesis": "A calm aerospace intelligence console: dark space-like depth for the graph view, bright restrained analytical surfaces for charts, and minimal text that lets patterns surface first.",
+  "readability_goal": "A first-time user should understand the leading fields, leading publication countries, Korea gap candidates, and newest monitoring signals within 30 seconds.",
+  "geography_strategy": {
+    "collection_scope": "worldwide_all_available_publication_countries",
+    "default_display_countries": ["US", "EP", "CN", "JP", "KR"],
+    "default_display_rule": "Show major jurisdictions first, then top emerging countries, then Other. Do not crowd the first screen with every country.",
+    "region_strategy_file": "config/country_region_strategy.json",
+    "region_display_rule": "Use 권역별 as the UI term instead of 대륙별 because EP and WO are special patent jurisdictions.",
+    "long_tail_signal": "Surface smaller countries only when recent growth, assignee concentration, or field specialization is meaningful."
+  },
+  "global_filters": {
+    "default_period": "recent_5y",
+    "period_options": [
+      {
+        "id": "monthly_watch",
+        "label_ko": "최근 1개월",
+        "date_basis": "publication_date",
+        "use": "신규 공개 모니터링"
+      },
+      {
+        "id": "annual_watch",
+        "label_ko": "최근 1년",
+        "date_basis": "publication_date",
+        "use": "경쟁사/기관 watchlist"
+      },
+      {
+        "id": "emerging_3y",
+        "label_ko": "최근 3년",
+        "date_basis": "priority_date",
+        "use": "급상승 분야"
+      },
+      {
+        "id": "default_5y",
+        "label_ko": "최근 5년",
+        "date_basis": "priority_date",
+        "use": "기본 동향"
+      },
+      {
+        "id": "backbone_10y",
+        "label_ko": "최근 10년",
+        "date_basis": "priority_date",
+        "use": "장기 판세"
+      }
+    ],
+    "country_basis_toggle": [
+      {
+        "id": "publication_country",
+        "label_ko": "공개국가 기준",
+        "default": true
+      },
+      {
+        "id": "assignee_country",
+        "label_ko": "출원인국가 기준",
+        "default": false
+      }
+    ],
+    "count_basis_toggle": [
+      {
+        "id": "family",
+        "label_ko": "패밀리 수",
+        "default": true
+      },
+      {
+        "id": "publication",
+        "label_ko": "공개문헌 수",
+        "default": false
+      }
+    ]
+  },
+  "pages": [
+    {
+      "route": "/analysis",
+      "name_ko": "분석 홈",
+      "job": "전체 항공우주 특허 현황을 가장 빠르게 이해하게 한다.",
+      "layout": [
+        {
+          "zone": "top_filter_bar",
+          "components": ["period_segmented_control", "country_basis_toggle", "field_filter", "confidence_badge"]
+        },
+        {
+          "zone": "kpi_strip",
+          "components": [
+            "family_count",
+            "recent_5y_growth",
+            "fastest_growing_field",
+            "leading_publication_country",
+            "top_korea_gap_candidate"
+          ]
+        },
+        {
+          "zone": "primary_grid",
+          "components": [
+            "field_country_heatmap",
+            "field_trend_stacked_area",
+            "country_portfolio_bar"
+          ]
+        },
+        {
+          "zone": "decision_layer",
+          "components": [
+            "korea_gap_opportunity_table",
+            "assignee_ranking",
+            "monthly_watchlist"
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/analysis/:fieldId",
+      "name_ko": "분야 상세",
+      "job": "선택 분야가 왜 중요한지, 어느 국가/기관이 강한지, 한국 기회가 있는지 보여준다.",
+      "layout": [
+        {
+          "zone": "field_header",
+          "components": ["field_summary", "confidence_badge", "top_insight_sentence"]
+        },
+        {
+          "zone": "field_charts",
+          "components": ["10y_line_trend", "country_distribution", "top_assignees", "cpc_keyword_bars"]
+        },
+        {
+          "zone": "evidence",
+          "components": ["representative_families", "recent_publications", "review_notes"]
+        }
+      ]
+    },
+    {
+      "route": "/countries",
+      "name_ko": "국가 비교",
+      "job": "공개국가 기준과 출원인국가 기준을 혼동하지 않고 비교한다.",
+      "layout": [
+        {
+          "zone": "basis_explainer",
+          "components": ["publication_vs_assignee_basis_toggle", "basis_note"]
+        },
+        {
+          "zone": "comparison",
+          "components": ["country_field_heatmap", "country_mix_bars", "korea_vs_global_gap"]
+        }
+      ]
+    },
+    {
+      "route": "/regions",
+      "name_ko": "권역 비교",
+      "job": "전세계 데이터를 권역 단위로 먼저 요약하고, 의미 있는 국가만 드릴다운한다.",
+      "layout": [
+        {
+          "zone": "region_overview",
+          "components": ["region_map", "region_trend_lines", "region_field_mix"]
+        },
+        {
+          "zone": "region_drilldown",
+          "components": ["top_countries_in_region", "long_tail_growth_cards", "special_jurisdiction_notes"]
+        }
+      ]
+    },
+    {
+      "route": "/graph",
+      "name_ko": "Graph View",
+      "job": "분야, 국가, 출원인, 특허 패밀리의 연결을 은하수처럼 탐색한다.",
+      "layout": [
+        {
+          "zone": "full_canvas",
+          "components": ["3d_force_graph", "field_orbit_legend", "focus_controls"]
+        },
+        {
+          "zone": "right_drawer",
+          "components": ["selected_node_report", "linked_patents", "recommended_next_nodes"]
+        }
+      ]
+    },
+    {
+      "route": "/patents",
+      "name_ko": "특허 검색",
+      "job": "분석에서 발견한 분야를 더 깊게 검색한다.",
+      "layout": [
+        {
+          "zone": "search_controls",
+          "components": ["query_input", "field_filter", "country_filter", "period_filter", "tag_filter"]
+        },
+        {
+          "zone": "results",
+          "components": ["patent_table", "family_drawer", "evidence_chunks"]
+        }
+      ]
+    }
+  ],
+  "charts": [
+    {
+      "id": "field_country_heatmap",
+      "chart_type": "heatmap",
+      "primary_question": "어느 분야가 어느 공개국가에서 강한가?",
+      "data": "analysis/bq_field_country_period_metrics.json",
+      "x": "publication_country_code",
+      "y": "field_id",
+      "value": "family_count",
+      "encoding": {
+        "color": "log_scaled_family_count",
+        "cell_label": "family_count",
+        "tooltip": ["field_label", "publication_country_code", "family_count", "publication_count", "confidence"]
+      },
+      "readability_rules": [
+        "Use one sequential color scale, not multi-hue rainbow.",
+        "Show row totals at the right edge.",
+        "Pin Korea row/column comparison in the tooltip."
+      ]
+    },
+    {
+      "id": "field_trend_stacked_area",
+      "chart_type": "stacked_area",
+      "primary_question": "최근 10년 동안 어떤 분야가 커졌는가?",
+      "data": "analysis/bq_field_country_period_metrics.json",
+      "x": "priority_year",
+      "y": "family_count",
+      "series": "field_id",
+      "readability_rules": [
+        "Default to top 6 fields plus Other if the chart becomes crowded.",
+        "Use direct labels at the right edge instead of a distant legend.",
+        "Allow switching to line chart for precise comparison."
+      ]
+    },
+    {
+      "id": "country_portfolio_bar",
+      "chart_type": "100_percent_stacked_bar",
+      "primary_question": "각 공개국가는 어떤 분야 포트폴리오를 갖고 있는가?",
+      "data": "analysis/bq_country_portfolio.json",
+      "x": "share",
+      "y": "publication_country_code",
+      "series": "field_id",
+      "readability_rules": [
+        "Use percentage for mix, raw count in tooltip.",
+        "Default country order: US, EP, CN, JP, KR, top emerging countries, then Other.",
+        "Add a basis label: 공개국가 기준."
+      ]
+    },
+    {
+      "id": "region_portfolio",
+      "chart_type": "small_multiple_stacked_bar",
+      "primary_question": "권역별로 어떤 항공우주 분야가 강한가?",
+      "data": "analysis/bq_region_portfolio.json",
+      "x": "share",
+      "y": "region_id",
+      "series": "field_id",
+      "readability_rules": [
+        "Use 권역별, not 대륙별, because patent jurisdictions are not pure geography.",
+        "Keep EP and WO explanatory notes visible in tooltips.",
+        "Show all regions, but keep country drill-down one click away."
+      ]
+    },
+    {
+      "id": "country_long_tail_growth",
+      "chart_type": "ranked_cards",
+      "primary_question": "주요국 밖에서 빠르게 커지는 국가/권역 신호는 무엇인가?",
+      "data": "analysis/bq_country_long_tail_growth.json",
+      "readability_rules": [
+        "Show only countries passing minimum family count and growth thresholds.",
+        "Avoid overclaiming: label as 관찰 신호 or 성장 후보.",
+        "Link each card to field detail and patent search results."
+      ]
+    },
+    {
+      "id": "korea_gap_opportunity_table",
+      "chart_type": "ranked_table",
+      "primary_question": "세계적으로 뜨는데 한국 공개/출원인 신호가 약한 분야는 어디인가?",
+      "data": "analysis/bq_korea_gap_opportunity_scores.json",
+      "columns": [
+        "rank",
+        "field_label",
+        "global_recent_momentum",
+        "kr_publication_recent_share",
+        "kr_assignee_recent_share",
+        "korea_publication_gap_opportunity_score",
+        "confidence"
+      ],
+      "readability_rules": [
+        "Use 후보 wording, not definitive weakness wording.",
+        "Add short explanation sentence per row.",
+        "Show publication-country and assignee-country shares side by side."
+      ]
+    },
+    {
+      "id": "assignee_ranking",
+      "chart_type": "ranked_bar",
+      "primary_question": "어떤 기업/기관이 분야를 주도하는가?",
+      "data": "analysis/bq_assignee_rankings.json",
+      "x": "family_count",
+      "y": "assignee_name",
+      "series": "organization_type",
+      "readability_rules": [
+        "Separate public research and private company tabs.",
+        "Normalize common aliases before ranking.",
+        "Use family count as default, publication count as secondary."
+      ]
+    },
+    {
+      "id": "monthly_watchlist",
+      "chart_type": "compact_list",
+      "primary_question": "이번 달 새로 공개된 중요한 문헌은 무엇인가?",
+      "data": "analysis/bq_monthly_watchlist.json",
+      "readability_rules": [
+        "Show at most 8 items on the home page.",
+        "Each item shows title, publication country, field, assignee, and why it matters.",
+        "Mark this as publication_date 기준."
+      ]
+    },
+    {
+      "id": "graph_view",
+      "chart_type": "3d_force_graph",
+      "primary_question": "분야, 국가, 출원인, 특허 패밀리는 어떻게 연결되는가?",
+      "data": ["graph/bq_nodes.jsonl", "graph/bq_edges.jsonl"],
+      "node_types": ["field", "country", "assignee", "family", "publication", "cpc", "tag"],
+      "edge_types": ["CLASSIFIED_AS", "PUBLISHED_IN", "ASSIGNED_TO", "IN_FAMILY", "HAS_CPC", "CITES", "SIMILAR_TO"],
+      "readability_rules": [
+        "Initial graph shows only field, country, and top assignee nodes.",
+        "Patent publication nodes appear only after zoom/focus.",
+        "Clicking a field moves camera to the cluster and opens the report drawer.",
+        "Use opacity and size to reduce visual noise, not more colors."
+      ]
+    }
+  ],
+  "motion": {
+    "analysis_home": [
+      "KPI numbers count in once after data load.",
+      "Heatmap cells fade in by field row.",
+      "Right-side report drawer uses shared transition from selected chart cell."
+    ],
+    "graph_view": [
+      "Field cluster selection triggers camera fly-to.",
+      "Unrelated nodes fade to 15 percent opacity.",
+      "Report drawer opens after camera settles, not simultaneously."
+    ]
+  },
+  "visual_system": {
+    "surface": "light analytical dashboard by default; graph view uses dark canvas.",
+    "palette": "field colors are accents only; charts use restrained sequential scales.",
+    "typography": "small dense labels, clear numeric hierarchy, no oversized dashboard hero text.",
+    "cards": "use cards only for report summaries, watchlist items, and drawers; charts live in clean sections."
+  }
+}

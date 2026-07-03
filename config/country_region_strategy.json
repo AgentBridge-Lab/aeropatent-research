@@ -1,0 +1,95 @@
+{
+  "version": "2026-06-28",
+  "collection_scope": {
+    "publication_countries": "ALL_AVAILABLE_IN_GOOGLE_PATENTS_PUBLIC_DATA",
+    "reason": "Collect worldwide first so long-tail growth signals are not lost. Limit visual emphasis at display time, not at collection time."
+  },
+  "default_display": {
+    "major_publication_countries": ["US", "EP", "CN", "JP", "KR"],
+    "label_ko": "주요국",
+    "fallback_bucket": "OTHER_WORLD",
+    "rule": "Home charts show major countries first, then emerging top movers, then Other."
+  },
+  "special_jurisdictions": [
+    {
+      "code": "EP",
+      "label_ko": "유럽특허청",
+      "type": "regional_office",
+      "display_region": "EUROPE",
+      "note": "EP is not a country. Keep it visible as a major patent office and explain it in tooltips."
+    },
+    {
+      "code": "WO",
+      "label_ko": "PCT 국제공개",
+      "type": "international_route",
+      "display_region": "INTERNATIONAL",
+      "note": "WO/PCT is not a continent or national office. Use it as a separate international filing route signal."
+    }
+  ],
+  "region_groups": [
+    {
+      "id": "NORTH_AMERICA",
+      "label_ko": "북미",
+      "country_codes": ["US", "CA", "MX"]
+    },
+    {
+      "id": "EUROPE",
+      "label_ko": "유럽",
+      "country_codes": ["EP", "DE", "FR", "GB", "IT", "ES", "NL", "SE", "CH", "AT", "BE", "DK", "FI", "NO", "PL"]
+    },
+    {
+      "id": "EAST_ASIA",
+      "label_ko": "동아시아",
+      "country_codes": ["CN", "JP", "KR", "TW", "HK"]
+    },
+    {
+      "id": "SOUTH_ASIA",
+      "label_ko": "남아시아",
+      "country_codes": ["IN", "PK", "BD", "LK"]
+    },
+    {
+      "id": "MIDDLE_EAST",
+      "label_ko": "중동",
+      "country_codes": ["IL", "AE", "SA", "TR", "QA"]
+    },
+    {
+      "id": "OCEANIA",
+      "label_ko": "오세아니아",
+      "country_codes": ["AU", "NZ"]
+    },
+    {
+      "id": "LATIN_AMERICA",
+      "label_ko": "중남미",
+      "country_codes": ["BR", "AR", "CL", "CO", "PE"]
+    },
+    {
+      "id": "AFRICA",
+      "label_ko": "아프리카",
+      "country_codes": ["ZA", "EG", "MA", "NG", "KE"]
+    },
+    {
+      "id": "INTERNATIONAL",
+      "label_ko": "국제공개",
+      "country_codes": ["WO"]
+    },
+    {
+      "id": "OTHER_WORLD",
+      "label_ko": "기타",
+      "country_codes": []
+    }
+  ],
+  "display_rules": [
+    "Do not show every country on the first screen.",
+    "Home heatmap defaults to US, EP, CN, JP, KR, top emerging countries, and Other.",
+    "Region view shows all regions with drill-down to countries.",
+    "Country view allows exact country filtering and separates publication-country from assignee-country basis.",
+    "Long-tail cards surface countries with high recent growth but low absolute count.",
+    "Tooltips must explain that EP and WO are special jurisdictions, not ordinary countries."
+  ],
+  "planned_outputs": [
+    "analysis/bq_field_region_period_metrics.json",
+    "analysis/bq_region_portfolio.json",
+    "analysis/bq_country_long_tail_growth.json",
+    "analysis/bq_major_country_dashboard_metrics.json"
+  ]
+}

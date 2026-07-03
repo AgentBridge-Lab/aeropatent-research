@@ -1,0 +1,107 @@
+{
+  "US": {
+    "country_label_ko": "미국",
+    "count": 15,
+    "field_counts": {
+      "gnc_rendezvous": 3,
+      "launch_recovery": 2,
+      "materials_tps": 3,
+      "remote_sensing_payload": 2,
+      "satellite_thermal": 3,
+      "space_comm": 2
+    },
+    "recent_2020_plus": 7,
+    "earliest_year": 1987,
+    "latest_year": 2024,
+    "representative_patents": [
+      "US10666352B2",
+      "US20240002672A1",
+      "US20210276736A1",
+      "US20160288926A1"
+    ]
+  },
+  "EP": {
+    "country_label_ko": "유럽",
+    "count": 12,
+    "field_counts": {
+      "gnc_rendezvous": 2,
+      "launch_recovery": 2,
+      "materials_tps": 2,
+      "remote_sensing_payload": 2,
+      "satellite_thermal": 2,
+      "space_comm": 2
+    },
+    "recent_2020_plus": 9,
+    "earliest_year": 2002,
+    "latest_year": 2025,
+    "representative_patents": [
+      "EP3329612B1",
+      "EP4143990A2",
+      "EP3932810B1",
+      "EP3877263B1"
+    ]
+  },
+  "JP": {
+    "country_label_ko": "일본",
+    "count": 11,
+    "field_counts": {
+      "gnc_rendezvous": 2,
+      "launch_recovery": 1,
+      "materials_tps": 2,
+      "remote_sensing_payload": 2,
+      "satellite_thermal": 2,
+      "space_comm": 2
+    },
+    "recent_2020_plus": 5,
+    "earliest_year": 1987,
+    "latest_year": 2024,
+    "representative_patents": [
+      "JP7603675B2",
+      "JP6763875B2",
+      "JP6896982B2",
+      "JP6670837B2"
+    ]
+  },
+  "CN": {
+    "country_label_ko": "중국",
+    "count": 15,
+    "field_counts": {
+      "gnc_rendezvous": 3,
+      "launch_recovery": 2,
+      "materials_tps": 3,
+      "remote_sensing_payload": 1,
+      "satellite_thermal": 3,
+      "space_comm": 3
+    },
+    "recent_2020_plus": 2,
+    "earliest_year": 2005,
+    "latest_year": 2021,
+    "representative_patents": [
+      "CN107848635B",
+      "CN109417827B",
+      "CN107108047A",
+      "CN1641200A"
+    ]
+  },
+  "KR": {
+    "country_label_ko": "한국",
+    "count": 10,
+    "field_counts": {
+      "gnc_rendezvous": 1,
+      "launch_recovery": 1,
+      "materials_tps": 1,
+      "remote_sensing_payload": 3,
+      "satellite_thermal": 2,
+      "space_comm": 2
+    },
+    "recent_2020_plus": 8,
+    "earliest_year": 2015,
+    "latest_year": 2025,
+    "representative_patents": [
+      "KR102742715B1",
+      "KR102876480B1",
+      "KR102124242B1",
+      "KR102165365B1"
+    ]
+  }
+}

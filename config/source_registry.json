@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-06-20T15:36:18.696578+00:00",
+  "collection_mode": "web_accessible_seed_corpus",
+  "primary_source_used": {
+    "name": "Google Patents pages via Jina Reader",
+    "url": "https://patents.google.com/",
+    "coverage_note": "Google Patents states it searches full text from patent offices around the world. This seed corpus uses individual Google Patents publication pages for bibliographic text, abstract snippets, and family hints.",
+    "limitations": [
+      "Not a legal source of record.",
+      "Some translated pages and legal-status fields are assumptions.",
+      "CSV/XHR bulk access was rate-limited during this run, so individual pages were fetched instead."
+    ]
+  },
+  "official_sources_for_production_refresh": [
+    {
+      "country": "US",
+      "source": "USPTO Open Data Portal / Patent Public Search",
+      "url": "https://data.uspto.gov/",
+      "notes": "Use USPTO ODP APIs or Patent Public Search for source-of-record US data. ODP may require a USPTO.gov account/API key."
+    },
+    {
+      "country": "EP",
+      "source": "EPO Open Patent Services (OPS)",
+      "url": "https://www.epo.org/en/searching-for-patents/data/web-services/ops",
+      "notes": "Use OPS for EPO bibliographic/family data. Registered credentials and fair-use handling are needed."
+    },
+    {
+      "country": "JP",
+      "source": "J-PlatPat / Japan Patent Office",
+      "url": "https://www.jpo.go.jp/e/support/j_platpat/patent_search.html",
+      "notes": "J-PlatPat is the official digital library for Japanese patents and utility models."
+    },
+    {
+      "country": "CN",
+      "source": "CNIPA Patent Search and Analysis System",
+      "url": "https://pss-system.cponline.cnipa.gov.cn/conventionalSearchEn",
+      "notes": "Use CNIPA public services for China source-of-record publication and legal data."
+    },
+    {
+      "country": "KR",
+      "source": "KIPRIS Plus",
+      "url": "https://plus.kipris.or.kr/eng/main.do",
+      "notes": "Use KIPRIS Plus Open API with ServiceKey for Korean patent and utility-model data."
+    }
+  ]
+}

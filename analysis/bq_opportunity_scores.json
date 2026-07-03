@@ -1,0 +1,1501 @@
+[
+  {
+    "id": "space_launch_propulsion_recovery",
+    "domain": "space",
+    "labelKo": "발사체 추진·회수",
+    "shortLabelKo": "발사체",
+    "labelEn": "Launch vehicle, propulsion, and recovery",
+    "color": "#e54b4b",
+    "familyCount": 17160,
+    "publicationCount": 36429,
+    "recent5FamilyCount": 8464,
+    "recent3FamilyCount": 4532,
+    "recentMomentum": 0.2641,
+    "countryFamilyCounts": {
+      "US": 2916,
+      "WO": 1888,
+      "CN": 11736,
+      "KR": 992,
+      "EP": 1482,
+      "RU": 1024,
+      "AU": 205,
+      "CA": 318,
+      "TW": 32,
+      "ES": 191,
+      "DE": 303,
+      "PL": 66,
+      "FR": 373,
+      "ZA": 19,
+      "LU": 10,
+      "SG": 19,
+      "TR": 17,
+      "UA": 8,
+      "EA": 18,
+      "BE": 2,
+      "GB": 174,
+      "CZ": 9,
+      "CH": 6,
+      "NZ": 19,
+      "FI": 12,
+      "IL": 102,
+      "AT": 12,
+      "EC": 3,
+      "SI": 4,
+      "PT": 8,
+      "BR": 40,
+      "AR": 8,
+      "MX": 17,
+      "LT": 5,
+      "JP": 701,
+      "BG": 5,
+      "RO": 5,
+      "UY": 2,
+      "HU": 8,
+      "IT": 67,
+      "DK": 13,
+      "SE": 12,
+      "NL": 5,
+      "GR": 2,
+      "SA": 2,
+      "IE": 1,
+      "NO": 2,
+      "MY": 2,
+      "MD": 1,
+      "RS": 1,
+      "MA": 5,
+      "CO": 3,
+      "PH": 1
+    },
+    "regionFamilyCounts": {
+      "NORTH_AMERICA": 2943,
+      "INTERNATIONAL": 1888,
+      "EAST_ASIA": 13116,
+      "EUROPE": 2018,
+      "OTHER_WORLD": 1116,
+      "OCEANIA": 211,
+      "AFRICA": 22,
+      "MIDDLE_EAST": 120,
+      "LATIN_AMERICA": 50
+    },
+    "topApplicants": [
+      {
+        "key": "HARBIN INST TECHNOLOGY",
+        "count": 499
+      },
+      {
+        "key": "SHANGHAI SATELLITE ENG INST",
+        "count": 446
+      },
+      {
+        "key": "UNIV BEIHANG",
+        "count": 400
+      },
+      {
+        "key": "UNIV NORTHWESTERN POLYTECHNICAL",
+        "count": 381
+      },
+      {
+        "key": "SHANGHAI AEROSPACE SYSTEM ENGINEERING INST",
+        "count": 357
+      },
+      {
+        "key": "BEIJING INST SPACECRAFT SYSTEM ENGINEERING",
+        "count": 354
+      },
+      {
+        "key": "BEIJING INST CONTROL ENG",
+        "count": 331
+      },
+      {
+        "key": "XIAN AEROSPACE PROPULSION INSTITUTE",
+        "count": 328
+      }
+    ],
+    "topCpcCodes": [
+      {
+        "key": "B64G1",
+        "count": 96796
+      },
+      {
+        "key": "F02K9",
+        "count": 26466
+      },
+      {
+        "key": "H04B7",
+        "count": 3550
+      },
+      {
+        "key": "F03H1",
+        "count": 2547
+      },
+      {
+        "key": "H01Q1",
+        "count": 2335
+      },
+      {
+        "key": "B64G3",
+        "count": 1751
+      },
+      {
+        "key": "F05D2260",
+        "count": 1489
+      },
+      {
+        "key": "Y02E10",
+        "count": 1324
+      },
+      {
+        "key": "G06F30",
+        "count": 1215
+      },
+      {
+        "key": "G01S13",
+        "count": 1194
+      }
+    ],
+    "koreaPublicationGapOpportunityScore": 0.2492,
+    "koreaAssigneeGapOpportunityScore": 0.2511
+  },
+  {
+    "id": "space_remote_sensing_payload",
+    "domain": "space",
+    "labelKo": "SAR·원격탐사 페이로드",
+    "shortLabelKo": "SAR 페이로드",
+    "labelEn": "SAR and remote-sensing payload",
+    "color": "#4d8cf5",
+    "familyCount": 120249,
+    "publicationCount": 318311,
+    "recent5FamilyCount": 61372,
+    "recent3FamilyCount": 31099,
+    "recentMomentum": 0.2586,
+    "countryFamilyCounts": {
+      "US": 34623,
+      "CN": 83405,
+      "WO": 24008,
+      "KR": 12566,
+      "EA": 34,
+      "TW": 1903,
+      "AU": 1339,
+      "EP": 17163,
+      "DE": 10146,
+      "AR": 43,
+      "CZ": 42,
+      "RU": 1328,
+      "SE": 166,
+      "SG": 208,
+      "PH": 41,
+      "ZA": 91,
+      "UA": 10,
+      "IL": 689,
+      "HU": 61,
+      "ES": 554,
+      "BR": 462,
+      "TR": 42,
+      "CA": 1760,
+      "DK": 132,
+      "AT": 70,
+      "MX": 365,
+      "GB": 1139,
+      "NL": 125,
+      "BE": 43,
+      "CL": 66,
+      "PL": 194,
+      "FR": 1366,
+      "MA": 22,
+      "FI": 175,
+      "LU": 137,
+      "CY": 3,
+      "CH": 28,
+      "CO": 24,
+      "BG": 6,
+      "NZ": 42,
+      "RS": 8,
+      "MY": 35,
+      "NO": 64,
+      "SA": 32,
+      "PE": 16,
+      "PT": 40,
+      "IT": 260,
+      "LT": 17,
+      "JP": 11455,
+      "SI": 9,
+      "EC": 1,
+      "HK": 9,
+      "GR": 10,
+      "HR": 24,
+      "TN": 1,
+      "PY": 2,
+      "GE": 2,
+      "UY": 3,
+      "LV": 1,
+      "CR": 1,
+      "RO": 3,
+      "IE": 1,
+      "IN": 1,
+      "MT": 1,
+      "SM": 2
+    },
+    "regionFamilyCounts": {
+      "NORTH_AMERICA": 34776,
+      "EAST_ASIA": 96353,
+      "INTERNATIONAL": 24008,
+      "OTHER_WORLD": 1911,
+      "OCEANIA": 1340,
+      "EUROPE": 27085,
+      "LATIN_AMERICA": 544,
+      "AFRICA": 110,
+      "MIDDLE_EAST": 755,
+      "SOUTH_ASIA": 1
+    },
+    "topApplicants": [
+      {
+        "key": "UNIV XIDIAN",
+        "count": 2230
+      },
+      {
+        "key": "BOSCH GMBH ROBERT",
+        "count": 1844
+      },
+      {
+        "key": "SAMSUNG ELECTRONICS CO LTD",
+        "count": 1103
+      },
+      {
+        "key": "HUAWEI TECH CO LTD",
+        "count": 1057
+      },
+      {
+        "key": "BEIJING INSTITUTE TECH",
+        "count": 1005
+      },
+      {
+        "key": "UNIV ELECTRONIC SCI & TECH CHINA",
+        "count": 982
+      },
+      {
+        "key": "QUALCOMM INC",
+        "count": 879
+      },
+      {
+        "key": "SONY SEMICONDUCTOR SOLUTIONS CORP",
+        "count": 834
+      }
+    ],
+    "topCpcCodes": [
+      {
+        "key": "G01S7",
+        "count": 610100
+      },
+      {
+        "key": "G01S13",
+        "count": 387922
+      },
+      {
+        "key": "G01S17",
+        "count": 291800
+      },
+      {
+        "key": "G01J3",
+        "count": 179460
+      },
+      {
+        "key": "G01N21",
+        "count": 73267
+      },
+      {
+        "key": "G01S15",
+        "count": 62719
+      },
+      {
+        "key": "G01S2013",
+        "count": 61697
+      },
+      {
+        "key": "A61B8",
+        "count": 54923
+      },
+      {
+        "key": "G06T2207",
+        "count": 47148
+      },
+      {
+        "key": "G06T7",
+        "count": 38005
+      }
+    ],
+    "koreaPublicationGapOpportunityScore": 0.2366,
+    "koreaAssigneeGapOpportunityScore": 0.2395
+  },
+  {
+    "id": "space_gnc_rendezvous_servicing",
+    "domain": "space",
+    "labelKo": "GNC·랑데부·온오빗 서비스",
+    "shortLabelKo": "GNC",
+    "labelEn": "GNC, rendezvous, docking, and on-orbit servicing",
+    "color": "#8b5cf6",
+    "familyCount": 163221,
+    "publicationCount": 408561,
+    "recent5FamilyCount": 75430,
+    "recent3FamilyCount": 39296,
+    "recentMomentum": 0.2408,
+    "countryFamilyCounts": {
+      "US": 44713,
+      "CN": 116903,
+      "WO": 25281,
+      "KR": 15677,
+      "DE": 8684,
+      "NO": 102,
+      "ES": 876,
+      "TW": 1307,
+      "CZ": 21,
+      "AU": 2609,
+      "EP": 16872,
+      "CA": 2744,
+      "AR": 48,
+      "AT": 91,
+      "SE": 361,
+      "RU": 1673,
+      "SG": 470,
+      "NL": 126,
+      "PE": 41,
+      "ZA": 158,
+      "GB": 1623,
+      "DK": 208,
+      "BR": 899,
+      "IL": 534,
+      "HU": 66,
+      "MX": 612,
+      "CH": 44,
+      "EA": 41,
+      "PL": 277,
+      "CL": 111,
+      "CR": 7,
+      "PH": 72,
+      "PT": 68,
+      "UA": 26,
+      "UY": 6,
+      "RS": 18,
+      "LT": 24,
+      "FR": 1473,
+      "FI": 166,
+      "BE": 39,
+      "LU": 129,
+      "TR": 68,
+      "CO": 41,
+      "CU": 2,
+      "RO": 7,
+      "SA": 62,
+      "NZ": 90,
+      "MY": 78,
+      "SM": 6,
+      "MA": 29,
+      "MD": 2,
+      "CY": 3,
+      "SI": 25,
+      "JP": 14173,
+      "EC": 13,
+      "BG": 5,
+      "IT": 377,
+      "EE": 2,
+      "JO": 10,
+      "PY": 4,
+      "HR": 29,
+      "GR": 16,
+      "DO": 4,
+      "HK": 8,
+      "IS": 1,
+      "IE": 1
+    },
+    "regionFamilyCounts": {
+      "NORTH_AMERICA": 44870,
+      "EAST_ASIA": 133760,
+      "INTERNATIONAL": 25281,
+      "EUROPE": 26163,
+      "OTHER_WORLD": 2554,
+      "OCEANIA": 2621,
+      "LATIN_AMERICA": 1015,
+      "AFRICA": 177,
+      "MIDDLE_EAST": 658
+    },
+    "topApplicants": [
+      {
+        "key": "TOYOTA MOTOR CO LTD",
+        "count": 2282
+      },
+      {
+        "key": "TOYOTA MOTOR CORP",
+        "count": 2010
+      },
+      {
+        "key": "UNIV BEIHANG",
+        "count": 1492
+      },
+      {
+        "key": "HONDA MOTOR CO LTD",
+        "count": 1370
+      },
+      {
+        "key": "HYUNDAI MOTOR CO LTD",
+        "count": 1336
+      },
+      {
+        "key": "BEIJING INSTITUTE TECH",
+        "count": 1229
+      },
+      {
+        "key": "UNIV NORTHWESTERN POLYTECHNICAL",
+        "count": 1163
+      },
+      {
+        "key": "FORD GLOBAL TECH LLC",
+        "count": 1153
+      }
+    ],
+    "topCpcCodes": [
+      {
+        "key": "G05D1",
+        "count": 579735
+      },
+      {
+        "key": "G01C21",
+        "count": 463858
+      },
+      {
+        "key": "G08G1",
+        "count": 153355
+      },
+      {
+        "key": "B64G1",
+        "count": 96796
+      },
+      {
+        "key": "G06V20",
+        "count": 78950
+      },
+      {
+        "key": "G08G5",
+        "count": 75991
+      },
+      {
+        "key": "G06Q10",
+        "count": 73135
+      },
+      {
+        "key": "H04W4",
+        "count": 71959
+      },
+      {
+        "key": "B60W30",
+        "count": 70602
+      },
+      {
+        "key": "G06N3",
+        "count": 60799
+      }
+    ],
+    "koreaPublicationGapOpportunityScore": 0.2199,
+    "koreaAssigneeGapOpportunityScore": 0.2223
+  },
+  {
+    "id": "aviation_avionics_flight_control_autonomy",
+    "domain": "aviation",
+    "labelKo": "항전·비행제어·자율비행",
+    "shortLabelKo": "항전·자율",
+    "labelEn": "Avionics, flight control, and autonomy",
+    "color": "#7c5cff",
+    "familyCount": 160119,
+    "publicationCount": 406452,
+    "recent5FamilyCount": 73659,
+    "recent3FamilyCount": 38182,
+    "recentMomentum": 0.2385,
+    "countryFamilyCounts": {
+      "US": 46237,
+      "CN": 113150,
+      "WO": 25247,
+      "KR": 15934,
+      "DE": 8739,
+      "NO": 103,
+      "ES": 825,
+      "TW": 1321,
+      "CZ": 23,
+      "AU": 2592,
+      "EP": 18013,
+      "CA": 2919,
+      "AR": 42,
+      "AT": 89,
+      "SE": 360,
+      "RU": 1143,
+      "SG": 477,
+      "NL": 132,
+      "PE": 41,
+      "ZA": 161,
+      "GB": 1713,
+      "DK": 211,
+      "BR": 1063,
+      "IL": 508,
+      "HU": 64,
+      "MX": 623,
+      "CH": 43,
+      "EA": 29,
+      "PL": 280,
+      "UA": 20,
+      "CL": 112,
+      "CR": 7,
+      "PH": 75,
+      "PT": 68,
+      "UY": 4,
+      "RS": 18,
+      "LT": 23,
+      "FR": 1595,
+      "FI": 165,
+      "BE": 42,
+      "LU": 133,
+      "CO": 39,
+      "CU": 2,
+      "RO": 4,
+      "SA": 65,
+      "TR": 84,
+      "MY": 83,
+      "NZ": 81,
+      "SM": 6,
+      "MA": 26,
+      "MD": 1,
+      "CY": 4,
+      "SI": 25,
+      "JP": 14154,
+      "EC": 11,
+      "IT": 347,
+      "BG": 3,
+      "EE": 2,
+      "JO": 11,
+      "PY": 4,
+      "HR": 33,
+      "GR": 18,
+      "DO": 4,
+      "HK": 10,
+      "IS": 1,
+      "IE": 1
+    },
+    "regionFamilyCounts": {
+      "NORTH_AMERICA": 46400,
+      "EAST_ASIA": 130106,
+      "INTERNATIONAL": 25247,
+      "EUROPE": 27475,
+      "OTHER_WORLD": 2015,
+      "OCEANIA": 2600,
+      "LATIN_AMERICA": 1172,
+      "AFRICA": 178,
+      "MIDDLE_EAST": 649
+    },
+    "topApplicants": [
+      {
+        "key": "TOYOTA MOTOR CO LTD",
+        "count": 2285
+      },
+      {
+        "key": "TOYOTA MOTOR CORP",
+        "count": 2013
+      },
+      {
+        "key": "HONDA MOTOR CO LTD",
+        "count": 1377
+      },
+      {
+        "key": "UNIV BEIHANG",
+        "count": 1351
+      },
+      {
+        "key": "HYUNDAI MOTOR CO LTD",
+        "count": 1348
+      },
+      {
+        "key": "FORD GLOBAL TECH LLC",
+        "count": 1163
+      },
+      {
+        "key": "BOSCH GMBH ROBERT",
+        "count": 1082
+      },
+      {
+        "key": "BEIJING INSTITUTE TECH",
+        "count": 1080
+      }
+    ],
+    "topCpcCodes": [
+      {
+        "key": "G05D1",
+        "count": 579735
+      },
+      {
+        "key": "G01C21",
+        "count": 463858
+      },
+      {
+        "key": "G08G5",
+        "count": 166165
+      },
+      {
+        "key": "G08G1",
+        "count": 155585
+      },
+      {
+        "key": "G06V20",
+        "count": 80558
+      },
+      {
+        "key": "G06Q10",
+        "count": 76196
+      },
+      {
+        "key": "H04W4",
+        "count": 76097
+      },
+      {
+        "key": "B60W30",
+        "count": 70678
+      },
+      {
+        "key": "G06N3",
+        "count": 62781
+      },
+      {
+        "key": "G06T2207",
+        "count": 57902
+      }
+    ],
+    "koreaPublicationGapOpportunityScore": 0.2172,
+    "koreaAssigneeGapOpportunityScore": 0.2196
+  },
+  {
+    "id": "space_comm_leo_network",
+    "domain": "space",
+    "labelKo": "위성통신·LEO 네트워크",
+    "shortLabelKo": "위성통신",
+    "labelEn": "Satellite communications and LEO networks",
+    "color": "#2ca58d",
+    "familyCount": 143280,
+    "publicationCount": 471479,
+    "recent5FamilyCount": 67655,
+    "recent3FamilyCount": 33242,
+    "recentMomentum": 0.232,
+    "countryFamilyCounts": {
+      "US": 58737,
+      "ES": 1416,
+      "CN": 96203,
+      "WO": 51820,
+      "KR": 15751,
+      "TW": 3421,
+      "ZA": 305,
+      "AU": 2286,
+      "EP": 33473,
+      "DE": 1964,
+      "TR": 95,
+      "PL": 313,
+      "RU": 816,
+      "SG": 630,
+      "GB": 1510,
+      "IL": 454,
+      "AR": 116,
+      "HU": 115,
+      "BR": 2274,
+      "CA": 2700,
+      "MX": 1185,
+      "PH": 349,
+      "UA": 11,
+      "CO": 211,
+      "CR": 15,
+      "CL": 90,
+      "MY": 141,
+      "FI": 292,
+      "FR": 716,
+      "MA": 17,
+      "SE": 73,
+      "PE": 22,
+      "BG": 10,
+      "AT": 16,
+      "DK": 162,
+      "PT": 125,
+      "LU": 59,
+      "DO": 9,
+      "BE": 10,
+      "NL": 37,
+      "SA": 41,
+      "EA": 23,
+      "SI": 3,
+      "CZ": 23,
+      "NO": 6,
+      "NZ": 49,
+      "CH": 5,
+      "JP": 11751,
+      "IT": 82,
+      "HR": 20,
+      "JO": 11,
+      "LT": 16,
+      "GR": 8,
+      "HK": 12,
+      "RS": 5,
+      "SM": 2,
+      "IE": 2,
+      "IN": 4,
+      "CY": 3,
+      "CU": 1,
+      "EC": 3,
+      "SV": 1
+    },
+    "regionFamilyCounts": {
+      "NORTH_AMERICA": 58928,
+      "EUROPE": 36272,
+      "EAST_ASIA": 108688,
+      "INTERNATIONAL": 51820,
+      "AFRICA": 314,
+      "OCEANIA": 2293,
+      "MIDDLE_EAST": 580,
+      "OTHER_WORLD": 1868,
+      "LATIN_AMERICA": 2501,
+      "SOUTH_ASIA": 4
+    },
+    "topApplicants": [
+      {
+        "key": "HUAWEI TECH CO LTD",
+        "count": 7672
+      },
+      {
+        "key": "QUALCOMM INC",
+        "count": 7454
+      },
+      {
+        "key": "SAMSUNG ELECTRONICS CO LTD",
+        "count": 4536
+      },
+      {
+        "key": "LG ELECTRONICS INC",
+        "count": 3055
+      },
+      {
+        "key": "ERICSSON TELEFON AB L M",
+        "count": 3038
+      },
+      {
+        "key": "ZTE CORP",
+        "count": 2418
+      },
+      {
+        "key": "NOKIA TECHNOLOGIES OY",
+        "count": 1877
+      },
+      {
+        "key": "CISCO TECH INC",
+        "count": 1867
+      }
+    ],
+    "topCpcCodes": [
+      {
+        "key": "H04B7",
+        "count": 840622
+      },
+      {
+        "key": "H04L5",
+        "count": 403039
+      },
+      {
+        "key": "H04W72",
+        "count": 364045
+      },
+      {
+        "key": "H04L45",
+        "count": 329335
+      },
+      {
+        "key": "H04W84",
+        "count": 267753
+      },
+      {
+        "key": "H04W76",
+        "count": 162029
+      },
+      {
+        "key": "H04L1",
+        "count": 151241
+      },
+      {
+        "key": "H04W4",
+        "count": 147714
+      },
+      {
+        "key": "H04W24",
+        "count": 142381
+      },
+      {
+        "key": "H04W52",
+        "count": 130006
+      }
+    ],
+    "koreaPublicationGapOpportunityScore": 0.2105,
+    "koreaAssigneeGapOpportunityScore": 0.2099
+  },
+  {
+    "id": "aviation_propulsion_sustainable",
+    "domain": "aviation",
+    "labelKo": "민간항공 추진·전기·수소·SAF",
+    "shortLabelKo": "항공 추진",
+    "labelEn": "Commercial aviation propulsion, electric, hydrogen, and SAF",
+    "color": "#00a7a7",
+    "familyCount": 27068,
+    "publicationCount": 84378,
+    "recent5FamilyCount": 11360,
+    "recent3FamilyCount": 4938,
+    "recentMomentum": 0.1824,
+    "countryFamilyCounts": {
+      "US": 12691,
+      "WO": 3934,
+      "CN": 14189,
+      "KR": 2458,
+      "EP": 7837,
+      "DE": 1388,
+      "TW": 81,
+      "AU": 285,
+      "ES": 246,
+      "CA": 1528,
+      "RU": 545,
+      "AT": 5,
+      "SI": 8,
+      "BR": 221,
+      "MX": 79,
+      "FR": 2760,
+      "CZ": 12,
+      "DK": 15,
+      "PL": 175,
+      "SE": 17,
+      "GB": 1323,
+      "SA": 19,
+      "BE": 67,
+      "FI": 19,
+      "LU": 12,
+      "CH": 48,
+      "BG": 8,
+      "EA": 17,
+      "CL": 7,
+      "NO": 13,
+      "MY": 9,
+      "TR": 16,
+      "ZA": 17,
+      "SG": 34,
+      "NZ": 14,
+      "DO": 2,
+      "JP": 1801,
+      "IL": 94,
+      "MA": 4,
+      "NL": 17,
+      "PT": 7,
+      "RO": 2,
+      "IT": 134,
+      "PH": 11,
+      "UA": 4,
+      "AR": 8,
+      "GR": 4,
+      "RS": 4,
+      "CO": 1,
+      "HU": 7,
+      "HR": 4,
+      "SK": 2,
+      "IE": 1
+    },
+    "regionFamilyCounts": {
+      "NORTH_AMERICA": 12741,
+      "INTERNATIONAL": 3934,
+      "EAST_ASIA": 16460,
+      "EUROPE": 10889,
+      "OCEANIA": 288,
+      "OTHER_WORLD": 666,
+      "LATIN_AMERICA": 232,
+      "MIDDLE_EAST": 127,
+      "AFRICA": 20
+    },
+    "topApplicants": [
+      {
+        "key": "GEN ELECTRIC",
+        "count": 1904
+      },
+      {
+        "key": "SAFRAN AIRCRAFT ENGINES",
+        "count": 1164
+      },
+      {
+        "key": "RAYTHEON TECH CORP",
+        "count": 1019
+      },
+      {
+        "key": "ROLLS ROYCE PLC",
+        "count": 998
+      },
+      {
+        "key": "PRATT & WHITNEY CANADA",
+        "count": 919
+      },
+      {
+        "key": "RTX CORP",
+        "count": 864
+      },
+      {
+        "key": "UNITED TECHNOLOGIES CORP",
+        "count": 774
+      },
+      {
+        "key": "AIRBUS OPERATIONS SAS",
+        "count": 561
+      }
+    ],
+    "topCpcCodes": [
+      {
+        "key": "F02C7",
+        "count": 124867
+      },
+      {
+        "key": "B64D27",
+        "count": 75191
+      },
+      {
+        "key": "F05D2260",
+        "count": 65266
+      },
+      {
+        "key": "F05D2220",
+        "count": 40925
+      },
+      {
+        "key": "F01D25",
+        "count": 36534
+      },
+      {
+        "key": "F23R3",
+        "count": 32547
+      },
+      {
+        "key": "F05D2240",
+        "count": 29464
+      },
+      {
+        "key": "Y02T50",
+        "count": 26154
+      },
+      {
+        "key": "F02C9",
+        "count": 22686
+      },
+      {
+        "key": "F02C3",
+        "count": 21812
+      }
+    ],
+    "koreaPublicationGapOpportunityScore": 0.1709,
+    "koreaAssigneeGapOpportunityScore": 0.1752
+  },
+  {
+    "id": "space_materials_tps_coatings",
+    "domain": "space",
+    "labelKo": "우주재료·TPS·코팅",
+    "shortLabelKo": "재료·TPS",
+    "labelEn": "Space materials, TPS, and coatings",
+    "color": "#d65a9d",
+    "familyCount": 235954,
+    "publicationCount": 607475,
+    "recent5FamilyCount": 90303,
+    "recent3FamilyCount": 44543,
+    "recentMomentum": 0.1888,
+    "countryFamilyCounts": {
+      "US": 41089,
+      "CN": 183406,
+      "WO": 45392,
+      "ZA": 501,
+      "KR": 37449,
+      "TW": 13019,
+      "EA": 170,
+      "CZ": 269,
+      "AU": 3050,
+      "EP": 27667,
+      "UA": 153,
+      "CL": 306,
+      "DE": 6000,
+      "AR": 503,
+      "AT": 225,
+      "PE": 155,
+      "PL": 1864,
+      "PT": 381,
+      "RU": 1775,
+      "SE": 356,
+      "SG": 574,
+      "NL": 342,
+      "PH": 280,
+      "BR": 3013,
+      "TR": 156,
+      "CA": 5385,
+      "LU": 149,
+      "MA": 228,
+      "MX": 3943,
+      "MY": 506,
+      "GB": 1422,
+      "HU": 427,
+      "ES": 2541,
+      "IL": 574,
+      "CO": 338,
+      "FI": 405,
+      "HR": 130,
+      "CH": 169,
+      "DK": 491,
+      "FR": 1990,
+      "SK": 19,
+      "SI": 139,
+      "BE": 188,
+      "UY": 22,
+      "LT": 86,
+      "CU": 1,
+      "SA": 98,
+      "NZ": 136,
+      "RO": 27,
+      "GE": 7,
+      "RS": 131,
+      "GR": 55,
+      "NO": 50,
+      "TN": 13,
+      "PY": 17,
+      "DO": 7,
+      "EC": 27,
+      "IT": 913,
+      "CR": 37,
+      "BG": 17,
+      "LV": 5,
+      "JP": 28958,
+      "JO": 26,
+      "SM": 17,
+      "EE": 2,
+      "CY": 8,
+      "MD": 2,
+      "HK": 14,
+      "IE": 8,
+      "IN": 4,
+      "IS": 1,
+      "NI": 1
+    },
+    "regionFamilyCounts": {
+      "NORTH_AMERICA": 41732,
+      "EAST_ASIA": 210731,
+      "INTERNATIONAL": 45392,
+      "AFRICA": 666,
+      "OTHER_WORLD": 4184,
+      "OCEANIA": 3065,
+      "EUROPE": 34928,
+      "LATIN_AMERICA": 3512,
+      "MIDDLE_EAST": 809,
+      "SOUTH_ASIA": 4
+    },
+    "topApplicants": [
+      {
+        "key": "NITTO DENKO CORP",
+        "count": 1617
+      },
+      {
+        "key": "FUJIFILM CORP",
+        "count": 907
+      },
+      {
+        "key": "LG CHEMICAL LTD",
+        "count": 825
+      },
+      {
+        "key": "SAINT GOBAIN",
+        "count": 801
+      },
+      {
+        "key": "AGC INC",
+        "count": 782
+      },
+      {
+        "key": "SUMITOMO CHEMICAL CO",
+        "count": 742
+      },
+      {
+        "key": "SAMSUNG DISPLAY CO LTD",
+        "count": 676
+      },
+      {
+        "key": "DAINIPPON PRINTING CO LTD",
+        "count": 587
+      }
+    ],
+    "topCpcCodes": [
+      {
+        "key": "C04B2235",
+        "count": 562605
+      },
+      {
+        "key": "B32B27",
+        "count": 506067
+      },
+      {
+        "key": "B32B2307",
+        "count": 442986
+      },
+      {
+        "key": "C04B35",
+        "count": 307375
+      },
+      {
+        "key": "C09D5",
+        "count": 234360
+      },
+      {
+        "key": "C09D7",
+        "count": 193075
+      },
+      {
+        "key": "B32B7",
+        "count": 183948
+      },
+      {
+        "key": "B32B5",
+        "count": 183471
+      },
+      {
+        "key": "B32B15",
+        "count": 158976
+      },
+      {
+        "key": "B32B37",
+        "count": 144732
+      }
+    ],
+    "koreaPublicationGapOpportunityScore": 0.1618,
+    "koreaAssigneeGapOpportunityScore": 0.1708
+  },
+  {
+    "id": "space_satellite_bus_thermal_power",
+    "domain": "space",
+    "labelKo": "위성 플랫폼·열제어·전력",
+    "shortLabelKo": "위성 플랫폼",
+    "labelEn": "Satellite bus, thermal control, and power",
+    "color": "#f4b942",
+    "familyCount": 30620,
+    "publicationCount": 65608,
+    "recent5FamilyCount": 10879,
+    "recent3FamilyCount": 4638,
+    "recentMomentum": 0.1515,
+    "countryFamilyCounts": {
+      "US": 11269,
+      "WO": 2873,
+      "CN": 13338,
+      "KR": 6327,
+      "EP": 1956,
+      "TW": 532,
+      "AU": 224,
+      "RU": 756,
+      "CA": 367,
+      "ES": 189,
+      "DE": 509,
+      "MX": 42,
+      "FR": 342,
+      "ZA": 30,
+      "BR": 68,
+      "TR": 22,
+      "UA": 7,
+      "LU": 12,
+      "EA": 16,
+      "GB": 199,
+      "CH": 5,
+      "NZ": 17,
+      "SG": 24,
+      "FI": 33,
+      "IL": 98,
+      "AT": 20,
+      "SE": 15,
+      "PL": 50,
+      "DK": 19,
+      "MY": 4,
+      "SI": 6,
+      "PT": 7,
+      "AR": 15,
+      "RO": 4,
+      "NO": 5,
+      "LT": 4,
+      "JP": 1285,
+      "BG": 3,
+      "BE": 3,
+      "UY": 2,
+      "HU": 10,
+      "CO": 3,
+      "IT": 73,
+      "SA": 6,
+      "NL": 9,
+      "GR": 2,
+      "CL": 4,
+      "CZ": 5,
+      "JO": 2,
+      "MD": 1,
+      "PE": 1,
+      "MA": 4,
+      "HK": 1,
+      "EC": 2,
+      "PH": 3
+    },
+    "regionFamilyCounts": {
+      "NORTH_AMERICA": 11302,
+      "INTERNATIONAL": 2873,
+      "EAST_ASIA": 20181,
+      "EUROPE": 2709,
+      "OCEANIA": 229,
+      "OTHER_WORLD": 847,
+      "AFRICA": 33,
+      "LATIN_AMERICA": 86,
+      "MIDDLE_EAST": 124
+    },
+    "topApplicants": [
+      {
+        "key": "HARBIN INST TECHNOLOGY",
+        "count": 496
+      },
+      {
+        "key": "SHANGHAI SATELLITE ENG INST",
+        "count": 456
+      },
+      {
+        "key": "LG ELECTRONICS INC",
+        "count": 422
+      },
+      {
+        "key": "BEIJING INST SPACECRAFT SYSTEM ENGINEERING",
+        "count": 382
+      },
+      {
+        "key": "SHANGHAI AEROSPACE SYSTEM ENGINEERING INST",
+        "count": 331
+      },
+      {
+        "key": "BEIJING INST CONTROL ENG",
+        "count": 304
+      },
+      {
+        "key": "UNIV BEIHANG",
+        "count": 249
+      },
+      {
+        "key": "SHANGHAI ENG CT MICROSATELLITES",
+        "count": 229
+      }
+    ],
+    "topCpcCodes": [
+      {
+        "key": "B64G1",
+        "count": 96796
+      },
+      {
+        "key": "F28D15",
+        "count": 45295
+      },
+      {
+        "key": "H10F77",
+        "count": 44260
+      },
+      {
+        "key": "H01L31",
+        "count": 42631
+      },
+      {
+        "key": "H05K7",
+        "count": 19187
+      },
+      {
+        "key": "Y02E10",
+        "count": 16921
+      },
+      {
+        "key": "H10F39",
+        "count": 16222
+      },
+      {
+        "key": "H10F19",
+        "count": 14733
+      },
+      {
+        "key": "H10F71",
+        "count": 13699
+      },
+      {
+        "key": "H10W40",
+        "count": 11858
+      }
+    ],
+    "koreaPublicationGapOpportunityScore": 0.1295,
+    "koreaAssigneeGapOpportunityScore": 0.1321
+  },
+  {
+    "id": "aviation_structures_aero_composites",
+    "domain": "aviation",
+    "labelKo": "항공 구조·복합재·공력",
+    "shortLabelKo": "항공 구조",
+    "labelEn": "Aircraft structures, composites, and aerodynamics",
+    "color": "#5c8dff",
+    "familyCount": 51306,
+    "publicationCount": 124095,
+    "recent5FamilyCount": 18991,
+    "recent3FamilyCount": 7550,
+    "recentMomentum": 0.1472,
+    "countryFamilyCounts": {
+      "US": 14836,
+      "WO": 6745,
+      "CN": 28140,
+      "KR": 9527,
+      "TW": 545,
+      "AU": 758,
+      "EP": 6428,
+      "CA": 1263,
+      "DE": 1987,
+      "AT": 68,
+      "CZ": 50,
+      "PL": 341,
+      "ZA": 66,
+      "ES": 801,
+      "BR": 653,
+      "LU": 34,
+      "GB": 978,
+      "MX": 309,
+      "DK": 206,
+      "UA": 14,
+      "FI": 78,
+      "PT": 96,
+      "RU": 744,
+      "FR": 1138,
+      "PH": 24,
+      "RS": 19,
+      "CL": 22,
+      "MA": 35,
+      "CO": 18,
+      "SK": 4,
+      "EA": 18,
+      "CH": 36,
+      "NL": 153,
+      "SG": 91,
+      "UY": 2,
+      "CU": 3,
+      "AR": 25,
+      "TR": 60,
+      "GR": 25,
+      "BG": 21,
+      "NZ": 22,
+      "PY": 3,
+      "IL": 245,
+      "IT": 206,
+      "BE": 25,
+      "NO": 23,
+      "MY": 23,
+      "SE": 42,
+      "RO": 10,
+      "HU": 57,
+      "PE": 13,
+      "LT": 11,
+      "SA": 34,
+      "JP": 3245,
+      "CR": 4,
+      "CY": 2,
+      "SI": 17,
+      "HR": 20,
+      "JO": 2,
+      "HK": 3,
+      "SM": 2,
+      "IE": 2,
+      "IN": 1,
+      "EC": 2,
+      "DO": 1,
+      "LV": 2,
+      "IS": 1
+    },
+    "regionFamilyCounts": {
+      "NORTH_AMERICA": 14930,
+      "INTERNATIONAL": 6745,
+      "EAST_ASIA": 37532,
+      "OCEANIA": 764,
+      "EUROPE": 9490,
+      "OTHER_WORLD": 1154,
+      "AFRICA": 98,
+      "LATIN_AMERICA": 684,
+      "MIDDLE_EAST": 337,
+      "SOUTH_ASIA": 1
+    },
+    "topApplicants": [
+      {
+        "key": "BOEING CO",
+        "count": 1312
+      },
+      {
+        "key": "SZ DJI TECHNOLOGY CO LTD",
+        "count": 504
+      },
+      {
+        "key": "UNIV NANJING AERONAUTICS & ASTRONAUTICS",
+        "count": 410
+      },
+      {
+        "key": "AIRBUS OPERATIONS GMBH",
+        "count": 375
+      },
+      {
+        "key": "UNIV BEIHANG",
+        "count": 372
+      },
+      {
+        "key": "AIRBUS OPERATIONS LTD",
+        "count": 329
+      },
+      {
+        "key": "UNIV NORTHWESTERN POLYTECHNICAL",
+        "count": 266
+      },
+      {
+        "key": "SAFRAN AIRCRAFT ENGINES",
+        "count": 238
+      }
+    ],
+    "topCpcCodes": [
+      {
+        "key": "B29C70",
+        "count": 176479
+      },
+      {
+        "key": "B64C39",
+        "count": 50628
+      },
+      {
+        "key": "B64U2101",
+        "count": 37973
+      },
+      {
+        "key": "B64C3",
+        "count": 37574
+      },
+      {
+        "key": "B29L2031",
+        "count": 33019
+      },
+      {
+        "key": "G08G5",
+        "count": 30578
+      },
+      {
+        "key": "G05D1",
+        "count": 29582
+      },
+      {
+        "key": "B64U10",
+        "count": 28835
+      },
+      {
+        "key": "B64U2201",
+        "count": 25281
+      },
+      {
+        "key": "B64C2201",
+        "count": 21650
+      }
+    ],
+    "koreaPublicationGapOpportunityScore": 0.1213,
+    "koreaAssigneeGapOpportunityScore": 0.1234
+  }
+]

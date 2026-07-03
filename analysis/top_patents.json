@@ -1,0 +1,152 @@
+[
+  {
+    "publication_number": "EP3329612B1",
+    "authority": "EP",
+    "field": "space_comm",
+    "field_label_ko": "위성통신/LEO 네트워크",
+    "title": "Flexible capacity satellite constellation",
+    "publication_year": 2025,
+    "score": 8.2,
+    "source_url": "https://patents.google.com/patent/EP3329612B1/en"
+  },
+  {
+    "publication_number": "JP7603675B2",
+    "authority": "JP",
+    "field": "launch_recovery",
+    "field_label_ko": "재사용 발사체/회수",
+    "title": "Hybrid propulsion systems for spacecraft",
+    "publication_year": 2024,
+    "score": 8.2,
+    "source_url": "https://patents.google.com/patent/JP7603675B2/en"
+  },
+  {
+    "publication_number": "KR102742715B1",
+    "authority": "KR",
+    "field": "satellite_thermal",
+    "field_label_ko": "위성 열제어/플랫폼",
+    "title": "Solar, electronic, RF radiator for self-contained structures for space-based arrays",
+    "publication_year": 2024,
+    "score": 7.8,
+    "source_url": "https://patents.google.com/patent/KR102742715B1/en"
+  },
+  {
+    "publication_number": "KR102876480B1",
+    "authority": "KR",
+    "field": "remote_sensing_payload",
+    "field_label_ko": "SAR/원격탐사 페이로드",
+    "title": "High resolution wide swath synthetic aperture radar system",
+    "publication_year": 2025,
+    "score": 7.4,
+    "source_url": "https://patents.google.com/patent/KR102876480B1/en"
+  },
+  {
+    "publication_number": "CN107848635B",
+    "authority": "CN",
+    "field": "satellite_thermal",
+    "field_label_ko": "위성 열제어/플랫폼",
+    "title": "Satellite radiator panel with combined reinforcing sheet/heat pipe",
+    "publication_year": 2021,
+    "score": 7.2,
+    "source_url": "https://patents.google.com/patent/CN107848635B/en"
+  },
+  {
+    "publication_number": "CN109417827B",
+    "authority": "CN",
+    "field": "space_comm",
+    "field_label_ko": "위성통신/LEO 네트워크",
+    "title": "Low earth orbit satellite constellation system and method of use",
+    "publication_year": 2020,
+    "score": 7.2,
+    "source_url": "https://patents.google.com/patent/CN109417827B/en"
+  },
+  {
+    "publication_number": "EP4143990A2",
+    "authority": "EP",
+    "field": "space_comm",
+    "field_label_ko": "위성통신/LEO 네트워크",
+    "title": "Edge computing in satellite connectivity environments",
+    "publication_year": 2023,
+    "score": 7.2,
+    "source_url": "https://patents.google.com/patent/EP4143990A2/en"
+  },
+  {
+    "publication_number": "JP6763875B2",
+    "authority": "JP",
+    "field": "satellite_thermal",
+    "field_label_ko": "위성 열제어/플랫폼",
+    "title": "Artificial satellite heat dissipation panel with combined reinforcement / heat pipe",
+    "publication_year": 2020,
+    "score": 7.2,
+    "source_url": "https://patents.google.com/patent/JP6763875B2/en"
+  },
+  {
+    "publication_number": "JP6896982B2",
+    "authority": "JP",
+    "field": "space_comm",
+    "field_label_ko": "위성통신/LEO 네트워크",
+    "title": "Earth low earth orbit satellite constellation for communications with geostationary satellite spectrum reuse",
+    "publication_year": 2021,
+    "score": 7.2,
+    "source_url": "https://patents.google.com/patent/JP6896982B2/en"
+  },
+  {
+    "publication_number": "KR102124242B1",
+    "authority": "KR",
+    "field": "satellite_thermal",
+    "field_label_ko": "위성 열제어/플랫폼",
+    "title": "Satellite radiator panels with combined stiffener/heat pipe",
+    "publication_year": 2020,
+    "score": 7.2,
+    "source_url": "https://patents.google.com/patent/KR102124242B1/en"
+  },
+  {
+    "publication_number": "KR102165365B1",
+    "authority": "KR",
+    "field": "space_comm",
+    "field_label_ko": "위성통신/LEO 네트워크",
+    "title": "Low-orbit satellite star cluster system for communication in which geostationary satellite spectrum is reused",
+    "publication_year": 2020,
+    "score": 7.2,
+    "source_url": "https://patents.google.com/patent/KR102165365B1/en"
+  },
+  {
+    "publication_number": "US10666352B2",
+    "authority": "US",
+    "field": "space_comm",
+    "field_label_ko": "위성통신/LEO 네트워크",
+    "title": "Satellite system comprising satellites in LEO and other orbits",
+    "publication_year": 2020,
+    "score": 7.2,
+    "source_url": "https://patents.google.com/patent/US10666352B2/en"
+  },
+  {
+    "publication_number": "EP3932810B1",
+    "authority": "EP",
+    "field": "gnc_rendezvous",
+    "field_label_ko": "GNC/랑데부/온오빗 서비스",
+    "title": "Flight control intelligent data analysis and decision support system for spacecraft rendezvous and docking",
+    "publication_year": 2024,
+    "score": 7.0,
+    "source_url": "https://patents.google.com/patent/EP3932810B1/en"
+  },
+  {
+    "publication_number": "EP3877263B1",
+    "authority": "EP",
+    "field": "satellite_thermal",
+    "field_label_ko": "위성 열제어/플랫폼",
+    "title": "Satellite",
+    "publication_year": 2024,
+    "score": 7.0,
+    "source_url": "https://patents.google.com/patent/EP3877263B1/en"
+  },
+  {
+    "publication_number": "EP4424602A1",
+    "authority": "EP",
+    "field": "satellite_thermal",
+    "field_label_ko": "위성 열제어/플랫폼",
+    "title": "Thermal control systems and methods for spacecraft",
+    "publication_year": 2024,
+    "score": 7.0,
+    "source_url": "https://patents.google.com/patent/EP4424602A1/en"
+  }
+]

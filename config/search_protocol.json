@@ -1,0 +1,38 @@
+{
+  "version": "2026-06-21",
+  "goal": "항공우주 특허를 분야별, 국가별, 기간별로 비교하고 LLM Wiki 그래프 탐색에 연결한다.",
+  "jurisdictions": [
+    "US",
+    "EP",
+    "JP",
+    "CN",
+    "KR"
+  ],
+  "fields": [
+    "launch_recovery",
+    "satellite_thermal",
+    "space_comm",
+    "remote_sensing_payload",
+    "gnc_rendezvous",
+    "materials_tps"
+  ],
+  "query_templates": [
+    "\"{keyword}\" patent country:{country}",
+    "\"{keyword}\" site:patents.google.com/patent {country}",
+    "\"{keyword}\" CPC:{cpc_hint} publication:{start_year}..{end_year}"
+  ],
+  "screening_rules": [
+    "항공우주 시스템, 위성, 발사체, 우주환경, SAR/통신/온오빗 서비스 관련성이 명확한 문헌만 포함한다.",
+    "동일 패밀리의 여러 공개번호는 UI 비교에는 남기되, 분석 리포트에서는 family_id 기준 중복을 표시한다.",
+    "법적 상태와 권리 존속 판단은 Google Patents 추정값만으로 확정하지 않는다.",
+    "생성 리포트는 기술지형/탐색용이며 FTO 또는 침해 판단으로 사용하지 않는다."
+  ],
+  "production_refresh_order": [
+    "1. 공식 API 키 확보: USPTO ODP, EPO OPS, KIPRIS Plus",
+    "2. CNIPA/J-PlatPat는 export 가능 방식 또는 합법적 크롤링 정책 확인",
+    "3. 키워드+CPC 검색으로 후보 수집",
+    "4. 패밀리 단위 dedupe 및 국가별 공개번호 보존",
+    "5. 초록/청구항/IPC/CPC/출원인/날짜/legal status 정규화",
+    "6. LLM chunk와 graph node/edge 재생성"
+  ]
+}

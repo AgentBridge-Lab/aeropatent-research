@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-06-28T15:45:48.007Z",
+  "taxonomyVersion": "NASA_2024",
+  "packCount": 51,
+  "dataStatusCounts": {
+    "seed_corpus_generated_evidence_pack": 2,
+    "unsupported_by_seed_corpus": 14,
+    "no_seed_corpus_evidence": 35
+  },
+  "topSelectedFields": {
+    "발사체/추진/회수": 1,
+    "항공 구조/복합재/공력": 12,
+    "위성 플랫폼/열제어/전력": 7,
+    "SAR/원격탐사 페이로드": 2,
+    "위성통신/LEO 네트워크": 9,
+    "GNC/랑데부/온오빗 서비스": 18,
+    "상용항공 추진/전기추진/수소/SAF": 2
+  },
+  "programsWithEvidence": 2
+}

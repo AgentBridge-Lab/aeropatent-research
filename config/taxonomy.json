@@ -1,0 +1,77 @@
+{
+  "launch_recovery": {
+    "label_ko": "재사용 발사체/회수",
+    "label_en": "Reusable launch vehicle and recovery",
+    "keywords": [
+      "reusable launch vehicle",
+      "vertical landing",
+      "sea landing",
+      "booster recovery",
+      "launch vehicle",
+      "rocket recovery"
+    ],
+    "ui_color": "#e54b4b"
+  },
+  "satellite_thermal": {
+    "label_ko": "위성 열제어/플랫폼",
+    "label_en": "Satellite thermal control and platform",
+    "keywords": [
+      "spacecraft thermal control",
+      "satellite radiator",
+      "heat pipe",
+      "thermal louver",
+      "spacecraft platform"
+    ],
+    "ui_color": "#f4b942"
+  },
+  "space_comm": {
+    "label_ko": "위성통신/LEO 네트워크",
+    "label_en": "Satellite communications and LEO networks",
+    "keywords": [
+      "LEO satellite constellation",
+      "satellite communication",
+      "inter-satellite link",
+      "edge computing satellite",
+      "MIMO satellite"
+    ],
+    "ui_color": "#2ca58d"
+  },
+  "remote_sensing_payload": {
+    "label_ko": "SAR/원격탐사 페이로드",
+    "label_en": "SAR and remote-sensing payload",
+    "keywords": [
+      "synthetic aperture radar",
+      "SAR imaging",
+      "digital beamforming",
+      "wide swath",
+      "remote sensing"
+    ],
+    "ui_color": "#4d8cf5"
+  },
+  "gnc_rendezvous": {
+    "label_ko": "GNC/랑데부/온오빗 서비스",
+    "label_en": "GNC, rendezvous, docking, and on-orbit servicing",
+    "keywords": [
+      "rendezvous",
+      "docking",
+      "on-orbit servicing",
+      "attitude control",
+      "proximity operation",
+      "debris removal"
+    ],
+    "ui_color": "#8b5cf6"
+  },
+  "materials_tps": {
+    "label_ko": "우주재료/TPS/코팅",
+    "label_en": "Space materials, TPS, and coatings",
+    "keywords": [
+      "thermal protection",
+      "spacecraft coating",
+      "radiation shielding",
+      "ablative material",
+      "ceramic coating",
+      "rocket motor insulation"
+    ],
+    "ui_color": "#d65a9d"
+  }
+}

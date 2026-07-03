@@ -1,0 +1,112 @@
+{
+  "version": "2026-06-28",
+  "taxonomy_version": "NASA_2024",
+  "purpose": "항공우주 특허 코퍼스를 AgentBridge 공고 매칭, 특허 동향, 제안서 근거 생성에 재사용하기 위한 crosswalk.",
+  "source_files": {
+    "nasa_taxonomy": "config/nasa_technology_taxonomy_2024_core.json",
+    "aeropatent_taxonomy": "config/bigquery_aerospace_aviation_taxonomy.json",
+    "agentbridge_plan": "<workspace>\\AgentBridge_상세기획안.md"
+  },
+  "mapping_rules": {
+    "primary_tx": "UI 필터와 대표 배지에 사용한다.",
+    "secondary_tx": "복수 기술성, 제안서 근거, 그래프 엣지에 사용한다.",
+    "confidence_hint": {
+      "high": "제목/초록/CPC/키워드 중 2개 이상이 같은 TX와 일치",
+      "medium": "키워드 또는 CPC 중 하나가 강하게 일치",
+      "low": "문맥상 관련은 있으나 수동 검증 전"
+    },
+    "display_limit": "공고 상세 UI에는 상위 3개 TX만 강조하고 나머지는 접힌 영역에 둔다."
+  },
+  "fields": [
+    {
+      "aeropatent_field_id": "space_launch_propulsion_recovery",
+      "legacy_field_ids": ["launch_recovery"],
+      "label_ko": "발사체/추진/회수",
+      "primary_tx": "TX01",
+      "secondary_tx": ["TX09", "TX17", "TX15"],
+      "agentbridge_query_terms_ko": ["재사용 발사체", "액체로켓 엔진", "발사체 회수", "수직착륙", "추진기관"],
+      "agentbridge_query_terms_en": ["reusable launch vehicle", "rocket engine", "booster recovery", "vertical landing", "launch vehicle propulsion"],
+      "proposal_use": "발사체 공고의 기술동향, 경쟁기술, 회수/착륙 차별성 문단에 사용한다."
+    },
+    {
+      "aeropatent_field_id": "space_satellite_bus_thermal_power",
+      "legacy_field_ids": ["satellite_thermal"],
+      "label_ko": "위성 플랫폼/열제어/전력",
+      "primary_tx": "TX14",
+      "secondary_tx": ["TX03", "TX12"],
+      "agentbridge_query_terms_ko": ["위성 플랫폼", "위성 열제어", "히트파이프", "위성 전력", "태양전지판"],
+      "agentbridge_query_terms_en": ["satellite bus", "spacecraft thermal control", "heat pipe", "spacecraft power", "solar array"],
+      "proposal_use": "위성 시스템 공고의 플랫폼 신뢰성, 열/전력 설계, 국산화 필요성 근거에 사용한다."
+    },
+    {
+      "aeropatent_field_id": "space_comm_leo_network",
+      "legacy_field_ids": ["space_comm"],
+      "label_ko": "위성통신/LEO 네트워크",
+      "primary_tx": "TX05",
+      "secondary_tx": ["TX11", "TX16"],
+      "agentbridge_query_terms_ko": ["위성통신", "저궤도 위성망", "위성 간 링크", "빔 호핑", "위성 네트워크"],
+      "agentbridge_query_terms_en": ["satellite communication", "LEO constellation", "inter-satellite link", "beam hopping", "satellite network"],
+      "proposal_use": "통신/네트워크 공고의 시장성, 표준화, 경쟁사 watchlist 근거에 사용한다."
+    },
+    {
+      "aeropatent_field_id": "space_remote_sensing_payload",
+      "legacy_field_ids": ["remote_sensing_payload"],
+      "label_ko": "SAR/원격탐사 페이로드",
+      "primary_tx": "TX08",
+      "secondary_tx": ["TX11"],
+      "agentbridge_query_terms_ko": ["SAR", "원격탐사", "지구관측", "디지털 빔포밍", "다중분광"],
+      "agentbridge_query_terms_en": ["synthetic aperture radar", "remote sensing satellite", "earth observation", "digital beamforming", "multispectral imaging"],
+      "proposal_use": "탑재체/관측 공고의 센서 성능, 데이터 처리, AI 활용 근거에 사용한다."
+    },
+    {
+      "aeropatent_field_id": "space_gnc_rendezvous_servicing",
+      "legacy_field_ids": ["gnc_rendezvous"],
+      "label_ko": "GNC/랑데부/온오빗 서비스",
+      "primary_tx": "TX17",
+      "secondary_tx": ["TX10", "TX04", "TX05"],
+      "agentbridge_query_terms_ko": ["유도항법제어", "랑데부", "도킹", "온오빗 서비스", "우주잔해 제거"],
+      "agentbridge_query_terms_en": ["guidance navigation control", "rendezvous", "docking", "on-orbit servicing", "debris removal"],
+      "proposal_use": "자율운용, 임무안전, 궤도상 서비스 공고의 기술성/위험요소 근거에 사용한다."
+    },
+    {
+      "aeropatent_field_id": "space_materials_tps_coatings",
+      "legacy_field_ids": ["materials_tps"],
+      "label_ko": "우주재료/TPS/코팅",
+      "primary_tx": "TX12",
+      "secondary_tx": ["TX14", "TX09"],
+      "agentbridge_query_terms_ko": ["열보호", "우주 코팅", "방사선 차폐", "삭마재", "고온 코팅"],
+      "agentbridge_query_terms_en": ["thermal protection", "spacecraft coating", "radiation shielding", "ablative material", "high temperature coating"],
+      "proposal_use": "재료/구조 공고의 내열성, 내환경성, 제조성, 시험평가 근거에 사용한다."
+    },
+    {
+      "aeropatent_field_id": "aviation_propulsion_sustainable",
+      "legacy_field_ids": [],
+      "label_ko": "상용항공 추진/전기추진/수소/SAF",
+      "primary_tx": "TX01",
+      "secondary_tx": ["TX03", "TX15"],
+      "agentbridge_query_terms_ko": ["상용항공 추진", "전기추진 항공기", "수소 항공기", "SAF", "연료전지 항공기"],
+      "agentbridge_query_terms_en": ["commercial aviation propulsion", "electric propulsion aircraft", "hydrogen aircraft", "sustainable aviation fuel", "fuel cell aircraft"],
+      "proposal_use": "민간/상용항공 공고의 탄소저감, 추진계 전환, 사업개발 기회 근거에 사용한다."
+    },
+    {
+      "aeropatent_field_id": "aviation_structures_aero_composites",
+      "legacy_field_ids": [],
+      "label_ko": "항공 구조/복합재/공력",
+      "primary_tx": "TX15",
+      "secondary_tx": ["TX12"],
+      "agentbridge_query_terms_ko": ["항공기 날개", "동체", "복합재 구조", "층류", "모핑 윙"],
+      "agentbridge_query_terms_en": ["aircraft wing", "fuselage", "composite aircraft structure", "laminar flow", "morphing wing"],
+      "proposal_use": "항공 구조/공력 공고의 성능 개선, 경량화, 제조기술 차별성 근거에 사용한다."
+    },
+    {
+      "aeropatent_field_id": "aviation_avionics_flight_control_autonomy",
+      "legacy_field_ids": [],
+      "label_ko": "항전/비행제어/자율비행",
+      "primary_tx": "TX02",
+      "secondary_tx": ["TX17", "TX10", "TX11", "TX16"],
+      "agentbridge_query_terms_ko": ["항전장비", "비행제어", "자율비행", "sense and avoid", "비행관리시스템"],
+      "agentbridge_query_terms_en": ["avionics", "flight control", "autonomous aircraft", "sense and avoid", "flight management system"],
+      "proposal_use": "자율항공/항전 공고의 안전성, 인증, AI/소프트웨어, 교통관리 연계 근거에 사용한다."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": "aeropatent.llm_wiki.v1",
+  "entrypoints": {
+    "patents": "normalized/patents.jsonl",
+    "chunks": "normalized/evidence_chunks.jsonl",
+    "nodes": "graph/nodes.jsonl",
+    "edges": "graph/edges.jsonl",
+    "report_cards": "reports/site_report_cards.json"
+  },
+  "recommended_retrieval": [
+    "1. Start with field or country node from graph/nodes.jsonl.",
+    "2. Follow CLASSIFIED_AS and PUBLISHED_IN edges to patent nodes.",
+    "3. Load patent record from normalized/patents.jsonl.",
+    "4. Retrieve abstract and claim chunks from normalized/evidence_chunks.jsonl.",
+    "5. Use report card for UI-level explanation before deep patent text."
+  ],
+  "counts": {
+    "patents": 65,
+    "chunks": 188,
+    "target_country_patents": 63
+  },
+  "default_filters": {
+    "countries": [
+      "US",
+      "EP",
+      "JP",
+      "CN",
+      "KR"
+    ],
+    "period": "2020_2026",
+    "fields": [
+      "launch_recovery",
+      "satellite_thermal",
+      "space_comm",
+      "remote_sensing_payload",
+      "gnc_rendezvous",
+      "materials_tps"
+    ]
+  }
+}

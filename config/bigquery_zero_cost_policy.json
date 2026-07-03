@@ -1,0 +1,53 @@
+{
+  "version": "2026-06-26",
+  "monthly_budget_target_usd": 0,
+  "bigquery_free_tier_note": "BigQuery public datasets are billed by query processing; Google documentation states the first 1 TB per month is free, subject to pricing details.",
+  "rules": [
+    "Run dryRun before every new query.",
+    "Use maximumBytesBilled on every non-dry-run query.",
+    "Never use SELECT * against patents-public-data tables.",
+    "Avoid bulk claims, description, and embedding fields during the first-pass landscape.",
+    "Use title, abstract, dates, country_code, family_id, assignee_harmonized, cpc, citation metadata first.",
+    "For monthly updates, query only the last 1-2 publication months.",
+    "Export website-ready JSON/JSONL and make the website read local/static data, not BigQuery live.",
+    "Cache intermediate candidate publication_numbers before expensive detail fetches.",
+    "Stop execution if dry-run estimate exceeds the configured per-query byte limit."
+  ],
+  "limits": {
+    "default_dry_run_max_bytes": 10737418240,
+    "default_run_max_bytes": 2147483648,
+    "approved_cpc_first_dry_run_max_bytes": 32212254720,
+    "approved_cpc_first_run_max_bytes": 32212254720,
+    "monthly_update_run_max_bytes": 32212254720,
+    "exploration_query_max_bytes": 536870912,
+    "blocked_direct_text_scan_threshold_bytes": 107374182400
+  },
+  "dry_run_findings_2026_06_26": {
+    "schema_check_gib": 0.0098,
+    "candidate_10y_cpc_first_gib": 24.6887,
+    "monthly_watch_cpc_first_gib": 24.6887,
+    "candidate_10y_direct_title_abstract_gib": 233.9753,
+    "monthly_watch_direct_title_abstract_gib": 235.9841,
+    "decision": "Use CPC-first candidate narrowing. Do not run direct title/abstract scans as a scheduled monthly job."
+  },
+  "safe_columns_first_pass": [
+    "publication_number",
+    "country_code",
+    "family_id",
+    "publication_date",
+    "priority_date",
+    "grant_date",
+    "title_localized",
+    "abstract_localized",
+    "assignee_harmonized",
+    "cpc",
+    "citation"
+  ],
+  "expensive_columns_defer": [
+    "claims_localized",
+    "claims_localized_html",
+    "description_localized",
+    "description_localized_html",
+    "embedding_v1"
+  ]
+}

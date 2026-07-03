@@ -1,0 +1,82 @@
+{
+  "EAST_ASIA": {
+    "region": "EAST_ASIA",
+    "labelKo": "동아시아",
+    "familyCount": 608289,
+    "publicationCount": 1066190,
+    "publicationCountryCount": 5,
+    "recent5FamilyCount": 276835
+  },
+  "NORTH_AMERICA": {
+    "region": "NORTH_AMERICA",
+    "labelKo": "북미",
+    "familyCount": 207772,
+    "publicationCount": 423640,
+    "publicationCountryCount": 3,
+    "recent5FamilyCount": 58930
+  },
+  "INTERNATIONAL": {
+    "region": "INTERNATIONAL",
+    "labelKo": "국제공개",
+    "familyCount": 155250,
+    "publicationCount": 164136,
+    "publicationCountryCount": 1,
+    "recent5FamilyCount": 57225
+  },
+  "EUROPE": {
+    "region": "EUROPE",
+    "labelKo": "유럽",
+    "familyCount": 142646,
+    "publicationCount": 297760,
+    "publicationCountryCount": 15,
+    "recent5FamilyCount": 47338
+  },
+  "OTHER_WORLD": {
+    "region": "OTHER_WORLD",
+    "labelKo": "기타",
+    "familyCount": 12403,
+    "publicationCount": 17749,
+    "publicationCountryCount": 37,
+    "recent5FamilyCount": 1007
+  },
+  "OCEANIA": {
+    "region": "OCEANIA",
+    "labelKo": "오세아니아",
+    "familyCount": 9971,
+    "publicationCount": 17589,
+    "publicationCountryCount": 2,
+    "recent5FamilyCount": 2713
+  },
+  "LATIN_AMERICA": {
+    "region": "LATIN_AMERICA",
+    "labelKo": "중남미",
+    "familyCount": 8367,
+    "publicationCount": 10963,
+    "publicationCountryCount": 5,
+    "recent5FamilyCount": 687
+  },
+  "MIDDLE_EAST": {
+    "region": "MIDDLE_EAST",
+    "labelKo": "중동",
+    "familyCount": 3145,
+    "publicationCount": 5670,
+    "publicationCountryCount": 3,
+    "recent5FamilyCount": 872
+  },
+  "AFRICA": {
+    "region": "AFRICA",
+    "labelKo": "아프리카",
+    "familyCount": 1383,
+    "publicationCount": 1630,
+    "publicationCountryCount": 2,
+    "recent5FamilyCount": 238
+  },
+  "SOUTH_ASIA": {
+    "region": "SOUTH_ASIA",
+    "labelKo": "남아시아",
+    "familyCount": 10,
+    "publicationCount": 10,
+    "publicationCountryCount": 1,
+    "recent5FamilyCount": 2
+  }
+}

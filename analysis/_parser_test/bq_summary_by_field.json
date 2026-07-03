@@ -1,0 +1,209 @@
+{
+  "space_launch_propulsion_recovery": {
+    "id": "space_launch_propulsion_recovery",
+    "domain": "space",
+    "labelKo": "발사체 추진·회수",
+    "shortLabelKo": "발사체",
+    "labelEn": "Launch vehicle, propulsion, and recovery",
+    "color": "#e54b4b",
+    "familyCount": 1,
+    "publicationCount": 1,
+    "recent5FamilyCount": 1,
+    "recent3FamilyCount": 1,
+    "recentMomentum": 1,
+    "countryFamilyCounts": {
+      "US": 1
+    },
+    "regionFamilyCounts": {
+      "NORTH_AMERICA": 1
+    },
+    "topApplicants": [
+      {
+        "key": "Example Aerospace",
+        "count": 1
+      },
+      {
+        "key": "Korea Partner Lab",
+        "count": 1
+      }
+    ],
+    "topCpcCodes": [
+      {
+        "key": "B64G1",
+        "count": 1
+      },
+      {
+        "key": "F02K9",
+        "count": 1
+      }
+    ],
+    "koreaPublicationGapOpportunityScore": 1,
+    "koreaAssigneeGapOpportunityScore": 0
+  },
+  "space_satellite_bus_thermal_power": {
+    "id": "space_satellite_bus_thermal_power",
+    "domain": "space",
+    "labelKo": "위성 플랫폼·열제어·전력",
+    "shortLabelKo": "위성 플랫폼",
+    "labelEn": "Satellite bus, thermal control, and power",
+    "color": "#f4b942",
+    "familyCount": 0,
+    "publicationCount": 0,
+    "recent5FamilyCount": 0,
+    "recent3FamilyCount": 0,
+    "recentMomentum": 0,
+    "countryFamilyCounts": {},
+    "regionFamilyCounts": {},
+    "topApplicants": [],
+    "topCpcCodes": [],
+    "koreaPublicationGapOpportunityScore": 0,
+    "koreaAssigneeGapOpportunityScore": 0
+  },
+  "space_comm_leo_network": {
+    "id": "space_comm_leo_network",
+    "domain": "space",
+    "labelKo": "위성통신·LEO 네트워크",
+    "shortLabelKo": "위성통신",
+    "labelEn": "Satellite communications and LEO networks",
+    "color": "#2ca58d",
+    "familyCount": 0,
+    "publicationCount": 0,
+    "recent5FamilyCount": 0,
+    "recent3FamilyCount": 0,
+    "recentMomentum": 0,
+    "countryFamilyCounts": {},
+    "regionFamilyCounts": {},
+    "topApplicants": [],
+    "topCpcCodes": [],
+    "koreaPublicationGapOpportunityScore": 0,
+    "koreaAssigneeGapOpportunityScore": 0
+  },
+  "space_remote_sensing_payload": {
+    "id": "space_remote_sensing_payload",
+    "domain": "space",
+    "labelKo": "SAR·원격탐사 페이로드",
+    "shortLabelKo": "SAR 페이로드",
+    "labelEn": "SAR and remote-sensing payload",
+    "color": "#4d8cf5",
+    "familyCount": 1,
+    "publicationCount": 1,
+    "recent5FamilyCount": 1,
+    "recent3FamilyCount": 0,
+    "recentMomentum": 0,
+    "countryFamilyCounts": {
+      "EP": 1
+    },
+    "regionFamilyCounts": {
+      "EUROPE": 1
+    },
+    "topApplicants": [
+      {
+        "key": "Orbital Imaging",
+        "count": 1
+      }
+    ],
+    "topCpcCodes": [
+      {
+        "key": "G01S13",
+        "count": 1
+      }
+    ],
+    "koreaPublicationGapOpportunityScore": 0,
+    "koreaAssigneeGapOpportunityScore": 0
+  },
+  "space_gnc_rendezvous_servicing": {
+    "id": "space_gnc_rendezvous_servicing",
+    "domain": "space",
+    "labelKo": "GNC·랑데부·온오빗 서비스",
+    "shortLabelKo": "GNC",
+    "labelEn": "GNC, rendezvous, docking, and on-orbit servicing",
+    "color": "#8b5cf6",
+    "familyCount": 0,
+    "publicationCount": 0,
+    "recent5FamilyCount": 0,
+    "recent3FamilyCount": 0,
+    "recentMomentum": 0,
+    "countryFamilyCounts": {},
+    "regionFamilyCounts": {},
+    "topApplicants": [],
+    "topCpcCodes": [],
+    "koreaPublicationGapOpportunityScore": 0,
+    "koreaAssigneeGapOpportunityScore": 0
+  },
+  "space_materials_tps_coatings": {
+    "id": "space_materials_tps_coatings",
+    "domain": "space",
+    "labelKo": "우주재료·TPS·코팅",
+    "shortLabelKo": "재료·TPS",
+    "labelEn": "Space materials, TPS, and coatings",
+    "color": "#d65a9d",
+    "familyCount": 0,
+    "publicationCount": 0,
+    "recent5FamilyCount": 0,
+    "recent3FamilyCount": 0,
+    "recentMomentum": 0,
+    "countryFamilyCounts": {},
+    "regionFamilyCounts": {},
+    "topApplicants": [],
+    "topCpcCodes": [],
+    "koreaPublicationGapOpportunityScore": 0,
+    "koreaAssigneeGapOpportunityScore": 0
+  },
+  "aviation_propulsion_sustainable": {
+    "id": "aviation_propulsion_sustainable",
+    "domain": "aviation",
+    "labelKo": "민간항공 추진·전기·수소·SAF",
+    "shortLabelKo": "항공 추진",
+    "labelEn": "Commercial aviation propulsion, electric, hydrogen, and SAF",
+    "color": "#00a7a7",
+    "familyCount": 0,
+    "publicationCount": 0,
+    "recent5FamilyCount": 0,
+    "recent3FamilyCount": 0,
+    "recentMomentum": 0,
+    "countryFamilyCounts": {},
+    "regionFamilyCounts": {},
+    "topApplicants": [],
+    "topCpcCodes": [],
+    "koreaPublicationGapOpportunityScore": 0,
+    "koreaAssigneeGapOpportunityScore": 0
+  },
+  "aviation_structures_aero_composites": {
+    "id": "aviation_structures_aero_composites",
+    "domain": "aviation",
+    "labelKo": "항공 구조·복합재·공력",
+    "shortLabelKo": "항공 구조",
+    "labelEn": "Aircraft structures, composites, and aerodynamics",
+    "color": "#5c8dff",
+    "familyCount": 0,
+    "publicationCount": 0,
+    "recent5FamilyCount": 0,
+    "recent3FamilyCount": 0,
+    "recentMomentum": 0,
+    "countryFamilyCounts": {},
+    "regionFamilyCounts": {},
+    "topApplicants": [],
+    "topCpcCodes": [],
+    "koreaPublicationGapOpportunityScore": 0,
+    "koreaAssigneeGapOpportunityScore": 0
+  },
+  "aviation_avionics_flight_control_autonomy": {
+    "id": "aviation_avionics_flight_control_autonomy",
+    "domain": "aviation",
+    "labelKo": "항전·비행제어·자율비행",
+    "shortLabelKo": "항전·자율",
+    "labelEn": "Avionics, flight control, and autonomy",
+    "color": "#7c5cff",
+    "familyCount": 0,
+    "publicationCount": 0,
+    "recent5FamilyCount": 0,
+    "recent3FamilyCount": 0,
+    "recentMomentum": 0,
+    "countryFamilyCounts": {},
+    "regionFamilyCounts": {},
+    "topApplicants": [],
+    "topCpcCodes": [],
+    "koreaPublicationGapOpportunityScore": 0,
+    "koreaAssigneeGapOpportunityScore": 0
+  }
+}

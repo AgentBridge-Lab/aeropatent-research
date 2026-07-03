@@ -1,0 +1,18 @@
+{
+  "EUROPE": {
+    "region": "EUROPE",
+    "labelKo": "유럽",
+    "familyCount": 1,
+    "publicationCount": 1,
+    "publicationCountryCount": 1,
+    "recent5FamilyCount": 1
+  },
+  "NORTH_AMERICA": {
+    "region": "NORTH_AMERICA",
+    "labelKo": "북미",
+    "familyCount": 1,
+    "publicationCount": 1,
+    "publicationCountryCount": 1,
+    "recent5FamilyCount": 1
+  }
+}

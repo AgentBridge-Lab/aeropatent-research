@@ -1,0 +1,16 @@
+{
+  "EP": {
+    "country": "EP",
+    "labelKo": "유럽특허청",
+    "familyCount": 1,
+    "publicationCount": 1,
+    "recent5FamilyCount": 1
+  },
+  "US": {
+    "country": "US",
+    "labelKo": "미국",
+    "familyCount": 1,
+    "publicationCount": 1,
+    "recent5FamilyCount": 1
+  }
+}

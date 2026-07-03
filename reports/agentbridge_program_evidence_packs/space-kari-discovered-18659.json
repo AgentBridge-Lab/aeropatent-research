@@ -1,0 +1,546 @@
+{
+  "programId": "space-kari-discovered-18659",
+  "programTitle": "2026년도 차세대발사체개발사업 1단계 신규 위탁연구과제 공모",
+  "queryTopic": "재사용 발사체",
+  "taxonomyVersion": "NASA_2024",
+  "generatedAt": "2026-06-28T15:45:47.840Z",
+  "dataStatus": "seed_corpus_generated_evidence_pack",
+  "sourceCorpus": {
+    "name": "aeropatent-research",
+    "path": "<repo-root>",
+    "limitation": "현재 결과는 seed corpus 기반이며 BigQuery 전체 수집 후 재생성해야 한다."
+  },
+  "selectedPatentField": {
+    "aeropatentFieldId": "space_launch_propulsion_recovery",
+    "legacyFieldIds": [
+      "launch_recovery"
+    ],
+    "labelKo": "발사체/추진/회수",
+    "score": 2.17
+  },
+  "nasaTaxonomy": [
+    {
+      "taxonomyVersion": "NASA_2024",
+      "txCode": "TX01",
+      "txName": "Propulsion Systems",
+      "labelKo": "추진 시스템",
+      "confidence": 0.96,
+      "matchedKeywords": [
+        "발사체/추진/회수",
+        "재사용 발사체",
+        "액체로켓 엔진",
+        "발사체 회수"
+      ],
+      "reason": "발사체/추진/회수 분야의 대표 NASA TX"
+    },
+    {
+      "taxonomyVersion": "NASA_2024",
+      "txCode": "TX09",
+      "txName": "Entry, Descent, and Landing",
+      "labelKo": "진입/하강/착륙",
+      "confidence": 0.96,
+      "matchedKeywords": [
+        "발사체/추진/회수",
+        "재사용 발사체",
+        "액체로켓 엔진",
+        "발사체 회수"
+      ],
+      "reason": "발사체/추진/회수 분야의 보조 NASA TX"
+    },
+    {
+      "taxonomyVersion": "NASA_2024",
+      "txCode": "TX17",
+      "txName": "Guidance, Navigation, and Control (GN&C)",
+      "labelKo": "유도/항법/제어",
+      "confidence": 0.96,
+      "matchedKeywords": [
+        "발사체/추진/회수",
+        "재사용 발사체",
+        "액체로켓 엔진",
+        "발사체 회수"
+      ],
+      "reason": "발사체/추진/회수 분야의 보조 NASA TX"
+    }
+  ],
+  "generatedQueries": [
+    "재사용 발사체",
+    "차세대 발사체",
+    "발사체 회수",
+    "수직착륙",
+    "booster recovery",
+    "reusable launch vehicle",
+    "발사체",
+    "추진기관",
+    "로켓",
+    "우주기술",
+    "액체로켓 엔진",
+    "rocket engine",
+    "vertical landing",
+    "launch vehicle propulsion"
+  ],
+  "patentTrendSummary": "2026년도 차세대발사체개발사업 1단계 신규 위탁연구과제 공모은 발사체/추진/회수 특허군과 연결된다. 현재 seed corpus 기준 대표 후보 8건이 매칭되며, 국가 분포는 CN 2건, EP 2건, US 2건, JP 1건이다. 최신 공개연도는 2024로 표시되며, 실제 제안서 문장에는 BigQuery 전체 수집과 수동 검증 후 확정값을 사용한다.",
+  "countryTrend": {
+    "JP": 1,
+    "CN": 2,
+    "EP": 2,
+    "KR": 1,
+    "US": 2
+  },
+  "periodTrend": {
+    "tenYear": "최근 10년 backbone 수집 기준으로 장기 판세를 계산하도록 설계됨",
+    "fiveYear": "최근 5년 기본 대시보드 지표는 BigQuery 후보 테이블 생성 후 갱신",
+    "threeYearEmerging": "최근 3년 급상승 분야는 family count 성장률로 계산 예정",
+    "twelveMonthWatch": "최근 12개월 공개문헌 watchlist는 monthly CPC-first 수집으로 갱신"
+  },
+  "topApplicants": [
+    "Blue Origin Manufacturing LLC",
+    "Hybrid Propulsion For Space",
+    "Nantong University",
+    "Korea Aerospace Research Institute KARI",
+    "한국항공우주연구원",
+    "Pangea Aerospace SL"
+  ],
+  "topCpcOrIpc": [],
+  "metrics": {
+    "representativePatentCount": 5,
+    "candidatePatentCount": 8,
+    "latestPublicationYear": 2024,
+    "countryCount": 5
+  },
+  "representativePatents": [
+    {
+      "id": "patent:JP7603675B2",
+      "publicationNumber": "JP7603675B2",
+      "publication_number": "JP7603675B2",
+      "title": "Hybrid propulsion systems for spacecraft",
+      "authority": "JP",
+      "publicationDate": "2024-12-20",
+      "publicationYear": 2024,
+      "priorityDate": "2021-12-30",
+      "assignee": "Hybrid Propulsion For Space",
+      "sourceUrl": "https://patents.google.com/patent/JP7603675B2/en",
+      "source_url": "https://patents.google.com/patent/JP7603675B2/en",
+      "relevanceScore": 4.65,
+      "matchedKeywords": [
+        "재사용 발사체",
+        "reusable launch vehicle",
+        "발사체",
+        "vertical landing"
+      ],
+      "matchBasis": {
+        "programMatchedKeywords": [
+          "재사용 발사체",
+          "reusable launch vehicle",
+          "발사체"
+        ],
+        "fieldMatchedKeywords": [
+          "재사용 발사체",
+          "reusable launch vehicle",
+          "vertical landing"
+        ]
+      },
+      "nasaTaxonomy": [
+        {
+          "taxonomyVersion": "NASA_2024",
+          "txCode": "TX01",
+          "txName": "Propulsion Systems",
+          "labelKo": "추진 시스템",
+          "confidence": 0.95,
+          "matchedKeywords": [
+            "발사체/추진/회수",
+            "재사용 발사체",
+            "액체로켓 엔진",
+            "발사체 회수"
+          ],
+          "reason": "발사체/추진/회수 분야의 대표 NASA TX"
+        },
+        {
+          "taxonomyVersion": "NASA_2024",
+          "txCode": "TX09",
+          "txName": "Entry, Descent, and Landing",
+          "labelKo": "진입/하강/착륙",
+          "confidence": 0.85,
+          "matchedKeywords": [
+            "발사체/추진/회수",
+            "재사용 발사체",
+            "액체로켓 엔진",
+            "발사체 회수"
+          ],
+          "reason": "발사체/추진/회수 분야의 보조 NASA TX"
+        },
+        {
+          "taxonomyVersion": "NASA_2024",
+          "txCode": "TX17",
+          "txName": "Guidance, Navigation, and Control (GN&C)",
+          "labelKo": "유도/항법/제어",
+          "confidence": 0.75,
+          "matchedKeywords": [
+            "발사체/추진/회수",
+            "재사용 발사체",
+            "액체로켓 엔진",
+            "발사체 회수"
+          ],
+          "reason": "발사체/추진/회수 분야의 보조 NASA TX"
+        }
+      ],
+      "evidenceIds": [
+        "chunk:JP7603675B2:abstract",
+        "chunk:JP7603675B2:claim1",
+        "chunk:JP7603675B2:site_summary"
+      ]
+    },
+    {
+      "id": "patent:CN104724297A",
+      "publicationNumber": "CN104724297A",
+      "publication_number": "CN104724297A",
+      "title": "Anti-toppling system used during carrier rocket vertical descending recovery",
+      "authority": "CN",
+      "publicationDate": "2015-06-24",
+      "publicationYear": 2015,
+      "priorityDate": "2016-03-14",
+      "assignee": "Nantong University",
+      "sourceUrl": "https://patents.google.com/patent/CN104724297A/en",
+      "source_url": "https://patents.google.com/patent/CN104724297A/en",
+      "relevanceScore": 4.38,
+      "matchedKeywords": [
+        "재사용 발사체",
+        "reusable launch vehicle",
+        "발사체",
+        "vertical landing"
+      ],
+      "matchBasis": {
+        "programMatchedKeywords": [
+          "재사용 발사체",
+          "reusable launch vehicle",
+          "발사체"
+        ],
+        "fieldMatchedKeywords": [
+          "재사용 발사체",
+          "reusable launch vehicle",
+          "vertical landing"
+        ]
+      },
+      "nasaTaxonomy": [
+        {
+          "taxonomyVersion": "NASA_2024",
+          "txCode": "TX01",
+          "txName": "Propulsion Systems",
+          "labelKo": "추진 시스템",
+          "confidence": 0.95,
+          "matchedKeywords": [
+            "발사체/추진/회수",
+            "재사용 발사체",
+            "액체로켓 엔진",
+            "발사체 회수"
+          ],
+          "reason": "발사체/추진/회수 분야의 대표 NASA TX"
+        },
+        {
+          "taxonomyVersion": "NASA_2024",
+          "txCode": "TX09",
+          "txName": "Entry, Descent, and Landing",
+          "labelKo": "진입/하강/착륙",
+          "confidence": 0.85,
+          "matchedKeywords": [
+            "발사체/추진/회수",
+            "재사용 발사체",
+            "액체로켓 엔진",
+            "발사체 회수"
+          ],
+          "reason": "발사체/추진/회수 분야의 보조 NASA TX"
+        },
+        {
+          "taxonomyVersion": "NASA_2024",
+          "txCode": "TX17",
+          "txName": "Guidance, Navigation, and Control (GN&C)",
+          "labelKo": "유도/항법/제어",
+          "confidence": 0.75,
+          "matchedKeywords": [
+            "발사체/추진/회수",
+            "재사용 발사체",
+            "액체로켓 엔진",
+            "발사체 회수"
+          ],
+          "reason": "발사체/추진/회수 분야의 보조 NASA TX"
+        }
+      ],
+      "evidenceIds": [
+        "chunk:CN104724297A:abstract",
+        "chunk:CN104724297A:claim1",
+        "chunk:CN104724297A:site_summary"
+      ]
+    },
+    {
+      "id": "patent:EP4140898A1",
+      "publicationNumber": "EP4140898A1",
+      "publication_number": "EP4140898A1",
+      "title": "Landing apparatus for a reusable launch vehicle",
+      "authority": "EP",
+      "publicationDate": "2023-03-01",
+      "publicationYear": 2023,
+      "priorityDate": "2023-12-27",
+      "assignee": "Korea Aerospace Research Institute KARI",
+      "sourceUrl": "https://patents.google.com/patent/EP4140898A1/en",
+      "source_url": "https://patents.google.com/patent/EP4140898A1/en",
+      "relevanceScore": 4.32,
+      "matchedKeywords": [
+        "재사용 발사체",
+        "reusable launch vehicle",
+        "발사체"
+      ],
+      "matchBasis": {
+        "programMatchedKeywords": [
+          "재사용 발사체",
+          "reusable launch vehicle",
+          "발사체"
+        ],
+        "fieldMatchedKeywords": [
+          "재사용 발사체",
+          "reusable launch vehicle"
+        ]
+      },
+      "nasaTaxonomy": [
+        {
+          "taxonomyVersion": "NASA_2024",
+          "txCode": "TX01",
+          "txName": "Propulsion Systems",
+          "labelKo": "추진 시스템",
+          "confidence": 0.95,
+          "matchedKeywords": [
+            "발사체/추진/회수",
+            "재사용 발사체",
+            "액체로켓 엔진",
+            "발사체 회수"
+          ],
+          "reason": "발사체/추진/회수 분야의 대표 NASA TX"
+        },
+        {
+          "taxonomyVersion": "NASA_2024",
+          "txCode": "TX09",
+          "txName": "Entry, Descent, and Landing",
+          "labelKo": "진입/하강/착륙",
+          "confidence": 0.85,
+          "matchedKeywords": [
+            "발사체/추진/회수",
+            "재사용 발사체",
+            "액체로켓 엔진",
+            "발사체 회수"
+          ],
+          "reason": "발사체/추진/회수 분야의 보조 NASA TX"
+        },
+        {
+          "taxonomyVersion": "NASA_2024",
+          "txCode": "TX17",
+          "txName": "Guidance, Navigation, and Control (GN&C)",
+          "labelKo": "유도/항법/제어",
+          "confidence": 0.75,
+          "matchedKeywords": [
+            "발사체/추진/회수",
+            "재사용 발사체",
+            "액체로켓 엔진",
+            "발사체 회수"
+          ],
+          "reason": "발사체/추진/회수 분야의 보조 NASA TX"
+        }
+      ],
+      "evidenceIds": [
+        "chunk:EP4140898A1:abstract",
+        "chunk:EP4140898A1:claim1",
+        "chunk:EP4140898A1:site_summary"
+      ]
+    },
+    {
+      "id": "patent:KR20230029274A",
+      "publicationNumber": "KR20230029274A",
+      "publication_number": "KR20230029274A",
+      "title": "Landing apparatus for reusable launch vehicle",
+      "authority": "KR",
+      "publicationDate": "2023-03-03",
+      "publicationYear": 2023,
+      "priorityDate": "2023-09-13",
+      "assignee": "한국항공우주연구원",
+      "sourceUrl": "https://patents.google.com/patent/KR20230029274A/en",
+      "source_url": "https://patents.google.com/patent/KR20230029274A/en",
+      "relevanceScore": 4.32,
+      "matchedKeywords": [
+        "재사용 발사체",
+        "reusable launch vehicle",
+        "발사체"
+      ],
+      "matchBasis": {
+        "programMatchedKeywords": [
+          "재사용 발사체",
+          "reusable launch vehicle",
+          "발사체"
+        ],
+        "fieldMatchedKeywords": [
+          "재사용 발사체",
+          "reusable launch vehicle"
+        ]
+      },
+      "nasaTaxonomy": [
+        {
+          "taxonomyVersion": "NASA_2024",
+          "txCode": "TX01",
+          "txName": "Propulsion Systems",
+          "labelKo": "추진 시스템",
+          "confidence": 0.95,
+          "matchedKeywords": [
+            "발사체/추진/회수",
+            "재사용 발사체",
+            "액체로켓 엔진",
+            "발사체 회수"
+          ],
+          "reason": "발사체/추진/회수 분야의 대표 NASA TX"
+        },
+        {
+          "taxonomyVersion": "NASA_2024",
+          "txCode": "TX09",
+          "txName": "Entry, Descent, and Landing",
+          "labelKo": "진입/하강/착륙",
+          "confidence": 0.85,
+          "matchedKeywords": [
+            "발사체/추진/회수",
+            "재사용 발사체",
+            "액체로켓 엔진",
+            "발사체 회수"
+          ],
+          "reason": "발사체/추진/회수 분야의 보조 NASA TX"
+        },
+        {
+          "taxonomyVersion": "NASA_2024",
+          "txCode": "TX17",
+          "txName": "Guidance, Navigation, and Control (GN&C)",
+          "labelKo": "유도/항법/제어",
+          "confidence": 0.75,
+          "matchedKeywords": [
+            "발사체/추진/회수",
+            "재사용 발사체",
+            "액체로켓 엔진",
+            "발사체 회수"
+          ],
+          "reason": "발사체/추진/회수 분야의 보조 NASA TX"
+        }
+      ],
+      "evidenceIds": [
+        "chunk:KR20230029274A:abstract",
+        "chunk:KR20230029274A:claim1",
+        "chunk:KR20230029274A:site_summary"
+      ]
+    },
+    {
+      "id": "patent:EP3650358A1",
+      "publicationNumber": "EP3650358A1",
+      "publication_number": "EP3650358A1",
+      "title": "Return to base space launch vehicles, systems and methods",
+      "authority": "EP",
+      "publicationDate": "2020-05-13",
+      "publicationYear": 2020,
+      "priorityDate": "2020-03-31",
+      "assignee": "Pangea Aerospace SL",
+      "sourceUrl": "https://patents.google.com/patent/EP3650358A1/en",
+      "source_url": "https://patents.google.com/patent/EP3650358A1/en",
+      "relevanceScore": 3.58,
+      "matchedKeywords": [
+        "재사용 발사체",
+        "발사체",
+        "rocket engine"
+      ],
+      "matchBasis": {
+        "programMatchedKeywords": [
+          "재사용 발사체",
+          "발사체"
+        ],
+        "fieldMatchedKeywords": [
+          "재사용 발사체",
+          "rocket engine"
+        ]
+      },
+      "nasaTaxonomy": [
+        {
+          "taxonomyVersion": "NASA_2024",
+          "txCode": "TX01",
+          "txName": "Propulsion Systems",
+          "labelKo": "추진 시스템",
+          "confidence": 0.95,
+          "matchedKeywords": [
+            "발사체/추진/회수",
+            "재사용 발사체",
+            "액체로켓 엔진",
+            "발사체 회수"
+          ],
+          "reason": "발사체/추진/회수 분야의 대표 NASA TX"
+        },
+        {
+          "taxonomyVersion": "NASA_2024",
+          "txCode": "TX09",
+          "txName": "Entry, Descent, and Landing",
+          "labelKo": "진입/하강/착륙",
+          "confidence": 0.85,
+          "matchedKeywords": [
+            "발사체/추진/회수",
+            "재사용 발사체",
+            "액체로켓 엔진",
+            "발사체 회수"
+          ],
+          "reason": "발사체/추진/회수 분야의 보조 NASA TX"
+        },
+        {
+          "taxonomyVersion": "NASA_2024",
+          "txCode": "TX17",
+          "txName": "Guidance, Navigation, and Control (GN&C)",
+          "labelKo": "유도/항법/제어",
+          "confidence": 0.75,
+          "matchedKeywords": [
+            "발사체/추진/회수",
+            "재사용 발사체",
+            "액체로켓 엔진",
+            "발사체 회수"
+          ],
+          "reason": "발사체/추진/회수 분야의 보조 NASA TX"
+        }
+      ],
+      "evidenceIds": [
+        "chunk:EP3650358A1:abstract",
+        "chunk:EP3650358A1:claim1",
+        "chunk:EP3650358A1:site_summary"
+      ]
+    }
+  ],
+  "opportunityNotes": [
+    "발사체/추진/회수 분야는 seed corpus에서 한국 공개문헌 비중이 낮아 국내 연구기획/사업화 공백 후보로 검토할 수 있다.",
+    "단, 공개국가 기준이므로 국내 기업/기관의 해외 출원 여부는 별도 확인이 필요하다."
+  ],
+  "riskNotes": [
+    "자동 분류 결과이므로 대표 특허와 강한 제안서 문장은 수동 검토 후 사용해야 한다.",
+    "공개국가 기준과 출원인 국적 기준은 다를 수 있다.",
+    "FTO, 유효성, 침해 판단은 제공하지 않는다."
+  ],
+  "proposalReadyBullets": [
+    "2026년도 차세대발사체개발사업 1단계 신규 위탁연구과제 공모의 기술범위는 NASA_2024 기준 발사체/추진/회수 특허군과 연결되며, JP, CN, EP, KR, US 공개문헌을 중심으로 선행기술 동향을 확인할 수 있다.",
+    "대표 근거 특허로 JP7603675B2(Hybrid propulsion systems for spacecraft)를 우선 검토하고, 초록/청구항 근거 chunk를 통해 차별화 포인트를 정리한다.",
+    "제안서에는 특허 수량 자체보다 기술문제, 해결수단, 국내 적용 차별성을 중심으로 반영한다."
+  ],
+  "evidenceIds": [
+    "chunk:JP7603675B2:abstract",
+    "chunk:JP7603675B2:claim1",
+    "chunk:JP7603675B2:site_summary",
+    "chunk:CN104724297A:abstract",
+    "chunk:CN104724297A:claim1",
+    "chunk:CN104724297A:site_summary",
+    "chunk:EP4140898A1:abstract",
+    "chunk:EP4140898A1:claim1",
+    "chunk:EP4140898A1:site_summary",
+    "chunk:KR20230029274A:abstract",
+    "chunk:KR20230029274A:claim1",
+    "chunk:KR20230029274A:site_summary",
+    "chunk:EP3650358A1:abstract",
+    "chunk:EP3650358A1:claim1",
+    "chunk:EP3650358A1:site_summary"
+  ],
+  "limitations": [
+    "seed corpus 기반 1차 결과이다.",
+    "BigQuery 전체 후보 수집과 KIPRIS 보강 후 수량 지표가 바뀔 수 있다.",
+    "청구항 전문 분석 전까지 권리범위 해석은 하지 않는다."
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "version": "NASA_2024",
+  "source": {
+    "title": "2024 NASA Technology Taxonomy",
+    "url": "https://www.nasa.gov/otps/2024-nasa-technology-taxonomy/",
+    "retrieved_at": "2026-06-28"
+  },
+  "notes": [
+    "AgentBridge와 항공우주 특허 코퍼스의 공통 기술분류 기준으로 사용한다.",
+    "NASA taxonomy는 3단계 계층이지만 v1은 TX level 1을 기본 필터로 쓰고, level 2/3은 키워드 및 근거 설명에 점진 적용한다.",
+    "모든 특허/공고 매핑 결과에는 taxonomyVersion 값을 저장하여 향후 NASA taxonomy 개정에 대비한다."
+  ],
+  "areas": [
+    {
+      "txCode": "TX01",
+      "txName": "Propulsion Systems",
+      "label_ko": "추진 시스템",
+      "summary_ko": "화학/비화학 추진, 항공 추진, 발사체 추진, 우주 추진 관련 기술",
+      "agentbridge_priority": "high"
+    },
+    {
+      "txCode": "TX02",
+      "txName": "Flight Computing and Avionics",
+      "label_ko": "비행 컴퓨팅/항전",
+      "summary_ko": "우주 및 대기권 비행 시스템에 적용되는 전자장치, 비행 컴퓨팅, 항전 하드웨어",
+      "agentbridge_priority": "high"
+    },
+    {
+      "txCode": "TX03",
+      "txName": "Aerospace Power and Energy Storage",
+      "label_ko": "항공우주 전력/에너지 저장",
+      "summary_ko": "전력 생성, 저장, 전력관리와 분배 관련 기술",
+      "agentbridge_priority": "high"
+    },
+    {
+      "txCode": "TX04",
+      "txName": "Robotic Systems",
+      "label_ko": "로봇 시스템",
+      "summary_ko": "탐사 로봇, 승무원 보조, 이동성, 조작, 무인 자산 관리 관련 로봇 기술",
+      "agentbridge_priority": "high"
+    },
+    {
+      "txCode": "TX05",
+      "txName": "Communications, Navigation, and Orbital Debris Tracking and Characterization Systems",
+      "label_ko": "통신/항법/우주잔해 추적",
+      "summary_ko": "우주 통신, 항법 지원, 임무 데이터 전송, 우주잔해 추적 및 특성화 기술",
+      "agentbridge_priority": "high"
+    },
+    {
+      "txCode": "TX06",
+      "txName": "Human Health, Life Support, and Habitation Systems",
+      "label_ko": "인간 건강/생명유지/거주",
+      "summary_ko": "승무원 생존, 건강, 거주 환경, 생명유지 관련 기술",
+      "agentbridge_priority": "medium"
+    },
+    {
+      "txCode": "TX07",
+      "txName": "Exploration Destination Systems",
+      "label_ko": "탐사 목적지 시스템",
+      "summary_ko": "우주 탐사 목적지 활동, 현지자원활용, 표면 운용 관련 기술",
+      "agentbridge_priority": "medium"
+    },
+    {
+      "txCode": "TX08",
+      "txName": "Sensors and Instruments",
+      "label_ko": "센서/계측기",
+      "summary_ko": "관측 장비, 탑재체, 원격 관측, 과학 계측 및 센서 기술",
+      "agentbridge_priority": "high"
+    },
+    {
+      "txCode": "TX09",
+      "txName": "Entry, Descent, and Landing",
+      "label_ko": "진입/하강/착륙",
+      "summary_ko": "행성 진입, 하강, 착륙, 착륙 유도, 착륙 위험 탐지 관련 기술",
+      "agentbridge_priority": "high"
+    },
+    {
+      "txCode": "TX10",
+      "txName": "Autonomous Systems",
+      "label_ko": "자율 시스템",
+      "summary_ko": "로봇, 우주선, 항공기가 동적 환경에서 외부 제어 없이 운용되도록 하는 자율 기술",
+      "agentbridge_priority": "high"
+    },
+    {
+      "txCode": "TX11",
+      "txName": "Software, Modeling, Simulation, and Information Processing",
+      "label_ko": "소프트웨어/모델링/시뮬레이션/정보처리",
+      "summary_ko": "모델링, 시뮬레이션, AI, 소프트웨어, 정보처리 기반 기술",
+      "agentbridge_priority": "high"
+    },
+    {
+      "txCode": "TX12",
+      "txName": "Materials, Structures, Mechanical Systems, and Manufacturing",
+      "label_ko": "재료/구조/기계시스템/제조",
+      "summary_ko": "신소재, 구조, 기계시스템, 첨단 제조 및 적층제조 기술",
+      "agentbridge_priority": "high"
+    },
+    {
+      "txCode": "TX13",
+      "txName": "Ground, Test, and Surface Systems",
+      "label_ko": "지상/시험/표면 시스템",
+      "summary_ko": "시험, 검증, 조립, 통합, 발사, 지상/표면 운용 지원 기술",
+      "agentbridge_priority": "high"
+    },
+    {
+      "txCode": "TX14",
+      "txName": "Thermal Management Systems",
+      "label_ko": "열관리 시스템",
+      "summary_ko": "열 획득, 전달, 배출, 단열, 온도 제어 관련 기술",
+      "agentbridge_priority": "high"
+    },
+    {
+      "txCode": "TX15",
+      "txName": "Flight Vehicle Systems",
+      "label_ko": "비행체 시스템",
+      "summary_ko": "공력, 비행역학, 비행체 성능 예측/측정/시험 관련 기술",
+      "agentbridge_priority": "high"
+    },
+    {
+      "txCode": "TX16",
+      "txName": "Air Traffic Management and Range Tracking Systems",
+      "label_ko": "항공교통관리/비행범위 추적",
+      "summary_ko": "항공교통 안전, 자동화, 상업 우주 통합 운용, range tracking 관련 기술",
+      "agentbridge_priority": "medium"
+    },
+    {
+      "txCode": "TX17",
+      "txName": "Guidance, Navigation, and Control (GN&C)",
+      "label_ko": "유도/항법/제어",
+      "summary_ko": "우주/항공 시스템의 유도, 항법, 제어, 자세 추정, 궤적 생성 및 관리 기술",
+      "agentbridge_priority": "high"
+    }
+  ]
+}

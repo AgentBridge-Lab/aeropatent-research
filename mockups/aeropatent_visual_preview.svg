@@ -1,0 +1,236 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1220" viewBox="0 0 1800 1220">
+  <defs>
+    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#141414"/>
+      <stop offset="0.58" stop-color="#1f2421"/>
+      <stop offset="1" stop-color="#141414"/>
+    </linearGradient>
+    <linearGradient id="space" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101214"/>
+      <stop offset="0.42" stop-color="#152025"/>
+      <stop offset="0.72" stop-color="#241a21"/>
+      <stop offset="1" stop-color="#111318"/>
+    </linearGradient>
+    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#161817"/>
+      <stop offset="0.45" stop-color="#202926"/>
+      <stop offset="1" stop-color="#311f24"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#111111" flood-opacity=".18"/>
+    </filter>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="3.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .bg { fill: #f4f2ec; }
+      .panel { fill: #fbfaf6; stroke: #ded9ce; stroke-width: 1; rx: 22; }
+      .darkPanel { fill: url(#space); stroke: #2e3736; stroke-width: 1; rx: 22; }
+      .title { font: 700 28px "Segoe UI", "Malgun Gothic", sans-serif; fill: #1d1f1d; letter-spacing: 0; }
+      .screenTitle { font: 700 22px "Segoe UI", "Malgun Gothic", sans-serif; fill: #222420; letter-spacing: 0; }
+      .screenTitleLight { font: 700 22px "Segoe UI", "Malgun Gothic", sans-serif; fill: #f6f1e7; letter-spacing: 0; }
+      .label { font: 600 13px "Segoe UI", "Malgun Gothic", sans-serif; fill: #5d6159; letter-spacing: 0; }
+      .labelLight { font: 600 13px "Segoe UI", "Malgun Gothic", sans-serif; fill: #c7d0ca; letter-spacing: 0; }
+      .small { font: 500 11px "Segoe UI", "Malgun Gothic", sans-serif; fill: #767970; letter-spacing: 0; }
+      .smallLight { font: 500 11px "Segoe UI", "Malgun Gothic", sans-serif; fill: #9ca9a4; letter-spacing: 0; }
+      .num { font: 700 25px "Segoe UI", "Malgun Gothic", sans-serif; fill: #222420; letter-spacing: 0; }
+      .numLight { font: 700 25px "Segoe UI", "Malgun Gothic", sans-serif; fill: #f6f1e7; letter-spacing: 0; }
+      .micro { font: 600 9.5px "Segoe UI", "Malgun Gothic", sans-serif; fill: #73786f; letter-spacing: 0; }
+      .axis { stroke: #d7d2c8; stroke-width: 1; }
+      .grid { stroke: #e7e3da; stroke-width: 1; }
+      .chip { fill: #efebe1; stroke: #d6d0c3; stroke-width: 1; rx: 15; }
+      .chipDark { fill: rgba(255,255,255,.08); stroke: rgba(255,255,255,.14); stroke-width: 1; rx: 15; }
+      .teal { fill: #19a99b; }
+      .amber { fill: #d6a33d; }
+      .coral { fill: #d66f5b; }
+      .violet { fill: #8c74d6; }
+      .blue { fill: #5b8ed6; }
+      .lineTeal { stroke: #19a99b; stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .lineAmber { stroke: #d6a33d; stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .lineCoral { stroke: #d66f5b; stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1800" height="1220"/>
+  <text x="58" y="58" class="title">AeroPatent Intelligence · 시각화 프리뷰</text>
+  <text x="58" y="83" class="label">구현 전 화면 방향성 확인용 목업 · 수치와 특허명은 데모 데이터</text>
+
+  <!-- Screen 1: Analysis home -->
+  <g transform="translate(58,118)" filter="url(#softShadow)">
+    <rect width="820" height="500" rx="26" fill="#fbfaf6" stroke="#ded9ce"/>
+    <rect width="820" height="145" rx="26" fill="url(#hero)"/>
+    <clipPath id="heroClip"><rect width="820" height="145" rx="26"/></clipPath>
+    <g clip-path="url(#heroClip)" opacity=".7">
+      <text x="30" y="73" font-family="Segoe UI, Malgun Gothic, sans-serif" font-size="52" font-weight="800" fill="#f4eee2" opacity=".1">DISTORTING TYPOGRAPHY</text>
+      <path d="M510 36 C620 12, 717 34, 790 93" fill="none" stroke="#19a99b" stroke-width="2" opacity=".45"/>
+      <path d="M492 111 C604 84, 690 100, 812 50" fill="none" stroke="#d6a33d" stroke-width="2" opacity=".35"/>
+      <circle cx="650" cy="66" r="5" fill="#19a99b" opacity=".8"/>
+      <circle cx="735" cy="96" r="4" fill="#d6a33d" opacity=".8"/>
+      <circle cx="570" cy="33" r="3" fill="#d66f5b" opacity=".75"/>
+    </g>
+    <text x="30" y="44" class="screenTitleLight">분석 홈</text>
+    <text x="30" y="75" font-family="Segoe UI, Malgun Gothic, sans-serif" font-size="26" font-weight="800" fill="#f6f1e7">항공우주 특허 지형을 먼저 읽고, 검색은 나중에</text>
+    <text x="30" y="103" class="labelLight">기본 화면은 5년 동향 · 필요 시 10년/월간 감시로 전환</text>
+    <g transform="translate(30,166)">
+      <rect class="chip" width="96" height="30"/><text x="16" y="20" class="label">최근 5년</text>
+      <rect x="106" class="chip" width="96" height="30"/><text x="124" y="20" class="label">패밀리 기준</text>
+      <rect x="212" class="chip" width="118" height="30"/><text x="230" y="20" class="label">공개국가 기준</text>
+      <rect x="340" class="chip" width="86" height="30"/><text x="359" y="20" class="label">전체 분야</text>
+    </g>
+    <g transform="translate(30,218)">
+      <rect x="0" y="0" width="140" height="78" rx="12" fill="#f4f1e8"/>
+      <text x="16" y="26" class="label">특허 패밀리</text>
+      <text x="16" y="58" class="num">12.8k</text>
+      <rect x="153" y="0" width="140" height="78" rx="12" fill="#f4f1e8"/>
+      <text x="169" y="26" class="label">최대 증가 분야</text>
+      <text x="169" y="58" class="num">AAM</text>
+      <rect x="306" y="0" width="140" height="78" rx="12" fill="#f4f1e8"/>
+      <text x="322" y="26" class="label">강세 국가</text>
+      <text x="322" y="58" class="num">US/CN</text>
+      <rect x="459" y="0" width="140" height="78" rx="12" fill="#f4f1e8"/>
+      <text x="475" y="26" class="label">한국 기회</text>
+      <text x="475" y="58" class="num">3개</text>
+      <rect x="612" y="0" width="148" height="78" rx="12" fill="#f4f1e8"/>
+      <text x="628" y="26" class="label">월간 신규</text>
+      <text x="628" y="58" class="num">184</text>
+    </g>
+    <g transform="translate(30,330)">
+      <text x="0" y="0" class="screenTitle">분야×국가 히트맵</text>
+      <text x="445" y="0" class="screenTitle">10년 추세</text>
+      <g transform="translate(0,20)">
+        <text x="0" y="23" class="small">추진/발사</text><text x="0" y="57" class="small">위성버스</text><text x="0" y="91" class="small">항공추진</text><text x="0" y="125" class="small">자율비행</text>
+        <text x="94" y="-5" class="micro">US</text><text x="150" y="-5" class="micro">EP</text><text x="206" y="-5" class="micro">JP</text><text x="262" y="-5" class="micro">CN</text><text x="318" y="-5" class="micro">KR</text>
+        <g transform="translate(82,0)">
+          <rect x="0" y="0" width="44" height="27" rx="5" fill="#19a99b"/><rect x="56" y="0" width="44" height="27" rx="5" fill="#b9d6cf"/><rect x="112" y="0" width="44" height="27" rx="5" fill="#d9d4c7"/><rect x="168" y="0" width="44" height="27" rx="5" fill="#3db6a8"/><rect x="224" y="0" width="44" height="27" rx="5" fill="#e7c777"/>
+          <rect x="0" y="34" width="44" height="27" rx="5" fill="#5cbfb4"/><rect x="56" y="34" width="44" height="27" rx="5" fill="#d8bd71"/><rect x="112" y="34" width="44" height="27" rx="5" fill="#cfc9bd"/><rect x="168" y="34" width="44" height="27" rx="5" fill="#19a99b"/><rect x="224" y="34" width="44" height="27" rx="5" fill="#d9d4c7"/>
+          <rect x="0" y="68" width="44" height="27" rx="5" fill="#d6a33d"/><rect x="56" y="68" width="44" height="27" rx="5" fill="#c5b891"/><rect x="112" y="68" width="44" height="27" rx="5" fill="#e4d7ad"/><rect x="168" y="68" width="44" height="27" rx="5" fill="#d66f5b"/><rect x="224" y="68" width="44" height="27" rx="5" fill="#cfc9bd"/>
+          <rect x="0" y="102" width="44" height="27" rx="5" fill="#19a99b"/><rect x="56" y="102" width="44" height="27" rx="5" fill="#cfc9bd"/><rect x="112" y="102" width="44" height="27" rx="5" fill="#b6c6d9"/><rect x="168" y="102" width="44" height="27" rx="5" fill="#d6a33d"/><rect x="224" y="102" width="44" height="27" rx="5" fill="#e7d9b0"/>
+        </g>
+      </g>
+      <g transform="translate(445,22)">
+        <line x1="0" y1="126" x2="304" y2="126" class="axis"/>
+        <line x1="0" y1="90" x2="304" y2="90" class="grid"/>
+        <line x1="0" y1="54" x2="304" y2="54" class="grid"/>
+        <line x1="0" y1="18" x2="304" y2="18" class="grid"/>
+        <path class="lineTeal" d="M0 105 L38 96 L76 88 L114 75 L152 62 L190 48 L228 34 L266 24 L304 16"/>
+        <path class="lineAmber" d="M0 116 L38 110 L76 100 L114 94 L152 82 L190 70 L228 58 L266 44 L304 36"/>
+        <path class="lineCoral" d="M0 120 L38 117 L76 112 L114 104 L152 96 L190 80 L228 74 L266 61 L304 49"/>
+        <circle cx="304" cy="16" r="5" fill="#19a99b"/><circle cx="304" cy="36" r="5" fill="#d6a33d"/><circle cx="304" cy="49" r="5" fill="#d66f5b"/>
+        <text x="0" y="144" class="micro">2016</text><text x="135" y="144" class="micro">2021</text><text x="278" y="144" class="micro">2026</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Screen 2: Field detail -->
+  <g transform="translate(922,118)" filter="url(#softShadow)">
+    <rect width="820" height="500" rx="26" fill="#fbfaf6" stroke="#ded9ce"/>
+    <text x="30" y="42" class="screenTitle">분야 상세 · 항공추진 / 지속가능 연료</text>
+    <text x="30" y="70" class="label">보고서는 먼저 요약하고, 근거 특허와 차트는 아래에서 확인</text>
+    <g transform="translate(30,102)">
+      <rect width="340" height="146" rx="16" fill="#f4f1e8"/>
+      <text x="20" y="30" class="label">핵심 해석</text>
+      <text x="20" y="62" font-family="Segoe UI, Malgun Gothic, sans-serif" font-size="18" font-weight="700" fill="#222420">전기추진과 수소 연료 계열이 동시에 증가</text>
+      <text x="20" y="92" class="small">미국은 시스템 통합, 중국은 배터리/제어,</text>
+      <text x="20" y="112" class="small">유럽은 SAF/인증 흐름이 강하게 관측됨.</text>
+      <rect x="20" y="121" width="62" height="18" rx="9" fill="#dbeae6"/><text x="31" y="134" class="micro">신뢰도 높음</text>
+    </g>
+    <g transform="translate(400,102)">
+      <text x="0" y="0" class="label">국가별 점유율</text>
+      <rect x="0" y="24" width="290" height="22" rx="11" fill="#e8e2d6"/><rect x="0" y="24" width="103" height="22" rx="11" fill="#19a99b"/>
+      <rect x="0" y="61" width="290" height="22" rx="11" fill="#e8e2d6"/><rect x="0" y="61" width="89" height="22" rx="11" fill="#d6a33d"/>
+      <rect x="0" y="98" width="290" height="22" rx="11" fill="#e8e2d6"/><rect x="0" y="98" width="55" height="22" rx="11" fill="#d66f5b"/>
+      <text x="302" y="40" class="small">US 36%</text><text x="302" y="77" class="small">CN 31%</text><text x="302" y="114" class="small">KR 19%</text>
+    </g>
+    <g transform="translate(30,288)">
+      <text x="0" y="0" class="screenTitle">대표 특허 패밀리</text>
+      <rect x="0" y="20" width="760" height="44" rx="10" fill="#f4f1e8"/><text x="18" y="48" class="label">US-2025-012345 · Hybrid electric propulsion control</text><text x="540" y="48" class="small">B64D · 2025 · Boeing</text>
+      <rect x="0" y="74" width="760" height="44" rx="10" fill="#f4f1e8"/><text x="18" y="102" class="label">CN-2024-098765 · Hydrogen aviation power management</text><text x="540" y="102" class="small">B64H · 2024 · COMAC</text>
+      <rect x="0" y="128" width="760" height="44" rx="10" fill="#f4f1e8"/><text x="18" y="156" class="label">EP-2023-045678 · SAF combustion stability system</text><text x="540" y="156" class="small">F02C · 2023 · Airbus</text>
+    </g>
+  </g>
+
+  <!-- Screen 3: Graph view -->
+  <g transform="translate(58,668)" filter="url(#softShadow)">
+    <rect width="820" height="500" rx="26" fill="url(#space)" stroke="#2e3736"/>
+    <text x="30" y="42" class="screenTitleLight">LLM Wiki 그래프뷰</text>
+    <text x="30" y="70" class="labelLight">노드를 누르면 카메라가 이동하고, 오른쪽 보고서 카드가 열림</text>
+    <g transform="translate(30,96)">
+      <rect class="chipDark" width="86" height="30"/><text x="18" y="20" class="labelLight">분야 지도</text>
+      <rect x="96" class="chipDark" width="96" height="30"/><text x="113" y="20" class="labelLight">국가 비교</text>
+      <rect x="202" class="chipDark" width="98" height="30"/><text x="219" y="20" class="labelLight">출원인망</text>
+      <rect x="310" class="chipDark" width="118" height="30"/><text x="328" y="20" class="labelLight">한국 기회</text>
+    </g>
+    <g opacity=".95">
+      <line x1="164" y1="276" x2="278" y2="202" stroke="#556865" stroke-width="1.1"/>
+      <line x1="278" y1="202" x2="420" y2="250" stroke="#556865" stroke-width="1.1"/>
+      <line x1="420" y1="250" x2="564" y2="175" stroke="#556865" stroke-width="1.1"/>
+      <line x1="420" y1="250" x2="610" y2="318" stroke="#556865" stroke-width="1.1"/>
+      <line x1="278" y1="202" x2="375" y2="382" stroke="#556865" stroke-width="1.1"/>
+      <line x1="164" y1="276" x2="375" y2="382" stroke="#556865" stroke-width="1.1"/>
+      <line x1="564" y1="175" x2="694" y2="240" stroke="#556865" stroke-width="1.1"/>
+      <line x1="610" y1="318" x2="694" y2="240" stroke="#556865" stroke-width="1.1"/>
+      <circle cx="164" cy="276" r="22" fill="#19a99b" filter="url(#glow)"/>
+      <circle cx="278" cy="202" r="15" fill="#d6a33d" filter="url(#glow)"/>
+      <circle cx="420" cy="250" r="28" fill="#e7f4ef" filter="url(#glow)"/>
+      <circle cx="564" cy="175" r="16" fill="#8c74d6" filter="url(#glow)"/>
+      <circle cx="610" cy="318" r="20" fill="#d66f5b" filter="url(#glow)"/>
+      <circle cx="375" cy="382" r="14" fill="#5b8ed6" filter="url(#glow)"/>
+      <circle cx="694" cy="240" r="12" fill="#d6a33d" filter="url(#glow)"/>
+      <g fill="#f6f1e7" opacity=".9">
+        <circle cx="86" cy="156" r="1.5"/><circle cx="126" cy="218" r="1.1"/><circle cx="210" cy="146" r="1.2"/><circle cx="334" cy="152" r="1.5"/><circle cx="474" cy="148" r="1.1"/><circle cx="705" cy="138" r="1.2"/>
+        <circle cx="92" cy="388" r="1.2"/><circle cx="232" cy="420" r="1.4"/><circle cx="505" cy="405" r="1.2"/><circle cx="732" cy="392" r="1.3"/>
+      </g>
+      <text x="388" y="255" text-anchor="middle" font-family="Segoe UI, Malgun Gothic, sans-serif" font-size="12" font-weight="700" fill="#101214">AAM</text>
+      <text x="134" y="318" class="smallLight">항공추진</text>
+      <text x="246" y="184" class="smallLight">US</text>
+      <text x="535" y="158" class="smallLight">Airbus</text>
+      <text x="583" y="360" class="smallLight">한국 기회</text>
+    </g>
+    <g transform="translate(530,108)">
+      <rect width="250" height="344" rx="18" fill="#fbfaf6" opacity=".97"/>
+      <text x="22" y="38" class="screenTitle">AAM / 자율비행</text>
+      <text x="22" y="66" class="small">선택 노드 보고서</text>
+      <rect x="22" y="90" width="206" height="1" fill="#e0d9ce"/>
+      <text x="22" y="122" class="label">최근 5년 증가율</text><text x="22" y="155" class="num">+41%</text>
+      <text x="22" y="190" class="label">강세 국가</text><text x="22" y="214" class="small">US · CN · EP</text>
+      <text x="22" y="250" class="label">한국 관찰 포인트</text>
+      <text x="22" y="274" class="small">배터리 열관리와 인증 관련</text>
+      <text x="22" y="294" class="small">특허 패밀리가 아직 얇음.</text>
+      <rect x="22" y="312" width="108" height="24" rx="12" fill="#1f2421"/><text x="40" y="328" font-family="Segoe UI, Malgun Gothic, sans-serif" font-size="11" font-weight="700" fill="#f6f1e7">보고서 열기</text>
+    </g>
+  </g>
+
+  <!-- Screen 4: Patent search -->
+  <g transform="translate(922,668)" filter="url(#softShadow)">
+    <rect width="820" height="500" rx="26" fill="#fbfaf6" stroke="#ded9ce"/>
+    <text x="30" y="42" class="screenTitle">관련 특허 검색</text>
+    <text x="30" y="70" class="label">분석 결과에서 더 들어가고 싶을 때 쓰는 2차 화면</text>
+    <g transform="translate(30,100)">
+      <rect width="760" height="50" rx="14" fill="#f4f1e8"/>
+      <text x="22" y="32" class="label">검색어: 수소 항공 추진 · 국가: 전체 · 기간: 최근 5년 · 분야: 항공추진</text>
+    </g>
+    <g transform="translate(30,178)">
+      <text x="0" y="0" class="label">검색 결과</text>
+      <rect x="0" y="22" width="760" height="52" rx="11" fill="#f4f1e8"/>
+      <text x="18" y="52" class="label">US-2025-012345 · Hybrid electric propulsion control system</text>
+      <text x="560" y="52" class="small">US · Boeing · B64D</text>
+      <rect x="0" y="86" width="760" height="52" rx="11" fill="#f4f1e8"/>
+      <text x="18" y="116" class="label">CN-2024-098765 · Hydrogen aviation power management</text>
+      <text x="560" y="116" class="small">CN · COMAC · F02C</text>
+      <rect x="0" y="150" width="760" height="52" rx="11" fill="#f4f1e8"/>
+      <text x="18" y="180" class="label">EP-2023-045678 · SAF combustion stability system</text>
+      <text x="560" y="180" class="small">EP · Airbus · F02C</text>
+    </g>
+    <g transform="translate(30,418)">
+      <rect width="234" height="44" rx="13" fill="#1f2421"/><text x="56" y="28" font-family="Segoe UI, Malgun Gothic, sans-serif" font-size="13" font-weight="700" fill="#f6f1e7">선택 특허를 그래프에서 보기</text>
+      <rect x="252" width="194" height="44" rx="13" fill="#efebe1" stroke="#d6d0c3"/><text x="302" y="28" class="label">CSV 내보내기</text>
+      <rect x="464" width="206" height="44" rx="13" fill="#efebe1" stroke="#d6d0c3"/><text x="515" y="28" class="label">보고서에 추가</text>
+    </g>
+  </g>
+
+  <text x="58" y="1200" class="small">디자인 원칙: 첫 화면은 결론 중심, 그래프는 탐색 중심, 검색은 후속 행동. 색상은 차분한 베이스 + 청록/앰버/코랄 포인트.</text>
+</svg>

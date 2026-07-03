@@ -1,0 +1,187 @@
+{
+  "generatedAt": "2026-06-28T17:28:21.807Z",
+  "startedAt": "2026-06-28T16:59:24.200Z",
+  "completedAt": "2026-06-28T17:28:21.807Z",
+  "mode": "run",
+  "projectId": "aeropatent-research",
+  "sqlPath": "sql/01a_candidate_10y_cpc_first_production.sql",
+  "outPath": "raw/bigquery/bq_candidates_20260628T165923.jsonl",
+  "latestPath": "raw/bigquery/bq_candidates_latest.jsonl",
+  "manifestPath": "analysis/bq_candidates_production.manifest.json",
+  "maxBytes": 32212254720,
+  "pageSize": 10000,
+  "rowLimit": null,
+  "dryRun": {
+    "dryRun": true,
+    "jobComplete": true,
+    "totalRows": 0,
+    "totalBytesProcessed": 26509254224,
+    "totalBytesBilled": 0,
+    "totalGiBProcessed": 24.6887,
+    "totalGiBBilled": 0,
+    "cacheHit": false,
+    "jobReference": {
+      "projectId": "aeropatent-research",
+      "location": "US"
+    },
+    "schema": {
+      "fields": [
+        {
+          "name": "publication_number",
+          "type": "STRING",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "publication_country_code",
+          "type": "STRING",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "family_id",
+          "type": "STRING",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "publication_date",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "priority_date",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "grant_date",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "field_id",
+          "type": "STRING",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "assignees",
+          "type": "RECORD",
+          "mode": "REPEATED",
+          "fields": [
+            {
+              "name": "name",
+              "type": "STRING",
+              "mode": "NULLABLE"
+            },
+            {
+              "name": "country_code",
+              "type": "STRING",
+              "mode": "NULLABLE"
+            }
+          ]
+        },
+        {
+          "name": "assignee_country_codes",
+          "type": "STRING",
+          "mode": "REPEATED"
+        },
+        {
+          "name": "cpc_codes",
+          "type": "STRING",
+          "mode": "REPEATED"
+        },
+        {
+          "name": "cpc_hit",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        }
+      ]
+    }
+  },
+  "run": {
+    "dryRun": false,
+    "jobComplete": true,
+    "totalRows": 2522788,
+    "totalBytesProcessed": 26509254224,
+    "totalBytesBilled": 26510098432,
+    "totalGiBProcessed": 24.6887,
+    "totalGiBBilled": 24.6895,
+    "cacheHit": false,
+    "jobReference": {
+      "projectId": "aeropatent-research",
+      "jobId": "job_8MqLrYKnql1AJYeOKPo4NvlxMUrF",
+      "location": "US"
+    },
+    "schema": {
+      "fields": [
+        {
+          "name": "publication_number",
+          "type": "STRING",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "publication_country_code",
+          "type": "STRING",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "family_id",
+          "type": "STRING",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "publication_date",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "priority_date",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "grant_date",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "field_id",
+          "type": "STRING",
+          "mode": "NULLABLE"
+        },
+        {
+          "name": "assignees",
+          "type": "RECORD",
+          "mode": "REPEATED",
+          "fields": [
+            {
+              "name": "name",
+              "type": "STRING",
+              "mode": "NULLABLE"
+            },
+            {
+              "name": "country_code",
+              "type": "STRING",
+              "mode": "NULLABLE"
+            }
+          ]
+        },
+        {
+          "name": "assignee_country_codes",
+          "type": "STRING",
+          "mode": "REPEATED"
+        },
+        {
+          "name": "cpc_codes",
+          "type": "STRING",
+          "mode": "REPEATED"
+        },
+        {
+          "name": "cpc_hit",
+          "type": "INTEGER",
+          "mode": "NULLABLE"
+        }
+      ]
+    }
+  },
+  "rowsWritten": 2522788,
+  "pages": 253
+}
