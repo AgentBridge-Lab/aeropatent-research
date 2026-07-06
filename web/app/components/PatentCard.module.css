@@ -1,0 +1,130 @@
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  transition: border-color 0.2s, transform 0.2s;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: inset 0 1px 0 rgba(239,236,227,0.09);
+}
+.card:hover {
+  border-color: var(--border-strong);
+}
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.pub {
+  font-size: 12px;
+  color: var(--cyan);
+}
+.score {
+  font-size: 12px;
+  font-family: var(--font-mono);
+}
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 8px 0 10px;
+  line-height: 1.3;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.metaCode {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 1px 6px;
+}
+.sep {
+  color: var(--dim);
+}
+.status {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 2px 9px;
+  border-radius: 999px;
+}
+.granted {
+  color: #8fabd4;
+  background: rgba(143, 171, 212, 0.12);
+  border: 1px solid rgba(143, 171, 212, 0.28);
+}
+.pending {
+  color: #efece3;
+  background: rgba(239, 236, 227, 0.1);
+  border: 1px solid rgba(239, 236, 227, 0.22);
+}
+.abstract {
+  margin-top: 11px;
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.claim {
+  margin-top: 12px;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+.claim summary {
+  cursor: pointer;
+  font-size: 12.5px;
+  color: var(--cyan);
+  list-style: none;
+}
+.claim summary::-webkit-details-marker {
+  display: none;
+}
+.claim summary::before {
+  content: '▸ ';
+}
+.claim[open] summary::before {
+  content: '▾ ';
+}
+.claimBody {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.claimNo {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text);
+}
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+.action {
+  font-size: 12.5px;
+  color: var(--text);
+  border: 1px solid var(--border);
+  background: var(--panel-soft);
+  border-radius: 7px;
+  padding: 7px 12px;
+  transition: background 0.18s, border-color 0.18s;
+}
+.action:hover {
+  background: rgba(143, 171, 212, 0.12);
+  border-color: rgba(143, 171, 212, 0.3);
+}

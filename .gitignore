@@ -1,7 +1,12 @@
 # Runtime and dependencies
 node_modules/
+web/node_modules/
 .npm/
 .cache/
+.next/
+out/
+web/.next/
+web/out/
 .DS_Store
 Thumbs.db
 
@@ -22,3 +27,5 @@ raw/
 # Local logs and temp outputs
 *.log
 *.tmp
+*.tsbuildinfo
+verification-*.png

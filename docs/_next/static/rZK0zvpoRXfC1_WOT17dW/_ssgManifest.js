@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002Fanalysis\u002F[fieldId]","\u002Fpatents\u002F[patentId]","\u002Freports\u002F[reportId]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()

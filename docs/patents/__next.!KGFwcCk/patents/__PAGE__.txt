@@ -1,0 +1,7 @@
+1:"$Sreact.fragment"
+2:"$Sreact.suspense"
+3:I[9304,["/aeropatent-research/_next/static/chunks/05-c3ty_6dwfk.js","/aeropatent-research/_next/static/chunks/14mrh2-p_w84d.js","/aeropatent-research/_next/static/chunks/1acmf6oir561b.js","/aeropatent-research/_next/static/chunks/06lpgjjbsz3d1.js","/aeropatent-research/_next/static/chunks/3t6hphs9x_r7p.js"],"default"]
+4:I[97367,["/aeropatent-research/_next/static/chunks/05-c3ty_6dwfk.js","/aeropatent-research/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+:HL["/aeropatent-research/_next/static/chunks/0hl-376ditna9.css","style"]
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"children":[["$","div",null,{"className":"patents-module__duta6q__head","children":[["$","span",null,{"className":"page-eyebrow","children":"Patents"}],["$","h1",null,{"className":"page-title","children":"특허 검색"}],["$","p",null,{"className":"page-sub","children":"항공우주 분야 특허 데이터베이스에서 기술·출원인·키워드로 검색하세요. 상단 필터바의 분야·국가·기간 조건이 함께 적용됩니다."}]]}],["$","$2",null,{"fallback":null,"children":["$","$L3",null,{"initialQ":""}]}]]}],[["$","link","0",{"rel":"stylesheet","href":"/aeropatent-research/_next/static/chunks/0hl-376ditna9.css","precedence":"next"}],["$","script","script-0",{"src":"/aeropatent-research/_next/static/chunks/3t6hphs9x_r7p.js","async":true}]],["$","$L4",null,{"children":["$","$2",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rZK0zvpoRXfC1_WOT17dW"}
+5:null

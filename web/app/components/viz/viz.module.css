@@ -1,0 +1,222 @@
+/* ===== KPI ===== */
+.kpiRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.kpi {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 16px 14px;
+  overflow: hidden;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: inset 0 1px 0 rgba(239,236,227,0.09);
+}
+.kpiBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  opacity: 0.9;
+}
+.kpiLabel {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.kpiValueRow {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  margin-top: 10px;
+}
+.kpiValue {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  font-family: var(--font-display);
+}
+.kpiUnit {
+  font-size: 13px;
+  color: var(--dim);
+}
+.kpiFoot {
+  margin-top: 7px;
+  font-size: 11.5px;
+  color: var(--dim);
+}
+
+/* ===== 가로 막대 (국가 분포 등) ===== */
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.barRow {
+  display: grid;
+  grid-template-columns: 64px 1fr 52px;
+  align-items: center;
+  gap: 10px;
+}
+.barLabel {
+  font-size: 13px;
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.barCode {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+.barTrack {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+.barFill {
+  height: 100%;
+  border-radius: 999px;
+  min-width: 2px;
+}
+.barVal {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  text-align: right;
+  color: var(--text);
+}
+
+/* ===== 추세 (SVG) ===== */
+.trend {
+  width: 100%;
+  height: auto;
+}
+.trendAxis {
+  fill: var(--dim);
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+/* ===== 히트맵 ===== */
+.heat {
+  display: grid;
+  gap: 4px;
+}
+.heatHeadRow,
+.heatRow {
+  display: grid;
+  grid-template-columns: 120px repeat(5, 1fr);
+  gap: 4px;
+  align-items: center;
+}
+.heatCorner {
+}
+.heatColHead {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--muted);
+  padding-bottom: 2px;
+}
+.heatRowHead {
+  font-size: 12px;
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.heatDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.heatCell {
+  position: relative;
+  aspect-ratio: 2.6 / 1;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text);
+}
+
+/* ===== 인사이트 ===== */
+.insights {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  counter-reset: ins;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.insight {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+.insightNum {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  background: rgba(143, 171, 212, 0.12);
+  border: 1px solid rgba(143, 171, 212, 0.28);
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.insightText {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.55;
+}
+
+/* ===== 작은 칩 리스트 (급상승 키워드) ===== */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  color: var(--text);
+  border: 1px solid var(--border);
+  background: var(--panel-soft);
+  border-radius: 999px;
+  padding: 6px 12px;
+}
+.chipCount {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--cyan);
+}
+
+@media (max-width: 720px) {
+  .kpiRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .heatHeadRow,
+  .heatRow {
+    grid-template-columns: 84px repeat(5, 1fr);
+  }
+}

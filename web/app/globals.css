@@ -1,0 +1,185 @@
+:root {
+  /* ===== 팀 컬러 (배경 검정 · 포인트 크림/블루) ===== */
+  --black: #000000;
+  --cream: #efece3;
+  --blue-light: #8fabd4; /* light blue — 주 포인트 (= --accent) */
+  --blue-deep: #4a70a9; /* deep blue — 보조/hover */
+
+  --bg: #000000;
+  --bg-2: #000000;
+
+  /* 글라스 표면 (크림 틴트 + blur) */
+  --panel: rgba(239, 236, 227, 0.05);
+  --panel-soft: rgba(239, 236, 227, 0.028);
+  --panel-strong: rgba(239, 236, 227, 0.08);
+  --panel-solid: rgba(7, 9, 14, 0.64);
+  --border: rgba(239, 236, 227, 0.12);
+  --border-strong: rgba(143, 171, 212, 0.4);
+
+  --text: #efece3;
+  --muted: rgba(239, 236, 227, 0.6);
+  --dim: rgba(239, 236, 227, 0.36);
+
+  --accent: #8fabd4;
+  --accent-deep: #4a70a9;
+
+  /* 레거시 토큰 별칭 → 새 팔레트로 매핑 (기존 컴포넌트 참조 호환) */
+  --cyan: #8fabd4;
+  --green: #8fabd4;
+  --amber: #efece3;
+  --red: #4a70a9;
+  --blue: #4a70a9;
+  --violet: #8fabd4;
+  --ice: #efece3;
+  --text-muted: rgba(239, 236, 227, 0.6);
+  --panel-solid-legacy: var(--panel-solid);
+
+  /* 글라스 베벨 그림자 (리퀴드 글라스 통일감) */
+  --glass-bevel: inset 0 1px 0 rgba(239, 236, 227, 0.09), 0 12px 34px rgba(0, 0, 0, 0.5);
+  --glass-blur: blur(20px) saturate(130%);
+
+  --radius: 8px;
+  --radius-lg: 14px;
+  --sidebar-w: 256px;
+  --filterbar-h: 60px;
+
+  /* 폰트 (Pretendard) */
+  --font-display: 'Pretendard Variable', Pretendard, system-ui, sans-serif;
+  --font-body: 'Pretendard Variable', Pretendard, system-ui, sans-serif;
+  --font-mono: 'Pretendard Variable', Pretendard, ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: var(--black);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 은은한 앰비언트 (블루/크림 글로우) — 검정 위에서 히어로와 이어지도록 */
+body {
+  min-height: 100vh;
+  background-color: var(--black);
+  background-image:
+    radial-gradient(1200px 820px at 82% -12%, rgba(143, 171, 212, 0.1), transparent 58%),
+    radial-gradient(1000px 760px at -8% 8%, rgba(74, 112, 169, 0.08), transparent 56%),
+    radial-gradient(800px 700px at 50% 120%, rgba(239, 236, 227, 0.04), transparent 60%);
+  background-attachment: fixed;
+}
+
+/* 필름 그레인 오버레이 (전역, 아주 미세) */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-body);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 공용 글라스 카드 */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-bevel);
+}
+
+/* 페이지 헤더 */
+.page-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.page-title {
+  font-size: clamp(24px, 3.2vw, 34px);
+  line-height: 1.12;
+  margin: 10px 0 8px;
+  letter-spacing: -0.02em;
+}
+
+.page-sub {
+  color: var(--muted);
+  font-size: 15px;
+  max-width: 760px;
+}
+
+/* 상태 pill */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--panel-soft);
+  color: var(--muted);
+}
+
+/* 스크롤바 */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(143, 171, 212, 0.22);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(143, 171, 212, 0.4);
+  background-clip: content-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

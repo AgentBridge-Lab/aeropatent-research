@@ -1,0 +1,8 @@
+1:"$Sreact.fragment"
+2:I[33744,["/aeropatent-research/_next/static/chunks/05-c3ty_6dwfk.js","/aeropatent-research/_next/static/chunks/14mrh2-p_w84d.js","/aeropatent-research/_next/static/chunks/0r29nn-wlpf7e.js","/aeropatent-research/_next/static/chunks/3b7zvnoo-onsp.js"],"default"]
+3:I[26502,["/aeropatent-research/_next/static/chunks/05-c3ty_6dwfk.js","/aeropatent-research/_next/static/chunks/14mrh2-p_w84d.js","/aeropatent-research/_next/static/chunks/0r29nn-wlpf7e.js","/aeropatent-research/_next/static/chunks/3b7zvnoo-onsp.js"],"default"]
+4:I[97367,["/aeropatent-research/_next/static/chunks/05-c3ty_6dwfk.js","/aeropatent-research/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+5:"$Sreact.suspense"
+:HL["/aeropatent-research/_next/static/chunks/0s92_5cg27gpe.css","style"]
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"children":["$","$L3",null,{"scene":"https://prod.spline.design/bp9KxZ1OXYt5Tztc/scene.splinecode"}]}],[["$","link","0",{"rel":"stylesheet","href":"/aeropatent-research/_next/static/chunks/0s92_5cg27gpe.css","precedence":"next"}],["$","script","script-0",{"src":"/aeropatent-research/_next/static/chunks/0r29nn-wlpf7e.js","async":true}],["$","script","script-1",{"src":"/aeropatent-research/_next/static/chunks/3b7zvnoo-onsp.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rZK0zvpoRXfC1_WOT17dW"}
+6:null

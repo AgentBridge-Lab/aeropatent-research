@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[97367,["/aeropatent-research/_next/static/chunks/05-c3ty_6dwfk.js","/aeropatent-research/_next/static/chunks/14mrh2-p_w84d.js"],"ViewportBoundary"]
+3:I[97367,["/aeropatent-research/_next/static/chunks/05-c3ty_6dwfk.js","/aeropatent-research/_next/static/chunks/14mrh2-p_w84d.js"],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"patent.US11754703B2 · AEROPATENT"}],["$","meta","1",{"name":"description","content":"글로벌 항공우주 산업의 특허 출원 동향, 기술 분류, 주요 출원인을 분석하고 시각화하는 특허 인텔리전스 플랫폼."}]]}]}]}],null]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"rZK0zvpoRXfC1_WOT17dW"}

@@ -1,0 +1,91 @@
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(2, 6, 15, 0.55);
+  backdrop-filter: blur(2px);
+  animation: fade 0.2s ease;
+}
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 61;
+  width: 560px;
+  max-width: 92vw;
+  background: var(--panel-solid);
+  border-left: 1px solid var(--border-strong);
+  box-shadow: -24px 0 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(239, 236, 227, 0.09);
+  overflow-y: auto;
+  animation: slide 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+.inner {
+  padding: 24px 24px 32px;
+}
+.close {
+  position: sticky;
+  top: 14px;
+  float: right;
+  margin: 14px 14px 0 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--panel-soft);
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 13px;
+  z-index: 2;
+}
+.close:hover {
+  background: var(--panel);
+}
+.empty {
+  color: var(--muted);
+  font-size: 14px;
+  padding: 40px 0;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(40px);
+    opacity: 0.4;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 620px) {
+  .drawer {
+    width: 100%;
+    max-width: 100%;
+    top: auto;
+    height: 88vh;
+    border-left: none;
+    border-top: 1px solid var(--border-strong);
+    border-radius: 16px 16px 0 0;
+  }
+  @keyframes slide {
+    from {
+      transform: translateY(40px);
+      opacity: 0.4;
+    }
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+}
