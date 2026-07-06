@@ -1,0 +1,128 @@
+name: Monthly AeroPatent Data Update
+
+on:
+  # Runs at 03:00 KST on the 2nd day of every month.
+  schedule:
+    - cron: "0 18 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: monthly-aeropatent-data-update
+  cancel-in-progress: false
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      GOOGLE_CLOUD_PROJECT: ${{ secrets.GOOGLE_CLOUD_PROJECT || vars.GOOGLE_CLOUD_PROJECT || 'aeropatent-research' }}
+      GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
+      BQ_MAX_BYTES: ${{ vars.BQ_MAX_BYTES || '32212254720' }}
+      BQ_PAGE_SIZE: "10000"
+      BQ_TIMEOUT_MS: "200000"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: web/package-lock.json
+
+      - name: Prepare Google credentials
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ -z "${GOOGLE_APPLICATION_CREDENTIALS_JSON}" ]; then
+            echo "::error::Missing GitHub secret GOOGLE_APPLICATION_CREDENTIALS_JSON."
+            exit 1
+          fi
+
+          credentials_path="${RUNNER_TEMP}/google-application-credentials.json"
+          printf '%s' "${GOOGLE_APPLICATION_CREDENTIALS_JSON}" > "${credentials_path}"
+          chmod 600 "${credentials_path}"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=${credentials_path}" >> "${GITHUB_ENV}"
+
+      - name: Collect BigQuery candidate patents
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          node scripts/bq_collect_candidates.mjs \
+            --run \
+            --project "${GOOGLE_CLOUD_PROJECT}" \
+            --key "${GOOGLE_APPLICATION_CREDENTIALS}" \
+            --file sql/01a_candidate_10y_cpc_first_production.sql \
+            --max-bytes "${BQ_MAX_BYTES}" \
+            --page-size "${BQ_PAGE_SIZE}" \
+            --timeout-ms "${BQ_TIMEOUT_MS}"
+
+      - name: Build analysis landscape
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          node scripts/build_bq_landscape_from_candidates.mjs \
+            --input raw/bigquery/bq_candidates_latest.jsonl \
+            --site-output exports/agentbridge/agentbridge_patent_landscape_snapshot.json \
+            --analysis-dir analysis \
+            --reports-dir reports
+
+      - name: Install web dependencies
+        working-directory: web
+        run: npm ci
+
+      - name: Build GitHub Pages output
+        working-directory: web
+        env:
+          GITHUB_PAGES: "true"
+        run: npm run build:pages
+
+      - name: Refresh docs site
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          rm -rf docs
+          mkdir -p docs
+          cp -a web/out/. docs/
+          touch docs/.nojekyll
+
+      - name: Verify generated outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          test -f docs/index.html
+          test -f docs/analysis/index.html
+          test -f exports/agentbridge/agentbridge_patent_landscape_snapshot.json
+
+          node -e "const fs=require('fs'); const p='exports/agentbridge/agentbridge_patent_landscape_snapshot.json'; const x=JSON.parse(fs.readFileSync(p,'utf8')); if(!x.summary?.familyCount || !x.summary?.publicationCount) throw new Error('Invalid landscape summary'); console.log(JSON.stringify({families:x.summary.familyCount, publications:x.summary.publicationCount, rows:x.summary.rowCount}, null, 2));"
+
+          if grep -R --line-number -E '"private_key"|BEGIN PRIVATE KEY' docs exports analysis reports web/app/lib/data.ts; then
+            echo "::error::Generated outputs appear to contain private key material."
+            exit 1
+          fi
+
+      - name: Commit refreshed data and site
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No data changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add analysis reports exports/agentbridge web/app/lib/data.ts docs
+          git commit -m "Refresh monthly patent data"
+          git push
