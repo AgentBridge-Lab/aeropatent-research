@@ -26,10 +26,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: "22"
           cache: "npm"
@@ -64,6 +64,14 @@ jobs:
             --page-size "${BQ_PAGE_SIZE}" \
             --timeout-ms "${BQ_TIMEOUT_MS}"
 
+      - name: Snapshot previous landscape summary
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git show HEAD:exports/agentbridge/agentbridge_patent_landscape_snapshot.json \
+            > "${RUNNER_TEMP}/previous_snapshot.json" || echo '{}' > "${RUNNER_TEMP}/previous_snapshot.json"
+
       - name: Build analysis landscape
         shell: bash
         run: |
@@ -74,6 +82,34 @@ jobs:
             --site-output exports/agentbridge/agentbridge_patent_landscape_snapshot.json \
             --analysis-dir analysis \
             --reports-dir reports
+
+      - name: Guard against data collapse
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          node -e "
+            const fs = require('fs');
+            const cur = JSON.parse(fs.readFileSync('exports/agentbridge/agentbridge_patent_landscape_snapshot.json', 'utf8'));
+            const prev = JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP + '/previous_snapshot.json', 'utf8'));
+            const curFamilies = cur.summary?.familyCount ?? 0;
+            const prevFamilies = prev.summary?.familyCount ?? 0;
+            console.log(JSON.stringify({ curFamilies, prevFamilies }));
+            if (curFamilies < 100000) {
+              throw new Error('familyCount ' + curFamilies + ' is below the absolute floor (100k) — refusing to publish a gutted dataset.');
+            }
+            if (prevFamilies > 0 && curFamilies < prevFamilies * 0.7) {
+              throw new Error('familyCount dropped more than 30% vs previous snapshot (' + prevFamilies + ' -> ' + curFamilies + ') — likely a collection failure.');
+            }
+          "
+
+      - name: Archive raw BigQuery candidates
+        uses: actions/upload-artifact@v4
+        with:
+          name: bq-candidates-${{ github.run_id }}
+          path: raw/bigquery/
+          retention-days: 90
+          if-no-files-found: warn
 
       - name: Install web dependencies
         working-directory: web
@@ -106,6 +142,10 @@ jobs:
 
           node -e "const fs=require('fs'); const p='exports/agentbridge/agentbridge_patent_landscape_snapshot.json'; const x=JSON.parse(fs.readFileSync(p,'utf8')); if(!x.summary?.familyCount || !x.summary?.publicationCount) throw new Error('Invalid landscape summary'); console.log(JSON.stringify({families:x.summary.familyCount, publications:x.summary.publicationCount, rows:x.summary.rowCount}, null, 2));"
 
+          for scan_path in docs exports analysis reports web/app/lib/data.ts; do
+            test -e "${scan_path}" || { echo "::error::Expected output path ${scan_path} is missing."; exit 1; }
+          done
+
           if grep -R --line-number -E '"private_key"|BEGIN PRIVATE KEY' docs exports analysis reports web/app/lib/data.ts; then
             echo "::error::Generated outputs appear to contain private key material."
             exit 1
@@ -124,5 +164,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add analysis reports exports/agentbridge web/app/lib/data.ts docs
-          git commit -m "Refresh monthly patent data"
+          git commit -m "Refresh monthly patent data ($(date -u +%Y-%m))"
           git push

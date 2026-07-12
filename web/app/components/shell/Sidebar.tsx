@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname, useSearchParams } from 'next/navigation';
 import styles from './Sidebar.module.css';
-import { PATENTS, FIELDS, COUNTRY_ORDER, parseFilter } from '../../lib/data';
+import { LANDSCAPE_SUMMARY, FIELDS, COUNTRY_ORDER, parseFilter } from '../../lib/data';
 
 const MENU = [
   { href: '/analysis', label: '분석' },
@@ -76,11 +76,15 @@ export default function Sidebar() {
         <div className={styles.meta}>
           <div className={styles.metaRow}>
             <span className={styles.metaKey}>데이터 기준일</span>
-            <span className={`${styles.metaVal} mono`}>2026-06-20</span>
+            <span className={`${styles.metaVal} mono`}>
+              {LANDSCAPE_SUMMARY.generated_at.slice(0, 10)}
+            </span>
           </div>
           <div className={styles.metaRow}>
-            <span className={styles.metaKey}>전체 특허 수</span>
-            <span className={`${styles.metaVal} mono`}>{PATENTS.length.toLocaleString()}</span>
+            <span className={styles.metaKey}>특허 패밀리 수</span>
+            <span className={`${styles.metaVal} mono`}>
+              {LANDSCAPE_SUMMARY.family_count.toLocaleString()}
+            </span>
           </div>
           <div className={styles.filterBox}>
             <div className={styles.filterTitle}>선택된 필터</div>

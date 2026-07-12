@@ -130,6 +130,50 @@ export const LANDSCAPE_COUNTRIES = {
   }
 } as Record<CountryCode, { family_count: number; publication_count: number; recent5_family_count: number }>;
 
+// Real BigQuery family counts per year (current incomplete year excluded).
+export const YEARLY_FAMILY_TREND: YearPoint[] = [
+  {
+    "year": 2016,
+    "count": 46307
+  },
+  {
+    "year": 2017,
+    "count": 79826
+  },
+  {
+    "year": 2018,
+    "count": 85292
+  },
+  {
+    "year": 2019,
+    "count": 80853
+  },
+  {
+    "year": 2020,
+    "count": 88322
+  },
+  {
+    "year": 2021,
+    "count": 86929
+  },
+  {
+    "year": 2022,
+    "count": 81421
+  },
+  {
+    "year": 2023,
+    "count": 80328
+  },
+  {
+    "year": 2024,
+    "count": 76741
+  },
+  {
+    "year": 2025,
+    "count": 41174
+  }
+];
+
 export const COUNTRIES: Country[] = [
   {
     "code": "US",
@@ -1159,12 +1203,6 @@ export const FIELDS: Field[] = [
 ];
 export const SUBFIELDS: Subfield[] = [
   {
-    "id": "aviation_avionics_flight_control_autonomy__core",
-    "field": "aviation_avionics_flight_control_autonomy",
-    "label_ko": "항공전자 핵심",
-    "label_en": "항공전자 핵심"
-  },
-  {
     "id": "aviation_avionics_flight_control_autonomy__autonomous-flight",
     "field": "aviation_avionics_flight_control_autonomy",
     "label_ko": "autonomous flight",
@@ -1183,10 +1221,10 @@ export const SUBFIELDS: Subfield[] = [
     "label_en": "flight control"
   },
   {
-    "id": "aviation_propulsion_sustainable__core",
-    "field": "aviation_propulsion_sustainable",
-    "label_ko": "항공추진 핵심",
-    "label_en": "항공추진 핵심"
+    "id": "aviation_avionics_flight_control_autonomy__core",
+    "field": "aviation_avionics_flight_control_autonomy",
+    "label_ko": "항공전자 핵심",
+    "label_en": "항공전자 핵심"
   },
   {
     "id": "aviation_propulsion_sustainable__aircraft-propulsion",
@@ -1207,10 +1245,10 @@ export const SUBFIELDS: Subfield[] = [
     "label_en": "sustainable aviation fuel"
   },
   {
-    "id": "aviation_structures_aero_composites__core",
-    "field": "aviation_structures_aero_composites",
-    "label_ko": "항공구조 핵심",
-    "label_en": "항공구조 핵심"
+    "id": "aviation_propulsion_sustainable__core",
+    "field": "aviation_propulsion_sustainable",
+    "label_ko": "항공추진 핵심",
+    "label_en": "항공추진 핵심"
   },
   {
     "id": "aviation_structures_aero_composites__aerodynamics",
@@ -1231,10 +1269,10 @@ export const SUBFIELDS: Subfield[] = [
     "label_en": "composite"
   },
   {
-    "id": "space_comm_leo_network__core",
-    "field": "space_comm_leo_network",
-    "label_ko": "우주통신 핵심",
-    "label_en": "우주통신 핵심"
+    "id": "aviation_structures_aero_composites__core",
+    "field": "aviation_structures_aero_composites",
+    "label_ko": "항공구조 핵심",
+    "label_en": "항공구조 핵심"
   },
   {
     "id": "space_comm_leo_network__beamforming",
@@ -1265,6 +1303,12 @@ export const SUBFIELDS: Subfield[] = [
     "field": "space_comm_leo_network",
     "label_ko": "satellite communication",
     "label_en": "satellite communication"
+  },
+  {
+    "id": "space_comm_leo_network__core",
+    "field": "space_comm_leo_network",
+    "label_ko": "우주통신 핵심",
+    "label_en": "우주통신 핵심"
   },
   {
     "id": "space_gnc_rendezvous_servicing__attitude-control",
@@ -1301,12 +1345,6 @@ export const SUBFIELDS: Subfield[] = [
     "field": "space_gnc_rendezvous_servicing",
     "label_ko": "rendezvous",
     "label_en": "rendezvous"
-  },
-  {
-    "id": "space_launch_propulsion_recovery__core",
-    "field": "space_launch_propulsion_recovery",
-    "label_ko": "발사체 핵심",
-    "label_en": "발사체 핵심"
   },
   {
     "id": "space_launch_propulsion_recovery__launch-vehicle",
@@ -1351,10 +1389,10 @@ export const SUBFIELDS: Subfield[] = [
     "label_en": "vertical landing"
   },
   {
-    "id": "space_materials_tps_coatings__tps",
-    "field": "space_materials_tps_coatings",
-    "label_ko": "재료·TPS 핵심",
-    "label_en": "재료·TPS 핵심"
+    "id": "space_launch_propulsion_recovery__core",
+    "field": "space_launch_propulsion_recovery",
+    "label_ko": "발사체 핵심",
+    "label_en": "발사체 핵심"
   },
   {
     "id": "space_materials_tps_coatings__coating",
@@ -1381,10 +1419,10 @@ export const SUBFIELDS: Subfield[] = [
     "label_en": "thermal protection"
   },
   {
-    "id": "space_remote_sensing_payload__core",
-    "field": "space_remote_sensing_payload",
-    "label_ko": "원격탐사 핵심",
-    "label_en": "원격탐사 핵심"
+    "id": "space_materials_tps_coatings__tps",
+    "field": "space_materials_tps_coatings",
+    "label_ko": "재료·TPS 핵심",
+    "label_en": "재료·TPS 핵심"
   },
   {
     "id": "space_remote_sensing_payload__payload",
@@ -1417,10 +1455,10 @@ export const SUBFIELDS: Subfield[] = [
     "label_en": "synthetic aperture radar"
   },
   {
-    "id": "space_satellite_bus_thermal_power__core",
-    "field": "space_satellite_bus_thermal_power",
-    "label_ko": "위성체 핵심",
-    "label_en": "위성체 핵심"
+    "id": "space_remote_sensing_payload__core",
+    "field": "space_remote_sensing_payload",
+    "label_ko": "원격탐사 핵심",
+    "label_en": "원격탐사 핵심"
   },
   {
     "id": "space_satellite_bus_thermal_power__power-system",
@@ -1457,6 +1495,12 @@ export const SUBFIELDS: Subfield[] = [
     "field": "space_satellite_bus_thermal_power",
     "label_ko": "thermal louver",
     "label_en": "thermal louver"
+  },
+  {
+    "id": "space_satellite_bus_thermal_power__core",
+    "field": "space_satellite_bus_thermal_power",
+    "label_ko": "위성체 핵심",
+    "label_en": "위성체 핵심"
   }
 ];
 export const APPLICANTS: Applicant[] = [
@@ -4572,27 +4616,14 @@ export function yearlyTrend(patents: Patent[], fromYear?: number): YearPoint[] {
   }));
 }
 
-function syntheticYearlyTrend(total: number, recent5: number, recent3: number, fromYear?: number): YearPoint[] {
+// Scales the real BigQuery yearly family trend to the filtered total so the
+// chart keeps the true temporal shape instead of a synthetic growth curve.
+function scaledYearlyTrend(total: number, fromYear?: number): YearPoint[] {
   const start = fromYear ?? CURRENT_YEAR - 9;
-  const years: number[] = [];
-  for (let year = start; year <= CURRENT_YEAR; year++) years.push(year);
-  const oldYears = years.filter((year) => year < CURRENT_YEAR - 4);
-  const midYears = years.filter((year) => year >= CURRENT_YEAR - 4 && year < CURRENT_YEAR - 2);
-  const newYears = years.filter((year) => year >= CURRENT_YEAR - 2);
-  const oldTotal = Math.max(0, total - recent5);
-  const midTotal = Math.max(0, recent5 - recent3);
-  const newTotal = Math.max(0, recent3);
-  const spread = (sum: number, bucket: number[], growth = 1.05) => {
-    if (!bucket.length) return [] as YearPoint[];
-    const weights = bucket.map((_, index) => Math.pow(growth, index));
-    const weightSum = weights.reduce((a, b) => a + b, 0) || 1;
-    return bucket.map((year, index) => ({ year, count: Math.round((sum * weights[index]) / weightSum) }));
-  };
-  return [
-    ...spread(oldTotal, oldYears, 1.02),
-    ...spread(midTotal, midYears, 1.08),
-    ...spread(newTotal, newYears, 1.12),
-  ];
+  const base = YEARLY_FAMILY_TREND.filter((point) => point.year >= start);
+  if (!base.length) return [];
+  const baseTotal = base.reduce((sum, point) => sum + point.count, 0) || 1;
+  return base.map((point) => ({ year: point.year, count: Math.round((point.count * total) / baseTotal) }));
 }
 
 export function growthRate(patents: Patent[], filter: Filter): number {
@@ -4777,8 +4808,6 @@ export interface Summary {
 export function getSummary(filter: Filter): Summary {
   const total = landscapeTotal(filter);
   const activeFields = selectedFields(filter);
-  const recent5 = activeFields.reduce((sum, field) => sum + field.recent5_family_count, 0);
-  const recent3 = activeFields.reduce((sum, field) => sum + field.recent3_family_count, 0);
   const momentum = activeFields.length
     ? activeFields.reduce((sum, field) => sum + field.recent_momentum, 0) / activeFields.length
     : 0;
@@ -4788,7 +4817,7 @@ export function getSummary(filter: Filter): Summary {
     leading_country: leadingLandscapeCountry(filter),
     cluster_count: SUBFIELDS.filter((subfield) => activeFields.some((field) => field.id === subfield.field)).length,
     country_distribution: landscapeCountryDistribution(filter),
-    yearly_trend: syntheticYearlyTrend(total, recent5, recent3, periodStartYear(filter.period) || undefined),
+    yearly_trend: scaledYearlyTrend(total, periodStartYear(filter.period) || undefined),
     field_heatmap: landscapeFieldCountryHeatmap(filter),
     rising_keywords: landscapeKeywords(filter, 10),
     insights: landscapeInsights(filter),
@@ -4836,7 +4865,7 @@ export function getFieldAnalysis(fieldId: FieldId, filter: Filter): FieldAnalysi
     leading_country: lead,
     kr_share: krShare,
     country_distribution: dist,
-    yearly_trend: syntheticYearlyTrend(total, field.recent5_family_count, field.recent3_family_count, periodStartYear(filter.period) || undefined),
+    yearly_trend: scaledYearlyTrend(total, periodStartYear(filter.period) || undefined),
     top_applicants: landscapeTopApplicants(scoped, 6),
     subfield_clusters,
     insights: [

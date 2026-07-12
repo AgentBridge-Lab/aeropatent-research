@@ -188,9 +188,16 @@ export default async function PatentDetailPage({ params }: Props) {
 
           {/* Actions */}
           <div className={styles.actions}>
-            <a href="#" className={styles.actionBtn}>
-              원문 보기
-            </a>
+            {patent.source_url && (
+              <a
+                href={patent.source_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.actionBtn}
+              >
+                원문 보기
+              </a>
+            )}
             <Link
               href={`/patents${relatedQuery}`}
               className={styles.actionBtn}

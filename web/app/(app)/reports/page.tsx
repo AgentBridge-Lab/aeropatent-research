@@ -1,19 +1,28 @@
 import Link from 'next/link';
 import styles from './reports.module.css';
-import { parseFilter, filterToQuery, FIELDS } from '../../lib/data';
+import { parseFilter, filterToQuery, FIELDS, SUBFIELDS } from '../../lib/data';
 import { getNodeReport } from '../../lib/graph';
 
 export const metadata = { title: '분석 보고서 · AEROPATENT' };
 
-// Fixed notable subfield node IDs ordered by strategic significance
-const SUBFIELD_REPORT_IDS = [
-  'subfield.thermal-control',
-  'subfield.reusable-launch-vehicle',
-  'subfield.laser-comm',
-  'subfield.autonomous-nav',
-  'subfield.sar-radar',
-  'subfield.phased-array',
+// Preferred notable subfields ordered by strategic significance; entries that
+// disappear after a data refresh are dropped and backfilled from SUBFIELDS so
+// the section never silently shrinks or links to missing pages.
+const PREFERRED_SUBFIELD_IDS = [
+  'thermal-control',
+  'reusable-launch-vehicle',
+  'laser-comm',
+  'autonomous-nav',
+  'sar-radar',
+  'phased-array',
 ];
+
+const SUBFIELD_REPORT_IDS = [
+  ...PREFERRED_SUBFIELD_IDS.filter((id) => SUBFIELDS.some((s) => s.id === id)),
+  ...SUBFIELDS.map((s) => s.id).filter((id) => !PREFERRED_SUBFIELD_IDS.includes(id)),
+]
+  .slice(0, 6)
+  .map((id) => `subfield.${id}`);
 
 export default async function ReportsPage() {
   const filter = parseFilter();

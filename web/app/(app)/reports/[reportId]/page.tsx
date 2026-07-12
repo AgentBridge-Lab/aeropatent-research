@@ -10,7 +10,9 @@ import {
   filterToQuery,
   getFieldAnalysis,
   FIELDS,
+  SUBFIELDS,
   COUNTRIES,
+  COUNTRY_ORDER,
   PATENTS,
 } from '../../../lib/data';
 import { getNodeReport } from '../../../lib/graph';
@@ -19,6 +21,7 @@ import type { FieldId } from '../../../lib/data';
 export function generateStaticParams() {
   return [
     ...FIELDS.map((field) => ({ reportId: `field.${field.id}` })),
+    ...SUBFIELDS.map((subfield) => ({ reportId: `subfield.${subfield.id}` })),
     ...COUNTRIES.map((country) => ({ reportId: `country.${country.code}` })),
     ...PATENTS.map((patent) => ({ reportId: patent.id })),
   ];
@@ -31,7 +34,8 @@ export async function generateMetadata({
 }) {
   const { reportId } = await params;
   const nodeId = decodeURIComponent(reportId);
-  return { title: `${nodeId} · AEROPATENT` };
+  const report = getNodeReport(nodeId, parseFilter());
+  return { title: `${report?.title ?? nodeId} · AEROPATENT` };
 }
 
 const NODE_TYPE_LABEL: Record<string, string> = {
@@ -92,7 +96,7 @@ export default async function ReportDetailPage({
     filterPills.push({
       label: '국가',
       value:
-        filter.countries.length === 5
+        filter.countries.length === COUNTRY_ORDER.length
           ? '전체'
           : filter.countries
               .map((c) => COUNTRIES.find((x) => x.code === c)?.label_ko ?? c)
