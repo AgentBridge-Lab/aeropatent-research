@@ -3,4 +3,4 @@
 :HL["/aeropatent-research/_next/static/chunks/3x5q05n0b81en.css","style"]
 :HL["/aeropatent-research/_next/static/chunks/21hgoh7z0kx2l.css","style"]
 :HL["https://cdn.jsdelivr.net/gh/orioncactus/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"(app)","param":null,"prefetchHints":0,"slots":{"children":{"name":"patents","param":null,"prefetchHints":0,"slots":{"children":{"name":"patentId","param":{"type":"d","key":"EP3186151B1","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}}}},"staleTime":300,"buildId":"rZK0zvpoRXfC1_WOT17dW"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"(app)","param":null,"prefetchHints":0,"slots":{"children":{"name":"patents","param":null,"prefetchHints":0,"slots":{"children":{"name":"patentId","param":{"type":"d","key":"EP3186151B1","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}}}},"staleTime":300,"buildId":"IyIzvSxnUV7pk45t5ynfk"}

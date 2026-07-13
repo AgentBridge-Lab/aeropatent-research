@@ -1,0 +1,7 @@
+1:"$Sreact.fragment"
+2:"$Sreact.suspense"
+3:I[46514,["/aeropatent-research/_next/static/chunks/05-c3ty_6dwfk.js","/aeropatent-research/_next/static/chunks/14mrh2-p_w84d.js","/aeropatent-research/_next/static/chunks/0m0zn_7rfeheu.js","/aeropatent-research/_next/static/chunks/1iu25yvih3o86.js","/aeropatent-research/_next/static/chunks/2wfzcw85qyrr8.js","/aeropatent-research/_next/static/chunks/1ar16g15sphut.js"],"default"]
+4:I[97367,["/aeropatent-research/_next/static/chunks/05-c3ty_6dwfk.js","/aeropatent-research/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+:HL["/aeropatent-research/_next/static/chunks/3v23_1kmktldy.css","style"]
+0:{"rsc":["$","$1","c",{"children":[["$","$2",null,{"fallback":null,"children":["$","$L3",null,{}]}],[["$","link","0",{"rel":"stylesheet","href":"/aeropatent-research/_next/static/chunks/3v23_1kmktldy.css","precedence":"next"}],["$","script","script-0",{"src":"/aeropatent-research/_next/static/chunks/2wfzcw85qyrr8.js","async":true}],["$","script","script-1",{"src":"/aeropatent-research/_next/static/chunks/1ar16g15sphut.js","async":true}]],["$","$L4",null,{"children":["$","$2",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"IyIzvSxnUV7pk45t5ynfk"}
+5:null

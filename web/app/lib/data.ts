@@ -94,39 +94,39 @@ export interface LandscapeSummary {
 
 export const LANDSCAPE_SUMMARY: LandscapeSummary = {
   "snapshot_id": "aeropatent.bigquery.landscape.v1",
-  "generated_at": "2026-06-28T17:29:43.510Z",
-  "family_count": 747998,
-  "publication_count": 2005337,
-  "row_count": 2522788,
+  "generated_at": "2026-07-13T01:25:28.241Z",
+  "family_count": 744251,
+  "publication_count": 1993302,
+  "row_count": 2508190,
   "current_year": 2026,
   "recent5_start_year": 2021,
   "recent3_start_year": 2023
 };
 export const LANDSCAPE_COUNTRIES = {
   "US": {
-    "family_count": 206494,
-    "publication_count": 397532,
-    "recent5_family_count": 58228
+    "family_count": 205216,
+    "publication_count": 394499,
+    "recent5_family_count": 57155
   },
   "EP": {
-    "family_count": 107712,
-    "publication_count": 208204,
-    "recent5_family_count": 34147
+    "family_count": 107130,
+    "publication_count": 206852,
+    "recent5_family_count": 33559
   },
   "CN": {
-    "family_count": 524392,
-    "publication_count": 762593,
-    "recent5_family_count": 243253
+    "family_count": 521905,
+    "publication_count": 758929,
+    "recent5_family_count": 240809
   },
   "JP": {
-    "family_count": 70356,
-    "publication_count": 128952,
-    "recent5_family_count": 19810
+    "family_count": 69996,
+    "publication_count": 128221,
+    "recent5_family_count": 19462
   },
   "KR": {
-    "family_count": 95405,
-    "publication_count": 140674,
-    "recent5_family_count": 35118
+    "family_count": 94954,
+    "publication_count": 139911,
+    "recent5_family_count": 34640
   }
 } as Record<CountryCode, { family_count: number; publication_count: number; recent5_family_count: number }>;
 
@@ -134,7 +134,7 @@ export const LANDSCAPE_COUNTRIES = {
 export const YEARLY_FAMILY_TREND: YearPoint[] = [
   {
     "year": 2016,
-    "count": 46307
+    "count": 42556
   },
   {
     "year": 2017,
@@ -217,17 +217,17 @@ export const FIELDS: Field[] = [
     "label_en": "Launch vehicle, propulsion, and recovery",
     "color": "#e54b4b",
     "summary_ko": "재사용 발사체, 추진기관, 회수 시스템을 중심으로 출원 집중도와 선도 국가를 추적합니다.",
-    "family_count": 17160,
-    "publication_count": 36429,
-    "recent5_family_count": 8464,
-    "recent3_family_count": 4532,
-    "recent_momentum": 0.2641,
+    "family_count": 17095,
+    "publication_count": 36261,
+    "recent5_family_count": 8382,
+    "recent3_family_count": 4442,
+    "recent_momentum": 0.2598,
     "country_family_counts": {
-      "US": 2916,
-      "EP": 1482,
-      "JP": 701,
-      "CN": 11736,
-      "KR": 992
+      "US": 2897,
+      "EP": 1467,
+      "JP": 697,
+      "CN": 11706,
+      "KR": 991
     },
     "top_applicants": [
       {
@@ -242,22 +242,22 @@ export const FIELDS: Field[] = [
       },
       {
         "name": "UNIV BEIHANG",
-        "count": 400,
+        "count": 398,
         "country": "CN"
       },
       {
         "name": "UNIV NORTHWESTERN POLYTECHNICAL",
-        "count": 381,
-        "country": "CN"
-      },
-      {
-        "name": "SHANGHAI AEROSPACE SYSTEM ENGINEERING INST",
-        "count": 357,
+        "count": 380,
         "country": "CN"
       },
       {
         "name": "BEIJING INST SPACECRAFT SYSTEM ENGINEERING",
-        "count": 354,
+        "count": 353,
+        "country": "CN"
+      },
+      {
+        "name": "SHANGHAI AEROSPACE SYSTEM ENGINEERING INST",
+        "count": 353,
         "country": "CN"
       },
       {
@@ -267,26 +267,26 @@ export const FIELDS: Field[] = [
       },
       {
         "name": "XIAN AEROSPACE PROPULSION INSTITUTE",
-        "count": 328,
+        "count": 327,
         "country": "CN"
       }
     ],
     "top_cpc_codes": [
       {
         "code": "B64G1",
-        "count": 96796
+        "count": 96321
       },
       {
         "code": "F02K9",
-        "count": 26466
+        "count": 26248
       },
       {
         "code": "H04B7",
-        "count": 3550
+        "count": 3534
       },
       {
         "code": "F03H1",
-        "count": 2547
+        "count": 2539
       },
       {
         "code": "H01Q1",
@@ -298,7 +298,7 @@ export const FIELDS: Field[] = [
       },
       {
         "code": "F05D2260",
-        "count": 1489
+        "count": 1435
       },
       {
         "code": "Y02E10",
@@ -327,17 +327,17 @@ export const FIELDS: Field[] = [
     "label_en": "Satellite bus, thermal control, and power",
     "color": "#f4b942",
     "summary_ko": "위성 버스, 열제어, 전력 시스템의 최근 5년 특허 흐름과 주요 출원인을 봅니다.",
-    "family_count": 30620,
-    "publication_count": 65608,
-    "recent5_family_count": 10879,
-    "recent3_family_count": 4638,
-    "recent_momentum": 0.1515,
+    "family_count": 30420,
+    "publication_count": 65117,
+    "recent5_family_count": 10738,
+    "recent3_family_count": 4525,
+    "recent_momentum": 0.1488,
     "country_family_counts": {
-      "US": 11269,
-      "EP": 1956,
-      "JP": 1285,
-      "CN": 13338,
-      "KR": 6327
+      "US": 11161,
+      "EP": 1941,
+      "JP": 1278,
+      "CN": 13292,
+      "KR": 6271
     },
     "top_applicants": [
       {
@@ -352,17 +352,17 @@ export const FIELDS: Field[] = [
       },
       {
         "name": "LG ELECTRONICS INC",
-        "count": 422,
+        "count": 415,
         "country": "CN"
       },
       {
         "name": "BEIJING INST SPACECRAFT SYSTEM ENGINEERING",
-        "count": 382,
+        "count": 381,
         "country": "CN"
       },
       {
         "name": "SHANGHAI AEROSPACE SYSTEM ENGINEERING INST",
-        "count": 331,
+        "count": 327,
         "country": "CN"
       },
       {
@@ -372,7 +372,7 @@ export const FIELDS: Field[] = [
       },
       {
         "name": "UNIV BEIHANG",
-        "count": 249,
+        "count": 248,
         "country": "CN"
       },
       {
@@ -384,35 +384,35 @@ export const FIELDS: Field[] = [
     "top_cpc_codes": [
       {
         "code": "B64G1",
-        "count": 96796
+        "count": 96321
       },
       {
         "code": "F28D15",
-        "count": 45295
+        "count": 45070
       },
       {
         "code": "H10F77",
-        "count": 44260
+        "count": 43698
       },
       {
         "code": "H01L31",
-        "count": 42631
+        "count": 42023
       },
       {
         "code": "H05K7",
-        "count": 19187
+        "count": 19081
       },
       {
         "code": "Y02E10",
-        "count": 16921
+        "count": 16639
       },
       {
         "code": "H10F39",
-        "count": 16222
+        "count": 16155
       },
       {
         "code": "H10F19",
-        "count": 14733
+        "count": 14486
       }
     ],
     "query_terms": [
@@ -437,92 +437,92 @@ export const FIELDS: Field[] = [
     "label_en": "Satellite communications and LEO networks",
     "color": "#2ca58d",
     "summary_ko": "LEO 위성통신, 안테나, 링크 관리, 네트워크 운용 특허의 경쟁 구도를 정리합니다.",
-    "family_count": 143280,
-    "publication_count": 471479,
-    "recent5_family_count": 67655,
-    "recent3_family_count": 33242,
-    "recent_momentum": 0.232,
+    "family_count": 142694,
+    "publication_count": 468836,
+    "recent5_family_count": 67031,
+    "recent3_family_count": 32493,
+    "recent_momentum": 0.2277,
     "country_family_counts": {
-      "US": 58737,
-      "EP": 33473,
-      "JP": 11751,
-      "CN": 96203,
-      "KR": 15751
+      "US": 58390,
+      "EP": 33324,
+      "JP": 11688,
+      "CN": 95883,
+      "KR": 15683
     },
     "top_applicants": [
       {
         "name": "HUAWEI TECH CO LTD",
-        "count": 7672,
+        "count": 7636,
         "country": "CN"
       },
       {
         "name": "QUALCOMM INC",
-        "count": 7454,
+        "count": 7442,
         "country": "CN"
       },
       {
         "name": "SAMSUNG ELECTRONICS CO LTD",
-        "count": 4536,
+        "count": 4529,
         "country": "CN"
       },
       {
         "name": "LG ELECTRONICS INC",
-        "count": 3055,
+        "count": 3041,
         "country": "CN"
       },
       {
         "name": "ERICSSON TELEFON AB L M",
-        "count": 3038,
+        "count": 3029,
         "country": "CN"
       },
       {
         "name": "ZTE CORP",
-        "count": 2418,
+        "count": 2409,
         "country": "CN"
       },
       {
         "name": "NOKIA TECHNOLOGIES OY",
-        "count": 1877,
+        "count": 1876,
         "country": "CN"
       },
       {
         "name": "CISCO TECH INC",
-        "count": 1867,
+        "count": 1858,
         "country": "CN"
       }
     ],
     "top_cpc_codes": [
       {
         "code": "H04B7",
-        "count": 840622
+        "count": 836983
       },
       {
         "code": "H04L5",
-        "count": 403039
+        "count": 401722
       },
       {
         "code": "H04W72",
-        "count": 364045
+        "count": 362671
       },
       {
         "code": "H04L45",
-        "count": 329335
+        "count": 326199
       },
       {
         "code": "H04W84",
-        "count": 267753
+        "count": 265507
       },
       {
         "code": "H04W76",
-        "count": 162029
+        "count": 160787
       },
       {
         "code": "H04L1",
-        "count": 151241
+        "count": 150372
       },
       {
         "code": "H04W4",
-        "count": 147714
+        "count": 146306
       }
     ],
     "query_terms": [
@@ -547,32 +547,32 @@ export const FIELDS: Field[] = [
     "label_en": "SAR and remote-sensing payload",
     "color": "#4d8cf5",
     "summary_ko": "센서, 광학/레이더 탑재체, 영상 처리 기반 원격탐사 특허의 응용 영역을 봅니다.",
-    "family_count": 120249,
-    "publication_count": 318311,
-    "recent5_family_count": 61372,
-    "recent3_family_count": 31099,
-    "recent_momentum": 0.2586,
+    "family_count": 119909,
+    "publication_count": 317050,
+    "recent5_family_count": 60717,
+    "recent3_family_count": 30507,
+    "recent_momentum": 0.2544,
     "country_family_counts": {
-      "US": 34623,
-      "EP": 17163,
-      "JP": 11455,
-      "CN": 83405,
-      "KR": 12566
+      "US": 34474,
+      "EP": 17085,
+      "JP": 11412,
+      "CN": 83228,
+      "KR": 12524
     },
     "top_applicants": [
       {
         "name": "UNIV XIDIAN",
-        "count": 2230,
+        "count": 2210,
         "country": "CN"
       },
       {
         "name": "BOSCH GMBH ROBERT",
-        "count": 1844,
+        "count": 1839,
         "country": "CN"
       },
       {
         "name": "SAMSUNG ELECTRONICS CO LTD",
-        "count": 1103,
+        "count": 1102,
         "country": "CN"
       },
       {
@@ -592,47 +592,47 @@ export const FIELDS: Field[] = [
       },
       {
         "name": "QUALCOMM INC",
-        "count": 879,
+        "count": 878,
         "country": "CN"
       },
       {
         "name": "SONY SEMICONDUCTOR SOLUTIONS CORP",
-        "count": 834,
+        "count": 833,
         "country": "CN"
       }
     ],
     "top_cpc_codes": [
       {
         "code": "G01S7",
-        "count": 610100
+        "count": 608097
       },
       {
         "code": "G01S13",
-        "count": 387922
+        "count": 385664
       },
       {
         "code": "G01S17",
-        "count": 291800
+        "count": 291036
       },
       {
         "code": "G01J3",
-        "count": 179460
+        "count": 178051
       },
       {
         "code": "G01N21",
-        "count": 73267
+        "count": 72987
       },
       {
         "code": "G01S15",
-        "count": 62719
+        "count": 62321
       },
       {
         "code": "G01S2013",
-        "count": 61697
+        "count": 61406
       },
       {
         "code": "A61B8",
-        "count": 54923
+        "count": 54485
       }
     ],
     "query_terms": [
@@ -657,32 +657,32 @@ export const FIELDS: Field[] = [
     "label_en": "GNC, rendezvous, docking, and on-orbit servicing",
     "color": "#8b5cf6",
     "summary_ko": "유도·항법·제어, 랑데부, 도킹, 궤도상 서비스 기술의 특허 맵을 구성합니다.",
-    "family_count": 163221,
-    "publication_count": 408561,
-    "recent5_family_count": 75430,
-    "recent3_family_count": 39296,
-    "recent_momentum": 0.2408,
+    "family_count": 162662,
+    "publication_count": 406671,
+    "recent5_family_count": 74644,
+    "recent3_family_count": 38643,
+    "recent_momentum": 0.2376,
     "country_family_counts": {
-      "US": 44713,
-      "EP": 16872,
-      "JP": 14173,
-      "CN": 116903,
-      "KR": 15677
+      "US": 44465,
+      "EP": 16790,
+      "JP": 14112,
+      "CN": 116581,
+      "KR": 15641
     },
     "top_applicants": [
       {
         "name": "TOYOTA MOTOR CO LTD",
-        "count": 2282,
+        "count": 2280,
         "country": "CN"
       },
       {
         "name": "TOYOTA MOTOR CORP",
-        "count": 2010,
+        "count": 2008,
         "country": "CN"
       },
       {
         "name": "UNIV BEIHANG",
-        "count": 1492,
+        "count": 1488,
         "country": "CN"
       },
       {
@@ -702,47 +702,47 @@ export const FIELDS: Field[] = [
       },
       {
         "name": "UNIV NORTHWESTERN POLYTECHNICAL",
-        "count": 1163,
+        "count": 1162,
         "country": "CN"
       },
       {
         "name": "FORD GLOBAL TECH LLC",
-        "count": 1153,
+        "count": 1144,
         "country": "CN"
       }
     ],
     "top_cpc_codes": [
       {
         "code": "G05D1",
-        "count": 579735
+        "count": 577124
       },
       {
         "code": "G01C21",
-        "count": 463858
+        "count": 461679
       },
       {
         "code": "G08G1",
-        "count": 153355
+        "count": 152267
       },
       {
         "code": "B64G1",
-        "count": 96796
+        "count": 96321
       },
       {
         "code": "G06V20",
-        "count": 78950
+        "count": 78659
       },
       {
         "code": "G08G5",
-        "count": 75991
+        "count": 75088
       },
       {
         "code": "G06Q10",
-        "count": 73135
+        "count": 72839
       },
       {
         "code": "H04W4",
-        "count": 71959
+        "count": 71617
       }
     ],
     "query_terms": [
@@ -767,92 +767,92 @@ export const FIELDS: Field[] = [
     "label_en": "Space materials, TPS, and coatings",
     "color": "#d65a9d",
     "summary_ko": "열보호재, 코팅, 복합소재 등 재료 기반 특허의 규모와 응용 가능성을 봅니다.",
-    "family_count": 235954,
-    "publication_count": 607475,
-    "recent5_family_count": 90303,
-    "recent3_family_count": 44543,
-    "recent_momentum": 0.1888,
+    "family_count": 234159,
+    "publication_count": 602584,
+    "recent5_family_count": 89288,
+    "recent3_family_count": 43625,
+    "recent_momentum": 0.1863,
     "country_family_counts": {
-      "US": 41089,
-      "EP": 27667,
-      "JP": 28958,
-      "CN": 183406,
-      "KR": 37449
+      "US": 40788,
+      "EP": 27476,
+      "JP": 28791,
+      "CN": 181884,
+      "KR": 37246
     },
     "top_applicants": [
       {
         "name": "NITTO DENKO CORP",
-        "count": 1617,
+        "count": 1612,
         "country": "CN"
       },
       {
         "name": "FUJIFILM CORP",
-        "count": 907,
+        "count": 905,
         "country": "CN"
       },
       {
         "name": "LG CHEMICAL LTD",
-        "count": 825,
+        "count": 823,
         "country": "CN"
       },
       {
         "name": "SAINT GOBAIN",
-        "count": 801,
+        "count": 797,
         "country": "CN"
       },
       {
         "name": "AGC INC",
-        "count": 782,
+        "count": 781,
         "country": "CN"
       },
       {
         "name": "SUMITOMO CHEMICAL CO",
-        "count": 742,
+        "count": 741,
         "country": "CN"
       },
       {
         "name": "SAMSUNG DISPLAY CO LTD",
-        "count": 676,
+        "count": 673,
         "country": "CN"
       },
       {
         "name": "DAINIPPON PRINTING CO LTD",
-        "count": 587,
+        "count": 586,
         "country": "CN"
       }
     ],
     "top_cpc_codes": [
       {
         "code": "C04B2235",
-        "count": 562605
+        "count": 558934
       },
       {
         "code": "B32B27",
-        "count": 506067
+        "count": 501863
       },
       {
         "code": "B32B2307",
-        "count": 442986
+        "count": 438876
       },
       {
         "code": "C04B35",
-        "count": 307375
+        "count": 305259
       },
       {
         "code": "C09D5",
-        "count": 234360
+        "count": 231754
       },
       {
         "code": "C09D7",
-        "count": 193075
+        "count": 191247
       },
       {
         "code": "B32B7",
-        "count": 183948
+        "count": 182735
       },
       {
         "code": "B32B5",
-        "count": 183471
+        "count": 181651
       }
     ],
     "query_terms": [
@@ -877,92 +877,92 @@ export const FIELDS: Field[] = [
     "label_en": "Commercial aviation propulsion, electric, hydrogen, and SAF",
     "color": "#00a7a7",
     "summary_ko": "민간 항공 추진, 전동화, 지속가능항공유(SAF) 관련 특허 동향을 보여줍니다.",
-    "family_count": 27068,
-    "publication_count": 84378,
-    "recent5_family_count": 11360,
-    "recent3_family_count": 4938,
-    "recent_momentum": 0.1824,
+    "family_count": 26916,
+    "publication_count": 83864,
+    "recent5_family_count": 11231,
+    "recent3_family_count": 4808,
+    "recent_momentum": 0.1786,
     "country_family_counts": {
-      "US": 12691,
-      "EP": 7837,
-      "JP": 1801,
-      "CN": 14189,
-      "KR": 2458
+      "US": 12598,
+      "EP": 7788,
+      "JP": 1793,
+      "CN": 14146,
+      "KR": 2433
     },
     "top_applicants": [
       {
         "name": "GEN ELECTRIC",
-        "count": 1904,
+        "count": 1890,
         "country": "CN"
       },
       {
         "name": "SAFRAN AIRCRAFT ENGINES",
-        "count": 1164,
+        "count": 1160,
         "country": "EP"
       },
       {
         "name": "RAYTHEON TECH CORP",
-        "count": 1019,
+        "count": 1014,
         "country": "CN"
       },
       {
         "name": "ROLLS ROYCE PLC",
-        "count": 998,
+        "count": 992,
         "country": "CN"
       },
       {
         "name": "PRATT & WHITNEY CANADA",
-        "count": 919,
+        "count": 917,
         "country": "CN"
       },
       {
         "name": "RTX CORP",
-        "count": 864,
+        "count": 862,
         "country": "CN"
       },
       {
         "name": "UNITED TECHNOLOGIES CORP",
-        "count": 774,
+        "count": 762,
         "country": "CN"
       },
       {
         "name": "AIRBUS OPERATIONS SAS",
-        "count": 561,
+        "count": 559,
         "country": "EP"
       }
     ],
     "top_cpc_codes": [
       {
         "code": "F02C7",
-        "count": 124867
+        "count": 124061
       },
       {
         "code": "B64D27",
-        "count": 75191
+        "count": 74854
       },
       {
         "code": "F05D2260",
-        "count": 65266
+        "count": 64757
       },
       {
         "code": "F05D2220",
-        "count": 40925
+        "count": 40592
       },
       {
         "code": "F01D25",
-        "count": 36534
+        "count": 36112
       },
       {
         "code": "F23R3",
-        "count": 32547
+        "count": 32297
       },
       {
         "code": "F05D2240",
-        "count": 29464
+        "count": 29220
       },
       {
         "code": "Y02T50",
-        "count": 26154
+        "count": 25964
       }
     ],
     "query_terms": [
@@ -987,27 +987,27 @@ export const FIELDS: Field[] = [
     "label_en": "Aircraft structures, composites, and aerodynamics",
     "color": "#5c8dff",
     "summary_ko": "기체 구조, 공력 설계, 복합재 제조·수리 특허를 분야별로 정리합니다.",
-    "family_count": 51306,
-    "publication_count": 124095,
-    "recent5_family_count": 18991,
-    "recent3_family_count": 7550,
-    "recent_momentum": 0.1472,
+    "family_count": 51041,
+    "publication_count": 123275,
+    "recent5_family_count": 18721,
+    "recent3_family_count": 7376,
+    "recent_momentum": 0.1445,
     "country_family_counts": {
-      "US": 14836,
-      "EP": 6428,
-      "JP": 3245,
-      "CN": 28140,
-      "KR": 9527
+      "US": 14698,
+      "EP": 6386,
+      "JP": 3228,
+      "CN": 28047,
+      "KR": 9485
     },
     "top_applicants": [
       {
         "name": "BOEING CO",
-        "count": 1312,
+        "count": 1308,
         "country": "CN"
       },
       {
         "name": "SZ DJI TECHNOLOGY CO LTD",
-        "count": 504,
+        "count": 493,
         "country": "CN"
       },
       {
@@ -1016,18 +1016,18 @@ export const FIELDS: Field[] = [
         "country": "CN"
       },
       {
-        "name": "AIRBUS OPERATIONS GMBH",
-        "count": 375,
-        "country": "EP"
-      },
-      {
         "name": "UNIV BEIHANG",
         "count": 372,
         "country": "CN"
       },
       {
+        "name": "AIRBUS OPERATIONS GMBH",
+        "count": 370,
+        "country": "EP"
+      },
+      {
         "name": "AIRBUS OPERATIONS LTD",
-        "count": 329,
+        "count": 328,
         "country": "EP"
       },
       {
@@ -1037,42 +1037,42 @@ export const FIELDS: Field[] = [
       },
       {
         "name": "SAFRAN AIRCRAFT ENGINES",
-        "count": 238,
+        "count": 237,
         "country": "EP"
       }
     ],
     "top_cpc_codes": [
       {
         "code": "B29C70",
-        "count": 176479
+        "count": 175471
       },
       {
         "code": "B64C39",
-        "count": 50628
+        "count": 50172
       },
       {
         "code": "B64U2101",
-        "count": 37973
+        "count": 37718
       },
       {
         "code": "B64C3",
-        "count": 37574
+        "count": 37396
       },
       {
         "code": "B29L2031",
-        "count": 33019
+        "count": 32820
       },
       {
         "code": "G08G5",
-        "count": 30578
+        "count": 30065
       },
       {
         "code": "G05D1",
-        "count": 29582
+        "count": 29304
       },
       {
         "code": "B64U10",
-        "count": 28835
+        "count": 28660
       }
     ],
     "query_terms": [
@@ -1097,27 +1097,27 @@ export const FIELDS: Field[] = [
     "label_en": "Avionics, flight control, and autonomy",
     "color": "#7c5cff",
     "summary_ko": "비행제어, 항공전자, 자율운항 관련 특허를 시스템 기능 중심으로 분석합니다.",
-    "family_count": 160119,
-    "publication_count": 406452,
-    "recent5_family_count": 73659,
-    "recent3_family_count": 38182,
-    "recent_momentum": 0.2385,
+    "family_count": 159571,
+    "publication_count": 404532,
+    "recent5_family_count": 72881,
+    "recent3_family_count": 37553,
+    "recent_momentum": 0.2353,
     "country_family_counts": {
-      "US": 46237,
-      "EP": 18013,
-      "JP": 14154,
-      "CN": 113150,
-      "KR": 15934
+      "US": 45976,
+      "EP": 17928,
+      "JP": 14094,
+      "CN": 112842,
+      "KR": 15896
     },
     "top_applicants": [
       {
         "name": "TOYOTA MOTOR CO LTD",
-        "count": 2285,
+        "count": 2283,
         "country": "CN"
       },
       {
         "name": "TOYOTA MOTOR CORP",
-        "count": 2013,
+        "count": 2011,
         "country": "CN"
       },
       {
@@ -1126,63 +1126,63 @@ export const FIELDS: Field[] = [
         "country": "CN"
       },
       {
-        "name": "UNIV BEIHANG",
-        "count": 1351,
-        "country": "CN"
-      },
-      {
         "name": "HYUNDAI MOTOR CO LTD",
         "count": 1348,
         "country": "CN"
       },
       {
-        "name": "FORD GLOBAL TECH LLC",
-        "count": 1163,
+        "name": "UNIV BEIHANG",
+        "count": 1348,
         "country": "CN"
       },
       {
-        "name": "BOSCH GMBH ROBERT",
-        "count": 1082,
+        "name": "FORD GLOBAL TECH LLC",
+        "count": 1154,
         "country": "CN"
       },
       {
         "name": "BEIJING INSTITUTE TECH",
         "count": 1080,
         "country": "CN"
+      },
+      {
+        "name": "BOSCH GMBH ROBERT",
+        "count": 1077,
+        "country": "CN"
       }
     ],
     "top_cpc_codes": [
       {
         "code": "G05D1",
-        "count": 579735
+        "count": 577124
       },
       {
         "code": "G01C21",
-        "count": 463858
+        "count": 461679
       },
       {
         "code": "G08G5",
-        "count": 166165
+        "count": 164724
       },
       {
         "code": "G08G1",
-        "count": 155585
+        "count": 154495
       },
       {
         "code": "G06V20",
-        "count": 80558
+        "count": 80267
       },
       {
         "code": "G06Q10",
-        "count": 76196
+        "count": 75838
       },
       {
         "code": "H04W4",
-        "count": 76097
+        "count": 75749
       },
       {
         "code": "B60W30",
-        "count": 70678
+        "count": 69696
       }
     ],
     "query_terms": [
