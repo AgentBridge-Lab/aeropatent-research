@@ -2,74 +2,74 @@
   "EAST_ASIA": {
     "region": "EAST_ASIA",
     "labelKo": "동아시아",
-    "familyCount": 605439,
-    "publicationCount": 1060841,
+    "familyCount": 601496,
+    "publicationCount": 1053413,
     "publicationCountryCount": 5,
-    "recent5FamilyCount": 273968
+    "recent5FamilyCount": 270293
   },
   "NORTH_AMERICA": {
     "region": "NORTH_AMERICA",
     "labelKo": "북미",
-    "familyCount": 206491,
-    "publicationCount": 420360,
+    "familyCount": 205030,
+    "publicationCount": 416581,
     "publicationCountryCount": 3,
-    "recent5FamilyCount": 57854
+    "recent5FamilyCount": 56461
   },
   "INTERNATIONAL": {
     "region": "INTERNATIONAL",
     "labelKo": "국제공개",
-    "familyCount": 154496,
-    "publicationCount": 163328,
+    "familyCount": 153588,
+    "publicationCount": 162327,
     "publicationCountryCount": 1,
-    "recent5FamilyCount": 56426
+    "recent5FamilyCount": 55416
   },
   "EUROPE": {
     "region": "EUROPE",
     "labelKo": "유럽",
-    "familyCount": 141886,
-    "publicationCount": 295722,
+    "familyCount": 140942,
+    "publicationCount": 293251,
     "publicationCountryCount": 15,
-    "recent5FamilyCount": 46590
+    "recent5FamilyCount": 45637
   },
   "OTHER_WORLD": {
     "region": "OTHER_WORLD",
     "labelKo": "기타",
-    "familyCount": 12242,
-    "publicationCount": 17486,
-    "publicationCountryCount": 37,
-    "recent5FamilyCount": 972
+    "familyCount": 12096,
+    "publicationCount": 17208,
+    "publicationCountryCount": 36,
+    "recent5FamilyCount": 927
   },
   "OCEANIA": {
     "region": "OCEANIA",
     "labelKo": "오세아니아",
-    "familyCount": 9916,
-    "publicationCount": 17470,
+    "familyCount": 9844,
+    "publicationCount": 17305,
     "publicationCountryCount": 2,
-    "recent5FamilyCount": 2659
+    "recent5FamilyCount": 2566
   },
   "LATIN_AMERICA": {
     "region": "LATIN_AMERICA",
     "labelKo": "중남미",
-    "familyCount": 8288,
-    "publicationCount": 10822,
+    "familyCount": 8178,
+    "publicationCount": 10650,
     "publicationCountryCount": 5,
-    "recent5FamilyCount": 657
+    "recent5FamilyCount": 625
   },
   "MIDDLE_EAST": {
     "region": "MIDDLE_EAST",
     "labelKo": "중동",
-    "familyCount": 3132,
-    "publicationCount": 5651,
+    "familyCount": 3111,
+    "publicationCount": 5607,
     "publicationCountryCount": 3,
-    "recent5FamilyCount": 852
+    "recent5FamilyCount": 833
   },
   "AFRICA": {
     "region": "AFRICA",
     "labelKo": "아프리카",
-    "familyCount": 1368,
-    "publicationCount": 1612,
+    "familyCount": 1342,
+    "publicationCount": 1582,
     "publicationCountryCount": 2,
-    "recent5FamilyCount": 236
+    "recent5FamilyCount": 230
   },
   "SOUTH_ASIA": {
     "region": "SOUTH_ASIA",
