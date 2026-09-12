@@ -46,10 +46,10 @@ td{padding:9px 6px;border-top:1px solid var(--border)}td.num{text-align:right;fo
 <div class="kpis">
 <div class="kpi"><b>983</b><span>적격 특허패밀리 (KR 보유 · 2010–2020)</span></div>
 <div class="kpi"><b>91%</b><span>우주 추진 + 통신·항법 비중 — 위성·발사체 범용 기술 집중</span></div>
-<div class="kpi hot"><b>7건 <em style="font-size:16px">(0.7%)</em></b><span>탐사 고유 기술(달·행성·로봇) — 사실상 공백</span></div>
+<div class="kpi hot"><b>7건 <em style="font-size:16px">(0.7%)</em></b><span>달·행성·로봇으로 분류된 패밀리 (본 분류 정의·KR 보유 조건 기준)</span></div>
 </div>
 <div class="panel"><h2>기술군별 적격 패밀리</h2>
-<p class="note">밝은 막대 = 탐사 고유 3개 기술군. 달탐사 2 · 행성탐사 1 · 탐사 로봇 4건으로, 탐사 임무에만 고유한 기술의 국내 관련 출원은 정량적 공백 상태.</p>
+<p class="note">밝은 막대 = 탐사 고유 3개 기술군. 본 검색·분류 정의와 KR 보유·우선일 2010–2020 조건에서 달·행성·탐사 로봇으로 분류된 패밀리는 7건(0.7%). 분류 정의를 달리하면 수치가 달라질 수 있음.</p>
 <div class="row"><span class="lbl">DS-3 우주 추진</span>
 <div class="track"><div class="fill " style="width:100.0%"></div></div>
 <span class="val">490<em> (49.8%)</em></span></div>
@@ -110,7 +110,7 @@ td{padding:9px 6px;border-top:1px solid var(--border)}td.num{text-align:right;fo
 <div class="h-cell" style="background:rgba(143,171,212,0.18)">1</div>
 <div class="h-cell" style="background:rgba(143,171,212,0.19)">3</div></div></div>
 <div class="grid2">
-<div class="panel"><h2>표본 67건의 출원 주체</h2>
+<div class="panel"><h2>표본 67건의 출원 주체 <em style="font-size:12px;color:var(--dim);font-style:normal">— 67건 표본 내부 통계 (모집단 점유율 아님)</em></h2>
 <p class="note">층화표본(기술군×기간, 결정적 추출) 기준 · 명칭은 BigQuery 조화 명칭. 한국항공우주연구원이 21건(31%)으로 최다.</p>
 <div class="row"><span class="lbl">한국항공우주연구원</span>
 <div class="track"><div class="fill accent" style="width:100%"></div></div><span class="val">21</span></div>
@@ -128,7 +128,7 @@ td{padding:9px 6px;border-top:1px solid var(--border)}td.num{text-align:right;fo
 <div class="track"><div class="fill " style="width:10%"></div></div><span class="val">2</span></div>
 <div class="row"><span class="lbl">삼성전자</span>
 <div class="track"><div class="fill " style="width:10%"></div></div><span class="val">2</span></div></div>
-<div class="panel"><h2>국제화와 영향력</h2>
+<div class="panel"><h2>국제화와 영향력 <em style="font-size:12px;color:var(--dim);font-style:normal">— 67건 표본 내부 통계 · 관할=공보 발행 관청(WO·EP 포함)</em></h2>
 <p class="note">패밀리당 공보 발행 관할: 중앙값 2 · 최대 26 — KR 단독 49%와 글로벌 패밀리의 양극단.</p>
 <table><tr><td style="color:var(--muted)">피인용 상위 (후속 인용 패밀리 수)</td><td></td></tr>
 <tr><td>Dynamic satellite beam assignment</td><td class="num">29</td></tr>
@@ -138,6 +138,6 @@ td{padding:9px 6px;border-top:1px solid var(--border)}td.num{text-align:right;fo
 <tr><td>Passive device designed to facilitate demise of a space system during re-entry into the earth&#39;s atmosphere</td><td class="num">14</td></tr></table></div>
 </div>
 <p class="foot">데이터: Google Patents Public Datasets (BigQuery, patents-public-data.patents.publications) · 기준일 2026-09-12<br>
-분류 정의: 우주탐사 8개 기술군 IPC/CPC 코드 목록(<a href="https://github.com/AgentBridge-Lab/aeropatent-research/blob/main/config/">config/</a>) — 분류 정의에 따라 수치가 달라질 수 있음<br>
+분류 정의: 우주탐사 8개 기술군 IPC/CPC 코드 목록(<a href="https://github.com/AgentBridge-Lab/aeropatent-research/blob/main/config/exploration_ds_taxonomy.json">config/exploration_ds_taxonomy.json</a>) — 분류 정의에 따라 수치가 달라질 수 있음<br>
 표본 설계·다중 출처 검증 방법론: 항공우주시스템공학회 발표 (2026. 9. 18)</p>
 </div></body></html>

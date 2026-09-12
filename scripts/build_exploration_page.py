@@ -56,6 +56,9 @@ def cited_rows():
         f'<tr><td>{t["title"]}</td><td class="num">{t["cites"]}</td></tr>' for t in D['top_cited'])
 
 explore_total = sum(sum(g['pop']) for g in D['groups'] if g['id'] in EXPLORE_ONLY)
+big2 = sum(sum(g['pop']) for g in D['groups'] if g['id'] in ('DS-3', 'DS-4'))
+big2_pct = big2 / D['population_total'] * 100
+explore_pct = explore_total / D['population_total'] * 100
 html = f'''<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>우주탐사 특허 심층 현황 — AEROPATENT</title>
@@ -103,27 +106,27 @@ td{{padding:9px 6px;border-top:1px solid var(--border)}}td.num{{text-align:right
 층화표본 {D["sample_total"]}건의 출원 주체·국제화·영향력 심층 분석. 전 수치는 Google Patents Public Datasets(BigQuery) 기반.</p>
 <div class="kpis">
 <div class="kpi"><b>{D["population_total"]}</b><span>적격 특허패밀리 (KR 보유 · 2010–2020)</span></div>
-<div class="kpi"><b>91%</b><span>우주 추진 + 통신·항법 비중 — 위성·발사체 범용 기술 집중</span></div>
-<div class="kpi hot"><b>{explore_total}건 <em style="font-size:16px">(0.7%)</em></b><span>탐사 고유 기술(달·행성·로봇) — 사실상 공백</span></div>
+<div class="kpi"><b>{big2_pct:.0f}%</b><span>우주 추진 + 통신·항법 비중 — 위성·발사체 범용 기술 집중</span></div>
+<div class="kpi hot"><b>{explore_total}건 <em style="font-size:16px">({explore_pct:.1f}%)</em></b><span>달·행성·로봇으로 분류된 패밀리 (본 분류 정의·KR 보유 조건 기준)</span></div>
 </div>
 <div class="panel"><h2>기술군별 적격 패밀리</h2>
-<p class="note">밝은 막대 = 탐사 고유 3개 기술군. 달탐사 2 · 행성탐사 1 · 탐사 로봇 4건으로, 탐사 임무에만 고유한 기술의 국내 관련 출원은 정량적 공백 상태.</p>
+<p class="note">밝은 막대 = 탐사 고유 3개 기술군. 본 검색·분류 정의와 KR 보유·우선일 2010–2020 조건에서 달·행성·탐사 로봇으로 분류된 패밀리는 7건(0.7%). 분류 정의를 달리하면 수치가 달라질 수 있음.</p>
 {bar_rows()}</div>
 <div class="panel"><h2>기술군 × 우선연도 구간</h2>
 <p class="note">적격 모집단 기준. 빈 칸 = 해당 구간 출원 없음.</p>
 <div class="heat"><div></div><div class="h-head">2010–13</div><div class="h-head">2014–17</div><div class="h-head">2018–20</div>
 {heat_cells()}</div></div>
 <div class="grid2">
-<div class="panel"><h2>표본 {D["sample_total"]}건의 출원 주체</h2>
+<div class="panel"><h2>표본 {D["sample_total"]}건의 출원 주체 <em style="font-size:12px;color:var(--dim);font-style:normal">— 67건 표본 내부 통계 (모집단 점유율 아님)</em></h2>
 <p class="note">층화표본(기술군×기간, 결정적 추출) 기준 · 명칭은 BigQuery 조화 명칭. 한국항공우주연구원이 21건(31%)으로 최다.</p>
 {app_rows()}</div>
-<div class="panel"><h2>국제화와 영향력</h2>
+<div class="panel"><h2>국제화와 영향력 <em style="font-size:12px;color:var(--dim);font-style:normal">— 67건 표본 내부 통계 · 관할=공보 발행 관청(WO·EP 포함)</em></h2>
 <p class="note">패밀리당 공보 발행 관할: 중앙값 {D["nj_median"]} · 최대 {D["nj_max"]} — KR 단독 {D["kr_only_pct"]}%와 글로벌 패밀리의 양극단.</p>
 <table><tr><td style="color:var(--muted)">피인용 상위 (후속 인용 패밀리 수)</td><td></td></tr>
 {cited_rows()}</table></div>
 </div>
 <p class="foot">데이터: Google Patents Public Datasets (BigQuery, patents-public-data.patents.publications) · 기준일 {D["as_of"]}<br>
-분류 정의: 우주탐사 8개 기술군 IPC/CPC 코드 목록(<a href="https://github.com/AgentBridge-Lab/aeropatent-research/blob/main/config/">config/</a>) — 분류 정의에 따라 수치가 달라질 수 있음<br>
+분류 정의: 우주탐사 8개 기술군 IPC/CPC 코드 목록(<a href="https://github.com/AgentBridge-Lab/aeropatent-research/blob/main/config/exploration_ds_taxonomy.json">config/exploration_ds_taxonomy.json</a>) — 분류 정의에 따라 수치가 달라질 수 있음<br>
 표본 설계·다중 출처 검증 방법론: 항공우주시스템공학회 발표 (2026. 9. 18)</p>
 </div></body></html>'''
 
