@@ -148,7 +148,7 @@ export default function PatentSearch({ initialQ }: { initialQ?: string }) {
       {/* Result count */}
       <div className={styles.resultMeta}>
         <span className={styles.resultCount}>
-          <strong>{results.length.toLocaleString()}</strong>건 검색됨
+          검토 완료 대표 문헌 <strong>{results.length.toLocaleString()}</strong>건
         </span>
         {(q || subfield || applicant || status !== 'all') && (
           <button

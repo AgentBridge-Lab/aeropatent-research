@@ -146,6 +146,7 @@ const SUBFIELD_LABELS_KO = {
   "space_satellite_bus_thermal_power__satellite-bus": "위성 버스",
   "space_satellite_bus_thermal_power__satellite-radiator": "위성 라디에이터",
   "space_satellite_bus_thermal_power__spacecraft-thermal-control": "우주비행체 열제어",
+  "space_satellite_bus_thermal_power__heat-pipe": "히트파이프",
   "space_satellite_bus_thermal_power__thermal-control": "열제어",
   "space_satellite_bus_thermal_power__thermal-louver": "열제어 루버",
   "space_comm_leo_network__beamforming": "빔포밍",
@@ -160,13 +161,17 @@ const SUBFIELD_LABELS_KO = {
   "space_gnc_rendezvous_servicing__rendezvous": "랑데부",
   "space_materials_tps_coatings__coating": "기능성 코팅",
   "space_materials_tps_coatings__composite": "우주용 복합재",
+  "space_materials_tps_coatings__ablative-material": "삭마재",
   "space_materials_tps_coatings__rocket-motor-insulation": "로켓 모터 단열재",
+  "space_materials_tps_coatings__spacecraft-coating": "우주비행체 코팅",
   "space_materials_tps_coatings__thermal-protection": "열보호시스템",
   "space_remote_sensing_payload__payload": "탑재체",
   "space_remote_sensing_payload__remote-sensing": "원격탐사",
   "space_remote_sensing_payload__sar": "합성개구레이더(SAR)",
+  "space_remote_sensing_payload__digital-beamforming": "디지털 빔포밍",
   "space_remote_sensing_payload__sar-imaging": "SAR 영상화",
   "space_remote_sensing_payload__synthetic-aperture-radar": "합성개구레이더",
+  "space_remote_sensing_payload__wide-swath": "광역 관측폭",
   "aviation_propulsion_sustainable__aircraft-propulsion": "항공기 추진",
   "aviation_propulsion_sustainable__hybrid-electric": "하이브리드 전기추진",
   "aviation_propulsion_sustainable__sustainable-aviation-fuel": "지속가능항공유(SAF)",
@@ -314,6 +319,19 @@ const ensureApplicant = (name, country, fieldId) => {
   return applicantMap.get(id);
 };
 
+// 발사체 대표 문헌 8건을 원문 제목·초록 기준으로 수동 검토한 결과다.
+// 하이브리드 추진 문헌(JP7603675B2)은 제외하고, 회수·착륙 운용을 직접 다루는
+// 7개 공개문헌(6개 패밀리)을 포괄 기술축인 '회수 시스템'에 함께 연결한다.
+const REVIEWED_RECOVERY_PUBLICATIONS = new Set([
+  "CN104724297A",
+  "CN107344631A",
+  "EP3650358A1",
+  "EP4140898A1",
+  "KR20230029274A",
+  "US10822122B2",
+  "US8678321B2",
+]);
+
 // P0-1: 인용 수 공식, 분야 상위 CPC 이식, 초록→청구항 위장 로직을 모두 제거했다.
 // 청구항은 원문 청구항 발췌(claims.jsonl 또는 first_claim_excerpt)가 있는 경우에만 생성한다.
 const patents = [];
@@ -323,10 +341,18 @@ for (const row of normalizedPatents) {
   if (!fieldById.has(fieldId)) continue;
   const field = fieldById.get(fieldId);
   const matchedTerms = Array.isArray(row.matched_terms) ? row.matched_terms : [];
-  const subfield = ensureSubfield(
-    fieldId,
-    matchedTerms[0] ?? field.query_terms?.[0] ?? `${field.short_label_ko ?? field.label_ko} 핵심`,
-  );
+  const fallbackTerm = field.query_terms?.[0] ?? `${field.short_label_ko ?? field.label_ko} 핵심`;
+  const subfieldIds = [...new Set((matchedTerms.length ? matchedTerms : [fallbackTerm]).map((term) =>
+    ensureSubfield(fieldId, term),
+  ))];
+  if (
+    fieldId === "space_launch_propulsion_recovery" &&
+    REVIEWED_RECOVERY_PUBLICATIONS.has(row.publication_number)
+  ) {
+    subfieldIds.push(ensureSubfield(fieldId, "rocket recovery"));
+  }
+  const uniqueSubfieldIds = [...new Set(subfieldIds)];
+  const subfield = uniqueSubfieldIds[0];
   const applicant = ensureApplicant(row.assignee, row.authority, fieldId);
   const publication = row.publication_number;
   const year =
@@ -369,8 +395,10 @@ for (const row of normalizedPatents) {
     applicant: applicant.id,
     applicantName: applicant.name,
     filing_year: Math.max(1990, Math.min(site.summary.currentYear, year)),
-    field: fieldId,
-    subfield,
+      field: fieldId,
+      subfield,
+      subfield_ids: uniqueSubfieldIds,
+      family_id: row.family_id ? String(row.family_id) : undefined,
     keywords: [...new Set([...(matchedTerms ?? []), ...(field.query_terms ?? []).slice(0, 2)])].slice(0, 5),
     importance_score: Math.round(importance * 100) / 100,
     status: /B\d?$/i.test(publication) ? "등록" : "공개",
@@ -530,6 +558,8 @@ export interface Patent {
   filing_year: number;
   field: FieldId;
   subfield: string;
+  subfield_ids: string[];
+  family_id?: string;
   keywords: string[];
   importance_score: number;
   status: PatentStatus;
@@ -579,7 +609,7 @@ export interface Filter {
 export const DEFAULT_FILTER: Filter = {
   field: 'all',
   countries: [...COUNTRY_ORDER],
-  period: '5y',
+  period: 'all',
 };
 
 export function periodStartYear(period: Period): number {
@@ -607,8 +637,8 @@ export function parseFilter(searchParams?: SP): Filter {
     : [...COUNTRY_ORDER];
   if (countries.length === 0) countries = [...COUNTRY_ORDER];
 
-  const periodRaw = (get('period') as Period) || '5y';
-  const period: Period = ['5y', '10y', 'all'].includes(periodRaw) ? periodRaw : '5y';
+  const periodRaw = (get('period') as Period) || DEFAULT_FILTER.period;
+  const period: Period = ['5y', '10y', 'all'].includes(periodRaw) ? periodRaw : DEFAULT_FILTER.period;
 
   return { field: validField, countries, period };
 }
@@ -618,7 +648,7 @@ export function filterToQuery(filter: Partial<Filter>): string {
   if (filter.field && filter.field !== 'all') params.set('field', filter.field);
   if (filter.countries && filter.countries.length < COUNTRY_ORDER.length)
     params.set('countries', filter.countries.join(','));
-  if (filter.period && filter.period !== '5y') params.set('period', filter.period);
+  if (filter.period && filter.period !== DEFAULT_FILTER.period) params.set('period', filter.period);
   const s = params.toString();
   return s ? \`?\${s}\` : '';
 }
@@ -631,6 +661,10 @@ export function applyFilter(filter: Filter, base: Patent[] = PATENTS): Patent[] 
     if (p.filing_year < start) return false;
     return true;
   });
+}
+
+export function hasSubfield(patent: Patent, subfieldId: string): boolean {
+  return (patent.subfield_ids ?? [patent.subfield]).includes(subfieldId);
 }
 
 // ---------------------------------------------------------------------------
@@ -843,7 +877,7 @@ export function getFieldAnalysis(fieldId: FieldId): FieldAnalysis | null {
   const subfield_clusters = relatedSubfields
     .map((subfield) => ({
       subfield,
-      count: samplePatents.filter((patent) => patent.subfield === subfield.id).length,
+      count: samplePatents.filter((patent) => hasSubfield(patent, subfield.id)).length,
     }))
     .filter((item) => item.count > 0)
     .sort((a, b) => b.count - a.count);
@@ -918,7 +952,7 @@ export interface SearchOptions {
 
 export function searchPatents(opts: SearchOptions): Patent[] {
   let result = applyFilter(opts.filter);
-  if (opts.subfield) result = result.filter((p) => p.subfield === opts.subfield);
+  if (opts.subfield) result = result.filter((p) => hasSubfield(p, opts.subfield!));
   if (opts.applicant) result = result.filter((p) => p.applicant === opts.applicant);
   if (opts.status && opts.status !== 'all') result = result.filter((p) => p.status === opts.status);
   if (opts.q) {
@@ -942,7 +976,9 @@ export function getPatent(idOrPub: string): Patent | null {
 }
 
 export function similarPatents(patent: Patent, limit = 4): Patent[] {
-  return PATENTS.filter((p) => p.id !== patent.id && p.subfield === patent.subfield)
+  return PATENTS.filter((p) =>
+    p.id !== patent.id && patent.subfield_ids.some((subfieldId) => hasSubfield(p, subfieldId))
+  )
     .sort((a, b) => b.importance_score - a.importance_score)
     .slice(0, limit);
 }

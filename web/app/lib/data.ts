@@ -103,6 +103,8 @@ export interface Patent {
   filing_year: number;
   field: FieldId;
   subfield: string;
+  subfield_ids: string[];
+  family_id?: string;
   keywords: string[];
   importance_score: number;
   status: PatentStatus;
@@ -2279,10 +2281,22 @@ export const SUBFIELDS: Subfield[] = [
     "label_en": "rocket motor insulation"
   },
   {
+    "id": "space_materials_tps_coatings__ablative-material",
+    "field": "space_materials_tps_coatings",
+    "label_ko": "삭마재",
+    "label_en": "ablative material"
+  },
+  {
     "id": "space_materials_tps_coatings__thermal-protection",
     "field": "space_materials_tps_coatings",
     "label_ko": "열보호시스템",
     "label_en": "thermal protection"
+  },
+  {
+    "id": "space_materials_tps_coatings__spacecraft-coating",
+    "field": "space_materials_tps_coatings",
+    "label_ko": "우주비행체 코팅",
+    "label_en": "spacecraft coating"
   },
   {
     "id": "space_materials_tps_coatings__composite",
@@ -2301,6 +2315,18 @@ export const SUBFIELDS: Subfield[] = [
     "field": "space_remote_sensing_payload",
     "label_ko": "SAR 영상화",
     "label_en": "SAR imaging"
+  },
+  {
+    "id": "space_remote_sensing_payload__wide-swath",
+    "field": "space_remote_sensing_payload",
+    "label_ko": "광역 관측폭",
+    "label_en": "wide swath"
+  },
+  {
+    "id": "space_remote_sensing_payload__digital-beamforming",
+    "field": "space_remote_sensing_payload",
+    "label_ko": "디지털 빔포밍",
+    "label_en": "digital beamforming"
   },
   {
     "id": "space_remote_sensing_payload__remote-sensing",
@@ -2373,6 +2399,12 @@ export const SUBFIELDS: Subfield[] = [
     "field": "space_satellite_bus_thermal_power",
     "label_ko": "전력 시스템",
     "label_en": "power system"
+  },
+  {
+    "id": "space_satellite_bus_thermal_power__heat-pipe",
+    "field": "space_satellite_bus_thermal_power",
+    "label_ko": "히트파이프",
+    "label_en": "heat pipe"
   }
 ];
 export const APPLICANTS: Applicant[] = [
@@ -2685,6 +2717,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 2017,
     "field": "space_gnc_rendezvous_servicing",
     "subfield": "space_gnc_rendezvous_servicing__rendezvous",
+    "subfield_ids": [
+      "space_gnc_rendezvous_servicing__rendezvous"
+    ],
+    "family_id": "57448491",
     "keywords": [
       "rendezvous",
       "GNC"
@@ -2715,6 +2751,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 2018,
     "field": "space_gnc_rendezvous_servicing",
     "subfield": "space_gnc_rendezvous_servicing__docking",
+    "subfield_ids": [
+      "space_gnc_rendezvous_servicing__docking"
+    ],
+    "family_id": "55398855",
     "keywords": [
       "docking",
       "GNC",
@@ -2746,6 +2786,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2018,
     "field": "space_gnc_rendezvous_servicing",
     "subfield": "space_gnc_rendezvous_servicing__rendezvous",
+    "subfield_ids": [
+      "space_gnc_rendezvous_servicing__rendezvous",
+      "space_gnc_rendezvous_servicing__docking"
+    ],
+    "family_id": "60017915",
     "keywords": [
       "rendezvous",
       "docking",
@@ -2778,6 +2823,12 @@ export const PATENTS: Patent[] = [
     "filing_year": 2016,
     "field": "space_launch_propulsion_recovery",
     "subfield": "space_launch_propulsion_recovery__reusable-launch-vehicle",
+    "subfield_ids": [
+      "space_launch_propulsion_recovery__reusable-launch-vehicle",
+      "space_launch_propulsion_recovery__vertical-landing",
+      "space_launch_propulsion_recovery__rocket-recovery"
+    ],
+    "family_id": "53448830",
     "keywords": [
       "reusable launch vehicle",
       "vertical landing",
@@ -2811,6 +2862,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 2020,
     "field": "space_launch_propulsion_recovery",
     "subfield": "space_launch_propulsion_recovery__rocket-recovery",
+    "subfield_ids": [
+      "space_launch_propulsion_recovery__rocket-recovery"
+    ],
+    "family_id": "60257833",
     "keywords": [
       "rocket recovery",
       "launch vehicle",
@@ -2842,6 +2897,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2014,
     "field": "space_materials_tps_coatings",
     "subfield": "space_materials_tps_coatings__thermal-protection",
+    "subfield_ids": [
+      "space_materials_tps_coatings__thermal-protection",
+      "space_materials_tps_coatings__spacecraft-coating"
+    ],
+    "family_id": "42511813",
     "keywords": [
       "thermal protection",
       "spacecraft coating",
@@ -2874,6 +2934,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2015,
     "field": "space_materials_tps_coatings",
     "subfield": "space_materials_tps_coatings__thermal-protection",
+    "subfield_ids": [
+      "space_materials_tps_coatings__thermal-protection",
+      "space_materials_tps_coatings__spacecraft-coating"
+    ],
+    "family_id": "53078943",
     "keywords": [
       "thermal protection",
       "spacecraft coating",
@@ -2906,6 +2971,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2015,
     "field": "space_materials_tps_coatings",
     "subfield": "space_materials_tps_coatings__thermal-protection",
+    "subfield_ids": [
+      "space_materials_tps_coatings__thermal-protection",
+      "space_materials_tps_coatings__spacecraft-coating"
+    ],
+    "family_id": "23548767",
     "keywords": [
       "thermal protection",
       "spacecraft coating",
@@ -2938,6 +3008,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 2012,
     "field": "space_remote_sensing_payload",
     "subfield": "space_remote_sensing_payload__sar-imaging",
+    "subfield_ids": [
+      "space_remote_sensing_payload__sar-imaging"
+    ],
+    "family_id": "44778298",
     "keywords": [
       "SAR imaging",
       "remote sensing",
@@ -2969,6 +3043,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2011,
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__spacecraft-thermal-control",
+    "subfield_ids": [
+      "space_satellite_bus_thermal_power__spacecraft-thermal-control",
+      "space_satellite_bus_thermal_power__satellite-radiator"
+    ],
+    "family_id": "42502821",
     "keywords": [
       "spacecraft thermal control",
       "satellite radiator",
@@ -3002,6 +3081,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2014,
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__satellite-radiator",
+    "subfield_ids": [
+      "space_satellite_bus_thermal_power__satellite-radiator",
+      "space_satellite_bus_thermal_power__heat-pipe"
+    ],
+    "family_id": "57007537",
     "keywords": [
       "satellite radiator",
       "heat pipe",
@@ -3035,6 +3119,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2022,
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__spacecraft-thermal-control",
+    "subfield_ids": [
+      "space_satellite_bus_thermal_power__spacecraft-thermal-control",
+      "space_satellite_bus_thermal_power__satellite-radiator"
+    ],
+    "family_id": "65927972",
     "keywords": [
       "spacecraft thermal control",
       "satellite radiator",
@@ -3068,6 +3157,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2015,
     "field": "space_comm_leo_network",
     "subfield": "space_comm_leo_network__leo-satellite-constellation",
+    "subfield_ids": [
+      "space_comm_leo_network__leo-satellite-constellation",
+      "space_comm_leo_network__satellite-communication"
+    ],
+    "family_id": "50323016",
     "keywords": [
       "LEO satellite constellation",
       "satellite communication",
@@ -3100,6 +3194,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 2017,
     "field": "space_comm_leo_network",
     "subfield": "space_comm_leo_network__inter-satellite-link",
+    "subfield_ids": [
+      "space_comm_leo_network__inter-satellite-link"
+    ],
+    "family_id": "51334283",
     "keywords": [
       "inter-satellite link",
       "LEO network",
@@ -3131,6 +3229,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 2016,
     "field": "space_comm_leo_network",
     "subfield": "space_comm_leo_network__leo-satellite-constellation",
+    "subfield_ids": [
+      "space_comm_leo_network__leo-satellite-constellation"
+    ],
+    "family_id": "60203348",
     "keywords": [
       "LEO satellite constellation",
       "LEO network",
@@ -3162,6 +3264,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 2017,
     "field": "space_gnc_rendezvous_servicing",
     "subfield": "space_gnc_rendezvous_servicing__docking",
+    "subfield_ids": [
+      "space_gnc_rendezvous_servicing__docking"
+    ],
+    "family_id": "55398855",
     "keywords": [
       "docking",
       "GNC",
@@ -3193,6 +3299,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2019,
     "field": "space_gnc_rendezvous_servicing",
     "subfield": "space_gnc_rendezvous_servicing__rendezvous",
+    "subfield_ids": [
+      "space_gnc_rendezvous_servicing__rendezvous",
+      "space_gnc_rendezvous_servicing__docking"
+    ],
+    "family_id": "67911753",
     "keywords": [
       "rendezvous",
       "docking",
@@ -3225,6 +3336,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2020,
     "field": "space_launch_propulsion_recovery",
     "subfield": "space_launch_propulsion_recovery__launch-vehicle",
+    "subfield_ids": [
+      "space_launch_propulsion_recovery__launch-vehicle",
+      "space_launch_propulsion_recovery__rocket-recovery"
+    ],
+    "family_id": "64426845",
     "keywords": [
       "launch vehicle",
       "rocket engine"
@@ -3255,6 +3371,12 @@ export const PATENTS: Patent[] = [
     "filing_year": 2023,
     "field": "space_launch_propulsion_recovery",
     "subfield": "space_launch_propulsion_recovery__reusable-launch-vehicle",
+    "subfield_ids": [
+      "space_launch_propulsion_recovery__reusable-launch-vehicle",
+      "space_launch_propulsion_recovery__launch-vehicle",
+      "space_launch_propulsion_recovery__rocket-recovery"
+    ],
+    "family_id": "83355024",
     "keywords": [
       "reusable launch vehicle",
       "launch vehicle",
@@ -3287,6 +3409,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 1999,
     "field": "space_materials_tps_coatings",
     "subfield": "space_materials_tps_coatings__rocket-motor-insulation",
+    "subfield_ids": [
+      "space_materials_tps_coatings__rocket-motor-insulation"
+    ],
+    "family_id": "22990259",
     "keywords": [
       "rocket motor insulation",
       "thermal protection",
@@ -3318,6 +3444,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2010,
     "field": "space_materials_tps_coatings",
     "subfield": "space_materials_tps_coatings__thermal-protection",
+    "subfield_ids": [
+      "space_materials_tps_coatings__thermal-protection",
+      "space_materials_tps_coatings__ablative-material"
+    ],
+    "family_id": "33435355",
     "keywords": [
       "thermal protection",
       "ablative material",
@@ -3350,6 +3481,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 2005,
     "field": "space_remote_sensing_payload",
     "subfield": "space_remote_sensing_payload__synthetic-aperture-radar",
+    "subfield_ids": [
+      "space_remote_sensing_payload__synthetic-aperture-radar"
+    ],
+    "family_id": "8176778",
     "keywords": [
       "synthetic aperture radar",
       "remote sensing",
@@ -3381,6 +3516,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2019,
     "field": "space_remote_sensing_payload",
     "subfield": "space_remote_sensing_payload__synthetic-aperture-radar",
+    "subfield_ids": [
+      "space_remote_sensing_payload__synthetic-aperture-radar",
+      "space_remote_sensing_payload__wide-swath"
+    ],
+    "family_id": "59383471",
     "keywords": [
       "synthetic aperture radar",
       "wide swath",
@@ -3414,6 +3554,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2020,
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__spacecraft-thermal-control",
+    "subfield_ids": [
+      "space_satellite_bus_thermal_power__spacecraft-thermal-control",
+      "space_satellite_bus_thermal_power__satellite-radiator"
+    ],
+    "family_id": "64739481",
     "keywords": [
       "spacecraft thermal control",
       "satellite radiator",
@@ -3447,6 +3592,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 1995,
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__spacecraft-thermal-control",
+    "subfield_ids": [
+      "space_satellite_bus_thermal_power__spacecraft-thermal-control",
+      "space_satellite_bus_thermal_power__satellite-radiator"
+    ],
+    "family_id": "90054160",
     "keywords": [
       "spacecraft thermal control",
       "satellite radiator",
@@ -3480,6 +3630,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2015,
     "field": "space_comm_leo_network",
     "subfield": "space_comm_leo_network__leo-satellite-constellation",
+    "subfield_ids": [
+      "space_comm_leo_network__leo-satellite-constellation",
+      "space_comm_leo_network__satellite-communication"
+    ],
+    "family_id": "56609966",
     "keywords": [
       "LEO satellite constellation",
       "satellite communication",
@@ -3512,6 +3667,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 2020,
     "field": "space_comm_leo_network",
     "subfield": "space_comm_leo_network__satellite-communication",
+    "subfield_ids": [
+      "space_comm_leo_network__satellite-communication"
+    ],
+    "family_id": "78332105",
     "keywords": [
       "satellite communication",
       "LEO network"
@@ -3542,6 +3701,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 2017,
     "field": "space_gnc_rendezvous_servicing",
     "subfield": "space_gnc_rendezvous_servicing__docking",
+    "subfield_ids": [
+      "space_gnc_rendezvous_servicing__docking"
+    ],
+    "family_id": "55398855",
     "keywords": [
       "docking",
       "GNC",
@@ -3573,6 +3736,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 1990,
     "field": "space_gnc_rendezvous_servicing",
     "subfield": "space_gnc_rendezvous_servicing__rendezvous",
+    "subfield_ids": [
+      "space_gnc_rendezvous_servicing__rendezvous",
+      "space_gnc_rendezvous_servicing__docking"
+    ],
+    "family_id": "14539363",
     "keywords": [
       "rendezvous",
       "docking",
@@ -3605,6 +3773,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2021,
     "field": "space_launch_propulsion_recovery",
     "subfield": "space_launch_propulsion_recovery__reusable-launch-vehicle",
+    "subfield_ids": [
+      "space_launch_propulsion_recovery__reusable-launch-vehicle",
+      "space_launch_propulsion_recovery__vertical-landing"
+    ],
+    "family_id": "69190974",
     "keywords": [
       "reusable launch vehicle",
       "vertical landing",
@@ -3638,6 +3811,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2016,
     "field": "space_materials_tps_coatings",
     "subfield": "space_materials_tps_coatings__thermal-protection",
+    "subfield_ids": [
+      "space_materials_tps_coatings__thermal-protection",
+      "space_materials_tps_coatings__spacecraft-coating"
+    ],
+    "family_id": "23548767",
     "keywords": [
       "thermal protection",
       "spacecraft coating",
@@ -3670,6 +3848,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2011,
     "field": "space_materials_tps_coatings",
     "subfield": "space_materials_tps_coatings__thermal-protection",
+    "subfield_ids": [
+      "space_materials_tps_coatings__thermal-protection",
+      "space_materials_tps_coatings__ablative-material"
+    ],
+    "family_id": "33435355",
     "keywords": [
       "thermal protection",
       "ablative material",
@@ -3702,6 +3885,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 2024,
     "field": "space_remote_sensing_payload",
     "subfield": "space_remote_sensing_payload__synthetic-aperture-radar",
+    "subfield_ids": [
+      "space_remote_sensing_payload__synthetic-aperture-radar",
+      "space_remote_sensing_payload__sar-imaging"
+    ],
     "keywords": [
       "synthetic aperture radar",
       "SAR imaging",
@@ -3724,6 +3911,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 1990,
     "field": "space_remote_sensing_payload",
     "subfield": "space_remote_sensing_payload__synthetic-aperture-radar",
+    "subfield_ids": [
+      "space_remote_sensing_payload__synthetic-aperture-radar",
+      "space_remote_sensing_payload__sar-imaging"
+    ],
+    "family_id": "31141566",
     "keywords": [
       "synthetic aperture radar",
       "SAR imaging",
@@ -3757,6 +3949,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2014,
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__satellite-radiator",
+    "subfield_ids": [
+      "space_satellite_bus_thermal_power__satellite-radiator",
+      "space_satellite_bus_thermal_power__heat-pipe"
+    ],
+    "family_id": "57007537",
     "keywords": [
       "satellite radiator",
       "heat pipe",
@@ -3790,6 +3987,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2010,
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__spacecraft-thermal-control",
+    "subfield_ids": [
+      "space_satellite_bus_thermal_power__spacecraft-thermal-control",
+      "space_satellite_bus_thermal_power__heat-pipe"
+    ],
+    "family_id": "25010171",
     "keywords": [
       "spacecraft thermal control",
       "heat pipe",
@@ -3823,6 +4025,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 2015,
     "field": "space_comm_leo_network",
     "subfield": "space_comm_leo_network__satellite-communication",
+    "subfield_ids": [
+      "space_comm_leo_network__satellite-communication"
+    ],
+    "family_id": "45891750",
     "keywords": [
       "satellite communication",
       "LEO network"
@@ -3853,6 +4059,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2016,
     "field": "space_comm_leo_network",
     "subfield": "space_comm_leo_network__leo-satellite-constellation",
+    "subfield_ids": [
+      "space_comm_leo_network__leo-satellite-constellation",
+      "space_comm_leo_network__satellite-communication"
+    ],
+    "family_id": "60203348",
     "keywords": [
       "LEO satellite constellation",
       "satellite communication",
@@ -3885,6 +4096,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 2024,
     "field": "space_gnc_rendezvous_servicing",
     "subfield": "space_gnc_rendezvous_servicing__attitude-control",
+    "subfield_ids": [
+      "space_gnc_rendezvous_servicing__attitude-control"
+    ],
+    "family_id": "81985755",
     "keywords": [
       "attitude control",
       "GNC",
@@ -3916,6 +4131,12 @@ export const PATENTS: Patent[] = [
     "filing_year": 2023,
     "field": "space_launch_propulsion_recovery",
     "subfield": "space_launch_propulsion_recovery__reusable-launch-vehicle",
+    "subfield_ids": [
+      "space_launch_propulsion_recovery__reusable-launch-vehicle",
+      "space_launch_propulsion_recovery__launch-vehicle",
+      "space_launch_propulsion_recovery__rocket-recovery"
+    ],
+    "family_id": "83355024",
     "keywords": [
       "reusable launch vehicle",
       "launch vehicle",
@@ -3948,6 +4169,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2016,
     "field": "space_materials_tps_coatings",
     "subfield": "space_materials_tps_coatings__thermal-protection",
+    "subfield_ids": [
+      "space_materials_tps_coatings__thermal-protection",
+      "space_materials_tps_coatings__spacecraft-coating"
+    ],
+    "family_id": "53390113",
     "keywords": [
       "thermal protection",
       "spacecraft coating",
@@ -3980,6 +4206,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 2019,
     "field": "space_remote_sensing_payload",
     "subfield": "space_remote_sensing_payload__synthetic-aperture-radar",
+    "subfield_ids": [
+      "space_remote_sensing_payload__synthetic-aperture-radar"
+    ],
+    "family_id": "64568546",
     "keywords": [
       "synthetic aperture radar",
       "remote sensing",
@@ -4011,6 +4241,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2019,
     "field": "space_remote_sensing_payload",
     "subfield": "space_remote_sensing_payload__synthetic-aperture-radar",
+    "subfield_ids": [
+      "space_remote_sensing_payload__synthetic-aperture-radar",
+      "space_remote_sensing_payload__wide-swath"
+    ],
+    "family_id": "59383471",
     "keywords": [
       "synthetic aperture radar",
       "wide swath",
@@ -4044,6 +4279,9 @@ export const PATENTS: Patent[] = [
     "filing_year": 2024,
     "field": "space_remote_sensing_payload",
     "subfield": "space_remote_sensing_payload__sar-imaging",
+    "subfield_ids": [
+      "space_remote_sensing_payload__sar-imaging"
+    ],
     "keywords": [
       "SAR imaging",
       "remote sensing",
@@ -4065,6 +4303,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2014,
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__satellite-radiator",
+    "subfield_ids": [
+      "space_satellite_bus_thermal_power__satellite-radiator",
+      "space_satellite_bus_thermal_power__heat-pipe"
+    ],
+    "family_id": "57007537",
     "keywords": [
       "satellite radiator",
       "heat pipe",
@@ -4098,6 +4341,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2017,
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__spacecraft-thermal-control",
+    "subfield_ids": [
+      "space_satellite_bus_thermal_power__spacecraft-thermal-control",
+      "space_satellite_bus_thermal_power__satellite-radiator"
+    ],
+    "family_id": "73231053",
     "keywords": [
       "spacecraft thermal control",
       "satellite radiator",
@@ -4131,6 +4379,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2016,
     "field": "space_comm_leo_network",
     "subfield": "space_comm_leo_network__leo-satellite-constellation",
+    "subfield_ids": [
+      "space_comm_leo_network__leo-satellite-constellation",
+      "space_comm_leo_network__satellite-communication"
+    ],
+    "family_id": "60203348",
     "keywords": [
       "LEO satellite constellation",
       "satellite communication",
@@ -4163,6 +4416,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 2024,
     "field": "space_comm_leo_network",
     "subfield": "space_comm_leo_network__leo-satellite-constellation",
+    "subfield_ids": [
+      "space_comm_leo_network__leo-satellite-constellation",
+      "space_comm_leo_network__satellite-communication"
+    ],
     "keywords": [
       "LEO satellite constellation",
       "satellite communication",
@@ -4184,6 +4441,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 2019,
     "field": "space_gnc_rendezvous_servicing",
     "subfield": "space_gnc_rendezvous_servicing__rendezvous",
+    "subfield_ids": [
+      "space_gnc_rendezvous_servicing__rendezvous",
+      "space_gnc_rendezvous_servicing__docking"
+    ],
     "keywords": [
       "rendezvous",
       "docking",
@@ -4205,6 +4466,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2003,
     "field": "space_gnc_rendezvous_servicing",
     "subfield": "space_gnc_rendezvous_servicing__rendezvous",
+    "subfield_ids": [
+      "space_gnc_rendezvous_servicing__rendezvous",
+      "space_gnc_rendezvous_servicing__docking"
+    ],
+    "family_id": "34193636",
     "keywords": [
       "rendezvous",
       "docking",
@@ -4237,6 +4503,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 2016,
     "field": "space_gnc_rendezvous_servicing",
     "subfield": "space_gnc_rendezvous_servicing__docking",
+    "subfield_ids": [
+      "space_gnc_rendezvous_servicing__docking"
+    ],
+    "family_id": "52463116",
     "keywords": [
       "docking",
       "GNC",
@@ -4268,6 +4538,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2019,
     "field": "space_launch_propulsion_recovery",
     "subfield": "space_launch_propulsion_recovery__vertical-landing",
+    "subfield_ids": [
+      "space_launch_propulsion_recovery__vertical-landing",
+      "space_launch_propulsion_recovery__rocket-recovery"
+    ],
+    "family_id": "62625436",
     "keywords": [
       "vertical landing",
       "launch vehicle",
@@ -4299,6 +4574,12 @@ export const PATENTS: Patent[] = [
     "filing_year": 2013,
     "field": "space_launch_propulsion_recovery",
     "subfield": "space_launch_propulsion_recovery__sea-landing",
+    "subfield_ids": [
+      "space_launch_propulsion_recovery__sea-landing",
+      "space_launch_propulsion_recovery__launch-vehicle",
+      "space_launch_propulsion_recovery__rocket-recovery"
+    ],
+    "family_id": "43429742",
     "keywords": [
       "sea landing",
       "launch vehicle",
@@ -4331,6 +4612,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 2022,
     "field": "space_materials_tps_coatings",
     "subfield": "space_materials_tps_coatings__thermal-protection",
+    "subfield_ids": [
+      "space_materials_tps_coatings__thermal-protection"
+    ],
+    "family_id": "71611893",
     "keywords": [
       "thermal protection",
       "coating"
@@ -4361,6 +4646,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 1990,
     "field": "space_materials_tps_coatings",
     "subfield": "space_materials_tps_coatings__thermal-protection",
+    "subfield_ids": [
+      "space_materials_tps_coatings__thermal-protection",
+      "space_materials_tps_coatings__spacecraft-coating"
+    ],
+    "family_id": "73223759",
     "keywords": [
       "thermal protection",
       "spacecraft coating",
@@ -4393,6 +4683,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 1990,
     "field": "space_materials_tps_coatings",
     "subfield": "space_materials_tps_coatings__thermal-protection",
+    "subfield_ids": [
+      "space_materials_tps_coatings__thermal-protection"
+    ],
+    "family_id": "25339754",
     "keywords": [
       "thermal protection",
       "coating"
@@ -4423,6 +4717,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 2019,
     "field": "space_remote_sensing_payload",
     "subfield": "space_remote_sensing_payload__synthetic-aperture-radar",
+    "subfield_ids": [
+      "space_remote_sensing_payload__synthetic-aperture-radar",
+      "space_remote_sensing_payload__digital-beamforming"
+    ],
     "keywords": [
       "synthetic aperture radar",
       "digital beamforming",
@@ -4445,6 +4743,9 @@ export const PATENTS: Patent[] = [
     "filing_year": 2019,
     "field": "space_remote_sensing_payload",
     "subfield": "space_remote_sensing_payload__synthetic-aperture-radar",
+    "subfield_ids": [
+      "space_remote_sensing_payload__synthetic-aperture-radar"
+    ],
     "keywords": [
       "synthetic aperture radar",
       "remote sensing",
@@ -4466,6 +4767,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2016,
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__satellite-radiator",
+    "subfield_ids": [
+      "space_satellite_bus_thermal_power__satellite-radiator",
+      "space_satellite_bus_thermal_power__heat-pipe"
+    ],
+    "family_id": "57007537",
     "keywords": [
       "satellite radiator",
       "heat pipe",
@@ -4499,6 +4805,11 @@ export const PATENTS: Patent[] = [
     "filing_year": 2021,
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__spacecraft-thermal-control",
+    "subfield_ids": [
+      "space_satellite_bus_thermal_power__spacecraft-thermal-control",
+      "space_satellite_bus_thermal_power__satellite-radiator"
+    ],
+    "family_id": "73231053",
     "keywords": [
       "spacecraft thermal control",
       "satellite radiator",
@@ -4532,6 +4843,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 2017,
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__thermal-louver",
+    "subfield_ids": [
+      "space_satellite_bus_thermal_power__thermal-louver"
+    ],
+    "family_id": "58408496",
     "keywords": [
       "thermal louver",
       "satellite bus",
@@ -4563,6 +4878,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 2019,
     "field": "space_comm_leo_network",
     "subfield": "space_comm_leo_network__leo-satellite-constellation",
+    "subfield_ids": [
+      "space_comm_leo_network__leo-satellite-constellation"
+    ],
+    "family_id": "60203348",
     "keywords": [
       "LEO satellite constellation",
       "LEO network",
@@ -4594,6 +4913,10 @@ export const PATENTS: Patent[] = [
     "filing_year": 2018,
     "field": "space_comm_leo_network",
     "subfield": "space_comm_leo_network__satellite-communication",
+    "subfield_ids": [
+      "space_comm_leo_network__satellite-communication"
+    ],
+    "family_id": "61243741",
     "keywords": [
       "satellite communication",
       "LEO network"
@@ -4624,7 +4947,7 @@ export interface Filter {
 export const DEFAULT_FILTER: Filter = {
   field: 'all',
   countries: [...COUNTRY_ORDER],
-  period: '5y',
+  period: 'all',
 };
 
 export function periodStartYear(period: Period): number {
@@ -4652,8 +4975,8 @@ export function parseFilter(searchParams?: SP): Filter {
     : [...COUNTRY_ORDER];
   if (countries.length === 0) countries = [...COUNTRY_ORDER];
 
-  const periodRaw = (get('period') as Period) || '5y';
-  const period: Period = ['5y', '10y', 'all'].includes(periodRaw) ? periodRaw : '5y';
+  const periodRaw = (get('period') as Period) || DEFAULT_FILTER.period;
+  const period: Period = ['5y', '10y', 'all'].includes(periodRaw) ? periodRaw : DEFAULT_FILTER.period;
 
   return { field: validField, countries, period };
 }
@@ -4663,7 +4986,7 @@ export function filterToQuery(filter: Partial<Filter>): string {
   if (filter.field && filter.field !== 'all') params.set('field', filter.field);
   if (filter.countries && filter.countries.length < COUNTRY_ORDER.length)
     params.set('countries', filter.countries.join(','));
-  if (filter.period && filter.period !== '5y') params.set('period', filter.period);
+  if (filter.period && filter.period !== DEFAULT_FILTER.period) params.set('period', filter.period);
   const s = params.toString();
   return s ? `?${s}` : '';
 }
@@ -4676,6 +4999,10 @@ export function applyFilter(filter: Filter, base: Patent[] = PATENTS): Patent[] 
     if (p.filing_year < start) return false;
     return true;
   });
+}
+
+export function hasSubfield(patent: Patent, subfieldId: string): boolean {
+  return (patent.subfield_ids ?? [patent.subfield]).includes(subfieldId);
 }
 
 // ---------------------------------------------------------------------------
@@ -4888,7 +5215,7 @@ export function getFieldAnalysis(fieldId: FieldId): FieldAnalysis | null {
   const subfield_clusters = relatedSubfields
     .map((subfield) => ({
       subfield,
-      count: samplePatents.filter((patent) => patent.subfield === subfield.id).length,
+      count: samplePatents.filter((patent) => hasSubfield(patent, subfield.id)).length,
     }))
     .filter((item) => item.count > 0)
     .sort((a, b) => b.count - a.count);
@@ -4963,7 +5290,7 @@ export interface SearchOptions {
 
 export function searchPatents(opts: SearchOptions): Patent[] {
   let result = applyFilter(opts.filter);
-  if (opts.subfield) result = result.filter((p) => p.subfield === opts.subfield);
+  if (opts.subfield) result = result.filter((p) => hasSubfield(p, opts.subfield!));
   if (opts.applicant) result = result.filter((p) => p.applicant === opts.applicant);
   if (opts.status && opts.status !== 'all') result = result.filter((p) => p.status === opts.status);
   if (opts.q) {
@@ -4987,7 +5314,9 @@ export function getPatent(idOrPub: string): Patent | null {
 }
 
 export function similarPatents(patent: Patent, limit = 4): Patent[] {
-  return PATENTS.filter((p) => p.id !== patent.id && p.subfield === patent.subfield)
+  return PATENTS.filter((p) =>
+    p.id !== patent.id && patent.subfield_ids.some((subfieldId) => hasSubfield(p, subfieldId))
+  )
     .sort((a, b) => b.importance_score - a.importance_score)
     .slice(0, limit);
 }

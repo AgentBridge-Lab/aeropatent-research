@@ -18,8 +18,8 @@ export default function ReportsPage() {
         <span className="page-eyebrow">Reports</span>
         <h1 className="page-title">분석 보고서</h1>
         <p className={styles.summary}>
-          9개 분야 보고서는 최근 10년 우선권 기준 BigQuery 집계를 사용합니다. 50개 세부기술
-          보고서는 직접 연결된 대표 문헌과 상위 분야 참고값을 구분하며, 문헌이 없는 기술도
+          9개 분야 보고서는 최근 10년 우선권 기준 BigQuery 집계를 사용합니다. {SUBFIELDS.length}개 세부기술
+          보고서는 여러 기술축에 중복 연결될 수 있는 검토 완료 대표 문헌과 상위 분야 참고값을 구분하며, 문헌이 없는 기술도
           검색 범위·기술축·검토 질문을 빠짐없이 제공합니다.
         </p>
       </div>

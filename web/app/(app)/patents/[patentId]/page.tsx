@@ -47,7 +47,9 @@ export default async function PatentDetailPage({ params }: Props) {
   }
 
   const field = getField(patent.field);
-  const subfield = getSubfield(patent.subfield);
+  const subfields = patent.subfield_ids
+    .map((subfieldId) => getSubfield(subfieldId))
+    .filter((item): item is NonNullable<typeof item> => Boolean(item));
   const country = COUNTRIES.find((c) => c.code === patent.country);
   const similar = similarPatents(patent, 5);
 
@@ -105,12 +107,12 @@ export default async function PatentDetailPage({ params }: Props) {
                   {field && (
                     <span style={{ color: field.color }}>{field.label_ko}</span>
                   )}
-                  {subfield && (
-                    <>
+                  {subfields.map((subfield) => (
+                    <span key={subfield.id}>
                       <span className={styles.factSep}>›</span>
                       <span className={styles.factMuted}>{subfield.label_ko}</span>
-                    </>
-                  )}
+                    </span>
+                  ))}
                 </dd>
               </div>
               <div className={styles.factItem}>

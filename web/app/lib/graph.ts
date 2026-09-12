@@ -27,6 +27,7 @@ import {
   getField,
   getSubfield,
   getApplicant,
+  hasSubfield,
 } from './data';
 import { getReportGuidance } from './report-content';
 import type {
@@ -202,7 +203,9 @@ export function getGraphData(filter: Filter, maxPatents = 150): GraphData {
       val: 3 + p.importance_score * 6,
       importance: p.importance_score,
     });
-    edges.push({ source: p.id, target: `subfield.${p.subfield}`, type: 'belongs_to', confidence: 0.9 });
+    p.subfield_ids.forEach((subfieldId) => {
+      edges.push({ source: p.id, target: `subfield.${subfieldId}`, type: 'belongs_to', confidence: 0.9 });
+    });
     edges.push({ source: p.id, target: `country.${p.country}`, type: 'filed_in', confidence: 1 });
     if (seen.has(`applicant.${p.applicant}`))
       edges.push({ source: p.id, target: `applicant.${p.applicant}`, type: 'filed_by', confidence: 0.95 });
@@ -216,9 +219,11 @@ export function getGraphData(filter: Filter, maxPatents = 150): GraphData {
   // 원천 인용 레코드가 없으므로 인용 관계로 표시하지 않는다.
   const bySub = new Map<string, Patent[]>();
   patents.forEach((p) => {
-    const arr = bySub.get(p.subfield) ?? [];
-    arr.push(p);
-    bySub.set(p.subfield, arr);
+    p.subfield_ids.forEach((subfieldId) => {
+      const arr = bySub.get(subfieldId) ?? [];
+      arr.push(p);
+      bySub.set(subfieldId, arr);
+    });
   });
   bySub.forEach((arr) => {
     const sorted = arr.sort((a, b) => b.importance_score - a.importance_score).slice(0, 6);
@@ -320,7 +325,7 @@ export function getNodeReport(nodeId: string, filter: Filter): NodeReport | null
     const patent = PATENTS.find((p) => p.id === nodeId);
     if (!patent) return null;
     const similar = PATENTS.filter(
-      (p) => p.id !== patent.id && p.subfield === patent.subfield
+      (p) => p.id !== patent.id && patent.subfield_ids.some((subfieldId) => hasSubfield(p, subfieldId))
     )
       .sort((a, b) => b.importance_score - a.importance_score)
       .slice(0, 4);
@@ -415,7 +420,7 @@ export function getNodeReport(nodeId: string, filter: Filter): NodeReport | null
           label: subfield.label_ko,
           label_en: subfield.label_en,
           description: getReportGuidance(f, subfield).analysisScope[0],
-          sample_count: patents.filter((patent) => patent.subfield === subfield.id).length,
+          sample_count: patents.filter((patent) => hasSubfield(patent, subfield.id)).length,
         })),
         evidence: [
           { label: '집계 데이터', text: `${DATA_SOURCE_NOTE}. 분야·관할·연도·출원인·CPC 수치는 최신 BigQuery 분석 스냅샷을 사용했습니다.` },
@@ -429,12 +434,12 @@ export function getNodeReport(nodeId: string, filter: Filter): NodeReport | null
     if (!sf) return null;
     const parent = getField(sf.field);
     if (!parent) return null;
-    const patents = PATENTS.filter((patent) => patent.subfield === sf.id);
+    const patents = PATENTS.filter((patent) => hasSubfield(patent, sf.id));
+    const familyCount = new Set(patents.map((patent) => patent.family_id ?? patent.id)).size;
     const enrichment = FIELD_ENRICHMENT[parent.id];
     const hasSample = patents.length > 0;
     const dist = hasSample ? countryDistribution(patents) : [];
     const lead = hasSample ? [...dist].sort((a, b) => b.count - a.count)[0] : null;
-    const krCount = dist.find((item) => item.country === 'KR')?.count ?? 0;
     const guidance = getReportGuidance(parent, sf);
 
     return {
@@ -446,10 +451,10 @@ export function getNodeReport(nodeId: string, filter: Filter): NodeReport | null
         : `‘${sf.label_ko}’ 기술축은 ${parent.label_ko} 분야의 독립 검색축입니다. 현재 세부기술 단위 대표 문헌이 없어 상위 분야 집계와 검색 기준을 분리해 제시합니다.`,
       kpis: hasSample
         ? [
+            { label: '검토 패밀리', value: `${familyCount}개` },
             { label: '대표 문헌', value: `${patents.length}건` },
             { label: '출원인', value: `${new Set(patents.map((patent) => patent.applicant)).size}곳` },
             { label: '최다 관할', value: lead?.country ?? '-' },
-            { label: 'KR 표본', value: `${krCount}건` },
           ]
         : [
             { label: '상위 분야 패밀리', value: `${parent.family_count.toLocaleString()}개` },
@@ -466,7 +471,7 @@ export function getNodeReport(nodeId: string, filter: Filter): NodeReport | null
           : '현재 세부기술 단위 문헌·관할·출원인 집계가 없어 0건 그래프를 표시하지 않습니다. 후속 수집 전에는 상위 분야 수치를 세부기술 값처럼 사용하지 않습니다.',
         ...parent.risk_notes,
       ],
-      top_patents: topPatents(patents, 5),
+      top_patents: topPatents(patents, Math.min(patents.length, 12)),
       sample_count: patents.length,
       basis_note: hasSample
         ? `대표 문헌 표본 ${patents.length}건 · 전체 표본 기간`
