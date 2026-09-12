@@ -11,6 +11,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 F = json.load(open(ROOT / 'analysis/bq_summary_by_field.json', encoding='utf-8'))
 AS_OF = json.load(open(ROOT / 'analysis/bq_collection_summary.json', encoding='utf-8')).get('collectedAt', '')[:10] or '2026-09-01'
+E = json.load(open(ROOT / 'analysis/deepdive_enrichment.json', encoding='utf-8'))['fields']
+
+REGION_KO = {'EAST_ASIA': '동아시아', 'NORTH_AMERICA': '북미', 'EUROPE': '유럽', 'INTERNATIONAL': '국제기구(PCT·EP 등)',
+             'OTHER_WORLD': '기타', 'MIDDLE_EAST': '중동', 'OCEANIA': '오세아니아', 'LATIN_AMERICA': '중남미',
+             'AFRICA': '아프리카', 'SOUTH_ASIA': '남아시아'}
 
 CATS = [
     {'slug': 'launch', 'name': '발사체', 'desc': '발사체 추진·회수 기술',
@@ -76,7 +81,9 @@ def page(title, body):
 {body}
 </div></body></html>'''
 
-FOOT = f'''<p class="foot">데이터: Google Patents Public Datasets (BigQuery) · CPC 후보군 기준(접두어 일치, 텍스트 검증 전) · 기준일 {AS_OF}<br>
+ENRICH_AS_OF = json.load(open(ROOT / 'analysis/deepdive_enrichment.json', encoding='utf-8'))['as_of_query']
+
+FOOT = f'''<p class="foot">데이터: Google Patents Public Datasets (BigQuery) · CPC 후보군 기준(접두어 일치, 텍스트 검증 전) · 기준일 {AS_OF} (연도 추세·KR 출원인·피인용은 {ENRICH_AS_OF} 쿼리)<br>
 집계 단위: DOCDB 패밀리 · 공개 관할은 공보 발행 관청 기준(출원인 소재국 아님) · 상위 출원인 명칭은 원자료 표기(정규화 전)<br>
 분류 정의: <a href="https://github.com/AgentBridge-Lab/aeropatent-research/blob/main/config/bigquery_aerospace_aviation_taxonomy.json">config/bigquery_aerospace_aviation_taxonomy.json</a> — 분류 정의에 따라 수치가 달라질 수 있음</p>'''
 
@@ -117,6 +124,45 @@ for cat in CATS:
         for c in e['topCpcCodes'][:4]:
             cpc_rows.append(f"<tr><td>{c['key']}</td><td>{e['labelKo']}</td><td class='num'>{c['count']:,}</td></tr>")
 
+    # ── 연구 참고 지표 (기술분야별, 분야 간 합산 없음) ──
+    met_rows = []
+    for e in fs:
+        en = E[e['id']]
+        met_rows.append(f"<tr><td>{e['labelKo']}</td><td class='num'>{e['recentMomentum']*100:.1f}%</td>"
+                        f"<td class='num'>{en['cr5']*100:.1f}%</td>"
+                        f"<td class='num'>{e['koreaPublicationGapOpportunityScore']:.3f}</td>"
+                        f"<td class='num'>{e['koreaAssigneeGapOpportunityScore']:.3f}</td></tr>")
+
+    # ── 연도별 출원 추세 (기술분야별 차트) ──
+    yr_charts = []
+    for e in fs:
+        yy = E[e['id']]['yearly_families']
+        rows = [(y, yy.get(y, 0)) for y in sorted(yy)]
+        yr_charts.append(f"<div><h3 style='margin:0 0 8px;font-size:14px;color:var(--muted)'>{e['labelKo']}</h3>{bars(rows)}</div>")
+    yr_grid = f"<div class='grid2'>{''.join(yr_charts)}</div>" if multi else yr_charts[0]
+
+    # ── 지역 분포 (카테고리 합산) ──
+    rg = {}
+    for e in fs:
+        for r, n in e['regionFamilyCounts'].items():
+            rg[r] = rg.get(r, 0) + n
+    rg_bars = bars([(REGION_KO.get(r, r), n) for r, n in sorted(rg.items(), key=lambda x: -x[1])])
+
+    # ── KR 상위 출원인 (기술분야별) ──
+    kr_rows = []
+    for e in fs:
+        for a in E[e['id']]['kr_top_applicants'][:5 if multi else 8]:
+            kr_rows.append(f"<tr><td>{a['name']}</td><td>{e['labelKo']}</td><td class='num'>{a['families']:,}</td></tr>")
+
+    # ── 피인용 상위 특허 (기술분야별) ──
+    cit_rows = []
+    for e in fs:
+        for t in E[e['id']]['top_cited']:
+            title = t['title_en'] or '(영문 제목 없음)'
+            cit_rows.append(f"<tr><td><a href='{t['gp_url']}' target='_blank' rel='noopener'>{t['rep_pub']}</a>"
+                            f"<div style='color:var(--muted);font-size:11.5px;line-height:1.4;margin-top:2px'>{title}</div></td>"
+                            f"<td>{e['labelKo']}</td><td class='num'>{t['citing_families']:,}</td></tr>")
+
     body = f'''<a class="back" href="../">← 분야별 심층 분석</a>
 <div class="kicker">DEEP DIVE · {cat['name']}</div>
 <h1>{cat['name']} 특허출원 현황 분석</h1>
@@ -132,6 +178,26 @@ for cat in CATS:
 <div class="panel"><h2>공개 관할 분포</h2>
 <p class="note">공보 발행 관청 기준 상위 8개 — 출원인 소재국이나 국가 경쟁력 순위가 아님.</p>
 {cc_bars}</div>
+<div class="panel"><h2>연도별 출원 추세 (2016–2025)</h2>
+<p class="note">우선일 연도 기준 패밀리 수. 2024–2025년은 공개 지연(통상 출원 후 18개월)으로 과소집계 — 감소 추세로 해석 금지.</p>
+{yr_grid}</div>
+<div class="panel"><h2>지역별 분포</h2>
+<p class="note">공보 발행 관청의 지역 그룹 기준{', 분야 합산(중복 패밀리 포함 가능)' if multi else ''}.</p>
+{rg_bars}</div>
+<div class="panel"><h2>연구 참고 지표</h2>
+<p class="note">모멘텀 = 최근 3년 패밀리 비중. CR5 = 상위 5개 출원인 점유율(집중도). 한국 격차 점수 = 모멘텀 × (1 − KR 최근 비중) — 값이 클수록 성장 중이면서 한국 참여가 낮은 분야(공개 관할 기준 / KR 출원인 기준 각각).</p>
+<table><tr><th>기술분야</th><th style="text-align:right">모멘텀</th><th style="text-align:right">CR5</th><th style="text-align:right">격차점수<br>(공개 관할)</th><th style="text-align:right">격차점수<br>(KR 출원인)</th></tr>
+{''.join(met_rows)}</table></div>
+<div class="grid2">
+<div class="panel"><h2>KR 상위 출원인</h2>
+<p class="note">KR 공개 공보 기준 기술분야별 상위 {'5' if multi else '8'} (원자료 조화 명칭). CPC 후보군 기준이라 범용 코드(예: G05D1)를 통해 타 산업 기업이 포함될 수 있음.</p>
+<table><tr><th>출원인</th><th>기술분야</th><th style="text-align:right">패밀리</th></tr>
+{''.join(kr_rows)}</table></div>
+<div class="panel"><h2>피인용 상위 특허</h2>
+<p class="note">패밀리 단위 피인용(인용한 패밀리 수) 상위 5 — 전 기간·전체 DB 기준. 링크는 대표 공보의 Google Patents 원문.</p>
+<table><tr><th>대표 공보</th><th>기술분야</th><th style="text-align:right">피인용</th></tr>
+{''.join(cit_rows)}</table></div>
+</div>
 <div class="grid2">
 <div class="panel"><h2>상위 출원인</h2>
 <p class="note">기술분야별 상위 5 (원자료 조화 명칭, 분야 간 합산 없음).</p>
