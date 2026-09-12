@@ -45,12 +45,13 @@ h1{font-size:clamp(26px,4.5vw,40px);margin:.35em 0 .3em;font-weight:800}
 .panel .note{color:var(--muted);font-size:12.5px;margin:0 0 16px;line-height:1.55}
 .row{display:grid;grid-template-columns:minmax(96px,170px) minmax(0,1fr) minmax(88px,118px);gap:10px;align-items:center;margin:7px 0}
 .lbl{font-size:12.5px;color:var(--muted);text-align:right}
-.track{background:#efece30d;border-radius:5px;height:15px;overflow:hidden}
-.fill{height:100%;background:var(--deep);border-radius:5px}
+.track{background:#efece314;border-radius:5px;height:15px;overflow:hidden}
+.fill{height:100%;background:var(--deep);border-radius:5px;min-width:3px}
 .fill.accent{background:var(--accent)}
 .val{font-size:12.5px;font-weight:700;white-space:nowrap}.val em{color:var(--dim);font-style:normal;font-weight:400}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 @media(max-width:860px){.grid2{grid-template-columns:1fr}}
+@media(max-width:560px){.row{grid-template-columns:minmax(72px,96px) minmax(0,1fr) auto;gap:8px}.lbl{font-size:11px}.val{font-size:11.5px}.panel{padding:18px 16px}}
 table{width:100%;border-collapse:collapse;font-size:13px}
 td,th{padding:8px 6px;border-top:1px solid var(--border);text-align:left}
 td.num{text-align:right;font-weight:800;color:var(--accent);white-space:nowrap}
