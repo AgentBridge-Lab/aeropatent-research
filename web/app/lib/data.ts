@@ -15,7 +15,7 @@ export const DATA_SNAPSHOT_ID = "aeropatent.bigquery.landscape.v1";
 export const CANDIDATE_SCOPE_NOTE = 'CPC 후보군 기준 (접두어 일치, 텍스트 검증 전)';
 export const DATA_SOURCE_NOTE =
   'Google Patents Public Datasets (BigQuery) — IFI CLAIMS 등 제공, CC BY 4.0, 가공: AEROPATENT';
-export const TREND_BASIS_NOTE = '패밀리 대표 우선일 미확정 · 문헌 행 우선연도 기준';
+export const TREND_BASIS_NOTE = '전체 CPC 후보군 기준. 패밀리 대표 연도를 확정하지 않아 공보 단위 우선연도로 집계되며(한 패밀리가 여러 해에 걸릴 수 있음), 진행 중인 올해는 제외.';
 export const SAMPLE_SIZE = 63;
 export const SAMPLE_BASIS_NOTE = `대표 문헌 표본 ${SAMPLE_SIZE}건 기준 (전체 후보군 아님)`;
 

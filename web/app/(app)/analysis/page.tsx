@@ -57,7 +57,7 @@ export default async function AnalysisPage() {
         </div>
         <div className={styles.card}>
           <div className={styles.cardTitle}>연도별 패밀리 추세</div>
-          <div className={styles.cardMeta}>전체 후보군 · {TREND_BASIS_NOTE} · 진행 중 연도 제외</div>
+          <div className={styles.cardMeta}>{TREND_BASIS_NOTE}</div>
           <TrendArea data={s.yearly_trend} />
         </div>
         <div className={`${styles.card} ${styles.cardWide}`}>

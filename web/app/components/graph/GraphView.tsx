@@ -147,6 +147,8 @@ export default function GraphView() {
 
   // 컨테이너 크기 추적
   useEffect(() => {
+    // 첫 렌더는 SSR 자리표시자이므로 mounted 이후에 canvas ref가 생긴다.
+    if (!mounted) return;
     const el = wrapRef.current;
     if (!el) return;
     const ro = new ResizeObserver(() => {
@@ -155,7 +157,16 @@ export default function GraphView() {
     ro.observe(el);
     setSize({ w: el.clientWidth, h: el.clientHeight });
     return () => ro.disconnect();
-  }, []);
+  }, [mounted]);
+
+  // 좁은 화면에서도 전체 관계망이 보이도록 크기 변경과 배치 완료 후 맞춘다.
+  const fitGraph = useCallback(() => {
+    if (!selected) fgRef.current?.zoomToFit(400, Math.min(size.w, size.h) * 0.1);
+  }, [selected, size.w, size.h]);
+
+  useEffect(() => {
+    fitGraph();
+  }, [fitGraph]);
 
   // 렌즈에 따른 링크 가시성
   const linkVisible = useCallback(
@@ -181,7 +192,7 @@ export default function GraphView() {
 
   const getLinkColor = useCallback(
     (link: any) => {
-      if (!highlight) return 'rgba(150,180,220,0.14)';
+      if (!highlight) return 'rgba(150,180,220,0.35)';
       const s = typeof link.source === 'string' ? link.source : link.source.id;
       const t = typeof link.target === 'string' ? link.target : link.target.id;
       return highlight.has(s) && highlight.has(t) ? 'rgba(150,200,255,0.55)' : DIM_LINK;
@@ -397,7 +408,7 @@ export default function GraphView() {
           linkColor={getLinkColor}
           linkVisibility={linkVisible}
           linkWidth={(l: any) => {
-            if (!highlight) return 0.4;
+            if (!highlight) return 0.7;
             const s = typeof l.source === 'string' ? l.source : l.source.id;
             const t = typeof l.target === 'string' ? l.target : l.target.id;
             return highlight.has(s) && highlight.has(t) ? 1.4 : 0.3;
@@ -406,6 +417,7 @@ export default function GraphView() {
           enableNodeDrag={false}
           onNodeClick={onNodeClick}
           onBackgroundClick={() => setSelected(null)}
+          onEngineStop={fitGraph}
           cooldownTicks={120}
         />
       </div>

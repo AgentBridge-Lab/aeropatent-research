@@ -104,7 +104,7 @@ export default async function FieldAnalysisPage({
         <div className={styles.card}>
           <div className={styles.cardTitle}>연도별 패밀리 추세 (전체 후보군)</div>
           <div className={styles.cardMeta}>
-            분야별 연도 추세는 집계에 없어 전체 후보군 추세만 표시 · {TREND_BASIS_NOTE}
+            분야별 연도 추세는 집계에 없어 전체 후보군 추세만 표시합니다. {TREND_BASIS_NOTE}
           </div>
           <TrendArea data={YEARLY_FAMILY_TREND} color={fa.field.color} />
         </div>
