@@ -36,8 +36,8 @@ SELECT field_id, a.name AS applicant, COUNT(DISTINCT family_id) AS families
 FROM cand, UNNEST(assignee_harmonized) a
 WHERE cand.country_code = 'KR'
 GROUP BY field_id, applicant
-QUALIFY ROW_NUMBER() OVER (PARTITION BY field_id ORDER BY families DESC) <= 8
-ORDER BY field_id, families DESC;
+QUALIFY ROW_NUMBER() OVER (PARTITION BY field_id ORDER BY families DESC, applicant) <= 8
+ORDER BY field_id, families DESC, applicant;
 
 -- ── Q3: 필드별 피인용 상위 패밀리 (top_cited) ─────────────────────────
 SELECT cand.field_id, cand.family_id AS cited_family, MIN(cand.publication_number) AS rep_pub,
@@ -46,8 +46,8 @@ FROM `patents-public-data.patents.publications` citing, UNNEST(citing.citation) 
 JOIN cand ON ct.publication_number = cand.publication_number
 WHERE citing.family_id != cand.family_id
 GROUP BY field_id, cited_family
-QUALIFY ROW_NUMBER() OVER (PARTITION BY field_id ORDER BY citing_families DESC) <= 5
-ORDER BY field_id, citing_families DESC;
+QUALIFY ROW_NUMBER() OVER (PARTITION BY field_id ORDER BY citing_families DESC, cited_family) <= 5
+ORDER BY field_id, citing_families DESC, cited_family;
 
 -- ── Q4: Q3 대표 공보의 영문 제목 (top_cited[].title_en) ───────────────
 -- {REP_PUBS} = Q3 결과 rep_pub 목록 ('US-10042359-B1', ...)

@@ -103,6 +103,18 @@ jobs:
             }
           "
 
+      - name: Refresh deep-dive enrichment (BigQuery Q1-Q4)
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # 실패 시 커밋된 기존 enrichment(각주에 쿼리 기준일 표기)로 페이지가 생성되므로 soft-fail.
+          node scripts/build_deepdive_enrichment.mjs \
+            --project "${GOOGLE_CLOUD_PROJECT}" \
+            --key "${GOOGLE_APPLICATION_CREDENTIALS}" \
+            --max-bytes 64424509440 \
+            || echo "::warning::deep-dive enrichment refresh failed — keeping previous analysis/deepdive_enrichment.json"
+
       - name: Archive raw BigQuery candidates
         uses: actions/upload-artifact@v4
         with:
@@ -170,6 +182,8 @@ jobs:
           test -f docs/deepdive/index.html
           test -f docs/deepdive/aviation/index.html
           grep -q 'deepdive/' docs/index.html
+          grep -q '피인용 상위 특허' docs/deepdive/launch/index.html
+          grep -q '연도별 출원 추세' docs/deepdive/aviation/index.html
 
       - name: Commit refreshed data and site
         shell: bash

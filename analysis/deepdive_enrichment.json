@@ -564,11 +564,11 @@
      "families": 325
     },
     {
-     "name": "TOYO BOSEKI",
+     "name": "SAMSUNG ELECTRONICS CO LTD",
      "families": 324
     },
     {
-     "name": "SAMSUNG ELECTRONICS CO LTD",
+     "name": "TOYO BOSEKI",
      "families": 324
     },
     {
@@ -669,11 +669,11 @@
      "families": 61
     },
     {
-     "name": "KOREA AEROSPACE RES INST",
+     "name": "KIA CORP",
      "families": 58
     },
     {
-     "name": "KIA CORP",
+     "name": "KOREA AEROSPACE RES INST",
      "families": 58
     }
    ],
@@ -707,11 +707,11 @@
      "gp_url": "https://patents.google.com/patent/CN114041229A"
     },
     {
-     "family_id": "66534273",
-     "rep_pub": "CN-109812338-A",
+     "family_id": "59269890",
+     "rep_pub": "CA-2972527-A1",
      "citing_families": 94,
-     "title_en": "Heat management system",
-     "gp_url": "https://patents.google.com/patent/CN109812338A"
+     "title_en": "Aircraft having a versatile propulsion system",
+     "gp_url": "https://patents.google.com/patent/CA2972527A1"
     }
    ]
   },
