@@ -65,7 +65,7 @@ export default async function FieldAnalysisPage({
               value: fa.total.toLocaleString(),
               unit: '건',
               accent: 'var(--cyan)',
-              foot: `전체 기간 · ${CANDIDATE_SCOPE_NOTE}`,
+              foot: `최근 10년 우선권 · ${CANDIDATE_SCOPE_NOTE}`,
             },
             {
               label: '최근 5년 패밀리',
@@ -96,7 +96,7 @@ export default async function FieldAnalysisPage({
         {/* 공개 관할별 비교 */}
         <div className={styles.card}>
           <div className={styles.cardTitle}>공개 관할별 비교</div>
-          <div className={styles.cardMeta}>US · EP · JP · CN · KR 고정 순서 · 전체 기간</div>
+          <div className={styles.cardMeta}>US · EP · JP · CN · KR 고정 순서 · 최근 10년 우선권</div>
           <CountryBars data={fa.country_distribution} />
         </div>
 

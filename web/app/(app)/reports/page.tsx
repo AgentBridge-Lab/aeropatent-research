@@ -1,53 +1,16 @@
 import Link from 'next/link';
 import styles from './reports.module.css';
-import { parseFilter, filterToQuery, FIELDS, SUBFIELDS } from '../../lib/data';
-import { getNodeReport } from '../../lib/graph';
+import { FIELDS, SUBFIELDS, filterToQuery } from '../../lib/data';
+import { getNodeReport, REPORT_FILTER } from '../../lib/graph';
 
 export const metadata = { title: '분석 보고서 · AEROPATENT' };
 
-// Preferred notable subfields ordered by strategic significance; entries that
-// disappear after a data refresh are dropped and backfilled from SUBFIELDS so
-// the section never silently shrinks or links to missing pages.
-const PREFERRED_SUBFIELD_IDS = [
-  'thermal-control',
-  'reusable-launch-vehicle',
-  'laser-comm',
-  'autonomous-nav',
-  'sar-radar',
-  'phased-array',
-];
-
-const SUBFIELD_REPORT_IDS = [
-  ...PREFERRED_SUBFIELD_IDS.filter((id) => SUBFIELDS.some((s) => s.id === id)),
-  ...SUBFIELDS.map((s) => s.id).filter((id) => !PREFERRED_SUBFIELD_IDS.includes(id)),
-]
-  .slice(0, 6)
-  .map((id) => `subfield.${id}`);
-
-export default async function ReportsPage() {
-  const filter = parseFilter();
-  const query = filterToQuery(filter).replace(/^\?/, '');
-
-  // Build field reports (6 fields)
-  const fieldReportIds = FIELDS.map((f) => `field.${f.id}`);
-
-  // Fetch all reports in parallel
-  const [fieldReports, subfieldReports] = await Promise.all([
-    Promise.all(
-      fieldReportIds.map(async (nodeId) => {
-        const report = getNodeReport(nodeId, filter);
-        const fieldId = nodeId.slice('field.'.length);
-        const field = FIELDS.find((f) => f.id === fieldId);
-        return { nodeId, report, color: field?.color ?? 'var(--cyan)' };
-      })
-    ),
-    Promise.all(
-      SUBFIELD_REPORT_IDS.map(async (nodeId) => {
-        const report = getNodeReport(nodeId, filter);
-        return { nodeId, report, color: 'var(--border-strong)' };
-      })
-    ),
-  ]);
+export default function ReportsPage() {
+  const query = filterToQuery(REPORT_FILTER).replace(/^\?/, '');
+  const fieldReports = FIELDS.map((field) => ({
+    field,
+    report: getNodeReport(`field.${field.id}`, REPORT_FILTER),
+  }));
 
   return (
     <div>
@@ -55,22 +18,24 @@ export default async function ReportsPage() {
         <span className="page-eyebrow">Reports</span>
         <h1 className="page-title">분석 보고서</h1>
         <p className={styles.summary}>
-          분야별·세부기술별 특허 분석 보고서입니다. 보고서 지표는 대표 문헌 표본 기준의 고정
-          집계입니다. 관심 보고서를 선택해 전략적 시사점과 주요 특허를 확인하세요.
+          9개 분야 보고서는 최근 10년 우선권 기준 BigQuery 집계를 사용합니다. 50개 세부기술
+          보고서는 직접 연결된 대표 문헌과 상위 분야 참고값을 구분하며, 문헌이 없는 기술도
+          검색 범위·기술축·검토 질문을 빠짐없이 제공합니다.
         </p>
       </div>
 
-      <h2 className={styles.sectionLabel}>분야별 보고서</h2>
+      <h2 className={styles.sectionLabel}>분야별 보고서 · 9개</h2>
       <div className={styles.grid}>
-        {fieldReports.map(({ nodeId, report, color }) => {
+        {fieldReports.map(({ field, report }) => {
           if (!report) return null;
+          const nodeId = `field.${field.id}`;
           const href = `/reports/${encodeURIComponent(nodeId)}${query ? `?${query}` : ''}`;
           return (
             <Link
               key={nodeId}
               href={href}
               className={styles.card}
-              style={{ borderLeftColor: color }}
+              style={{ borderLeftColor: field.color }}
             >
               <div className={styles.cardType}>분야 보고서</div>
               <div className={styles.cardTitle}>{report.title}</div>
@@ -89,31 +54,57 @@ export default async function ReportsPage() {
         })}
       </div>
 
-      <h2 className={styles.sectionLabel}>세부기술 보고서</h2>
-      <div className={styles.grid}>
-        {subfieldReports.map(({ nodeId, report }) => {
-          if (!report) return null;
-          const href = `/reports/${encodeURIComponent(nodeId)}${query ? `?${query}` : ''}`;
+      <h2 className={styles.sectionLabel}>세부기술 보고서 · {SUBFIELDS.length}개</h2>
+      <p className={styles.sectionIntro}>
+        분야별로 모든 세부기술을 표시합니다. ‘문헌 보강 필요’는 보고서가 빈 상태라는 뜻이
+        아니라, 현재 세부기술 단위 대표 문헌을 상위 분야 통계와 섞지 않았다는 뜻입니다.
+      </p>
+
+      <div className={styles.fieldGroups}>
+        {FIELDS.map((field) => {
+          const subfields = SUBFIELDS.filter((subfield) => subfield.field === field.id);
           return (
-            <Link
-              key={nodeId}
-              href={href}
-              className={styles.card}
-              style={{ borderLeftColor: 'var(--violet)' }}
-            >
-              <div className={styles.cardType}>세부기술 보고서</div>
-              <div className={styles.cardTitle}>{report.title}</div>
-              <div className={styles.cardConclusion}>{report.one_line_conclusion}</div>
-              <div className={styles.kpiStrip}>
-                {report.kpis.map((kpi) => (
-                  <div key={kpi.label} className={styles.kpiItem}>
-                    <span className={styles.kpiLabel}>{kpi.label}</span>
-                    <span className={styles.kpiValue}>{kpi.value}</span>
-                  </div>
-                ))}
+            <section key={field.id} className={styles.fieldGroup}>
+              <div className={styles.fieldGroupHead}>
+                <span className={styles.fieldDot} style={{ background: field.color }} />
+                <h3>{field.label_ko}</h3>
+                <span>{subfields.length}개 세부기술</span>
               </div>
-              <span className={styles.cardArrow}>보고서 보기 →</span>
-            </Link>
+              <div className={styles.grid}>
+                {subfields.map((subfield) => {
+                  const nodeId = `subfield.${subfield.id}`;
+                  const report = getNodeReport(nodeId, REPORT_FILTER);
+                  if (!report) return null;
+                  const href = `/reports/${encodeURIComponent(nodeId)}${query ? `?${query}` : ''}`;
+                  const sampleCount = report.sample_count ?? 0;
+                  const hasSample = sampleCount > 0;
+                  return (
+                    <Link
+                      key={nodeId}
+                      href={href}
+                      className={styles.card}
+                      style={{ borderLeftColor: field.color }}
+                    >
+                      <div className={styles.cardTopline}>
+                        <div className={styles.cardType}>세부기술 보고서</div>
+                        <span className={hasSample ? styles.statusReady : styles.statusPending}>
+                          {hasSample ? `대표 문헌 ${sampleCount}건` : '문헌 보강 필요'}
+                        </span>
+                      </div>
+                      <div className={styles.cardTitle}>{report.title}</div>
+                      {subfield.label_en !== subfield.label_ko && (
+                        <div className={styles.cardEnglish}>{subfield.label_en}</div>
+                      )}
+                      <div className={styles.cardConclusion}>{report.one_line_conclusion}</div>
+                      <div className={styles.scopePreview}>
+                        {report.technology_focus?.[0] ?? report.analysis_scope?.[0]}
+                      </div>
+                      <span className={styles.cardArrow}>보고서 보기 →</span>
+                    </Link>
+                  );
+                })}
+              </div>
+            </section>
           );
         })}
       </div>

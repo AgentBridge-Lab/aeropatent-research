@@ -32,7 +32,7 @@ export default async function CountriesPage() {
       {/* ── 섹션 1: 공개 관할별 총량 ── */}
       <h2 className={styles.sectionLabel}>공개 관할별 총량 비교</h2>
       <div className={styles.totalCard}>
-        <div className={styles.cardTitle}>패밀리 수 (전체 기간 · 공개 관할 기준)</div>
+        <div className={styles.cardTitle}>패밀리 수 (최근 10년 우선권 · 공개 관할 기준)</div>
         <div className={styles.cardMeta}>
           US · EP · JP · CN · KR 고정 순서 · 막대 길이는 최대값 대비 비율 · {CANDIDATE_SCOPE_NOTE}
         </div>
@@ -74,7 +74,7 @@ export default async function CountriesPage() {
       <h2 className={styles.sectionLabel}>분야 × 공개 관할 히트맵</h2>
       <div className={styles.heatCard}>
         <div className={styles.cardTitle}>분야 × 공개 관할 히트맵</div>
-        <div className={styles.cardMeta}>행: 분야 · 열: 공개 관할 · 색 농도: 행 기준 밀도 · 전체 기간</div>
+        <div className={styles.cardMeta}>행: 분야 · 열: 공개 관할 · 색 농도: 행 기준 밀도 · 최근 10년 우선권</div>
         <Heatmap cells={data.heatmap} />
       </div>
 
@@ -82,7 +82,7 @@ export default async function CountriesPage() {
       <h2 className={styles.sectionLabel}>공개 관할별 상위 분야 + KR 대비 수치</h2>
       <div className={styles.gapCard}>
         <div className={styles.cardTitle}>상위 분야 3개 및 KR 공개 관할 대비 수치</div>
-        <div className={styles.cardMeta}>전체 기간 · 공개 관할 기준 실측 집계</div>
+        <div className={styles.cardMeta}>최근 10년 우선권 · 공개 관할 기준 실측 집계</div>
         <div className={styles.gapGrid}>
           {data.profiles.map((profile) => (
             <div
@@ -139,7 +139,7 @@ export default async function CountriesPage() {
             <div className={styles.countryStats}>
               <div className={styles.statBlock}>
                 <span className={styles.statValue}>{profile.total.toLocaleString()}</span>
-                <span className={styles.statLabel}>패밀리 (전체 기간)</span>
+                <span className={styles.statLabel}>패밀리 (최근 10년 우선권)</span>
               </div>
             </div>
 

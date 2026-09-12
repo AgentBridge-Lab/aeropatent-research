@@ -7,9 +7,14 @@ import {
   PATENTS,
   FIELDS,
   SUBFIELDS,
+  FIELD_ENRICHMENT,
   COUNTRIES,
   COUNTRY_ORDER,
   APPLICANTS,
+  CANDIDATE_SCOPE_NOTE,
+  DATA_SOURCE_NOTE,
+  SAMPLE_BASIS_NOTE,
+  TREND_BASIS_NOTE,
   applyFilter,
   countryDistribution,
   yearlyTrend,
@@ -23,9 +28,12 @@ import {
   getSubfield,
   getApplicant,
 } from './data';
+import { getReportGuidance } from './report-content';
 import type {
   Filter,
   Patent,
+  Field,
+  FieldEnrichment,
   FieldId,
   CountryCode,
   CountryDist,
@@ -136,15 +144,14 @@ export function getGraphData(filter: Filter, maxPatents = 150): GraphData {
     }
   };
 
-  // 활성 분야
-  const activeFields = new Set<FieldId>(patents.map((p) => p.field));
-  FIELDS.filter((f) => activeFields.has(f.id)).forEach((f) =>
+  // 대표 문헌이 아직 없는 분야도 탐색할 수 있도록 현재 분야 필터에 맞는 분류 노드를 모두 표시한다.
+  const visibleFields = FIELDS.filter((field) => filter.field === 'all' || field.id === filter.field);
+  visibleFields.forEach((f) =>
     add({ id: `field.${f.id}`, type: 'field', label: f.label_ko, field: f.id, val: 26, importance: 1 })
   );
 
-  // 활성 세부분야
-  const activeSubs = new Set(patents.map((p) => p.subfield));
-  SUBFIELDS.filter((s) => activeSubs.has(s.id)).forEach((s) => {
+  // 같은 이유로 세부기술 분류 노드도 대표 문헌 유무와 관계없이 표시한다.
+  SUBFIELDS.filter((s) => visibleFields.some((field) => field.id === s.field)).forEach((s) => {
     add({ id: `subfield.${s.id}`, type: 'subfield', label: s.label_ko, field: s.field, val: 12, importance: 0.7 });
     edges.push({ source: `subfield.${s.id}`, target: `field.${s.field}`, type: 'belongs_to', confidence: 0.95 });
   });
@@ -245,14 +252,64 @@ export interface NodeReport {
   yearly_trend: YearPoint[];
   insights: string[];
   top_patents: Patent[];
+  sample_count?: number;
+  basis_note?: string;
+  country_distribution_basis?: string;
+  yearly_trend_basis?: string;
+  analysis_scope?: string[];
+  technology_focus?: string[];
+  decision_questions?: string[];
+  limitations?: string[];
+  top_applicants?: { name: string; count: number; basis: string }[];
+  kr_top_applicants?: { name: string; count: number }[];
+  top_cpc_codes?: { code: string; count: number }[];
+  reference_patents?: {
+    publication_number: string;
+    title: string;
+    citing_families: number;
+    source_url: string;
+    basis: string;
+  }[];
+  subfield_overview?: {
+    id: string;
+    label: string;
+    label_en: string;
+    description: string;
+    sample_count: number;
+  }[];
   // 특허 노드 전용
   patent?: Patent;
   similar?: Patent[];
   evidence?: { label: string; text: string }[];
 }
 
+export const REPORT_FILTER: Filter = {
+  field: 'all',
+  countries: [...COUNTRY_ORDER],
+  period: 'all',
+};
+
 function scopedPatents(predicate: (p: Patent) => boolean, filter: Filter): Patent[] {
   return applyFilter(filter).filter(predicate);
+}
+
+function fieldCountryDistribution(field: Field): CountryDist[] {
+  const counts = COUNTRY_ORDER.map((code) => field.country_family_counts[code] ?? 0);
+  const total = counts.reduce((sum, count) => sum + count, 0) || 1;
+  return COUNTRY_ORDER.map((code, index) => ({
+    country: code,
+    label_ko: COUNTRIES.find((country) => country.code === code)?.label_ko ?? code,
+    color: COUNTRIES.find((country) => country.code === code)?.color ?? '#8fabd4',
+    count: counts[index],
+    share: counts[index] / total,
+  }));
+}
+
+function enrichmentTrend(enrichment?: FieldEnrichment): YearPoint[] {
+  if (!enrichment) return [];
+  return Object.entries(enrichment.yearly_families)
+    .map(([year, count]) => ({ year: Number(year), count }))
+    .sort((a, b) => a.year - b.year);
 }
 
 export function getNodeReport(nodeId: string, filter: Filter): NodeReport | null {
@@ -295,37 +352,152 @@ export function getNodeReport(nodeId: string, filter: Filter): NodeReport | null
 
   // 분야 / 세부분야 노드
   if (type === 'field' || type === 'subfield') {
-    let patents: Patent[];
-    let title: string;
     if (type === 'field') {
       const f = getField(rawId as FieldId);
       if (!f) return null;
-      patents = scopedPatents((p) => p.field === f.id, filter);
-      title = `${f.label_ko} 특허 클러스터`;
-    } else {
-      const sf = getSubfield(rawId);
-      if (!sf) return null;
-      patents = scopedPatents((p) => p.subfield === sf.id, filter);
-      title = `${sf.label_ko} 특허 클러스터`;
+      const patents = PATENTS.filter((patent) => patent.field === f.id);
+      const enrichment = FIELD_ENRICHMENT[f.id];
+      const dist = fieldCountryDistribution(f);
+      const lead = [...dist].sort((a, b) => b.count - a.count)[0];
+      const recent5Share = f.family_count > 0 ? f.recent5_family_count / f.family_count : 0;
+      const guidance = getReportGuidance(f);
+      const topApplicant = f.top_applicants[0];
+
+      return {
+        node_id: nodeId,
+        node_type: 'field',
+        title: `${f.label_ko} 특허 클러스터`,
+        one_line_conclusion: `${f.label_ko} 분야는 최근 10년 우선권 기준 ${f.family_count.toLocaleString()}개 패밀리이며, 최근 5년 패밀리 비중은 ${(recent5Share * 100).toFixed(1)}%입니다.`,
+        kpis: [
+          { label: '고유 패밀리', value: `${f.family_count.toLocaleString()}개` },
+          { label: '공개문헌', value: `${f.publication_count.toLocaleString()}건` },
+          { label: '최근 5년', value: `${f.recent5_family_count.toLocaleString()}개` },
+          { label: '최근 3년 비중', value: `${(f.recent_momentum * 100).toFixed(1)}%` },
+        ],
+        country_distribution: dist,
+        yearly_trend: enrichmentTrend(enrichment),
+        insights: [
+          `표시 5개 공개 관할 중 ${lead.label_ko} 공개 관할이 ${lead.count.toLocaleString()}개로 가장 큽니다. 출원인 소재국 순위가 아닙니다.`,
+          topApplicant
+            ? `집계상 상위 출원인은 ${topApplicant.name}(${topApplicant.count.toLocaleString()}개 패밀리)입니다.`
+            : '상위 출원인 집계가 제공되지 않았습니다.',
+          ...f.report_bullets,
+          ...(enrichment
+            ? [`상위 5개 출원인 집중도(CR5)는 ${(enrichment.cr5 * 100).toFixed(1)}%입니다. 이 값은 경쟁 강도의 참고 지표이며 권리범위 판단값이 아닙니다.`]
+            : ['상위 5개 출원인 집중도는 현재 집계가 제공되지 않았습니다.']),
+          ...f.risk_notes,
+        ],
+        top_patents: topPatents(patents, 5),
+        sample_count: patents.length,
+        basis_note: `최근 10년 우선권 기준 · ${CANDIDATE_SCOPE_NOTE}`,
+        country_distribution_basis: '최근 10년 후보군 · 표시 5개 공개 관할의 패밀리 집계',
+        yearly_trend_basis: TREND_BASIS_NOTE,
+        analysis_scope: guidance.analysisScope,
+        technology_focus: guidance.technologyFocus,
+        decision_questions: guidance.decisionQuestions,
+        limitations: [
+          '한 패밀리가 여러 분야와 공개 관할에 중복될 수 있어 분야·관할 합계는 전체 고유 패밀리와 일치하지 않을 수 있습니다.',
+          '대표 문헌은 원문 검토를 위한 예시 표본이며 분야 전체 모집단이나 중요도 순위를 뜻하지 않습니다.',
+          '피인용 후보와 집중도는 연구기획 참고용이며 FTO·침해·무효 판단에는 원문 청구항과 법적 상태 검토가 필요합니다.',
+        ],
+        top_applicants: f.top_applicants.map((item) => ({
+          name: item.name,
+          count: item.count,
+          basis: '글로벌 상위 출원인 · 패밀리 기준',
+        })),
+        kr_top_applicants: (enrichment?.kr_top_applicants ?? []).map((item) => ({
+          name: item.name,
+          count: item.families,
+        })),
+        top_cpc_codes: f.top_cpc_codes,
+        subfield_overview: SUBFIELDS.filter((subfield) => subfield.field === f.id).map((subfield) => ({
+          id: subfield.id,
+          label: subfield.label_ko,
+          label_en: subfield.label_en,
+          description: getReportGuidance(f, subfield).analysisScope[0],
+          sample_count: patents.filter((patent) => patent.subfield === subfield.id).length,
+        })),
+        evidence: [
+          { label: '집계 데이터', text: `${DATA_SOURCE_NOTE}. 분야·관할·연도·출원인·CPC 수치는 최신 BigQuery 분석 스냅샷을 사용했습니다.` },
+          { label: '대표 문헌', text: `${SAMPLE_BASIS_NOTE}. 원문 링크가 있는 문헌만 주요 특허에 표시합니다.` },
+          { label: '피인용 후보', text: 'CPC 후보군의 피인용 상위 문헌은 기술 적합성에 대한 제목·초록·청구항 검증이 끝나지 않아 이 보고서에서 제외했습니다.' },
+        ],
+      };
     }
-    const dist = countryDistribution(patents);
-    const lead = leadingCountry(patents);
-    const krCount = dist.find((d) => d.country === 'KR')?.count ?? 0;
+
+    const sf = getSubfield(rawId);
+    if (!sf) return null;
+    const parent = getField(sf.field);
+    if (!parent) return null;
+    const patents = PATENTS.filter((patent) => patent.subfield === sf.id);
+    const enrichment = FIELD_ENRICHMENT[parent.id];
+    const hasSample = patents.length > 0;
+    const dist = hasSample ? countryDistribution(patents) : [];
+    const lead = hasSample ? [...dist].sort((a, b) => b.count - a.count)[0] : null;
+    const krCount = dist.find((item) => item.country === 'KR')?.count ?? 0;
+    const guidance = getReportGuidance(parent, sf);
+
     return {
       node_id: nodeId,
-      node_type: type,
-      title,
-      one_line_conclusion: `표본 ${patents.length}건 기준 최다 공개 관할은 ${COUNTRIES.find((c) => c.code === lead)!.label_ko}입니다 (전체 후보군 아님).`,
-      kpis: [
-        { label: '표본 문헌', value: `${patents.length}건` },
-        { label: '표본 증가율', value: `${Math.round(growthRate(patents, filter) * 100)}%` },
-        { label: '최다 관할', value: lead },
-        { label: 'KR 표본', value: `${krCount}건` },
-      ],
+      node_type: 'subfield',
+      title: `${sf.label_ko} 세부기술 보고서`,
+      one_line_conclusion: hasSample
+        ? `${parent.label_ko} 분야의 ‘${sf.label_ko}’ 기술축에 연결된 대표 문헌은 전체 표본 기준 ${patents.length}건입니다.`
+        : `‘${sf.label_ko}’ 기술축은 ${parent.label_ko} 분야의 독립 검색축입니다. 현재 세부기술 단위 대표 문헌이 없어 상위 분야 집계와 검색 기준을 분리해 제시합니다.`,
+      kpis: hasSample
+        ? [
+            { label: '대표 문헌', value: `${patents.length}건` },
+            { label: '출원인', value: `${new Set(patents.map((patent) => patent.applicant)).size}곳` },
+            { label: '최다 관할', value: lead?.country ?? '-' },
+            { label: 'KR 표본', value: `${krCount}건` },
+          ]
+        : [
+            { label: '상위 분야 패밀리', value: `${parent.family_count.toLocaleString()}개` },
+            { label: '상위 분야 최근 5년', value: `${parent.recent5_family_count.toLocaleString()}개` },
+            { label: '최근 3년 비중', value: `${(parent.recent_momentum * 100).toFixed(1)}%` },
+            { label: '세부기술 문헌', value: '보강 필요' },
+          ],
       country_distribution: dist,
-      yearly_trend: yearlyTrend(patents, periodStartYear(filter.period) || undefined),
-      insights: buildInsights(patents, filter),
+      yearly_trend: hasSample ? yearlyTrend(patents) : [],
+      insights: [
+        ...parent.report_bullets,
+        hasSample
+          ? `대표 문헌 ${patents.length}건은 세부기술 탐색의 시작점이며 모집단 통계로 해석하지 않습니다.`
+          : '현재 세부기술 단위 문헌·관할·출원인 집계가 없어 0건 그래프를 표시하지 않습니다. 후속 수집 전에는 상위 분야 수치를 세부기술 값처럼 사용하지 않습니다.',
+        ...parent.risk_notes,
+      ],
       top_patents: topPatents(patents, 5),
+      sample_count: patents.length,
+      basis_note: hasSample
+        ? `대표 문헌 표본 ${patents.length}건 · 전체 표본 기간`
+        : `세부기술 정의·검색 기준 보고서 · 상위 분야는 최근 10년 우선권 기준`,
+      country_distribution_basis: hasSample ? '세부기술 대표 문헌 표본' : undefined,
+      yearly_trend_basis: hasSample ? '세부기술 대표 문헌의 우선일·출원일 기준' : undefined,
+      analysis_scope: guidance.analysisScope,
+      technology_focus: guidance.technologyFocus,
+      decision_questions: guidance.decisionQuestions,
+      limitations: [
+        hasSample
+          ? '표시된 문헌 수와 분포는 대표 문헌 표본 기준이며 세부기술 전체 모집단을 뜻하지 않습니다.'
+          : '세부기술 단위 문헌이 아직 수집되지 않아 문헌 수·국가 분포·연도 추세·출원인 순위를 산출하지 않았습니다.',
+        `상위 분야 수치(${parent.label_ko})는 기술 환경을 이해하기 위한 배경이며 ${sf.label_ko}의 직접 집계값이 아닙니다.`,
+        '전략 검토나 권리 판단 전에는 검색식 보강, 패밀리 중복 제거, 원문 청구항 검증이 필요합니다.',
+      ],
+      top_applicants: parent.top_applicants.map((item) => ({
+        name: item.name,
+        count: item.count,
+        basis: `${parent.label_ko} 상위 분야 집계`,
+      })),
+      kr_top_applicants: (enrichment?.kr_top_applicants ?? []).map((item) => ({
+        name: item.name,
+        count: item.families,
+      })),
+      top_cpc_codes: parent.top_cpc_codes,
+      evidence: [
+        { label: '세부기술 범위', text: `${sf.label_ko}(${sf.label_en}) 검색축과 ${parent.label_ko} 분야의 검색어·CPC 기준을 사용합니다.` },
+        { label: '데이터 구분', text: `${DATA_SOURCE_NOTE}. 상위 분야 집계와 세부기술 대표 문헌 표본을 구분해 표시합니다.` },
+        { label: '피인용 후보', text: '상위 분야의 미검증 CPC 피인용 후보는 세부기술 근거로 재사용하지 않았습니다.' },
+      ],
     };
   }
 
@@ -335,6 +507,7 @@ export function getNodeReport(nodeId: string, filter: Filter): NodeReport | null
     const c = COUNTRIES.find((x) => x.code === code);
     if (!c) return null;
     const patents = scopedPatents((p) => p.country === code, filter);
+    const hasSample = patents.length > 0;
     const byField = FIELDS.map((f) => ({
       f,
       count: patents.filter((p) => p.field === f.id).length,
@@ -343,19 +516,23 @@ export function getNodeReport(nodeId: string, filter: Filter): NodeReport | null
       node_id: nodeId,
       node_type: 'country',
       title: `${c.label_ko} 공개 관할 표본`,
-      one_line_conclusion: `${c.label_ko} 공개 관할 표본 ${patents.length}건 중 최다 분야는 ${byField[0]?.f.label_ko ?? '-'}입니다.`,
+      one_line_conclusion: hasSample
+        ? `${c.label_ko} 공개 관할 표본 ${patents.length}건 중 최다 분야는 ${byField[0]?.f.label_ko ?? '-'}입니다.`
+        : `${c.label_ko} 공개 관할에 연결된 대표 문헌이 현재 표본에는 없습니다.`,
       kpis: [
         { label: '표본 문헌', value: `${patents.length}건` },
-        { label: '표본 증가율', value: `${Math.round(growthRate(patents, { ...filter, countries: [code] }) * 100)}%` },
-        { label: '최다 분야', value: byField[0]?.f.label_ko ?? '-' },
+        { label: '표본 증가율', value: hasSample ? `${Math.round(growthRate(patents, { ...filter, countries: [code] }) * 100)}%` : '-' },
+        { label: '최다 분야', value: hasSample ? (byField[0]?.f.label_ko ?? '-') : '-' },
         { label: '주요출원인', value: String(topApplicants(patents, 1)[0]?.name ?? '-') },
       ],
-      country_distribution: countryDistribution(patents),
-      yearly_trend: yearlyTrend(patents, periodStartYear(filter.period) || undefined),
-      insights: [
-        `${c.label_ko}의 강점 분야는 ${byField.slice(0, 3).map((x) => x.f.label_ko).join(', ')} 입니다.`,
-        `주요 출원인: ${topApplicants(patents, 3).map((a) => a.name).join(', ')}.`,
-      ],
+      country_distribution: hasSample ? countryDistribution(patents) : [],
+      yearly_trend: hasSample ? yearlyTrend(patents, periodStartYear(filter.period) || undefined) : [],
+      insights: hasSample
+        ? [
+            `${c.label_ko}의 강점 분야는 ${byField.filter((x) => x.count > 0).slice(0, 3).map((x) => x.f.label_ko).join(', ')}입니다.`,
+            `주요 출원인: ${topApplicants(patents, 3).map((a) => a.name).join(', ')}.`,
+          ]
+        : ['대표 문헌이 보강되기 전에는 분야 순위·출원인·연도 추세를 산출하지 않습니다.'],
       top_patents: topPatents(patents, 5),
     };
   }
@@ -365,6 +542,7 @@ export function getNodeReport(nodeId: string, filter: Filter): NodeReport | null
     const a = getApplicant(rawId);
     if (!a) return null;
     const patents = scopedPatents((p) => p.applicant === a.id, filter);
+    const hasSample = patents.length > 0;
     const byField = FIELDS.map((f) => ({
       f,
       count: patents.filter((p) => p.field === f.id).length,
@@ -373,18 +551,20 @@ export function getNodeReport(nodeId: string, filter: Filter): NodeReport | null
       node_id: nodeId,
       node_type: 'applicant',
       title: a.name,
-      one_line_conclusion: `${a.name}는 ${byField[0]?.f.label_ko ?? ''} 분야를 중심으로 포트폴리오를 보유하고 있습니다.`,
+      one_line_conclusion: hasSample
+        ? `${a.name}는 현재 대표 표본에서 ${byField[0]?.f.label_ko ?? ''} 분야 문헌이 가장 많습니다.`
+        : `${a.name}에 연결된 대표 문헌이 현재 표본에는 없습니다.`,
       kpis: [
         { label: '표본 문헌', value: `${patents.length}건` },
         { label: '국가', value: a.country },
-        { label: '주력분야', value: byField[0]?.f.label_ko ?? '-' },
+        { label: '주력분야', value: hasSample ? (byField[0]?.f.label_ko ?? '-') : '-' },
         { label: '등록 표본', value: `${patents.filter((p) => p.status === '등록').length}건` },
       ],
       country_distribution: [],
-      yearly_trend: yearlyTrend(patents, periodStartYear(filter.period) || undefined),
-      insights: [
-        `보유 분야: ${byField.filter((x) => x.count > 0).map((x) => `${x.f.label_ko}(${x.count})`).join(', ')}.`,
-      ],
+      yearly_trend: hasSample ? yearlyTrend(patents, periodStartYear(filter.period) || undefined) : [],
+      insights: hasSample
+        ? [`대표 표본 내 분야: ${byField.filter((x) => x.count > 0).map((x) => `${x.f.label_ko}(${x.count})`).join(', ')}.`]
+        : ['대표 문헌이 보강되기 전에는 주력 분야·연도 추세를 산출하지 않습니다.'],
       top_patents: topPatents(patents, 5),
     };
   }
@@ -393,20 +573,25 @@ export function getNodeReport(nodeId: string, filter: Filter): NodeReport | null
   if (type === 'keyword') {
     const kw = rawId;
     const patents = scopedPatents((p) => p.keywords.includes(kw), filter);
+    const hasSample = patents.length > 0;
     return {
       node_id: nodeId,
       node_type: 'keyword',
       title: kw,
-      one_line_conclusion: `'${kw}' 키워드를 포함하는 특허 클러스터입니다.`,
+      one_line_conclusion: hasSample
+        ? `'${kw}' 키워드에 직접 연결된 대표 문헌 ${patents.length}건의 표본 보고서입니다.`
+        : `'${kw}' 키워드에 직접 연결된 대표 문헌이 현재 표본에는 없습니다.`,
       kpis: [
         { label: '표본 문헌', value: `${patents.length}건` },
-        { label: '표본 증가율', value: `${Math.round(growthRate(patents, filter) * 100)}%` },
-        { label: '최다 관할', value: leadingCountry(patents) },
+        { label: '표본 증가율', value: hasSample ? `${Math.round(growthRate(patents, filter) * 100)}%` : '-' },
+        { label: '최다 관할', value: hasSample ? leadingCountry(patents) : '-' },
         { label: '대표분야', value: getField(patents[0]?.field as FieldId)?.label_ko ?? '-' },
       ],
-      country_distribution: countryDistribution(patents),
-      yearly_trend: yearlyTrend(patents, periodStartYear(filter.period) || undefined),
-      insights: buildInsights(patents, filter),
+      country_distribution: hasSample ? countryDistribution(patents) : [],
+      yearly_trend: hasSample ? yearlyTrend(patents, periodStartYear(filter.period) || undefined) : [],
+      insights: hasSample
+        ? buildInsights(patents, filter)
+        : ['대표 문헌이 보강되기 전에는 관할 순위·증가율·연도 추세를 산출하지 않습니다.'],
       top_patents: topPatents(patents, 5),
     };
   }

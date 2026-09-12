@@ -81,7 +81,7 @@ export default function Sidebar() {
             </span>
           </div>
           <div className={styles.metaRow}>
-            <span className={styles.metaKey}>고유 패밀리(전체 기간)</span>
+            <span className={styles.metaKey}>고유 패밀리(최근 10년)</span>
             <span className={`${styles.metaVal} mono`}>
               {LANDSCAPE_SUMMARY.family_count.toLocaleString()}
             </span>

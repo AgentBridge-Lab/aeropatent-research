@@ -19,7 +19,7 @@ export default async function AnalysisPage() {
   const s = getSummary();
   const leadName = COUNTRIES.find((c) => c.code === s.leading_country)?.label_ko ?? s.leading_country;
 
-  // 분야별 전체 기간 실측 패밀리 수
+  // 분야별 최근 10년 우선권 기준 실측 패밀리 수
   const fieldCounts = FIELDS.map((f) => ({
     field: f,
     count: f.family_count,
@@ -40,8 +40,8 @@ export default async function AnalysisPage() {
       <div className={styles.kpis}>
         <KpiRow
           kpis={[
-            { label: '고유 패밀리', value: s.total_patents.toLocaleString(), unit: '개', accent: 'var(--cyan)', foot: '전체 기간 · 분야 중복 제거' },
-            { label: '공개 문헌', value: s.publication_count.toLocaleString(), unit: '건', accent: 'var(--green)', foot: '전체 기간' },
+            { label: '고유 패밀리', value: s.total_patents.toLocaleString(), unit: '개', accent: 'var(--cyan)', foot: '최근 10년 우선권 · 분야 중복 제거' },
+            { label: '공개 문헌', value: s.publication_count.toLocaleString(), unit: '건', accent: 'var(--green)', foot: '최근 10년 우선권 기준' },
             { label: '최대 공개 관할', value: s.leading_country, foot: leadName, accent: 'var(--amber)' },
             { label: '분류 분야', value: String(s.field_count), unit: '개', accent: 'var(--violet)', foot: 'CPC 후보군 분류' },
           ]}
@@ -52,7 +52,7 @@ export default async function AnalysisPage() {
       <div className={styles.charts}>
         <div className={styles.card}>
           <div className={styles.cardTitle}>공개 관할별 분포</div>
-          <div className={styles.cardMeta}>US · EP · JP · CN · KR 고정 순서 · 전체 기간</div>
+          <div className={styles.cardMeta}>US · EP · JP · CN · KR 고정 순서 · 최근 10년 우선권</div>
           <CountryBars data={s.country_distribution} />
         </div>
         <div className={styles.card}>
@@ -62,7 +62,7 @@ export default async function AnalysisPage() {
         </div>
         <div className={`${styles.card} ${styles.cardWide}`}>
           <div className={styles.cardTitle}>분야 × 공개 관할 히트맵</div>
-          <div className={styles.cardMeta}>행: 분야 · 열: 공개 관할 · 색 농도: 행 기준 밀도 · 전체 기간</div>
+          <div className={styles.cardMeta}>행: 분야 · 열: 공개 관할 · 색 농도: 행 기준 밀도 · 최근 10년 우선권</div>
           <Heatmap cells={s.field_heatmap} />
         </div>
       </div>

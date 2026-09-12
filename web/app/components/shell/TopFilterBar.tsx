@@ -12,7 +12,7 @@ const PERIODS: { id: Period; label: string }[] = [
   { id: 'all', label: '전체' },
 ];
 
-// 분석·국가 비교·보고서 화면은 전체 기간 고정 기준 실측 집계를 보여주므로
+// 분석·국가 비교·보고서 화면은 최근 10년 우선권 고정 기준 실측 집계를 보여주므로
 // URL 필터를 적용하지 않는다 (P0-3: 표시 조건과 계산 조건 일치).
 const FIXED_BASIS_PREFIXES = ['/analysis', '/countries', '/reports'];
 
@@ -58,7 +58,7 @@ export default function TopFilterBar() {
         <div className={styles.group}>
           <span className={styles.groupLabel}>기준</span>
           <span style={{ fontSize: 12, color: 'var(--muted, #8a93a5)' }}>
-            이 화면은 전체 기간 · 전체 공개 관할 고정 기준 실측 집계입니다. 분야·관할·기간 필터는
+            이 화면은 최근 10년 우선권 · 전체 공개 관할 고정 기준 실측 집계입니다. 분야·관할·기간 필터는
             특허 검색과 Graph View에만 적용됩니다.
           </span>
         </div>

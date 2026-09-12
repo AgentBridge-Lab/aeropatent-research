@@ -20,11 +20,11 @@ export default function PatentSearch({ initialQ }: { initialQ?: string }) {
   const sp = useSearchParams();
   const filter = parseFilter(Object.fromEntries(sp.entries()));
 
-  const [q, setQ] = useState(initialQ ?? sp.get('q') ?? '');
+  const [q, setQ] = useState(initialQ || sp.get('q') || '');
   const [sort, setSort] = useState<'recent' | 'importance'>('recent');
   const [status, setStatus] = useState<'all' | '등록' | '공개'>('all');
-  const [subfield, setSubfield] = useState('');
-  const [applicant, setApplicant] = useState('');
+  const [subfield, setSubfield] = useState(sp.get('subfield') ?? '');
+  const [applicant, setApplicant] = useState(sp.get('applicant') ?? '');
   const [limit, setLimit] = useState(PAGE_SIZE);
 
   // Subfields filtered to the current global field if not 'all'
