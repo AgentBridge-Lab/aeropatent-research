@@ -151,22 +151,25 @@ jobs:
             exit 1
           fi
 
-      - name: Rebuild exploration deep-dive page and entry link
+      - name: Rebuild deep-dive pages and entry link
         run: |
           python3 scripts/build_exploration_page.py
+          python3 scripts/build_deepdive_pages.py
           python3 - <<'PY'
           from pathlib import Path
           p = Path('docs/index.html')
           t = p.read_text(encoding='utf-8')
-          if 'exploration/' not in t and '</body></html>' in t:
-              chip = ('<a href="exploration/" style="position:fixed;right:22px;bottom:22px;z-index:9999;'
+          if 'deepdive/' not in t and '</body></html>' in t:
+              chip = ('<a href="deepdive/" style="position:fixed;right:22px;bottom:22px;z-index:9999;'
                       'background:#07090ea3;border:1px solid #8fabd466;border-radius:999px;padding:10px 18px;'
                       'color:#efece3;font:600 13px/1 Pretendard,system-ui,sans-serif;text-decoration:none;'
-                      'backdrop-filter:blur(20px) saturate(130%)">우주탐사 심층 현황 →</a>')
+                      'backdrop-filter:blur(20px) saturate(130%)">분야별 심층 분석 →</a>')
               p.write_text(t.replace('</body></html>', chip + '</body></html>'), encoding='utf-8')
           PY
           test -f docs/exploration/index.html
-          grep -q 'exploration/' docs/index.html
+          test -f docs/deepdive/index.html
+          test -f docs/deepdive/aviation/index.html
+          grep -q 'deepdive/' docs/index.html
 
       - name: Commit refreshed data and site
         shell: bash

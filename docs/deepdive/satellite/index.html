@@ -1,0 +1,105 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>위성 특허출원 현황 분석 — AEROPATENT</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--black:#000;--panel:#07090ea3;--border:#efece31f;--border-s:#8fabd466;--text:#efece3;
+--muted:#efece399;--dim:#efece35c;--accent:#8fabd4;--deep:#4a70a9;--cream:#efece3}
+*{box-sizing:border-box}body{margin:0;background:var(--black);color:var(--text);
+font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+background-image:radial-gradient(1200px 820px at 82% -12%,#8fabd41a,#0000 58%),radial-gradient(1000px 760px at -8% 8%,#4a70a914,#0000 56%);background-attachment:fixed;min-height:100vh;overflow-x:hidden;word-break:keep-all}
+.wrap{max-width:1080px;margin:0 auto;padding:44px 22px 72px}
+a{color:var(--accent)}
+.kicker{font-size:13px;letter-spacing:.14em;color:var(--accent);font-weight:700}
+h1{font-size:clamp(26px,4.5vw,40px);margin:.35em 0 .3em;font-weight:800}
+.sub{color:var(--muted);font-size:14.5px;max-width:760px;line-height:1.6}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:14px;margin:30px 0}
+.kpi{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px 20px;backdrop-filter:blur(20px) saturate(130%)}
+.kpi b{display:block;font-size:29px;font-weight:800;color:var(--cream);white-space:nowrap}
+.kpi.hot b{color:var(--accent)}
+.kpi span{color:var(--muted);font-size:12.5px}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:24px 26px;margin:20px 0;backdrop-filter:blur(20px) saturate(130%)}
+.panel h2{margin:0 0 6px;font-size:18px}
+.panel .note{color:var(--muted);font-size:12.5px;margin:0 0 16px;line-height:1.55}
+.row{display:grid;grid-template-columns:minmax(96px,170px) minmax(0,1fr) minmax(88px,118px);gap:10px;align-items:center;margin:7px 0}
+.lbl{font-size:12.5px;color:var(--muted);text-align:right}
+.track{background:#efece30d;border-radius:5px;height:15px;overflow:hidden}
+.fill{height:100%;background:var(--deep);border-radius:5px}
+.fill.accent{background:var(--accent)}
+.val{font-size:12.5px;font-weight:700;white-space:nowrap}.val em{color:var(--dim);font-style:normal;font-weight:400}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:860px){.grid2{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;font-size:13px}
+td,th{padding:8px 6px;border-top:1px solid var(--border);text-align:left}
+td.num{text-align:right;font-weight:800;color:var(--accent);white-space:nowrap}
+th{color:var(--muted);font-weight:600;border-top:none;font-size:12px}
+.foot{color:var(--dim);font-size:11.5px;line-height:1.7;margin-top:26px}
+.back{display:inline-block;margin-bottom:24px;font-size:13px;text-decoration:none;border:1px solid var(--border-s);border-radius:999px;padding:7px 15px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:16px;margin-top:26px}
+.card{display:block;background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:22px 24px;text-decoration:none;color:var(--text);backdrop-filter:blur(20px) saturate(130%)}
+.card:hover{border-color:var(--border-s)}
+.card h3{margin:0 0 4px;font-size:18px}
+.card .d{color:var(--muted);font-size:12.5px;line-height:1.5;margin-bottom:12px}
+.card .n{font-size:24px;font-weight:800;color:var(--accent)}
+.card .n small{font-size:12px;color:var(--dim);font-weight:400}
+</style></head><body><div class="wrap">
+<a class="back" href="../">← 분야별 심층 분석</a>
+<div class="kicker">DEEP DIVE · 위성</div>
+<h1>위성 특허출원 현황 분석</h1>
+<p class="sub">위성 플랫폼·열·전력, GNC·랑데부·서비스, 우주재료·TPS·코팅 — 구성 기술분야 3개의 BigQuery 실측 집계. 기술분야 간 중복 패밀리가 포함될 수 있어 합계는 상한값.</p>
+<div class="kpis">
+<div class="kpi"><b>416,805</b><span>특허패밀리 (전체 기간, 분야 합산)</span></div>
+<div class="kpi"><b>40%</b><span>최근 5년 패밀리 비중</span></div>
+<div class="kpi hot"><b>58,159</b><span>KR 공개 관할 패밀리 (14.0%)</span></div>
+</div>
+<div class="panel"><h2>구성 기술분야별 규모</h2>
+<p class="note">패밀리 수 기준. 공보 수 합계 1,049,211건.</p>
+<div class="row"><span class="lbl">우주재료·TPS·코팅</span>
+<div class="track"><div class="fill " style="width:100.0%"></div></div>
+<span class="val">226,307</span></div>
+<div class="row"><span class="lbl">GNC·랑데부·온오빗 서비스</span>
+<div class="track"><div class="fill " style="width:71.0%"></div></div>
+<span class="val">160,674</span></div>
+<div class="row"><span class="lbl">위성 플랫폼·열제어·전력</span>
+<div class="track"><div class="fill " style="width:13.2%"></div></div>
+<span class="val">29,824</span></div></div>
+<div class="panel"><h2>공개 관할 분포</h2>
+<p class="note">공보 발행 관청 기준 상위 8개 — 출원인 소재국이나 국가 경쟁력 순위가 아님.</p>
+<div class="row"><span class="lbl">CN</span>
+<div class="track"><div class="fill " style="width:100.0%"></div></div>
+<span class="val">303,372</span></div>
+<div class="row"><span class="lbl">US</span>
+<div class="track"><div class="fill " style="width:31.1%"></div></div>
+<span class="val">94,428</span></div>
+<div class="row"><span class="lbl">WO</span>
+<div class="track"><div class="fill " style="width:23.7%"></div></div>
+<span class="val">71,902</span></div>
+<div class="row"><span class="lbl">KR</span>
+<div class="track"><div class="fill " style="width:19.2%"></div></div>
+<span class="val">58,159</span></div>
+<div class="row"><span class="lbl">EP</span>
+<div class="track"><div class="fill " style="width:14.9%"></div></div>
+<span class="val">45,328</span></div>
+<div class="row"><span class="lbl">JP</span>
+<div class="track"><div class="fill " style="width:14.3%"></div></div>
+<span class="val">43,409</span></div>
+<div class="row"><span class="lbl">DE</span>
+<div class="track"><div class="fill " style="width:4.9%"></div></div>
+<span class="val">14,806</span></div>
+<div class="row"><span class="lbl">TW</span>
+<div class="track"><div class="fill " style="width:4.8%"></div></div>
+<span class="val">14,519</span></div></div>
+<div class="grid2">
+<div class="panel"><h2>상위 출원인</h2>
+<p class="note">기술분야별 상위 5 (원자료 조화 명칭, 분야 간 합산 없음).</p>
+<table><tr><th>출원인</th><th>기술분야</th><th style="text-align:right">패밀리</th></tr>
+<tr><td>HARBIN INST TECHNOLOGY</td><td>위성 플랫폼·열제어·전력</td><td class='num'>495</td></tr><tr><td>SHANGHAI SATELLITE ENG INST</td><td>위성 플랫폼·열제어·전력</td><td class='num'>450</td></tr><tr><td>LG ELECTRONICS INC</td><td>위성 플랫폼·열제어·전력</td><td class='num'>394</td></tr><tr><td>BEIJING INST SPACECRAFT SYSTEM ENGINEERING</td><td>위성 플랫폼·열제어·전력</td><td class='num'>374</td></tr><tr><td>SHANGHAI AEROSPACE SYSTEM ENGINEERING INST</td><td>위성 플랫폼·열제어·전력</td><td class='num'>325</td></tr><tr><td>TOYOTA MOTOR CO LTD</td><td>GNC·랑데부·온오빗 서비스</td><td class='num'>2,257</td></tr><tr><td>TOYOTA MOTOR CORP</td><td>GNC·랑데부·온오빗 서비스</td><td class='num'>1,986</td></tr><tr><td>UNIV BEIHANG</td><td>GNC·랑데부·온오빗 서비스</td><td class='num'>1,476</td></tr><tr><td>HONDA MOTOR CO LTD</td><td>GNC·랑데부·온오빗 서비스</td><td class='num'>1,366</td></tr><tr><td>HYUNDAI MOTOR CO LTD</td><td>GNC·랑데부·온오빗 서비스</td><td class='num'>1,326</td></tr><tr><td>NITTO DENKO CORP</td><td>우주재료·TPS·코팅</td><td class='num'>1,592</td></tr><tr><td>FUJIFILM CORP</td><td>우주재료·TPS·코팅</td><td class='num'>888</td></tr><tr><td>LG CHEMICAL LTD</td><td>우주재료·TPS·코팅</td><td class='num'>811</td></tr><tr><td>SAINT GOBAIN</td><td>우주재료·TPS·코팅</td><td class='num'>782</td></tr><tr><td>AGC INC</td><td>우주재료·TPS·코팅</td><td class='num'>767</td></tr></table></div>
+<div class="panel"><h2>상위 CPC 코드</h2>
+<p class="note">기술분야별 상위 4 — 코드 정의는 분류 정의 파일 참조.</p>
+<table><tr><th>CPC</th><th>기술분야</th><th style="text-align:right">건수</th></tr>
+<tr><td>B64G1</td><td>위성 플랫폼·열제어·전력</td><td class='num'>94,965</td></tr><tr><td>F28D15</td><td>위성 플랫폼·열제어·전력</td><td class='num'>43,927</td></tr><tr><td>H10F77</td><td>위성 플랫폼·열제어·전력</td><td class='num'>42,454</td></tr><tr><td>H01L31</td><td>위성 플랫폼·열제어·전력</td><td class='num'>40,716</td></tr><tr><td>G05D1</td><td>GNC·랑데부·온오빗 서비스</td><td class='num'>569,079</td></tr><tr><td>G01C21</td><td>GNC·랑데부·온오빗 서비스</td><td class='num'>453,150</td></tr><tr><td>G08G1</td><td>GNC·랑데부·온오빗 서비스</td><td class='num'>147,785</td></tr><tr><td>B64G1</td><td>GNC·랑데부·온오빗 서비스</td><td class='num'>94,965</td></tr><tr><td>C04B2235</td><td>우주재료·TPS·코팅</td><td class='num'>547,772</td></tr><tr><td>B32B27</td><td>우주재료·TPS·코팅</td><td class='num'>488,337</td></tr><tr><td>B32B2307</td><td>우주재료·TPS·코팅</td><td class='num'>425,226</td></tr><tr><td>C04B35</td><td>우주재료·TPS·코팅</td><td class='num'>298,372</td></tr></table></div>
+</div>
+<p class="foot">데이터: Google Patents Public Datasets (BigQuery) · CPC 후보군 기준(접두어 일치, 텍스트 검증 전) · 기준일 2026-09-01<br>
+집계 단위: DOCDB 패밀리 · 공개 관할은 공보 발행 관청 기준(출원인 소재국 아님) · 상위 출원인 명칭은 원자료 표기(정규화 전)<br>
+분류 정의: <a href="https://github.com/AgentBridge-Lab/aeropatent-research/blob/main/config/bigquery_aerospace_aviation_taxonomy.json">config/bigquery_aerospace_aviation_taxonomy.json</a> — 분류 정의에 따라 수치가 달라질 수 있음</p>
+</div></body></html>

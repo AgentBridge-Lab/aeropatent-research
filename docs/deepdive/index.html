@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>분야별 심층 분석 — AEROPATENT</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--black:#000;--panel:#07090ea3;--border:#efece31f;--border-s:#8fabd466;--text:#efece3;
+--muted:#efece399;--dim:#efece35c;--accent:#8fabd4;--deep:#4a70a9;--cream:#efece3}
+*{box-sizing:border-box}body{margin:0;background:var(--black);color:var(--text);
+font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+background-image:radial-gradient(1200px 820px at 82% -12%,#8fabd41a,#0000 58%),radial-gradient(1000px 760px at -8% 8%,#4a70a914,#0000 56%);background-attachment:fixed;min-height:100vh;overflow-x:hidden;word-break:keep-all}
+.wrap{max-width:1080px;margin:0 auto;padding:44px 22px 72px}
+a{color:var(--accent)}
+.kicker{font-size:13px;letter-spacing:.14em;color:var(--accent);font-weight:700}
+h1{font-size:clamp(26px,4.5vw,40px);margin:.35em 0 .3em;font-weight:800}
+.sub{color:var(--muted);font-size:14.5px;max-width:760px;line-height:1.6}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:14px;margin:30px 0}
+.kpi{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px 20px;backdrop-filter:blur(20px) saturate(130%)}
+.kpi b{display:block;font-size:29px;font-weight:800;color:var(--cream);white-space:nowrap}
+.kpi.hot b{color:var(--accent)}
+.kpi span{color:var(--muted);font-size:12.5px}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:24px 26px;margin:20px 0;backdrop-filter:blur(20px) saturate(130%)}
+.panel h2{margin:0 0 6px;font-size:18px}
+.panel .note{color:var(--muted);font-size:12.5px;margin:0 0 16px;line-height:1.55}
+.row{display:grid;grid-template-columns:minmax(96px,170px) minmax(0,1fr) minmax(88px,118px);gap:10px;align-items:center;margin:7px 0}
+.lbl{font-size:12.5px;color:var(--muted);text-align:right}
+.track{background:#efece30d;border-radius:5px;height:15px;overflow:hidden}
+.fill{height:100%;background:var(--deep);border-radius:5px}
+.fill.accent{background:var(--accent)}
+.val{font-size:12.5px;font-weight:700;white-space:nowrap}.val em{color:var(--dim);font-style:normal;font-weight:400}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:860px){.grid2{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;font-size:13px}
+td,th{padding:8px 6px;border-top:1px solid var(--border);text-align:left}
+td.num{text-align:right;font-weight:800;color:var(--accent);white-space:nowrap}
+th{color:var(--muted);font-weight:600;border-top:none;font-size:12px}
+.foot{color:var(--dim);font-size:11.5px;line-height:1.7;margin-top:26px}
+.back{display:inline-block;margin-bottom:24px;font-size:13px;text-decoration:none;border:1px solid var(--border-s);border-radius:999px;padding:7px 15px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:16px;margin-top:26px}
+.card{display:block;background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:22px 24px;text-decoration:none;color:var(--text);backdrop-filter:blur(20px) saturate(130%)}
+.card:hover{border-color:var(--border-s)}
+.card h3{margin:0 0 4px;font-size:18px}
+.card .d{color:var(--muted);font-size:12.5px;line-height:1.5;margin-bottom:12px}
+.card .n{font-size:24px;font-weight:800;color:var(--accent)}
+.card .n small{font-size:12px;color:var(--dim);font-weight:400}
+</style></head><body><div class="wrap">
+<a class="back" href="../">← AEROPATENT 대시보드</a>
+<div class="kicker">DEEP DIVES</div>
+<h1>분야별 심층 분석</h1>
+<p class="sub">항공우주 특허를 적용 체계 기준 5개 분야로 나눠 각 분야의 출원 규모·관할 분포·주요 출원인·핵심 분류코드를 분석. 전 수치 Google Patents Public Datasets(BigQuery) 실측 집계.</p>
+<div class="cards">
+<a class="card" href="launch/"><h3>발사체</h3>
+<div class="d">발사체 추진·회수 기술</div>
+<div class="n">16,930<small> 패밀리</small></div></a><a class="card" href="satellite/"><h3>위성</h3>
+<div class="d">위성 플랫폼·열·전력, GNC·랑데부·서비스, 우주재료·TPS·코팅</div>
+<div class="n">416,805<small> 패밀리 (분야 합산)</small></div></a><a class="card" href="satellite-apps/"><h3>위성활용</h3>
+<div class="d">위성통신·LEO 네트워크, 원격탐사·탑재체</div>
+<div class="n">259,324<small> 패밀리 (분야 합산)</small></div></a><a class="card" href="aviation/"><h3>항공</h3>
+<div class="d">지속가능 추진, 구조·공력·복합재, 항공전자·비행제어·자율운항</div>
+<div class="n">234,320<small> 패밀리 (분야 합산)</small></div></a><a class="card" href="../exploration/"><h3>우주탐사</h3>
+<div class="d">달·행성탐사, 추진, 통신·항법, EDL, 생명유지, 탑재체, 탐사 로봇 — KR 보유 패밀리 별도 정밀 분류</div>
+<div class="n">983<small> 패밀리 (KR 보유 · 2010–2020 · 별도 분류 정의)</small></div></a>
+</div>
+<p class="foot">데이터: Google Patents Public Datasets (BigQuery) · CPC 후보군 기준(접두어 일치, 텍스트 검증 전) · 기준일 2026-09-01<br>
+집계 단위: DOCDB 패밀리 · 공개 관할은 공보 발행 관청 기준(출원인 소재국 아님) · 상위 출원인 명칭은 원자료 표기(정규화 전)<br>
+분류 정의: <a href="https://github.com/AgentBridge-Lab/aeropatent-research/blob/main/config/bigquery_aerospace_aviation_taxonomy.json">config/bigquery_aerospace_aviation_taxonomy.json</a> — 분류 정의에 따라 수치가 달라질 수 있음</p>
+</div></body></html>

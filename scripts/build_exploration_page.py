@@ -106,13 +106,13 @@ h1{{font-size:clamp(28px,4.5vw,42px);margin:.35em 0 .3em;font-weight:800}}
 .lbl,.val{{font-size:12px}}
 }}
 table{{width:100%;border-collapse:collapse;font-size:13.5px}}
-td{{padding:9px 6px;border-top:1px solid var(--border)}}td.num{{text-align:right;font-weight:800;color:var(--accent)}}
+td{{padding:9px 6px;border-top:1px solid var(--border)}}td.num{{text-align:right;font-weight:800;color:var(--accent);white-space:nowrap}}
 .foot{{color:var(--dim);font-size:12px;line-height:1.7;margin-top:30px}}
 .back{{display:inline-block;margin-bottom:26px;font-size:13.5px;text-decoration:none;border:1px solid var(--border-s);border-radius:999px;padding:7px 16px}}
 </style></head><body><div class="wrap">
 <a class="back" href="../">← AEROPATENT 대시보드</a>
 <div class="kicker">DEEP DIVE · 우주탐사</div>
-<h1>우주탐사 특허, 어디에 몰려 있나</h1>
+<h1>우주탐사 특허출원 현황 분석</h1>
 <p class="sub">KR 출원을 보유한 우주탐사 특허패밀리(우선일 2010–2020) 적격 모집단 {D["population_total"]}건의 기술군 분포와,
 층화표본 {D["sample_total"]}건의 출원 주체·국제화·영향력 심층 분석. 전 수치는 Google Patents Public Datasets(BigQuery) 기반.</p>
 <div class="kpis">

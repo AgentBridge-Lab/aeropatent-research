@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>발사체 특허출원 현황 분석 — AEROPATENT</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{--black:#000;--panel:#07090ea3;--border:#efece31f;--border-s:#8fabd466;--text:#efece3;
+--muted:#efece399;--dim:#efece35c;--accent:#8fabd4;--deep:#4a70a9;--cream:#efece3}
+*{box-sizing:border-box}body{margin:0;background:var(--black);color:var(--text);
+font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+background-image:radial-gradient(1200px 820px at 82% -12%,#8fabd41a,#0000 58%),radial-gradient(1000px 760px at -8% 8%,#4a70a914,#0000 56%);background-attachment:fixed;min-height:100vh;overflow-x:hidden;word-break:keep-all}
+.wrap{max-width:1080px;margin:0 auto;padding:44px 22px 72px}
+a{color:var(--accent)}
+.kicker{font-size:13px;letter-spacing:.14em;color:var(--accent);font-weight:700}
+h1{font-size:clamp(26px,4.5vw,40px);margin:.35em 0 .3em;font-weight:800}
+.sub{color:var(--muted);font-size:14.5px;max-width:760px;line-height:1.6}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:14px;margin:30px 0}
+.kpi{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px 20px;backdrop-filter:blur(20px) saturate(130%)}
+.kpi b{display:block;font-size:29px;font-weight:800;color:var(--cream);white-space:nowrap}
+.kpi.hot b{color:var(--accent)}
+.kpi span{color:var(--muted);font-size:12.5px}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:24px 26px;margin:20px 0;backdrop-filter:blur(20px) saturate(130%)}
+.panel h2{margin:0 0 6px;font-size:18px}
+.panel .note{color:var(--muted);font-size:12.5px;margin:0 0 16px;line-height:1.55}
+.row{display:grid;grid-template-columns:minmax(96px,170px) minmax(0,1fr) minmax(88px,118px);gap:10px;align-items:center;margin:7px 0}
+.lbl{font-size:12.5px;color:var(--muted);text-align:right}
+.track{background:#efece30d;border-radius:5px;height:15px;overflow:hidden}
+.fill{height:100%;background:var(--deep);border-radius:5px}
+.fill.accent{background:var(--accent)}
+.val{font-size:12.5px;font-weight:700;white-space:nowrap}.val em{color:var(--dim);font-style:normal;font-weight:400}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:860px){.grid2{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;font-size:13px}
+td,th{padding:8px 6px;border-top:1px solid var(--border);text-align:left}
+td.num{text-align:right;font-weight:800;color:var(--accent);white-space:nowrap}
+th{color:var(--muted);font-weight:600;border-top:none;font-size:12px}
+.foot{color:var(--dim);font-size:11.5px;line-height:1.7;margin-top:26px}
+.back{display:inline-block;margin-bottom:24px;font-size:13px;text-decoration:none;border:1px solid var(--border-s);border-radius:999px;padding:7px 15px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:16px;margin-top:26px}
+.card{display:block;background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:22px 24px;text-decoration:none;color:var(--text);backdrop-filter:blur(20px) saturate(130%)}
+.card:hover{border-color:var(--border-s)}
+.card h3{margin:0 0 4px;font-size:18px}
+.card .d{color:var(--muted);font-size:12.5px;line-height:1.5;margin-bottom:12px}
+.card .n{font-size:24px;font-weight:800;color:var(--accent)}
+.card .n small{font-size:12px;color:var(--dim);font-weight:400}
+</style></head><body><div class="wrap">
+<a class="back" href="../">← 분야별 심층 분석</a>
+<div class="kicker">DEEP DIVE · 발사체</div>
+<h1>발사체 특허출원 현황 분석</h1>
+<p class="sub">발사체 추진·회수 기술 — 구성 기술분야 1개의 BigQuery 실측 집계.</p>
+<div class="kpis">
+<div class="kpi"><b>16,930</b><span>특허패밀리 (전체 기간)</span></div>
+<div class="kpi"><b>48%</b><span>최근 5년 패밀리 비중</span></div>
+<div class="kpi hot"><b>978</b><span>KR 공개 관할 패밀리 (5.8%)</span></div>
+</div>
+<div class="panel"><h2>구성 기술분야별 규모</h2>
+<p class="note">패밀리 수 기준. 공보 수 합계 35,777건.</p>
+<div class="row"><span class="lbl">발사체 추진·회수</span>
+<div class="track"><div class="fill " style="width:100.0%"></div></div>
+<span class="val">16,930</span></div></div>
+<div class="panel"><h2>공개 관할 분포</h2>
+<p class="note">공보 발행 관청 기준 상위 8개 — 출원인 소재국이나 국가 경쟁력 순위가 아님.</p>
+<div class="row"><span class="lbl">CN</span>
+<div class="track"><div class="fill " style="width:100.0%"></div></div>
+<span class="val">11,622</span></div>
+<div class="row"><span class="lbl">US</span>
+<div class="track"><div class="fill " style="width:24.5%"></div></div>
+<span class="val">2,842</span></div>
+<div class="row"><span class="lbl">WO</span>
+<div class="track"><div class="fill " style="width:15.9%"></div></div>
+<span class="val">1,847</span></div>
+<div class="row"><span class="lbl">EP</span>
+<div class="track"><div class="fill " style="width:12.4%"></div></div>
+<span class="val">1,442</span></div>
+<div class="row"><span class="lbl">RU</span>
+<div class="track"><div class="fill " style="width:8.5%"></div></div>
+<span class="val">983</span></div>
+<div class="row"><span class="lbl">KR</span>
+<div class="track"><div class="fill " style="width:8.4%"></div></div>
+<span class="val">978</span></div>
+<div class="row"><span class="lbl">JP</span>
+<div class="track"><div class="fill " style="width:5.9%"></div></div>
+<span class="val">685</span></div>
+<div class="row"><span class="lbl">FR</span>
+<div class="track"><div class="fill " style="width:3.2%"></div></div>
+<span class="val">368</span></div></div>
+<div class="grid2">
+<div class="panel"><h2>상위 출원인</h2>
+<p class="note">기술분야별 상위 5 (원자료 조화 명칭, 분야 간 합산 없음).</p>
+<table><tr><th>출원인</th><th>기술분야</th><th style="text-align:right">패밀리</th></tr>
+<tr><td>HARBIN INST TECHNOLOGY</td><td>발사체 추진·회수</td><td class='num'>498</td></tr><tr><td>SHANGHAI SATELLITE ENG INST</td><td>발사체 추진·회수</td><td class='num'>440</td></tr><tr><td>UNIV BEIHANG</td><td>발사체 추진·회수</td><td class='num'>393</td></tr><tr><td>UNIV NORTHWESTERN POLYTECHNICAL</td><td>발사체 추진·회수</td><td class='num'>375</td></tr><tr><td>SHANGHAI AEROSPACE SYSTEM ENGINEERING INST</td><td>발사체 추진·회수</td><td class='num'>351</td></tr></table></div>
+<div class="panel"><h2>상위 CPC 코드</h2>
+<p class="note">기술분야별 상위 4 — 코드 정의는 분류 정의 파일 참조.</p>
+<table><tr><th>CPC</th><th>기술분야</th><th style="text-align:right">건수</th></tr>
+<tr><td>B64G1</td><td>발사체 추진·회수</td><td class='num'>94,965</td></tr><tr><td>F02K9</td><td>발사체 추진·회수</td><td class='num'>25,813</td></tr><tr><td>H04B7</td><td>발사체 추진·회수</td><td class='num'>3,355</td></tr><tr><td>F03H1</td><td>발사체 추진·회수</td><td class='num'>2,524</td></tr></table></div>
+</div>
+<p class="foot">데이터: Google Patents Public Datasets (BigQuery) · CPC 후보군 기준(접두어 일치, 텍스트 검증 전) · 기준일 2026-09-01<br>
+집계 단위: DOCDB 패밀리 · 공개 관할은 공보 발행 관청 기준(출원인 소재국 아님) · 상위 출원인 명칭은 원자료 표기(정규화 전)<br>
+분류 정의: <a href="https://github.com/AgentBridge-Lab/aeropatent-research/blob/main/config/bigquery_aerospace_aviation_taxonomy.json">config/bigquery_aerospace_aviation_taxonomy.json</a> — 분류 정의에 따라 수치가 달라질 수 있음</p>
+</div></body></html>
