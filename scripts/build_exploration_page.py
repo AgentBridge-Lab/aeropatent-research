@@ -85,7 +85,7 @@ h1{{font-size:clamp(28px,4.5vw,42px);margin:.35em 0 .3em;font-weight:800}}
 .panel .caption{{margin:0 0 10px;font-size:12px;color:var(--dim);line-height:1.5;word-break:keep-all}}
 .panel .note{{color:var(--muted);font-size:13px;margin:0 0 18px;line-height:1.55}}
 .row{{display:grid;grid-template-columns:172px minmax(0,1fr) 118px;gap:12px;align-items:center;margin:7px 0}}
-.lbl{{font-size:13px;color:var(--muted);text-align:right}}
+.lbl{{font-size:13px;color:var(--muted);text-align:left}}
 .track{{background:#efece30d;border-radius:5px;height:16px;overflow:hidden}}
 .fill{{height:100%;background:var(--deep);border-radius:5px}}
 .fill.accent{{background:var(--accent)}}

@@ -44,7 +44,7 @@ h1{font-size:clamp(26px,4.5vw,40px);margin:.35em 0 .3em;font-weight:800}
 .panel h2{margin:0 0 6px;font-size:18px}
 .panel .note{color:var(--muted);font-size:12.5px;margin:0 0 16px;line-height:1.55}
 .row{display:grid;grid-template-columns:minmax(96px,170px) minmax(0,1fr) minmax(88px,118px);gap:10px;align-items:center;margin:7px 0}
-.lbl{font-size:12.5px;color:var(--muted);text-align:right}
+.lbl{font-size:12.5px;color:var(--muted);text-align:left}
 .track{background:#efece314;border-radius:5px;height:15px;overflow:hidden}
 .fill{height:100%;background:var(--deep);border-radius:5px;min-width:3px}
 .fill.accent{background:var(--accent)}
