@@ -22,3 +22,12 @@
     padding: 20px 16px 64px;
   }
 }
+
+.dataNote {
+  margin-top: 40px;
+  padding: 14px 0 6px;
+  border-top: 1px solid var(--border, rgba(150, 170, 200, 0.18));
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: var(--muted, #8a93a5);
+}

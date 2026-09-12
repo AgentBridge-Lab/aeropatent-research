@@ -81,13 +81,18 @@ export default function Sidebar() {
             </span>
           </div>
           <div className={styles.metaRow}>
-            <span className={styles.metaKey}>특허 패밀리 수</span>
+            <span className={styles.metaKey}>고유 패밀리(전체 기간)</span>
             <span className={`${styles.metaVal} mono`}>
               {LANDSCAPE_SUMMARY.family_count.toLocaleString()}
             </span>
           </div>
+          <div className={styles.metaRow}>
+            <span className={styles.metaKey} style={{ fontSize: 10.5 }}>
+              CPC 후보군 기준 (텍스트 검증 전)
+            </span>
+          </div>
           <div className={styles.filterBox}>
-            <div className={styles.filterTitle}>선택된 필터</div>
+            <div className={styles.filterTitle}>선택된 필터 (검색·그래프에만 적용)</div>
             <div className={styles.filterLine}>{fieldLabel}</div>
             <div className={styles.filterLine}>{countriesLabel}</div>
             <div className={styles.filterLine}>{PERIOD_LABEL[filter.period]}</div>

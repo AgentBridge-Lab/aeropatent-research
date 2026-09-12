@@ -7,13 +7,15 @@ import TrendArea from '../../../components/viz/TrendArea';
 import { Insights } from '../../../components/viz/Insights';
 import PatentCard from '../../../components/PatentCard';
 import {
-  parseFilter,
   filterToQuery,
   getFieldAnalysis,
   COUNTRIES,
   FIELDS,
+  YEARLY_FAMILY_TREND,
+  CANDIDATE_SCOPE_NOTE,
+  TREND_BASIS_NOTE,
+  SAMPLE_BASIS_NOTE,
   type FieldId,
-  type Filter,
 } from '../../../lib/data';
 
 export const metadata = { title: '분야 상세 분석 · AEROPATENT' };
@@ -28,23 +30,20 @@ export default async function FieldAnalysisPage({
   params: Promise<{ fieldId: string }>;
 }) {
   const { fieldId } = await params;
-  const filter = parseFilter();
-  const fa = getFieldAnalysis(fieldId as FieldId, filter);
+  const fa = getFieldAnalysis(fieldId as FieldId);
 
   if (!fa) notFound();
 
-  const query = filterToQuery(filter).replace(/^\?/, '');
   const leadName =
     COUNTRIES.find((c) => c.code === fa.leading_country)?.label_ko ?? fa.leading_country;
 
   const topCount = fa.top_applicants[0]?.count ?? 1;
 
-  // CTA URLs
-  const ctaFilter: Partial<Filter> = { ...filter, field: fieldId as FieldId };
-  const ctaQuery = filterToQuery(ctaFilter);
+  // CTA URLs — 필터는 표본 기반 검색·그래프 화면에만 적용된다.
+  const ctaQuery = filterToQuery({ field: fieldId as FieldId });
   const graphUrl = `/graph${ctaQuery}`;
   const patentsUrl = `/patents${ctaQuery}`;
-  const reportUrl = `/reports/field.${fieldId}${ctaQuery}`;
+  const reportUrl = `/reports/field.${fieldId}`;
 
   return (
     <div>
@@ -62,20 +61,21 @@ export default async function FieldAnalysisPage({
         <KpiRow
           kpis={[
             {
-              label: '특허 수',
+              label: '패밀리 수',
               value: fa.total.toLocaleString(),
               unit: '건',
               accent: 'var(--cyan)',
+              foot: `전체 기간 · ${CANDIDATE_SCOPE_NOTE}`,
             },
             {
-              label: '증가율',
-              value: `+${fa.growth_rate}`,
-              unit: '%',
+              label: '최근 5년 패밀리',
+              value: fa.recent5_family_count.toLocaleString(),
+              unit: '건',
               accent: 'var(--green)',
-              foot: '기간 내 후반 vs 전반',
+              foot: '실측 집계',
             },
             {
-              label: '선도국',
+              label: '최대 공개 관할',
               value: fa.leading_country,
               foot: leadName,
               accent: 'var(--amber)',
@@ -85,7 +85,7 @@ export default async function FieldAnalysisPage({
               value: `${Math.round(fa.kr_share * 100)}`,
               unit: '%',
               accent: 'var(--violet)',
-              foot: '전체 출원 대비 KR',
+              foot: '표시 5개 공개 관할 내 KR',
             },
           ]}
         />
@@ -93,33 +93,36 @@ export default async function FieldAnalysisPage({
 
       {/* ── 차트 2열 그리드 ── */}
       <div className={styles.charts}>
-        {/* 국가별 비교 */}
+        {/* 공개 관할별 비교 */}
         <div className={styles.card}>
-          <div className={styles.cardTitle}>국가별 비교</div>
-          <div className={styles.cardMeta}>US · EP · JP · CN · KR 고정 순서</div>
+          <div className={styles.cardTitle}>공개 관할별 비교</div>
+          <div className={styles.cardMeta}>US · EP · JP · CN · KR 고정 순서 · 전체 기간</div>
           <CountryBars data={fa.country_distribution} />
         </div>
 
-        {/* 기간별 추세 */}
+        {/* 기간별 추세 (전체 후보군) */}
         <div className={styles.card}>
-          <div className={styles.cardTitle}>기간별 추세</div>
-          <div className={styles.cardMeta}>연도별 신규 출원 건수</div>
-          <TrendArea data={fa.yearly_trend} color={fa.field.color} />
+          <div className={styles.cardTitle}>연도별 패밀리 추세 (전체 후보군)</div>
+          <div className={styles.cardMeta}>
+            분야별 연도 추세는 집계에 없어 전체 후보군 추세만 표시 · {TREND_BASIS_NOTE}
+          </div>
+          <TrendArea data={YEARLY_FAMILY_TREND} color={fa.field.color} />
         </div>
       </div>
 
       {/* ── 주요 출원인 ── */}
       <div className={styles.card}>
         <div className={styles.cardTitle}>주요 출원인</div>
-        <div className={styles.cardMeta}>출원 건수 기준 상위 {fa.top_applicants.length}개 기관</div>
+        <div className={styles.cardMeta}>
+          BigQuery 실측 상위 {fa.top_applicants.length}개 기관 (출원인 명칭 정규화 전)
+        </div>
         <div className={styles.applicants}>
           {fa.top_applicants.map((a) => {
             const barPct = topCount > 0 ? (a.count / topCount) * 100 : 0;
             return (
-              <div key={a.id} className={styles.applicantRow}>
+              <div key={a.name} className={styles.applicantRow}>
                 <div className={styles.applicantMeta}>
                   <span className={styles.applicantName}>{a.name}</span>
-                  <span className={styles.applicantCode}>{a.country}</span>
                 </div>
                 <div className={styles.barTrack}>
                   <div
@@ -130,56 +133,59 @@ export default async function FieldAnalysisPage({
                     }}
                   />
                 </div>
-                <div className={styles.applicantCount}>{a.count}건</div>
+                <div className={styles.applicantCount}>{a.count.toLocaleString()}건</div>
               </div>
             );
           })}
         </div>
       </div>
 
-      {/* ── 세부기술 클러스터 ── */}
+      {/* ── 세부기술 클러스터 (표본 기준) ── */}
       <div className={styles.card} style={{ marginTop: 16 }}>
         <div className={styles.cardTitle}>세부기술 클러스터</div>
-        <div className={styles.cardMeta}>세부 분야별 출원 건수 및 비중</div>
-        <div className={styles.clusters}>
-          {fa.subfield_clusters.map(({ subfield, count, share }) => {
-            const maxCount = fa.subfield_clusters[0]?.count ?? 1;
-            const barPct = maxCount > 0 ? (count / maxCount) * 100 : 0;
-            return (
-              <div key={subfield.id} className={styles.clusterRow}>
-                <div className={styles.clusterLabel}>{subfield.label_ko}</div>
-                <div className={styles.barTrack}>
-                  <div
-                    className={styles.barFill}
-                    style={{
-                      width: `${barPct}%`,
-                      background: fa.field.color,
-                      opacity: 0.85,
-                    }}
-                  />
+        <div className={styles.cardMeta}>{SAMPLE_BASIS_NOTE}</div>
+        {fa.subfield_clusters.length === 0 ? (
+          <p className={styles.cardMeta}>표본 내 해당 분야 문헌이 없습니다.</p>
+        ) : (
+          <div className={styles.clusters}>
+            {fa.subfield_clusters.map(({ subfield, count }) => {
+              const maxCount = fa.subfield_clusters[0]?.count ?? 1;
+              const barPct = maxCount > 0 ? (count / maxCount) * 100 : 0;
+              return (
+                <div key={subfield.id} className={styles.clusterRow}>
+                  <div className={styles.clusterLabel}>{subfield.label_ko}</div>
+                  <div className={styles.barTrack}>
+                    <div
+                      className={styles.barFill}
+                      style={{
+                        width: `${barPct}%`,
+                        background: fa.field.color,
+                        opacity: 0.85,
+                      }}
+                    />
+                  </div>
+                  <div className={styles.clusterStat}>
+                    <span className={styles.clusterCount}>{count}건</span>
+                  </div>
                 </div>
-                <div className={styles.clusterStat}>
-                  <span className={styles.clusterCount}>{count}건</span>
-                  <span className={styles.clusterShare}>{Math.round(share * 100)}%</span>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        )}
       </div>
 
       {/* ── 핵심 인사이트 ── */}
       <div className={styles.card} style={{ marginTop: 16 }}>
         <div className={styles.cardTitle}>핵심 인사이트</div>
-        <div className={styles.cardMeta}>분석 조건 기준 요약</div>
+        <div className={styles.cardMeta}>분야 개요 및 검토 포인트</div>
         <Insights items={fa.insights} />
       </div>
 
-      {/* ── 주요 특허 5개 ── */}
-      <h2 className={styles.sectionLabel}>주요 특허</h2>
+      {/* ── 주요 특허 (표본) ── */}
+      <h2 className={styles.sectionLabel}>대표 특허 (표본 문헌)</h2>
       <div className={styles.patents}>
         {fa.top_patents.map((p) => (
-          <PatentCard key={p.id} patent={p} query={query} />
+          <PatentCard key={p.id} patent={p} />
         ))}
       </div>
 

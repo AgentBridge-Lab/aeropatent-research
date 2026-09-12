@@ -21,7 +21,7 @@ export default function PatentSearch({ initialQ }: { initialQ?: string }) {
   const filter = parseFilter(Object.fromEntries(sp.entries()));
 
   const [q, setQ] = useState(initialQ ?? sp.get('q') ?? '');
-  const [sort, setSort] = useState<'recent' | 'importance' | 'citations'>('recent');
+  const [sort, setSort] = useState<'recent' | 'importance'>('recent');
   const [status, setStatus] = useState<'all' | '등록' | '공개'>('all');
   const [subfield, setSubfield] = useState('');
   const [applicant, setApplicant] = useState('');
@@ -77,13 +77,13 @@ export default function PatentSearch({ initialQ }: { initialQ?: string }) {
           <div className={styles.controlGroup}>
             <span className={styles.controlLabel}>정렬</span>
             <div className={styles.chips}>
-              {(['recent', 'importance', 'citations'] as const).map((s) => (
+              {(['recent', 'importance'] as const).map((s) => (
                 <button
                   key={s}
                   className={`${styles.chip} ${sort === s ? styles.chipActive : ''}`}
                   onClick={() => setSort(s)}
                 >
-                  {s === 'recent' ? '최신순' : s === 'importance' ? '중요도순' : '인용순'}
+                  {s === 'recent' ? '최신순' : '중요도순'}
                 </button>
               ))}
             </div>

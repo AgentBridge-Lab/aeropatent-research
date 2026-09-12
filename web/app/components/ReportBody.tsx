@@ -31,11 +31,10 @@ export default function ReportBody({
       {isPatent && report.patent && (
         <div className={styles.block}>
           <div className={styles.facts}>
-            <Fact label="국가" value={`${report.patent.country} · ${COUNTRIES.find((c) => c.code === report.patent!.country)?.label_ko ?? ''}`} />
+            <Fact label="공개 관할" value={`${report.patent.country} · ${COUNTRIES.find((c) => c.code === report.patent!.country)?.label_ko ?? ''}`} />
             <Fact label="출원인" value={report.patent.applicantName} />
             <Fact label="출원연도" value={String(report.patent.filing_year)} />
             <Fact label="분야" value={FIELDS.find((f) => f.id === report.patent!.field)?.label_ko ?? ''} />
-            <Fact label="IPC/CPC" value={report.patent.ipc_cpc.join(', ')} />
             <Fact label="상태" value={report.patent.status} />
           </div>
         </div>

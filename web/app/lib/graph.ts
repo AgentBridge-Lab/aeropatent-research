@@ -47,9 +47,8 @@ export type Lens =
   | 'country'
   | 'period'
   | 'applicant'
-  | 'citation'
   | 'similar';
-export type LayoutMode = 'galaxy' | 'cluster' | 'hierarchy' | 'timeline' | 'citation';
+export type LayoutMode = 'galaxy' | 'cluster' | 'hierarchy' | 'timeline';
 export type LabelMode = 'important' | 'all' | 'hidden';
 
 export interface GraphNode {
@@ -206,7 +205,8 @@ export function getGraphData(filter: Filter, maxPatents = 150): GraphData {
     });
   });
 
-  // 유사/인용 엣지 (같은 subfield 특허끼리 약하게 연결, 과밀 방지 위해 일부만)
+  // 동일 세부분야 엣지 — 같은 subfield 문헌끼리의 표시용 연결이다.
+  // 원천 인용 레코드가 없으므로 인용 관계로 표시하지 않는다.
   const bySub = new Map<string, Patent[]>();
   patents.forEach((p) => {
     const arr = bySub.get(p.subfield) ?? [];
@@ -219,7 +219,7 @@ export function getGraphData(filter: Filter, maxPatents = 150): GraphData {
       edges.push({
         source: sorted[i].id,
         target: sorted[i + 1].id,
-        type: i % 2 === 0 ? 'similar_to' : 'cites',
+        type: 'same_subfield',
         confidence: 0.5,
       });
     }
@@ -273,10 +273,10 @@ export function getNodeReport(nodeId: string, filter: Filter): NodeReport | null
       title: patent.publication_number,
       one_line_conclusion: patent.title,
       kpis: [
-        { label: '국가', value: patent.country },
+        { label: '공개 관할', value: patent.country },
         { label: '출원연도', value: String(patent.filing_year) },
         { label: '중요도', value: patent.importance_score.toFixed(2) },
-        { label: '피인용', value: String(patent.citations) },
+        { label: '상태', value: patent.status },
       ],
       country_distribution: [],
       yearly_trend: [],
@@ -285,8 +285,10 @@ export function getNodeReport(nodeId: string, filter: Filter): NodeReport | null
       patent,
       similar,
       evidence: [
-        { label: '초록', text: patent.abstract_ko },
-        { label: `대표 청구항 (청구항 ${patent.claims[0]?.claim_number ?? 1})`, text: patent.claims[0]?.summary_ko ?? '' },
+        { label: '요약·초록 발췌', text: patent.abstract_ko },
+        ...(patent.claims[0]
+          ? [{ label: `청구항 ${patent.claims[0].claim_number} 발췌 (원문 기준)`, text: patent.claims[0].summary_ko }]
+          : [{ label: '청구항', text: '청구항 정보 없음' }]),
       ],
     };
   }
@@ -308,17 +310,17 @@ export function getNodeReport(nodeId: string, filter: Filter): NodeReport | null
     }
     const dist = countryDistribution(patents);
     const lead = leadingCountry(patents);
-    const krShare = dist.find((d) => d.country === 'KR')?.share ?? 0;
+    const krCount = dist.find((d) => d.country === 'KR')?.count ?? 0;
     return {
       node_id: nodeId,
       node_type: type,
       title,
-      one_line_conclusion: `최근 ${COUNTRIES.find((c) => c.code === lead)!.label_ko}·중국 중심으로 출원이 증가했고, 한국은 소재·부품 단위 출원은 있으나 시스템 통합 특허는 약합니다.`,
+      one_line_conclusion: `표본 ${patents.length}건 기준 최다 공개 관할은 ${COUNTRIES.find((c) => c.code === lead)!.label_ko}입니다 (전체 후보군 아님).`,
       kpis: [
-        { label: '특허', value: `${patents.length}건` },
-        { label: '증가율', value: `+${Math.round(growthRate(patents, filter) * 100)}%` },
-        { label: '선도국', value: lead },
-        { label: '한국 비중', value: `${Math.round(krShare * 100)}%` },
+        { label: '표본 문헌', value: `${patents.length}건` },
+        { label: '표본 증가율', value: `${Math.round(growthRate(patents, filter) * 100)}%` },
+        { label: '최다 관할', value: lead },
+        { label: 'KR 표본', value: `${krCount}건` },
       ],
       country_distribution: dist,
       yearly_trend: yearlyTrend(patents, periodStartYear(filter.period) || undefined),
@@ -340,12 +342,12 @@ export function getNodeReport(nodeId: string, filter: Filter): NodeReport | null
     return {
       node_id: nodeId,
       node_type: 'country',
-      title: `${c.label_ko} 항공우주 특허`,
-      one_line_conclusion: `${c.label_ko}는 ${byField[0]?.f.label_ko ?? ''} 분야에서 강점을 보이며, 최근 출원 추세가 뚜렷합니다.`,
+      title: `${c.label_ko} 공개 관할 표본`,
+      one_line_conclusion: `${c.label_ko} 공개 관할 표본 ${patents.length}건 중 최다 분야는 ${byField[0]?.f.label_ko ?? '-'}입니다.`,
       kpis: [
-        { label: '특허', value: `${patents.length}건` },
-        { label: '증가율', value: `+${Math.round(growthRate(patents, { ...filter, countries: [code] }) * 100)}%` },
-        { label: '강점분야', value: byField[0]?.f.label_ko ?? '-' },
+        { label: '표본 문헌', value: `${patents.length}건` },
+        { label: '표본 증가율', value: `${Math.round(growthRate(patents, { ...filter, countries: [code] }) * 100)}%` },
+        { label: '최다 분야', value: byField[0]?.f.label_ko ?? '-' },
         { label: '주요출원인', value: String(topApplicants(patents, 1)[0]?.name ?? '-') },
       ],
       country_distribution: countryDistribution(patents),
@@ -373,10 +375,10 @@ export function getNodeReport(nodeId: string, filter: Filter): NodeReport | null
       title: a.name,
       one_line_conclusion: `${a.name}는 ${byField[0]?.f.label_ko ?? ''} 분야를 중심으로 포트폴리오를 보유하고 있습니다.`,
       kpis: [
-        { label: '특허', value: `${patents.length}건` },
+        { label: '표본 문헌', value: `${patents.length}건` },
         { label: '국가', value: a.country },
         { label: '주력분야', value: byField[0]?.f.label_ko ?? '-' },
-        { label: '피인용', value: String(patents.reduce((s, p) => s + p.citations, 0)) },
+        { label: '등록 표본', value: `${patents.filter((p) => p.status === '등록').length}건` },
       ],
       country_distribution: [],
       yearly_trend: yearlyTrend(patents, periodStartYear(filter.period) || undefined),
@@ -397,9 +399,9 @@ export function getNodeReport(nodeId: string, filter: Filter): NodeReport | null
       title: kw,
       one_line_conclusion: `'${kw}' 키워드를 포함하는 특허 클러스터입니다.`,
       kpis: [
-        { label: '특허', value: `${patents.length}건` },
-        { label: '증가율', value: `+${Math.round(growthRate(patents, filter) * 100)}%` },
-        { label: '선도국', value: leadingCountry(patents) },
+        { label: '표본 문헌', value: `${patents.length}건` },
+        { label: '표본 증가율', value: `${Math.round(growthRate(patents, filter) * 100)}%` },
+        { label: '최다 관할', value: leadingCountry(patents) },
         { label: '대표분야', value: getField(patents[0]?.field as FieldId)?.label_ko ?? '-' },
       ],
       country_distribution: countryDistribution(patents),

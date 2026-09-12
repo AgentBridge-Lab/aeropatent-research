@@ -24,10 +24,9 @@ type Spacing = 'compact' | 'normal' | 'wide';
 const LENSES: { id: Lens; label: string }[] = [
   { id: 'all', label: '전체' },
   { id: 'field', label: '분야별' },
-  { id: 'country', label: '국가별' },
+  { id: 'country', label: '관할별' },
   { id: 'applicant', label: '출원인별' },
-  { id: 'citation', label: '인용망' },
-  { id: 'similar', label: '유사특허' },
+  { id: 'similar', label: '동일 세부분야' },
 ];
 const COLOR_BYS: { id: ColorBy; label: string }[] = [
   { id: 'field', label: '분야' },
@@ -41,7 +40,6 @@ const LAYOUTS: { id: LayoutMode; label: string }[] = [
   { id: 'cluster', label: '클러스터' },
   { id: 'timeline', label: '타임라인' },
   { id: 'hierarchy', label: '계층' },
-  { id: 'citation', label: '인용 네트워크' },
 ];
 
 const TYPE_LABEL: Record<string, string> = {
@@ -163,8 +161,7 @@ export default function GraphView() {
   const linkVisible = useCallback(
     (link: any) => {
       const type = link.type;
-      if (lens === 'citation') return type === 'cites';
-      if (lens === 'similar') return type === 'similar_to';
+      if (lens === 'similar') return type === 'same_subfield';
       if (lens === 'applicant') return type === 'filed_by' || type === 'belongs_to';
       if (lens === 'country') return type === 'filed_in' || type === 'belongs_to';
       if (lens === 'field') return type === 'belongs_to';

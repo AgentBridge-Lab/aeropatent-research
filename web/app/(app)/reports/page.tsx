@@ -55,8 +55,8 @@ export default async function ReportsPage() {
         <span className="page-eyebrow">Reports</span>
         <h1 className="page-title">분석 보고서</h1>
         <p className={styles.summary}>
-          분야별·세부기술별 특허 분석 보고서입니다. 필터 조건을 변경하면 보고서 지표가 함께
-          갱신됩니다. 관심 보고서를 선택해 전략적 시사점과 주요 특허를 확인하세요.
+          분야별·세부기술별 특허 분석 보고서입니다. 보고서 지표는 대표 문헌 표본 기준의 고정
+          집계입니다. 관심 보고서를 선택해 전략적 시사점과 주요 특허를 확인하세요.
         </p>
       </div>
 

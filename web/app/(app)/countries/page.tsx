@@ -2,20 +2,17 @@ import Link from 'next/link';
 import styles from './countries.module.css';
 import Heatmap from '../../components/viz/Heatmap';
 import {
-  parseFilter,
-  filterToQuery,
   getCountryComparison,
   COUNTRIES,
   COUNTRY_ORDER,
+  CANDIDATE_SCOPE_NOTE,
 } from '../../lib/data';
 import type { CountryCode } from '../../lib/data';
 
-export const metadata = { title: '국가 비교 · AEROPATENT' };
+export const metadata = { title: '공개 관할 비교 · AEROPATENT' };
 
 export default async function CountriesPage() {
-  const filter = parseFilter();
-  const data = getCountryComparison(filter);
-  const query = filterToQuery(filter).replace(/^\?/, '');
+  const data = getCountryComparison();
 
   // 총량 기준 최댓값 (막대 비율 계산용)
   const maxCount = Math.max(...data.totals.map((t) => t.count), 1);
@@ -24,20 +21,20 @@ export default async function CountriesPage() {
     <div>
       {/* ── 페이지 헤더 ── */}
       <div className={styles.head}>
-        <span className="page-eyebrow">Country Comparison</span>
-        <h1 className="page-title">국가별 항공우주 특허 경쟁력</h1>
+        <span className="page-eyebrow">Jurisdiction Comparison</span>
+        <h1 className="page-title">공개 관할별 항공우주 특허 현황</h1>
         <p className={styles.sub}>
-          미국·유럽·일본·중국·한국 5개국의 항공우주 특허 출원 현황을 분야별로 비교하고,
-          한국의 기술 공백 및 추격 기회를 분석합니다.
+          US·EP·JP·CN·KR 5개 공개 관할의 패밀리 규모를 분야별로 비교합니다. 공개 관할 기준
+          집계이므로 출원인 소재국이나 국가 기술력 순위로 해석하면 안 됩니다. {CANDIDATE_SCOPE_NOTE}.
         </p>
       </div>
 
-      {/* ── 섹션 1: 국가별 총량 ── */}
-      <h2 className={styles.sectionLabel}>국가별 총량 비교</h2>
+      {/* ── 섹션 1: 공개 관할별 총량 ── */}
+      <h2 className={styles.sectionLabel}>공개 관할별 총량 비교</h2>
       <div className={styles.totalCard}>
-        <div className={styles.cardTitle}>출원 건수 (현재 필터 기준)</div>
+        <div className={styles.cardTitle}>패밀리 수 (전체 기간 · 공개 관할 기준)</div>
         <div className={styles.cardMeta}>
-          US · EP · JP · CN · KR 고정 순서 · 막대 길이는 최대값 대비 비율
+          US · EP · JP · CN · KR 고정 순서 · 막대 길이는 최대값 대비 비율 · {CANDIDATE_SCOPE_NOTE}
         </div>
         <div className={styles.bars}>
           {COUNTRY_ORDER.map((code: CountryCode) => {
@@ -66,26 +63,26 @@ export default async function CountriesPage() {
                     style={{ width: `${pct}%`, background: country.color }}
                   />
                 </div>
-                <div className={styles.barVal}>{count}건</div>
+                <div className={styles.barVal}>{count.toLocaleString()}건</div>
               </div>
             );
           })}
         </div>
       </div>
 
-      {/* ── 섹션 2: 분야 × 국가 히트맵 ── */}
-      <h2 className={styles.sectionLabel}>분야 × 국가 히트맵</h2>
+      {/* ── 섹션 2: 분야 × 공개 관할 히트맵 ── */}
+      <h2 className={styles.sectionLabel}>분야 × 공개 관할 히트맵</h2>
       <div className={styles.heatCard}>
-        <div className={styles.cardTitle}>분야 × 국가 클러스터 히트맵</div>
-        <div className={styles.cardMeta}>행: 분야 · 열: 국가 · 색 농도: 행 기준 출원 밀도</div>
+        <div className={styles.cardTitle}>분야 × 공개 관할 히트맵</div>
+        <div className={styles.cardMeta}>행: 분야 · 열: 공개 관할 · 색 농도: 행 기준 밀도 · 전체 기간</div>
         <Heatmap cells={data.heatmap} />
       </div>
 
-      {/* ── 섹션 3: 강점 분야 + 한국 대비 공백 ── */}
-      <h2 className={styles.sectionLabel}>국가별 강점 분야 순위 + 한국 대비 공백</h2>
+      {/* ── 섹션 3: 상위 분야 + 한국 대비 수치 ── */}
+      <h2 className={styles.sectionLabel}>공개 관할별 상위 분야 + KR 대비 수치</h2>
       <div className={styles.gapCard}>
-        <div className={styles.cardTitle}>강점 분야 상위 3개 및 한국 대비 시사점</div>
-        <div className={styles.cardMeta}>각 국가의 특허 집중 분야와 한국 공백 후보 영역</div>
+        <div className={styles.cardTitle}>상위 분야 3개 및 KR 공개 관할 대비 수치</div>
+        <div className={styles.cardMeta}>전체 기간 · 공개 관할 기준 실측 집계</div>
         <div className={styles.gapGrid}>
           {data.profiles.map((profile) => (
             <div
@@ -111,7 +108,7 @@ export default async function CountriesPage() {
                         {field.label_ko}
                       </span>
                     </span>
-                    <span className={styles.gapFieldCount}>{count}건</span>
+                    <span className={styles.gapFieldCount}>{count.toLocaleString()}건</span>
                   </div>
                 ))}
               </div>
@@ -121,8 +118,8 @@ export default async function CountriesPage() {
         </div>
       </div>
 
-      {/* ── 섹션 4: 국가 카드 그리드 ── */}
-      <h2 className={styles.sectionLabel}>국가 카드</h2>
+      {/* ── 섹션 4: 공개 관할 카드 그리드 ── */}
+      <h2 className={styles.sectionLabel}>공개 관할 카드</h2>
       <div className={styles.countryGrid}>
         {data.profiles.map((profile) => (
           <div
@@ -138,20 +135,17 @@ export default async function CountriesPage() {
               <span className={styles.countryCode}>{profile.country.code}</span>
             </div>
 
-            {/* 총 특허 + 증가율 */}
+            {/* 총 패밀리 */}
             <div className={styles.countryStats}>
               <div className={styles.statBlock}>
-                <span className={styles.statValue}>{profile.total}</span>
-                <span className={styles.statLabel}>총 특허 수</span>
+                <span className={styles.statValue}>{profile.total.toLocaleString()}</span>
+                <span className={styles.statLabel}>패밀리 (전체 기간)</span>
               </div>
-              <span className={styles.growthBadge}>
-                +{profile.growth_rate}%
-              </span>
             </div>
 
-            {/* 강점 분야 칩 */}
+            {/* 상위 분야 칩 */}
             <div className={styles.subSection}>
-              <div className={styles.subHead}>강점 분야</div>
+              <div className={styles.subHead}>상위 분야</div>
               <div className={styles.fieldChips}>
                 {profile.strong_fields.map(({ field, count }) => (
                   <span key={field.id} className={styles.fieldChip}>
@@ -160,45 +154,36 @@ export default async function CountriesPage() {
                       style={{ background: field.color }}
                     />
                     {field.label_ko}
-                    <span className={styles.chipCount}>{count}</span>
+                    <span className={styles.chipCount}>{count.toLocaleString()}</span>
                   </span>
                 ))}
               </div>
             </div>
 
-            {/* 주요 출원인 */}
+            {/* 대표 특허 (표본) */}
             <div className={styles.subSection}>
-              <div className={styles.subHead}>주요 출원인</div>
-              <div className={styles.applicantList}>
-                {profile.top_applicants.map((applicant) => (
-                  <div key={applicant.id} className={styles.applicantRow}>
-                    <span className={styles.applicantName}>{applicant.name}</span>
-                    <span className={styles.applicantCount}>{applicant.count}건</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* 대표 특허 */}
-            <div className={styles.subSection}>
-              <div className={styles.subHead}>대표 특허</div>
+              <div className={styles.subHead}>대표 특허 (표본 문헌)</div>
               <div className={styles.patentLinks}>
-                {profile.top_patents.map((patent) => (
-                  <Link
-                    key={patent.id}
-                    href={`/patents/${encodeURIComponent(patent.publication_number)}${query ? `?${query}` : ''}`}
-                    className={styles.patentLink}
-                  >
-                    <span className={styles.patentLinkPub}>{patent.publication_number}</span>
-                    <span className={styles.patentLinkTitle}>{patent.title}</span>
-                  </Link>
-                ))}
+                {profile.top_patents.length === 0 ? (
+                  <span className={styles.statLabel}>표본 내 문헌 없음</span>
+                ) : (
+                  profile.top_patents.map((patent) => (
+                    <Link
+                      key={patent.id}
+                      href={`/patents/${encodeURIComponent(patent.publication_number)}`}
+                      className={styles.patentLink}
+                    >
+                      <span className={styles.patentLinkPub}>{patent.publication_number}</span>
+                      <span className={styles.patentLinkTitle}>{patent.title}</span>
+                    </Link>
+                  ))
+                )}
               </div>
             </div>
 
-            {/* 한국 대비 시사점 */}
+            {/* KR 대비 수치 */}
             <div className={styles.vsKorea}>
-              <div className={styles.vsLabel}>한국 대비 시사점</div>
+              <div className={styles.vsLabel}>KR 공개 관할 대비</div>
               {profile.vs_korea}
             </div>
           </div>

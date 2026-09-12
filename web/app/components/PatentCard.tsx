@@ -36,16 +36,20 @@ export default function PatentCard({
       </div>
       <p className={styles.abstract}>{patent.abstract_ko}</p>
 
-      <details className={styles.claim}>
-        <summary>대표 청구항 보기</summary>
-        <div className={styles.claimBody}>
-          {patent.claims.map((c) => (
-            <p key={c.id}>
-              <span className={styles.claimNo}>청구항 {c.claim_number}</span> {c.summary_ko}
-            </p>
-          ))}
-        </div>
-      </details>
+      {patent.claims.length > 0 ? (
+        <details className={styles.claim}>
+          <summary>청구항 발췌 보기 (원문 기준)</summary>
+          <div className={styles.claimBody}>
+            {patent.claims.map((c) => (
+              <p key={c.id}>
+                <span className={styles.claimNo}>청구항 {c.claim_number}</span> {c.summary_ko}
+              </p>
+            ))}
+          </div>
+        </details>
+      ) : (
+        <p className={styles.claim}>청구항 정보 없음</p>
+      )}
 
       <div className={styles.actions}>
         <Link className={styles.action} href={`/graph?node=${encodeURIComponent(patent.id)}${query ? `&${query}` : ''}`}>

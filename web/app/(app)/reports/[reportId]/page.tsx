@@ -42,7 +42,7 @@ const NODE_TYPE_LABEL: Record<string, string> = {
   field: '분야',
   subfield: '세부분야',
   patent: '특허',
-  country: '국가',
+  country: '공개 관할',
   applicant: '출원인',
   keyword: '키워드',
 };
@@ -82,7 +82,7 @@ export default async function ReportDetailPage({
   // Enrich with FieldAnalysis if this is a field node
   const isFieldNode = nodeId.startsWith('field.');
   const fa = isFieldNode
-    ? getFieldAnalysis(nodeId.slice('field.'.length) as FieldId, filter)
+    ? getFieldAnalysis(nodeId.slice('field.'.length) as FieldId)
     : null;
 
   const isPatentNode = report.node_type === 'patent';
@@ -94,7 +94,7 @@ export default async function ReportDetailPage({
     const fieldObj = filter.field !== 'all' ? FIELDS.find((f) => f.id === filter.field) : null;
     filterPills.push({ label: '분야', value: fieldObj ? fieldObj.label_ko : '전체' });
     filterPills.push({
-      label: '국가',
+      label: '공개 관할',
       value:
         filter.countries.length === COUNTRY_ORDER.length
           ? '전체'
@@ -181,10 +181,10 @@ export default async function ReportDetailPage({
         </div>
       )}
 
-      {/* §4 국가별 비교 */}
+      {/* §4 공개 관할별 비교 (표본 문헌 기준) */}
       {report.country_distribution.length > 0 && (
         <div className={styles.section}>
-          <SectionHeader num={4} title="국가별 비교" />
+          <SectionHeader num={4} title="공개 관할별 비교 (표본 문헌 기준)" />
           <CountryBars data={report.country_distribution} />
         </div>
       )}
@@ -192,7 +192,7 @@ export default async function ReportDetailPage({
       {/* §5 기간별 추세 */}
       {report.yearly_trend.length > 0 && (
         <div className={styles.section}>
-          <SectionHeader num={5} title="기간별 추세" />
+          <SectionHeader num={5} title="기간별 추세 (표본 문헌 기준)" />
           <TrendArea data={report.yearly_trend} />
         </div>
       )}
@@ -200,7 +200,7 @@ export default async function ReportDetailPage({
       {/* §6 세부기술 클러스터 (field nodes only) */}
       {fa && fa.subfield_clusters.length > 0 && (
         <div className={styles.section}>
-          <SectionHeader num={6} title="세부기술 클러스터" />
+          <SectionHeader num={6} title="세부기술 클러스터 (표본 문헌 기준)" />
           <div className={styles.clusterBars}>
             {fa.subfield_clusters.map((c) => (
               <div key={c.subfield.id} className={styles.clusterRow}>
@@ -221,13 +221,12 @@ export default async function ReportDetailPage({
       {/* §7 주요 출원인 (field nodes only) */}
       {fa && fa.top_applicants.length > 0 && (
         <div className={styles.section}>
-          <SectionHeader num={7} title="주요 출원인" />
+          <SectionHeader num={7} title="주요 출원인 (BigQuery 실측)" />
           <div className={styles.applicantList}>
             {fa.top_applicants.map((a) => (
-              <div key={a.id} className={styles.applicantRow}>
+              <div key={a.name} className={styles.applicantRow}>
                 <span className={styles.applicantName}>{a.name}</span>
-                <span className={styles.applicantCountry}>{a.country}</span>
-                <span className={styles.applicantCount}>{a.count}건</span>
+                <span className={styles.applicantCount}>{a.count.toLocaleString()}건</span>
               </div>
             ))}
           </div>

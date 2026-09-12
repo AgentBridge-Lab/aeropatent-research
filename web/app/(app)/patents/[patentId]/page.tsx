@@ -54,9 +54,6 @@ export default async function PatentDetailPage({ params }: Props) {
   const filter = parseFilter();
   const relatedQuery = filterToQuery({ ...filter, field: patent.field });
 
-  const claimTypeLabel = (type: 'independent' | 'dependent') =>
-    type === 'independent' ? '독립항' : '종속항';
-
   return (
     <div className={styles.page}>
       {/* Breadcrumb */}
@@ -88,7 +85,7 @@ export default async function PatentDetailPage({ params }: Props) {
             <h2 className={styles.sectionTitle}>특허 정보</h2>
             <dl className={styles.factsGrid}>
               <div className={styles.factItem}>
-                <dt className={styles.factLabel}>국가</dt>
+                <dt className={styles.factLabel}>공개 관할</dt>
                 <dd className={styles.factValue}>
                   <span className={styles.countryCode}>{patent.country}</span>
                   <span>{country?.label_ko}</span>
@@ -119,21 +116,17 @@ export default async function PatentDetailPage({ params }: Props) {
               <div className={styles.factItem}>
                 <dt className={styles.factLabel}>IPC / CPC</dt>
                 <dd className={styles.factValue}>
-                  <div className={styles.ipcList}>
-                    {patent.ipc_cpc.map((code) => (
-                      <span key={code} className={`${styles.ipcChip} mono`}>{code}</span>
-                    ))}
-                  </div>
+                  <span className={styles.factMuted}>원천 레코드에 분류 정보 없음</span>
                 </dd>
               </div>
               <div className={styles.factItem}>
-                <dt className={styles.factLabel}>중요도 / 인용</dt>
+                <dt className={styles.factLabel}>중요도</dt>
                 <dd className={styles.factValue}>
                   <span className={styles.importanceScore} style={{ color: field?.color }}>
                     ★ {patent.importance_score.toFixed(2)}
                   </span>
                   <span className={styles.factSep}>·</span>
-                  <span className={styles.factMuted}>인용 {patent.citations}건</span>
+                  <span className={styles.factMuted}>검색어 일치·패밀리 관할 수 기반 내부 정렬 지표</span>
                 </dd>
               </div>
             </dl>
@@ -141,39 +134,37 @@ export default async function PatentDetailPage({ params }: Props) {
 
           {/* Abstract */}
           <section className={styles.card}>
-            <h2 className={styles.sectionTitle}>요약</h2>
+            <h2 className={styles.sectionTitle}>요약 (LLM 요약·초록 발췌)</h2>
             <p className={styles.abstract}>{patent.abstract_ko}</p>
           </section>
 
           {/* Claims */}
           <section className={styles.card}>
-            <h2 className={styles.sectionTitle}>대표 청구항</h2>
-            <div className={styles.claims}>
-              {patent.claims.map((claim) => (
-                <div key={claim.id} className={styles.claimItem}>
-                  <div className={styles.claimHead}>
-                    <span className={`${styles.claimNumber} mono`}>청구항 {claim.claim_number}</span>
-                    <span
-                      className={`${styles.claimTypePill} ${
-                        claim.claim_type === 'independent'
-                          ? styles.claimIndep
-                          : styles.claimDep
-                      }`}
-                    >
-                      {claimTypeLabel(claim.claim_type)}
-                    </span>
-                  </div>
-                  <p className={styles.claimSummary}>{claim.summary_ko}</p>
-                  {claim.key_elements.length > 0 && (
-                    <div className={styles.keyElements}>
-                      {claim.key_elements.map((el) => (
-                        <span key={el} className={styles.keyChip}>{el}</span>
-                      ))}
+            <h2 className={styles.sectionTitle}>청구항 발췌 (원문 기준)</h2>
+            {patent.claims.length === 0 ? (
+              <p className={styles.abstract}>청구항 정보 없음</p>
+            ) : (
+              <div className={styles.claims}>
+                {patent.claims.map((claim) => (
+                  <div key={claim.id} className={styles.claimItem}>
+                    <div className={styles.claimHead}>
+                      <span className={`${styles.claimNumber} mono`}>청구항 {claim.claim_number}</span>
+                      <span className={`${styles.claimTypePill} ${styles.claimIndep}`}>
+                        원문 발췌
+                      </span>
                     </div>
-                  )}
-                </div>
-              ))}
-            </div>
+                    <p className={styles.claimSummary}>{claim.summary_ko}</p>
+                    {claim.key_elements.length > 0 && (
+                      <div className={styles.keyElements}>
+                        {claim.key_elements.map((el) => (
+                          <span key={el} className={styles.keyChip}>{el}</span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
           </section>
 
           {/* Keywords */}

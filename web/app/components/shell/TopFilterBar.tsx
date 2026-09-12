@@ -12,12 +12,20 @@ const PERIODS: { id: Period; label: string }[] = [
   { id: 'all', label: '전체' },
 ];
 
+// 분석·국가 비교·보고서 화면은 전체 기간 고정 기준 실측 집계를 보여주므로
+// URL 필터를 적용하지 않는다 (P0-3: 표시 조건과 계산 조건 일치).
+const FIXED_BASIS_PREFIXES = ['/analysis', '/countries', '/reports'];
+
 export default function TopFilterBar() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const filter = parseFilter(Object.fromEntries(searchParams.entries()));
   const [q, setQ] = useState('');
+
+  const isFixedBasis = FIXED_BASIS_PREFIXES.some(
+    (p) => pathname === p || pathname.startsWith(p + '/'),
+  );
 
   // 필터 변경 → 현재 경로 유지 + query 갱신 (검색 등 비필터 파라미터는 보존)
   const push = (next: Partial<typeof filter>) => {
@@ -43,6 +51,32 @@ export default function TopFilterBar() {
     if (q.trim()) params.set('q', q.trim());
     router.push(`/patents${params.toString() ? `?${params.toString()}` : ''}`);
   };
+
+  if (isFixedBasis) {
+    return (
+      <div className={styles.bar}>
+        <div className={styles.group}>
+          <span className={styles.groupLabel}>기준</span>
+          <span style={{ fontSize: 12, color: 'var(--muted, #8a93a5)' }}>
+            이 화면은 전체 기간 · 전체 공개 관할 고정 기준 실측 집계입니다. 분야·관할·기간 필터는
+            특허 검색과 Graph View에만 적용됩니다.
+          </span>
+        </div>
+        <form className={styles.search} onSubmit={submitSearch}>
+          <svg viewBox="0 0 20 20" width="15" height="15" fill="none" aria-hidden>
+            <circle cx="9" cy="9" r="6" stroke="currentColor" strokeWidth="1.6" />
+            <path d="M13.5 13.5L17 17" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+          </svg>
+          <input
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder="특허 검색"
+            aria-label="특허 검색"
+          />
+        </form>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.bar}>

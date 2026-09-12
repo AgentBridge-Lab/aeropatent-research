@@ -76,6 +76,11 @@
 <priority>0.6</priority>
 </url>
 <url>
+<loc>https://agentbridge-lab.github.io/aeropatent-research/reports/subfield.aviation_avionics_flight_control_autonomy__core/</loc>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
 <loc>https://agentbridge-lab.github.io/aeropatent-research/reports/subfield.aviation_avionics_flight_control_autonomy__autonomous-flight/</loc>
 <changefreq>monthly</changefreq>
 <priority>0.6</priority>
@@ -91,7 +96,7 @@
 <priority>0.6</priority>
 </url>
 <url>
-<loc>https://agentbridge-lab.github.io/aeropatent-research/reports/subfield.aviation_avionics_flight_control_autonomy__core/</loc>
+<loc>https://agentbridge-lab.github.io/aeropatent-research/reports/subfield.aviation_propulsion_sustainable__core/</loc>
 <changefreq>monthly</changefreq>
 <priority>0.6</priority>
 </url>
@@ -111,7 +116,7 @@
 <priority>0.6</priority>
 </url>
 <url>
-<loc>https://agentbridge-lab.github.io/aeropatent-research/reports/subfield.aviation_propulsion_sustainable__core/</loc>
+<loc>https://agentbridge-lab.github.io/aeropatent-research/reports/subfield.aviation_structures_aero_composites__core/</loc>
 <changefreq>monthly</changefreq>
 <priority>0.6</priority>
 </url>
@@ -131,7 +136,7 @@
 <priority>0.6</priority>
 </url>
 <url>
-<loc>https://agentbridge-lab.github.io/aeropatent-research/reports/subfield.aviation_structures_aero_composites__core/</loc>
+<loc>https://agentbridge-lab.github.io/aeropatent-research/reports/subfield.space_comm_leo_network__core/</loc>
 <changefreq>monthly</changefreq>
 <priority>0.6</priority>
 </url>
@@ -157,11 +162,6 @@
 </url>
 <url>
 <loc>https://agentbridge-lab.github.io/aeropatent-research/reports/subfield.space_comm_leo_network__satellite-communication/</loc>
-<changefreq>monthly</changefreq>
-<priority>0.6</priority>
-</url>
-<url>
-<loc>https://agentbridge-lab.github.io/aeropatent-research/reports/subfield.space_comm_leo_network__core/</loc>
 <changefreq>monthly</changefreq>
 <priority>0.6</priority>
 </url>
@@ -192,6 +192,11 @@
 </url>
 <url>
 <loc>https://agentbridge-lab.github.io/aeropatent-research/reports/subfield.space_gnc_rendezvous_servicing__rendezvous/</loc>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://agentbridge-lab.github.io/aeropatent-research/reports/subfield.space_launch_propulsion_recovery__core/</loc>
 <changefreq>monthly</changefreq>
 <priority>0.6</priority>
 </url>
@@ -231,7 +236,7 @@
 <priority>0.6</priority>
 </url>
 <url>
-<loc>https://agentbridge-lab.github.io/aeropatent-research/reports/subfield.space_launch_propulsion_recovery__core/</loc>
+<loc>https://agentbridge-lab.github.io/aeropatent-research/reports/subfield.space_materials_tps_coatings__tps/</loc>
 <changefreq>monthly</changefreq>
 <priority>0.6</priority>
 </url>
@@ -256,7 +261,7 @@
 <priority>0.6</priority>
 </url>
 <url>
-<loc>https://agentbridge-lab.github.io/aeropatent-research/reports/subfield.space_materials_tps_coatings__tps/</loc>
+<loc>https://agentbridge-lab.github.io/aeropatent-research/reports/subfield.space_remote_sensing_payload__core/</loc>
 <changefreq>monthly</changefreq>
 <priority>0.6</priority>
 </url>
@@ -286,7 +291,7 @@
 <priority>0.6</priority>
 </url>
 <url>
-<loc>https://agentbridge-lab.github.io/aeropatent-research/reports/subfield.space_remote_sensing_payload__core/</loc>
+<loc>https://agentbridge-lab.github.io/aeropatent-research/reports/subfield.space_satellite_bus_thermal_power__core/</loc>
 <changefreq>monthly</changefreq>
 <priority>0.6</priority>
 </url>
@@ -317,11 +322,6 @@
 </url>
 <url>
 <loc>https://agentbridge-lab.github.io/aeropatent-research/reports/subfield.space_satellite_bus_thermal_power__thermal-louver/</loc>
-<changefreq>monthly</changefreq>
-<priority>0.6</priority>
-</url>
-<url>
-<loc>https://agentbridge-lab.github.io/aeropatent-research/reports/subfield.space_satellite_bus_thermal_power__core/</loc>
 <changefreq>monthly</changefreq>
 <priority>0.6</priority>
 </url>
