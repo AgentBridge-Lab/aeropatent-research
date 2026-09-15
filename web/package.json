@@ -8,7 +8,9 @@
     "build:pages": "npm run sync:data && next build",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "build:site": "npm run build:pages && python3 ../scripts/refresh_static_site.py"
   },
   "dependencies": {
     "@splinetool/react-spline": "^4.1.0",

@@ -13,11 +13,12 @@
 }
 .charts {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 16px;
   margin-bottom: 16px;
 }
 .card {
+  min-width: 0;
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -42,7 +43,7 @@
 }
 .twoCol {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 16px;
   margin: 16px 0;
 }
@@ -69,6 +70,8 @@
   background: var(--panel-soft);
 }
 .fieldTop {
+  flex-wrap: wrap;
+  gap: 6px;
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -1,0 +1,373 @@
+{
+  "schema_version": "aeropatent.site-data-provenance.v1",
+  "snapshot_aggregation_date": 20260912,
+  "snapshot_generated_at": "2026-09-12T10:13:59.199Z",
+  "source_collection_date": null,
+  "source_collection_date_status": "실제 수집일 미확인. 보관 manifest 2026-06-28 (2,522,788행), 현재 집계 2,450,063행. 원시 스냅숏 로컬 부재.",
+  "raw_input": "raw/bigquery/bq_candidates_latest.jsonl",
+  "raw_input_available": false,
+  "retained_manifest_date": "2026-06-28T17:28:21.807Z",
+  "retained_manifest_rows": 2522788,
+  "current_aggregate_rows": 2450063,
+  "manifest_rows_match": false,
+  "aggregate_counts": {
+    "families": 728312,
+    "publications": 1945811,
+    "field_publication_rows": 2450063
+  },
+  "grain_notes": {
+    "candidates": "CPC-prefix candidates, not text-validated aerospace inventions",
+    "office_share": "five-office family membership sum; overlapping offices, not applicant domicile",
+    "annual_count": "distinct families per publication-row priority year; a family may span years",
+    "recent_share": "rolling 3-year families / all candidate families, not a growth rate",
+    "recent_windows": {
+      "three_year_start": 20230912,
+      "five_year_start": 20210912,
+      "end": 20260912
+    },
+    "enrichment_priority_window": [
+      2016,
+      2025
+    ],
+    "enrichment_query_date": "2026-09-12",
+    "citing_families": "distinct other families citing candidate publications; no age/field normalization",
+    "cr5": "top-five source-name family-count sum / unique field families; co-applicant overlap retained"
+  },
+  "seed": {
+    "source_rows": 65,
+    "displayed_publications": 63,
+    "displayed_families": 50,
+    "selection": "manual seed selection; not a probability sample of the aggregate",
+    "date_basis_counts": {
+      "filing_date": 60,
+      "publication_year": 3
+    },
+    "date_quality_records": [
+      {
+        "publication": "CN106081171A",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "CN107108047A",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "CN107244432A",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "CN104724297A",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "CN107344631A",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "CN101775219B",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "CN104561882A",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "CN1641200A",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "CN102221696A",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "CN101769825B",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "CN109573107A",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "CN103687081B",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "CN103957045A",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "EP3186151B1",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "EP3932810B1",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "EP3650358A1",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "EP4140898A1",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "EP1493788A1",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "EP1241487A1",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "EP3432027B1",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "EP3877263B1",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "JP6670837B2",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "JPH01282098A",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "JP7603675B2",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "JP2003509279A",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "JP2005014900A",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "JP7582444B2",
+        "notes": [
+          "원천 출원일이 없어 공개연도를 대신 사용합니다."
+        ]
+      },
+      {
+        "publication": "JPH05193592A",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "JP2013540639A",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "KR102412775B1",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "KR20230029274A",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "KR101549952B1",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "KR101920379B1",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "KR102876480B1",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "KR20240129160A",
+        "notes": [
+          "원천 출원일이 없어 공개연도를 대신 사용합니다."
+        ]
+      },
+      {
+        "publication": "KR20240127357A",
+        "notes": [
+          "원천 출원일이 없어 공개연도를 대신 사용합니다."
+        ]
+      },
+      {
+        "publication": "US20190023422A1",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "US9302793B2",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "US10822122B2",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "US8678321B2",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "US10717836B1",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "US4713275A",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "US10871561B2",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "US20160288926A1",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "US20210276736A1",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "US9862507B2",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "US10348396B2",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      },
+      {
+        "publication": "US10666352B2",
+        "notes": [
+          "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+        ]
+      }
+    ],
+    "empty_seed_fields": [
+      "aviation_propulsion_sustainable",
+      "aviation_structures_aero_composites",
+      "aviation_avionics_flight_control_autonomy"
+    ],
+    "applicant_domicile": "unknown; publication offices retained separately",
+    "keyword_edges": "recorded document matched_terms only; no inherited field query terms"
+  },
+  "source_files": [
+    {
+      "path": "exports/agentbridge/agentbridge_patent_landscape_snapshot.json",
+      "sha256": "f9495c12ea90fd3fec288edd543c0865e319f51de9792603ee80bd1c0eed81da"
+    },
+    {
+      "path": "analysis/bq_candidates_production.manifest.json",
+      "sha256": "ce7814351acd163e953a0499282b8c3e600473ce43dd5f49ea0830bc9af4c341"
+    },
+    {
+      "path": "analysis/deepdive_enrichment.json",
+      "sha256": "6b762329d42919b0a058744513441f8f1e0903a46f3a9fd1dac7158c4e02f477"
+    },
+    {
+      "path": "normalized/patents.jsonl",
+      "sha256": "ccf159c6b58f0283f70770f1560c33c144a8e48773e068b1625c3e4b8009121d"
+    },
+    {
+      "path": "normalized/claims.jsonl",
+      "sha256": "d6f8c972edf72873921cdddd47a5f1205db53511eaacadcce76a9f2f612721ff"
+    },
+    {
+      "path": "sql/01a_candidate_10y_cpc_first_production.sql",
+      "sha256": "0c83fa0e67dc962ec0e67e885f8f5c93861b829d6e30460cea0bedf518832be9"
+    },
+    {
+      "path": "sql/07_deepdive_enrichment_queries.sql",
+      "sha256": "6c90c42cd2a9e3ce496eed45ccae1320291b2ae4905cd6ceb0dbf1b04dcf10f3"
+    }
+  ]
+}

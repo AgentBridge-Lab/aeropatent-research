@@ -48,45 +48,50 @@ table{width:100%;border-collapse:collapse;font-size:13.5px}
 td{padding:9px 6px;border-top:1px solid var(--border)}td.num{text-align:right;font-weight:800;color:var(--accent);white-space:nowrap}
 .foot{color:var(--dim);font-size:12px;line-height:1.7;margin-top:30px}
 .back{display:inline-block;margin-bottom:26px;font-size:13.5px;text-decoration:none;border:1px solid var(--border-s);border-radius:999px;padding:7px 16px}
+details{margin:16px 0}summary{cursor:pointer;color:var(--accent);font-size:13px}
+pre{max-width:100%;overflow:auto;padding:16px;background:#0007;border:1px solid var(--border);font-size:11px;line-height:1.6}
 </style></head><body><div class="wrap">
 <a class="back" href="../">← AEROPATENT 대시보드</a>
 <div class="kicker">DEEP DIVE · 우주탐사</div>
 <h1>우주탐사 특허출원 현황 분석</h1>
-<p class="sub">KR 출원을 보유한 우주탐사 특허패밀리(우선일 2010–2020) 적격 모집단 983건의 기술군 분포와,
-층화표본 67건의 출원 주체·국제화·영향력 심층 분석. 전 수치는 Google Patents Public Datasets(BigQuery) 기반.</p>
+<p class="sub">우주탐사 관련 코드·제목 조건과 KR 공보 보유 조건으로 선별한 패밀리(우선연도 2010–2020) 983건의 주층 분포와,
+층화표본 67건의 출원 주체·관할·피인용 현황입니다. 주층은 여러 기술군 중 표집을 위해 배정한 하나의 기술군입니다. 수치는 Google Patents Public Datasets(BigQuery)에 기반합니다.</p>
 <div class="kpis">
 <div class="kpi"><b>983</b><span>적격 특허패밀리 (KR 보유 · 2010–2020)</span></div>
-<div class="kpi"><b>91%</b><span>우주 추진 + 통신·항법 비중 — 위성·발사체 범용 기술 집중</span></div>
-<div class="kpi hot"><b>7건 <em style="font-size:16px">(0.7%)</em></b><span>달·행성·로봇으로 분류된 패밀리 (본 분류 정의·KR 보유 조건 기준)</span></div>
+<div class="kpi"><b>91%</b><span>추진 490 + 통신·항법 404 — 표집 주층 배정 기준</span></div>
+<div class="kpi hot"><b>7건 <em style="font-size:16px">(0.7%)</em></b><span>달·행성·로봇 주층 배정 합계 · 전체 기술 소속의 합집합이 아님</span></div>
 </div>
-<div class="panel"><h2>기술군별 적격 패밀리</h2>
-<p class="note">밝은 막대 = 탐사 고유 3개 기술군. 본 검색·분류 정의와 KR 보유·우선일 2010–2020 조건에서 달·행성·탐사 로봇으로 분류된 패밀리는 7건(0.7%). 분류 정의를 달리하면 수치가 달라질 수 있음.</p>
+<div class="panel"><h2>주층별 적격 패밀리</h2>
+<p class="note">여러 기술군에 속하면 ID의 사전식 순서에서 첫 기술군을 주층으로 배정합니다. 밝은 막대는 DS-1·DS-2·DS-8 주층입니다.
+이 세 주층의 합은 7건(0.7%)이며, 추진·통신 비중도 같은 주층 기준입니다. 모집단 983건의 전체 기술 소속 합집합은 아직 계산하지 않았습니다.</p>
+<p class="note">표본 67건에서는 세 주층에 배정된 패밀리가 7건이고, 세 기술군 중 하나라도 속하는 패밀리의 합집합은 8건입니다.
+패밀리 54366552가 DS-7 주층과 DS-8 소속을 함께 가지기 때문입니다. 이는 종자처리 분야의 혼입 사례로, 8건을 검증된 우주탐사 발명의 수로 해석하지 않습니다.</p>
 <div class="row"><span class="lbl">DS-3 우주 추진</span>
-<div class="track"><div class="fill " style="width:100.0%"></div></div>
+<div class="track"><div class="fill " style="width:100.000%"></div></div>
 <span class="val">490<em> (49.8%)</em></span></div>
 <div class="row"><span class="lbl">DS-4 통신·항법</span>
-<div class="track"><div class="fill " style="width:82.4%"></div></div>
+<div class="track"><div class="fill " style="width:82.449%"></div></div>
 <span class="val">404<em> (41.1%)</em></span></div>
 <div class="row"><span class="lbl">DS-5 EDL·샘플귀환</span>
-<div class="track"><div class="fill " style="width:6.9%"></div></div>
+<div class="track"><div class="fill " style="width:6.939%"></div></div>
 <span class="val">34<em> (3.5%)</em></span></div>
 <div class="row"><span class="lbl">DS-7 과학탑재체</span>
-<div class="track"><div class="fill " style="width:5.3%"></div></div>
+<div class="track"><div class="fill " style="width:5.306%"></div></div>
 <span class="val">26<em> (2.6%)</em></span></div>
 <div class="row"><span class="lbl">DS-6 생명유지·방사선</span>
-<div class="track"><div class="fill " style="width:4.5%"></div></div>
+<div class="track"><div class="fill " style="width:4.490%"></div></div>
 <span class="val">22<em> (2.2%)</em></span></div>
 <div class="row"><span class="lbl">DS-8 탐사 로봇</span>
-<div class="track"><div class="fill accent" style="width:0.8%"></div></div>
+<div class="track"><div class="fill accent" style="width:0.816%"></div></div>
 <span class="val">4<em> (0.4%)</em></span></div>
 <div class="row"><span class="lbl">DS-1 달탐사</span>
-<div class="track"><div class="fill accent" style="width:0.6%"></div></div>
+<div class="track"><div class="fill accent" style="width:0.408%"></div></div>
 <span class="val">2<em> (0.2%)</em></span></div>
 <div class="row"><span class="lbl">DS-2 행성탐사</span>
-<div class="track"><div class="fill accent" style="width:0.6%"></div></div>
+<div class="track"><div class="fill accent" style="width:0.204%"></div></div>
 <span class="val">1<em> (0.1%)</em></span></div></div>
-<div class="panel"><h2>기술군 × 우선연도 구간</h2>
-<p class="note">적격 모집단 기준. 빈 칸 = 해당 구간 출원 없음.</p>
+<div class="panel"><h2>주층 × 우선연도 구간</h2>
+<p class="note">적격 모집단의 주층 배정 건수입니다. 빈 칸은 이 검색·기간·KR 공보 조건에서 해당 주층에 배정된 건수가 0이라는 뜻이며, 관련 기관 활동이나 기술역량의 부재를 뜻하지 않습니다.</p>
 <div class="heat-scroll" tabindex="0" role="region" aria-label="기술군별 우선연도 히트맵"><div class="heat"><div></div><div class="h-head">2010–13</div><div class="h-head">2014–17</div><div class="h-head">2018–20</div>
 <div class="h-lbl">DS-1 달탐사</div>
 <div class="h-cell" style="background:rgba(143,171,212,0.00)"></div>
@@ -122,14 +127,14 @@ td{padding:9px 6px;border-top:1px solid var(--border)}td.num{text-align:right;fo
 <div class="h-cell" style="background:rgba(143,171,212,0.19)">3</div></div></div></div>
 <div class="grid2">
 <div class="panel"><h2>표본 67건의 출원 주체 <em style="font-size:12px;color:var(--dim);font-style:normal">— 67건 표본 내부 통계 (모집단 점유율 아님)</em></h2>
-<p class="note">층화표본(기술군×기간, 결정적 추출) 기준 · 명칭은 BigQuery 조화 명칭. 한국항공우주연구원이 21건(31%)으로 최다.</p>
+<p class="note">주층×기간별 층화표본의 비가중 집계이며 모집단 순위 추정이 아닙니다. 명칭은 BigQuery 조화 명칭을 사용하며, 공동출원 패밀리는 명칭별로 겹칠 수 있습니다. 표본에서 한국항공우주연구원은 21건(31%)입니다. 시점이 다른 명칭을 현재 기관명으로 일괄 통합하지 않습니다.</p>
 <div class="row"><span class="lbl">한국항공우주연구원</span>
 <div class="track"><div class="fill accent" style="width:100%"></div></div><span class="val">21</span></div>
 <div class="row"><span class="lbl">보잉</span>
 <div class="track"><div class="fill " style="width:14%"></div></div><span class="val">3</span></div>
 <div class="row"><span class="lbl">국방과학연구소</span>
 <div class="track"><div class="fill " style="width:14%"></div></div><span class="val">3</span></div>
-<div class="row"><span class="lbl">삼성탈레스(現 한화시스템)</span>
+<div class="row"><span class="lbl">삼성탈레스</span>
 <div class="track"><div class="fill " style="width:10%"></div></div><span class="val">2</span></div>
 <div class="row"><span class="lbl">한국전자통신연구원</span>
 <div class="track"><div class="fill " style="width:10%"></div></div><span class="val">2</span></div>
@@ -139,17 +144,542 @@ td{padding:9px 6px;border-top:1px solid var(--border)}td.num{text-align:right;fo
 <div class="track"><div class="fill " style="width:10%"></div></div><span class="val">2</span></div>
 <div class="row"><span class="lbl">삼성전자</span>
 <div class="track"><div class="fill " style="width:10%"></div></div><span class="val">2</span></div></div>
-<div class="panel"><h2>국제화와 영향력</h2>
+<div class="panel"><h2>공보 관할과 피인용</h2>
 <p class="caption">67건 표본 내부 통계 · 관할=공보 발행 관청(WO·EP 포함)</p>
-<p class="note">표본 67개 패밀리 각각이 공보를 발행한 특허청 수(WO·EP 포함)를 센 값. 절반은 2개청 이하(중앙값 2), 최대 26개청. 49%는 KR에만 출원 — 국내 전용과 글로벌 확장으로 나뉨.</p>
+<p class="note">표본 67개 패밀리 각각의 공보 발행 관청 수(WO·EP 포함)는 중앙값 2, 최대 26입니다. 49%는 관측된 공보 발행 관청이 KR뿐입니다. KR 공보 보유는 출원인의 국적 조건이 아니며, 이 비가중 표본만으로 전체 모집단의 국제화 수준을 추정하지 않습니다. 피인용도 표본 안의 기술통계이며 발명의 우수성이나 경제적 가치를 직접 뜻하지 않습니다.</p>
 <table><tr><td style="color:var(--muted)">피인용 상위 (후속 인용 패밀리 수)</td><td></td></tr>
-<tr><td>Dynamic satellite beam assignment</td><td class="num">29</td></tr>
-<tr><td>Electrode performance evaluation system and electrode performance evaluation method</td><td class="num">21</td></tr>
-<tr><td>Hollow curved plate, manufacturing method of the same and combustor of gas turbine</td><td class="num">19</td></tr>
-<tr><td>Gas-assisted fluid atomizing injector</td><td class="num">15</td></tr>
-<tr><td>Passive device designed to facilitate demise of a space system during re-entry into the earth&#39;s atmosphere</td><td class="num">14</td></tr></table></div>
+<tr><td>Dynamic satellite beam assignment<br><small>패밀리 61627202</small></td><td class="num">29</td></tr>
+<tr><td>Electrode performance evaluation system and electrode performance evaluation method<br><small>패밀리 66438461</small></td><td class="num">21</td></tr>
+<tr><td>Hollow curved plate, manufacturing method of the same and combustor of gas turbine<br><small>패밀리 47217219</small></td><td class="num">19</td></tr>
+<tr><td>Gas-assisted fluid atomizing injector<br><small>패밀리 52828638</small></td><td class="num">15</td></tr>
+<tr><td>Passive device designed to facilitate demise of a space system during re-entry into the earth&#x27;s atmosphere<br><small>패밀리 52444563</small></td><td class="num">14</td></tr></table></div>
 </div>
-<p class="foot">데이터: Google Patents Public Datasets (BigQuery, patents-public-data.patents.publications) · 기준일 2026-09-12<br>
-분류 정의: 우주탐사 8개 기술군 IPC/CPC 코드 목록(<a href="https://github.com/AgentBridge-Lab/aeropatent-research/blob/main/config/exploration_ds_taxonomy.json">config/exploration_ds_taxonomy.json</a>) — 분류 정의에 따라 수치가 달라질 수 있음<br>
+<div class="panel" id="taxonomy-source"><h2>분류 정의와 해석 범위</h2>
+<p class="note">원래 코드 선별 표본 67건은 경계 의심 7건을 포함한 상태로 유지합니다. 제목·분류 검토에서 표시한 후보이며 확정 오분류나 표본 순도, 분야 전체의 검색 정확도를 뜻하지 않습니다.
+공보가 관측되지 않는 이유에는 검색 규칙, 출원 관할, 비특허 연구활동 등이 있으므로 출원 건수를 기술역량이나 기관 활동의 유무로 바꾸어 해석하지 않습니다.</p>
+<p class="note">단순 코드 목록 대신 제목 조건·동시 분류·제외 규칙과 주층 배정이 포함된 원문을 보존합니다. YAML 설정의 설명과 실제 실행 SQL을 함께 확인할 수 있습니다.
+<a href="https://github.com/AgentBridge-Lab/aeropatent-research/blob/main/config/exploration_ds_taxonomy.json">원문과 SHA-256을 담은 JSON</a></p>
+<details><summary>config/space-exploration8-taxonomy.yml 원문</summary><p class="caption">SHA-256: 8731ee3704654defd590bb06730fec0eb8976f2af5fe60ba1445256252117959</p><pre>taxonomy_id: space_exploration8_recovered_v1
+scope_name_ko: 우주탐사 8개 클러스터
+scope_name_en: Space Exploration Eight-Cluster Taxonomy
+status: recovered_and_operationalized
+recovered_at: 2026-07-30
+
+provenance:
+  source_file: aerospace-patent-trends-draft.md
+  source_drive_file_id: 1cgQXxFdaHoL2czdEFvuxzVaWixNSTtBV
+  source_modified_at: 2026-05-09T01:47:25.017Z
+  source_sha256: 50c52f9c41e104bc381cc15b141e01cf12fc93c28bbf1766de28814b911fc809
+  source_section: 부록 B 표 B-1
+  recovered_cluster_count: 8
+  unsupported_prior_label: aerospace9
+
+classification_reference:
+  system: CPC
+  release: &quot;2026.05&quot;
+  official_url: https://www.cooperativepatentclassification.org/cpcSchemeAndDefinitions/bulk
+  title_list_sha256: 52d6f1597f899e3afdc5c2dac11586e453709a4d0e4ebbc70d4dc6c97abd1ec8
+
+operationalization:
+  priority_window: [20100101, 20201231]
+  family_definition: DOCDB simple family
+  primary_classification: CPC
+  fallback_classification: IPC
+  normalize_code: uppercase_and_remove_non_alnum_except_slash
+  overlap_policy: allow_multiple_clusters_per_family
+  output_grain: family_id_x_tech_field
+  broad_code_policy: require_B64G_co_classification
+  lunar_planetary_policy: require_title_keyword
+
+clusters:
+  - id: DS-1
+    name_ko: 달탐사
+    recovered_codes: [B64G1/10, B64G1/22, B64G1/58, B64G1/62, Y10S903]
+    operational_codes: [B64G1/10, B64G1/22, B64G1/58, B64G1/62, B64G4]
+    title_keywords:
+      - lunar
+      - moon
+      - selen
+      - 달탐사
+      - 달 탐사
+      - 달궤도
+      - 달 궤도
+      - 달착륙
+      - 달 착륙
+      - 달표면
+      - 달 표면
+      - 월면
+      - 월궤도
+      - 월착륙
+    note: Y10S903은 현행 CPC에서 하이브리드 전기차이므로 제거했다. 한국어 단독 &#x27;달&#x27;은 &#x27;전달&#x27; 오탐 때문에 사용하지 않는다.
+
+  - id: DS-2
+    name_ko: 행성탐사
+    recovered_codes: [B64G1/22, B64G1/64]
+    operational_codes: [B64G1/1064, B64G1/1071, B64G1/22, B64G1/64]
+    title_keywords:
+      - planetary
+      - interplanetary
+      - mars
+      - martian
+      - venus
+      - asteroid
+      - comet
+      - mercury
+      - jupiter
+      - saturn
+      - 행성
+      - 화성
+      - 금성
+      - 수성
+      - 목성
+      - 토성
+      - 소행성
+      - 혜성
+
+  - id: DS-3
+    name_ko: 우주 추진
+    recovered_name_ko: 심우주 추진
+    recovered_codes: [F02K9/10, F02K9/42, F02K9/62, H05H1/54]
+    operational_codes: [B64G1/40, F02K9, H05H1/54]
+    contextual_codes: [H05H1/54]
+    note: 현행 CPC의 우주 추진 전용 B64G1/40 하위군을 추가했다. H05H1/54는 B64G 동시 분류 또는 우주 추진 제목 문맥을 요구한다.
+
+  - id: DS-4
+    name_ko: 우주 통신·항법
+    recovered_name_ko: 심우주 통신·항법
+    recovered_codes: [H04B10/118, H04B7/185, G01C21/24]
+    operational_codes: [H04B10/118, H04B7/185, G01C21/24, B64G1/1007, B64G1/1014]
+    contextual_codes: [H04B7/185]
+    note: H04B7/185는 항공 이동국도 포함하므로 B64G 동시 분류 또는 우주 제목 문맥을 요구한다.
+
+  - id: DS-5
+    name_ko: EDL·샘플귀환
+    recovered_codes: [B64G1/62, B64G1/14]
+    operational_codes: [B64G1/58, B64G1/62, B64G1/14]
+
+  - id: DS-6
+    name_ko: 생명유지·방사선
+    recovered_codes: [A62B, B64G1/46, Y10S903]
+    operational_codes: [B64G1/46, B64G1/48, B64G1/50, B64G1/54, B64G1/60]
+    contextual_codes: [A62B]
+    note: Y10S903은 제거하고 A62B는 B64G 동시 분류가 있을 때만 사용한다. 일반 안전장치 B64G1/52는 분야 의미보다 넓어 제외한다.
+
+  - id: DS-7
+    name_ko: 과학탑재체
+    recovered_codes: [G01N, G01V, G02B, G01R33]
+    operational_codes: []
+    contextual_codes: [G01N, G01V, G02B, G01R33]
+    note: 원자료의 계측 코드는 B64G 동시 분류가 있을 때만 사용한다. 원자료에 없고 표본에서 분야 외 문헌을 포함한 B64G1/105·B64G1/66·B64G1/68은 제외한다.
+
+  - id: DS-8
+    name_ko: 탐사 로봇공학
+    recovered_codes: [B25J9, B64G4]
+    operational_codes: [B64G4, B25J9]
+    contextual_codes: [B64G4, B25J9]
+    note: B25J9는 B64G 동시 분류가 있을 때만 사용하고, B64G4 단독은 로봇·매니퓰레이터 제목 문맥을 요구한다.
+</pre></details>
+<details><summary>sql/build_candidates_snapshot.sql 원문</summary><p class="caption">SHA-256: 5623c80868434d71f5677776684d38b7a01fcede2323feb28898302a2733e5d8</p><pre>-- Rebuild the missing SPN-Aero candidate input from recovered source material.
+--
+-- Taxonomy: config/space-exploration8-taxonomy.yml
+-- Source: Drive aerospace-patent-trends-draft.md, Appendix B, Table B-1
+-- Grain: one row per DOCDB simple family x recovered technology field
+-- Window: earliest priority date 2010-01-01 through 2020-12-31
+--
+-- Important corrections:
+--   * The source contains eight clusters, not nine.
+--   * Y10S903 is a current hybrid-electric-vehicle code and is excluded.
+--   * Broad instrument/robot/life-saving classes require B64G co-classification.
+--   * Lunar and planetary clusters require a matching title keyword.
+
+CREATE OR REPLACE TABLE
+  `aeropatent-research.aeropatent_research.candidates_snapshot`
+CLUSTER BY tech_field, family_id
+OPTIONS (
+  description = &#x27;Recovered space_exploration8_recovered_v1 candidate families; family_id x tech_field&#x27;
+) AS
+WITH publications AS (
+  SELECT
+    p.family_id,
+    p.publication_number,
+    p.priority_date,
+    LOWER(ARRAY_TO_STRING(
+      ARRAY(
+        SELECT text
+        FROM UNNEST(p.title_localized)
+        WHERE text IS NOT NULL
+      ),
+      &#x27; &#x27;
+    )) AS title_text,
+    ARRAY_CONCAT(
+      ARRAY(
+        SELECT AS STRUCT
+          &#x27;CPC&#x27; AS system,
+          REGEXP_REPLACE(UPPER(code), r&#x27;[^A-Z0-9/]&#x27;, &#x27;&#x27;) AS code
+        FROM UNNEST(p.cpc)
+        WHERE code IS NOT NULL
+      ),
+      ARRAY(
+        SELECT AS STRUCT
+          &#x27;IPC&#x27; AS system,
+          REGEXP_REPLACE(UPPER(code), r&#x27;[^A-Z0-9/]&#x27;, &#x27;&#x27;) AS code
+        FROM UNNEST(p.ipc)
+        WHERE code IS NOT NULL
+      )
+    ) AS codes
+  FROM `patents-public-data.patents.publications` AS p
+  WHERE p.family_id IS NOT NULL
+    AND p.priority_date BETWEEN 20100101 AND 20201231
+),
+features AS (
+  SELECT
+    *,
+    EXISTS (
+      SELECT 1 FROM UNNEST(codes)
+      WHERE STARTS_WITH(code, &#x27;B64G&#x27;)
+    ) AS has_space_anchor
+  FROM publications
+),
+publication_matches AS (
+  SELECT
+    f.*,
+    m.tech_field,
+    m.tech_field_name,
+    ARRAY(
+      SELECT DISTINCT CONCAT(code.system, &#x27;:&#x27;, code.code)
+      FROM UNNEST(f.codes) AS code
+      WHERE CASE m.tech_field
+        WHEN &#x27;DS-1&#x27; THEN
+          STARTS_WITH(code.code, &#x27;B64G1/10&#x27;)
+          OR STARTS_WITH(code.code, &#x27;B64G1/22&#x27;)
+          OR STARTS_WITH(code.code, &#x27;B64G1/58&#x27;)
+          OR STARTS_WITH(code.code, &#x27;B64G1/62&#x27;)
+          OR STARTS_WITH(code.code, &#x27;B64G4&#x27;)
+        WHEN &#x27;DS-2&#x27; THEN
+          STARTS_WITH(code.code, &#x27;B64G1/1064&#x27;)
+          OR STARTS_WITH(code.code, &#x27;B64G1/1071&#x27;)
+          OR STARTS_WITH(code.code, &#x27;B64G1/22&#x27;)
+          OR STARTS_WITH(code.code, &#x27;B64G1/64&#x27;)
+        WHEN &#x27;DS-3&#x27; THEN
+          STARTS_WITH(code.code, &#x27;B64G1/40&#x27;)
+          OR STARTS_WITH(code.code, &#x27;F02K9&#x27;)
+          OR STARTS_WITH(code.code, &#x27;H05H1/54&#x27;)
+        WHEN &#x27;DS-4&#x27; THEN
+          STARTS_WITH(code.code, &#x27;H04B10/118&#x27;)
+          OR STARTS_WITH(code.code, &#x27;H04B7/185&#x27;)
+          OR STARTS_WITH(code.code, &#x27;G01C21/24&#x27;)
+          OR STARTS_WITH(code.code, &#x27;B64G1/1007&#x27;)
+          OR STARTS_WITH(code.code, &#x27;B64G1/1014&#x27;)
+        WHEN &#x27;DS-5&#x27; THEN
+          STARTS_WITH(code.code, &#x27;B64G1/58&#x27;)
+          OR STARTS_WITH(code.code, &#x27;B64G1/62&#x27;)
+          OR STARTS_WITH(code.code, &#x27;B64G1/14&#x27;)
+        WHEN &#x27;DS-6&#x27; THEN
+          STARTS_WITH(code.code, &#x27;B64G1/46&#x27;)
+          OR STARTS_WITH(code.code, &#x27;B64G1/48&#x27;)
+          OR STARTS_WITH(code.code, &#x27;B64G1/50&#x27;)
+          OR STARTS_WITH(code.code, &#x27;B64G1/54&#x27;)
+          OR STARTS_WITH(code.code, &#x27;B64G1/60&#x27;)
+          OR (f.has_space_anchor AND STARTS_WITH(code.code, &#x27;A62B&#x27;))
+        WHEN &#x27;DS-7&#x27; THEN
+          (
+            f.has_space_anchor
+            AND (
+              STARTS_WITH(code.code, &#x27;G01N&#x27;)
+              OR STARTS_WITH(code.code, &#x27;G01V&#x27;)
+              OR STARTS_WITH(code.code, &#x27;G02B&#x27;)
+              OR STARTS_WITH(code.code, &#x27;G01R33&#x27;)
+            )
+          )
+        WHEN &#x27;DS-8&#x27; THEN
+          STARTS_WITH(code.code, &#x27;B64G4&#x27;)
+          OR (f.has_space_anchor AND STARTS_WITH(code.code, &#x27;B25J9&#x27;))
+        ELSE FALSE
+      END
+      ORDER BY 1
+    ) AS matched_codes
+  FROM features AS f
+  CROSS JOIN UNNEST([
+    STRUCT(
+      &#x27;DS-1&#x27; AS tech_field,
+      &#x27;달탐사&#x27; AS tech_field_name,
+      REGEXP_CONTAINS(
+        f.title_text,
+        r&#x27;(lunar|moon|selen|달[[:space:]]*(탐사|궤도|착륙|표면)|월면|월궤도|월착륙)&#x27;
+      )
+      AND EXISTS (
+        SELECT 1 FROM UNNEST(f.codes)
+        WHERE STARTS_WITH(code, &#x27;B64G1/10&#x27;)
+          OR STARTS_WITH(code, &#x27;B64G1/22&#x27;)
+          OR STARTS_WITH(code, &#x27;B64G1/58&#x27;)
+          OR STARTS_WITH(code, &#x27;B64G1/62&#x27;)
+          OR STARTS_WITH(code, &#x27;B64G4&#x27;)
+      ) AS is_match
+    ),
+    STRUCT(
+      &#x27;DS-2&#x27;,
+      &#x27;행성탐사&#x27;,
+      REGEXP_CONTAINS(
+        f.title_text,
+        r&#x27;(planetary|interplanetary|mars|martian|venus|asteroid|comet|mercury|jupiter|saturn|행성|화성|금성|수성|목성|토성|소행성|혜성)&#x27;
+      )
+      AND EXISTS (
+        SELECT 1 FROM UNNEST(f.codes)
+        WHERE STARTS_WITH(code, &#x27;B64G1/1064&#x27;)
+          OR STARTS_WITH(code, &#x27;B64G1/1071&#x27;)
+          OR STARTS_WITH(code, &#x27;B64G1/22&#x27;)
+          OR STARTS_WITH(code, &#x27;B64G1/64&#x27;)
+      )
+    ),
+    STRUCT(
+      &#x27;DS-3&#x27;,
+      &#x27;우주 추진&#x27;,
+      EXISTS (
+        SELECT 1 FROM UNNEST(f.codes)
+        WHERE STARTS_WITH(code, &#x27;B64G1/40&#x27;)
+          OR STARTS_WITH(code, &#x27;F02K9&#x27;)
+          OR (
+            STARTS_WITH(code, &#x27;H05H1/54&#x27;)
+            AND (
+              f.has_space_anchor
+              OR REGEXP_CONTAINS(
+                f.title_text,
+                r&#x27;(thruster|propulsion|rocket|spacecraft|satellite|우주|추진|로켓|위성)&#x27;
+              )
+            )
+          )
+      )
+    ),
+    STRUCT(
+      &#x27;DS-4&#x27;,
+      &#x27;우주 통신·항법&#x27;,
+      EXISTS (
+        SELECT 1 FROM UNNEST(f.codes)
+        WHERE STARTS_WITH(code, &#x27;H04B10/118&#x27;)
+          OR (
+            STARTS_WITH(code, &#x27;H04B7/185&#x27;)
+            AND (
+              f.has_space_anchor
+              OR REGEXP_CONTAINS(
+                f.title_text,
+                r&#x27;(satellite|spacecraft|space-based|deep[[:space:]]+space|interplanetary|위성|우주|심우주)&#x27;
+              )
+            )
+          )
+          OR STARTS_WITH(code, &#x27;G01C21/24&#x27;)
+          OR STARTS_WITH(code, &#x27;B64G1/1007&#x27;)
+          OR STARTS_WITH(code, &#x27;B64G1/1014&#x27;)
+      )
+    ),
+    STRUCT(
+      &#x27;DS-5&#x27;,
+      &#x27;EDL·샘플귀환&#x27;,
+      EXISTS (
+        SELECT 1 FROM UNNEST(f.codes)
+        WHERE STARTS_WITH(code, &#x27;B64G1/58&#x27;)
+          OR STARTS_WITH(code, &#x27;B64G1/62&#x27;)
+          OR STARTS_WITH(code, &#x27;B64G1/14&#x27;)
+      )
+    ),
+    STRUCT(
+      &#x27;DS-6&#x27;,
+      &#x27;생명유지·방사선&#x27;,
+      EXISTS (
+        SELECT 1 FROM UNNEST(f.codes)
+        WHERE STARTS_WITH(code, &#x27;B64G1/46&#x27;)
+          OR STARTS_WITH(code, &#x27;B64G1/48&#x27;)
+          OR STARTS_WITH(code, &#x27;B64G1/50&#x27;)
+          OR STARTS_WITH(code, &#x27;B64G1/54&#x27;)
+          OR STARTS_WITH(code, &#x27;B64G1/60&#x27;)
+          OR (f.has_space_anchor AND STARTS_WITH(code, &#x27;A62B&#x27;))
+      )
+    ),
+    STRUCT(
+      &#x27;DS-7&#x27;,
+      &#x27;과학탑재체&#x27;,
+      EXISTS (
+        SELECT 1 FROM UNNEST(f.codes)
+        WHERE (
+            f.has_space_anchor
+            AND (
+              STARTS_WITH(code, &#x27;G01N&#x27;)
+              OR STARTS_WITH(code, &#x27;G01V&#x27;)
+              OR STARTS_WITH(code, &#x27;G02B&#x27;)
+              OR STARTS_WITH(code, &#x27;G01R33&#x27;)
+            )
+          )
+      )
+    ),
+    STRUCT(
+      &#x27;DS-8&#x27;,
+      &#x27;탐사 로봇공학&#x27;,
+      (
+        f.has_space_anchor
+        AND EXISTS (
+          SELECT 1 FROM UNNEST(f.codes)
+          WHERE STARTS_WITH(code, &#x27;B25J9&#x27;)
+        )
+      )
+      OR (
+        EXISTS (
+          SELECT 1 FROM UNNEST(f.codes)
+          WHERE STARTS_WITH(code, &#x27;B64G4&#x27;)
+        )
+        AND REGEXP_CONTAINS(
+          f.title_text,
+          r&#x27;(robot|robotic|manipulator|rover|mechanical[[:space:]]+arm|capture|로봇|매니퓰레이터|로버|로봇팔|조작기)&#x27;
+        )
+      )
+    )
+  ]) AS m
+  WHERE m.is_match
+),
+family_matches AS (
+  SELECT
+    family_id,
+    tech_field,
+    ANY_VALUE(tech_field_name) AS tech_field_name,
+    MIN(priority_date) AS priority_date,
+    COUNT(DISTINCT publication_number) AS matched_publication_count,
+    ARRAY_AGG(DISTINCT matched_code ORDER BY matched_code) AS matched_codes
+  FROM publication_matches
+  CROSS JOIN UNNEST(matched_codes) AS matched_code
+  GROUP BY family_id, tech_field
+)
+SELECT
+  family_id,
+  tech_field,
+  tech_field_name,
+  &#x27;space_exploration8_recovered_v1&#x27; AS taxonomy_version,
+  priority_date,
+  DIV(priority_date, 10000) AS priority_year,
+  matched_publication_count,
+  matched_codes,
+  CURRENT_DATE(&#x27;Asia/Seoul&#x27;) AS snapshot_date
+FROM family_matches;
+</pre></details>
+<details><summary>sql/build_multisource_sample.sql 원문</summary><p class="caption">SHA-256: 9f5e260098aaa2a079d69498d0efed9d2529fed5d3c234aafa84b14fb83cae3d</p><pre>-- Build the fixed 96-family pilot sample for the multisource bibliography study.
+-- Source taxonomy: config/space-exploration8-taxonomy.yml
+-- Unit: one DOCDB simple family. Multi-label technology fields are retained,
+-- while the lexicographically first field is used only for stratification.
+
+CREATE OR REPLACE TABLE
+  `aeropatent-research.aeropatent_research.multisource_sample_v1`
+CLUSTER BY primary_tech_field, priority_period, family_id
+OPTIONS (
+  description = &#x27;Deterministic 96-family aerospace multisource bibliography pilot; 2026-09-10&#x27;
+) AS
+WITH candidate_families AS (
+  SELECT
+    family_id,
+    ARRAY_AGG(DISTINCT tech_field ORDER BY tech_field) AS tech_fields,
+    ARRAY_AGG(DISTINCT tech_field_name ORDER BY tech_field_name) AS tech_field_names,
+    MIN(priority_date) AS priority_date,
+    MIN(priority_year) AS priority_year
+  FROM `aeropatent-research.aeropatent_research.candidates_snapshot`
+  GROUP BY family_id
+),
+family_rollup AS (
+  SELECT
+    c.family_id,
+    c.tech_fields,
+    c.tech_field_names,
+    c.tech_fields[SAFE_OFFSET(0)] AS primary_tech_field,
+    c.priority_date,
+    c.priority_year,
+    CASE
+      WHEN c.priority_year BETWEEN 2010 AND 2013 THEN &#x27;P1&#x27;
+      WHEN c.priority_year BETWEEN 2014 AND 2017 THEN &#x27;P2&#x27;
+      WHEN c.priority_year BETWEEN 2018 AND 2020 THEN &#x27;P3&#x27;
+    END AS priority_period,
+    ARRAY_AGG(DISTINCT p.publication_number IGNORE NULLS ORDER BY p.publication_number) AS publication_numbers,
+    ARRAY_AGG(DISTINCT p.application_number IGNORE NULLS ORDER BY p.application_number) AS application_numbers,
+    ARRAY_CONCAT_AGG(ARRAY(SELECT value FROM UNNEST(p.assignee) AS value WHERE value IS NOT NULL)) AS applicant_names_raw,
+    ARRAY_CONCAT_AGG(ARRAY(SELECT value.name FROM UNNEST(p.assignee_harmonized) AS value WHERE value.name IS NOT NULL)) AS applicant_names_harmonized,
+    ARRAY_CONCAT_AGG(ARRAY(SELECT value.code FROM UNNEST(p.ipc) AS value WHERE value.code IS NOT NULL)) AS ipc_codes,
+    ARRAY_CONCAT_AGG(ARRAY(SELECT value.code FROM UNNEST(p.cpc) AS value WHERE value.code IS NOT NULL)) AS cpc_codes,
+    LOGICAL_OR(p.country_code IN (&#x27;EP&#x27;, &#x27;WO&#x27;)) AS has_ep_or_wo_member,
+    ARRAY_AGG(
+      IF(
+        p.country_code = &#x27;KR&#x27;,
+        STRUCT(
+          p.publication_number AS publication_number,
+          p.application_number AS application_number,
+          p.kind_code AS kind_code,
+          p.publication_date AS publication_date,
+          p.grant_date AS grant_date
+        ),
+        NULL
+      )
+      IGNORE NULLS
+      ORDER BY
+        CASE
+          WHEN p.country_code = &#x27;KR&#x27; AND p.kind_code LIKE &#x27;A%&#x27; THEN 0
+          WHEN p.country_code = &#x27;KR&#x27; AND p.grant_date &gt; 0 THEN 1
+          ELSE 2
+        END,
+        IFNULL(p.publication_date, 99999999),
+        p.publication_number
+      LIMIT 1
+    )[SAFE_OFFSET(0)] AS kr_anchor
+  FROM candidate_families AS c
+  JOIN `patents-public-data.patents.publications` AS p
+    USING (family_id)
+  GROUP BY
+    c.family_id,
+    c.tech_fields,
+    c.tech_field_names,
+    primary_tech_field,
+    c.priority_date,
+    c.priority_year,
+    priority_period
+),
+eligible AS (
+  SELECT *
+  FROM family_rollup
+  WHERE priority_period IS NOT NULL
+    AND kr_anchor.publication_number IS NOT NULL
+    AND kr_anchor.application_number IS NOT NULL
+),
+sampled AS (
+  SELECT
+    *,
+    ROW_NUMBER() OVER (
+      PARTITION BY primary_tech_field, priority_period
+      ORDER BY SHA256(CONCAT(&#x27;20260910|&#x27;, family_id)), family_id
+    ) AS stratum_order,
+    COUNT(*) OVER (
+      PARTITION BY primary_tech_field, priority_period
+    ) AS stratum_population_n
+  FROM eligible
+)
+SELECT
+  family_id,
+  tech_fields,
+  tech_field_names,
+  primary_tech_field,
+  priority_date,
+  priority_year,
+  priority_period,
+  publication_numbers,
+  application_numbers,
+  ARRAY(SELECT DISTINCT value FROM UNNEST(applicant_names_raw) AS value ORDER BY value) AS applicant_names_raw,
+  ARRAY(SELECT DISTINCT value FROM UNNEST(applicant_names_harmonized) AS value ORDER BY value) AS applicant_names_harmonized,
+  ARRAY(SELECT DISTINCT value FROM UNNEST(ipc_codes) AS value ORDER BY value) AS ipc_codes,
+  ARRAY(SELECT DISTINCT value FROM UNNEST(cpc_codes) AS value ORDER BY value) AS cpc_codes,
+  kr_anchor.publication_number AS kr_anchor_publication,
+  kr_anchor.application_number AS kr_anchor_application,
+  kr_anchor.kind_code AS kr_anchor_kind,
+  stratum_population_n,
+  stratum_order,
+  DATE &#x27;2026-09-10&#x27; AS snapshot_date,
+  &#x27;space_exploration8_recovered_v1&#x27; AS taxonomy_version,
+  &#x27;sha256-20260910-v1&#x27; AS sampling_rule_version
+FROM sampled
+WHERE stratum_order &lt;= 4;
+</pre></details></div>
+<div class="panel"><h2>집계 원자료</h2><p class="note"><a href="sources/exploration_deepdive.json">주층·표본 집계 JSON</a> · <a href="sources/exploration_ds_taxonomy.json">분류·표본 소속과 원문 해시 JSON</a>. 피인용 표의 패밀리 ID로 원자료 항목을 대조할 수 있습니다. 원공보 링크가 없는 표제는 집계 원자료의 표기를 제시합니다.</p></div>
+<p class="foot">데이터: Google Patents Public Datasets (BigQuery, patents-public-data.patents.publications) · 데이터 기준일 2026-09-12 · 방법론 설명 수정일 2026-09-16<br>
+분류 정의: <a href="#taxonomy-source">페이지 내 YAML·후보 추출 SQL·표집 SQL 원문</a> — 데이터 재수집 없이 해석과 근거를 보완했습니다.<br>
 표본 설계·다중 출처 검증 방법론: 항공우주시스템공학회 발표 (2026. 9. 18)</p>
 </div></body></html>

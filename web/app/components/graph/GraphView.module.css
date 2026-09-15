@@ -162,3 +162,5 @@
     margin-top: 0;
   }
 }
+
+.group select { width: 100%; max-width: 224px; min-width: 0; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 7px; padding: 8px; }

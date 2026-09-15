@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import crypto from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -225,19 +226,36 @@ const compactText = (value, max = 260) => {
 const json = (value) => JSON.stringify(value, null, 2);
 const tsStringUnion = (values) => values.map((v) => JSON.stringify(v)).join(" | ");
 
-const inferCountry = (name, fallback = "US") => {
-  const upper = String(name ?? "").toUpperCase();
-  if (upper.includes("KOREA") || upper.includes("KARI") || upper.includes("HANWHA")) return "KR";
-  if (upper.includes("CHINA") || upper.includes("BEIJING") || upper.includes("SHANGHAI") || upper.includes("HARBIN") || upper.includes("UNIV")) return "CN";
-  if (upper.includes("JAXA") || upper.includes("JAPAN") || upper.includes("MITSUBISHI") || upper.includes("NEC")) return "JP";
-  if (upper.includes("AIRBUS") || upper.includes("THALES") || upper.includes("ARIANE") || upper.includes("SAFRAN")) return "EP";
-  return fallback;
+// The seed has publication offices, not verified applicant domiciles.
+const seedDate = (row) => {
+  const yearOf = (value) => /^\d{4}-\d{2}-\d{2}$/.test(String(value ?? "")) ? Number(value.slice(0, 4)) : null;
+  const filingYear = yearOf(row.filing_date);
+  const publicationYear = yearOf(row.publication_date) ?? (Number(row.publication_year) || null);
+  const notes = [];
+  if (row.priority_date && row.filing_date && row.priority_date > row.filing_date)
+    notes.push("원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다.");
+  if (row.filing_date && row.publication_date && row.filing_date > row.publication_date)
+    notes.push("원천 출원일이 공개일보다 늦습니다. 원문 재확인이 필요합니다.");
+  if (!filingYear) notes.push("원천 출원일이 없어 공개연도를 대신 사용합니다.");
+  const year = filingYear ?? publicationYear;
+  if (!year) throw new Error(`No dated evidence for ${row.publication_number}`);
+  return {
+    year, basis: filingYear ? "filing_date" : "publication_year",
+    label: filingYear ? "출원연도" : "공개연도·출원일 미확인", notes,
+  };
 };
 
 const site = readJson("exports/agentbridge/agentbridge_patent_landscape_snapshot.json");
 const deepdiveEnrichment = readJson("analysis/deepdive_enrichment.json");
 const normalizedPatents = readJsonl("normalized/patents.jsonl");
 const claimRows = readJsonl("normalized/claims.jsonl");
+const collectionManifestPath = path.join(ROOT, "analysis/bq_candidates_production.manifest.json");
+const collectionManifest = fs.existsSync(collectionManifestPath) ? JSON.parse(fs.readFileSync(collectionManifestPath, "utf8")) : null;
+const rawInputAvailable = Boolean(site.source?.input && fs.existsSync(path.resolve(ROOT, site.source.input)));
+const collectionDateStatus = site.source?.collectionDate
+  ? "집계 원천에 명시된 수집일"
+  : `실제 수집일 미확인. 보관 manifest ${collectionManifest?.completedAt?.slice(0, 10) ?? "없음"} (${collectionManifest?.rowsWritten?.toLocaleString() ?? "미기록"}행), 현재 집계 ${site.summary.rowCount.toLocaleString()}행. 원시 스냅숏 ${rawInputAvailable ? "로컬 존재" : "로컬 부재"}.`;
+const provenanceNote = `전체 CPC 후보군 집계기준일 ${String(site.summary.analysisDate).replace(/^(\d{4})(\d{2})(\d{2})$/, "$1-$2-$3")}. ${collectionDateStatus} 심층 연도·피인용 자료는 별도 ${deepdiveEnrichment.priority_window.join("–")} 우선일 코호트입니다.`;
 
 const fields = site.fields.map((field, index) => {
   const override = FIELD_OVERRIDES[field.id] ?? {};
@@ -247,10 +265,7 @@ const fields = site.fields.map((field, index) => {
     short_label_ko: override.short_label_ko ?? field.shortLabelKo,
     label_en: field.labelEn,
     color: field.color ?? FIELD_FALLBACK_COLORS[index % FIELD_FALLBACK_COLORS.length],
-    summary_ko:
-      override.summary_ko ??
-      field.report?.proposalReadyBullets?.[0] ??
-      `${override.label_ko ?? field.labelKo} 분야의 BigQuery metadata-first 특허 landscape입니다.`,
+    summary_ko: `${override.label_ko ?? field.labelKo} 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.`,
     family_count: field.familyCount,
     publication_count: field.publicationCount,
     recent5_family_count: field.recent5FamilyCount,
@@ -268,7 +283,10 @@ const fields = site.fields.map((field, index) => {
       count: item.count,
     })),
     query_terms: (override.query_terms ?? field.queryTerms ?? []).slice(0, 10),
-    report_bullets: override.report_bullets ?? field.report?.proposalReadyBullets ?? [],
+    report_bullets: [
+      `${override.label_ko ?? field.labelKo} 검색축에서 ${field.familyCount.toLocaleString()}개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.`,
+      "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다.",
+    ],
     risk_notes: override.risk_notes ?? field.report?.riskNotes ?? [],
   };
 });
@@ -312,11 +330,13 @@ const ensureApplicant = (name, country, fieldId) => {
     applicantMap.set(id, {
       id,
       name: cleanName,
-      country: TARGET_COUNTRIES.includes(country) ? country : inferCountry(cleanName, "US"),
+      publication_countries: [],
       primaryField: fieldId,
     });
   }
-  return applicantMap.get(id);
+  const applicant = applicantMap.get(id);
+  if (TARGET_COUNTRIES.includes(country) && !applicant.publication_countries.includes(country)) applicant.publication_countries.push(country);
+  return applicant;
 };
 
 // 발사체 대표 문헌 8건을 원문 제목·초록 기준으로 수동 검토한 결과다.
@@ -355,10 +375,7 @@ for (const row of normalizedPatents) {
   const subfield = uniqueSubfieldIds[0];
   const applicant = ensureApplicant(row.assignee, row.authority, fieldId);
   const publication = row.publication_number;
-  const year =
-    Number(String(row.priority_date ?? row.filing_date ?? "").slice(0, 4)) ||
-    Number(row.publication_year) ||
-    site.summary.currentYear;
+  const dateEvidence = seedDate(row);
   const claimSource = claimsByPatent.get(publication) ?? [];
   const claims = [];
   if (claimSource.length > 0) {
@@ -394,12 +411,19 @@ for (const row of normalizedPatents) {
     abstract_ko: compactText(row.llm_summary_ko || row.abstract || row.seed_note, 420),
     applicant: applicant.id,
     applicantName: applicant.name,
-    filing_year: Math.max(1990, Math.min(site.summary.currentYear, year)),
+    filing_year: dateEvidence.year,
+    date_basis: dateEvidence.basis,
+    date_basis_label: dateEvidence.label,
+    date_quality_notes: dateEvidence.notes,
+    source_priority_date: row.priority_date ?? null,
+    source_filing_date: row.filing_date ?? null,
+    source_publication_date: row.publication_date ?? null,
       field: fieldId,
       subfield,
       subfield_ids: uniqueSubfieldIds,
       family_id: row.family_id ? String(row.family_id) : undefined,
-    keywords: [...new Set([...(matchedTerms ?? []), ...(field.query_terms ?? []).slice(0, 2)])].slice(0, 5),
+    // Only recorded document matches: field search terms are not observed document keywords.
+    keywords: [...new Set(matchedTerms)].slice(0, 5),
     importance_score: Math.round(importance * 100) / 100,
     status: /B\d?$/i.test(publication) ? "등록" : "공개",
     claims,
@@ -421,6 +445,11 @@ const keywords = Array.from(
 const summary = {
   snapshot_id: site.dataSnapshotId ?? site.schemaVersion ?? "aeropatent-bigquery-landscape",
   generated_at: site.generatedAt,
+  analysis_date: String(site.summary.analysisDate),
+  collection_date: site.source?.collectionDate ?? null,
+  collection_date_status: collectionDateStatus,
+  recent5_start_date: String(site.summary.recent5StartDate),
+  recent3_start_date: String(site.summary.recent3StartDate),
   family_count: site.summary.familyCount,
   publication_count: site.summary.publicationCount,
   row_count: site.summary.rowCount,
@@ -433,7 +462,7 @@ const fieldEnrichment = Object.fromEntries(
   fields.map((field) => [field.id, deepdiveEnrichment.fields?.[field.id] ?? null]),
 );
 
-// Real per-year family counts from BigQuery; the current (incomplete) year is
+// Per-year distinct families by publication-row priority year; a family can span years. The current year is
 // excluded because publication lag makes it look like a collapse.
 const yearlyFamilyTrend = Object.entries(site.yearlyFamilyTrend ?? {})
   .map(([year, count]) => ({ year: Number(year), count: Number(count) || 0 }))
@@ -471,9 +500,13 @@ export const DATA_SNAPSHOT_ID = ${JSON.stringify(summary.snapshot_id)};
 export const CANDIDATE_SCOPE_NOTE = 'CPC 후보군 기준 (접두어 일치, 텍스트 검증 전)';
 export const DATA_SOURCE_NOTE =
   'Google Patents Public Datasets (BigQuery) — IFI CLAIMS 등 제공, CC BY 4.0, 가공: AEROPATENT';
-export const TREND_BASIS_NOTE = '전체 CPC 후보군 기준. 패밀리 대표 연도를 확정하지 않아 공보 단위 우선연도로 집계되며(한 패밀리가 여러 해에 걸릴 수 있음), 진행 중인 올해는 제외.';
+export const TREND_BASIS_NOTE = '전체 CPC 후보군 기준. 패밀리 대표 연도를 확정하지 않아 공보 단위 우선연도로 집계되며(한 패밀리가 여러 해에 걸릴 수 있음), 진행 중인 올해는 제외. 직전 연도에도 공개·수록 지연이 남아 있어 감소를 활동 감소로 단정할 수 없습니다.';
 export const SAMPLE_SIZE = ${patents.length};
-export const SAMPLE_BASIS_NOTE = \`대표 문헌 표본 \${SAMPLE_SIZE}건 기준 (전체 후보군 아님)\`;
+export const SAMPLE_BASIS_NOTE = \`수동 선정 대표 문헌 \${SAMPLE_SIZE}건 기준. 전체 후보군의 확률표본이 아니며, 검색·그래프는 이 문헌만 대상으로 합니다.\`;
+export const SAMPLE_DATE_BASIS_NOTE = '표본 날짜는 원천 출원일 기준이며 출원일이 없으면 공개연도를 사용합니다. 원천 날짜의 불일치는 개별 문헌에 표시합니다.';
+export const SAMPLE_SCORE_NOTE = '표본 정렬점수 = 0.56 + min(0.22, 매칭어 수 × 0.045) + min(0.12, 기록된 패밀리 관할 수 × 0.025), 상한 0.99. 인용·기술가치·법적 강도의 지표가 아닙니다.';
+export const OFFICE_SHARE_BASIS_NOTE = '표시 5개 공개 관할의 패밀리-관할 관계 수 합계를 분모로 사용합니다. 동일 패밀리가 여러 관할에 중복되므로 고유 패밀리의 국가별 점유율이 아닙니다.';
+export const DATA_PROVENANCE_NOTE = ${JSON.stringify(provenanceNote)};
 
 export type CountryCode = ${tsStringUnion(TARGET_COUNTRIES)};
 export type FieldId = ${tsStringUnion(fieldIds)};
@@ -534,7 +567,8 @@ export interface Subfield {
 export interface Applicant {
   id: string;
   name: string;
-  country: CountryCode;
+  country?: CountryCode; // Unknown: publication office is not applicant domicile.
+  publication_countries: CountryCode[];
   primaryField: FieldId;
 }
 
@@ -555,7 +589,13 @@ export interface Patent {
   abstract_ko: string;
   applicant: string;
   applicantName: string;
-  filing_year: number;
+  filing_year: number; // source filing year; publication-year fallback is identified below
+  date_basis: 'filing_date' | 'publication_year';
+  date_basis_label: string;
+  date_quality_notes: string[];
+  source_priority_date: string | null;
+  source_filing_date: string | null;
+  source_publication_date: string | null;
   field: FieldId;
   subfield: string;
   subfield_ids: string[];
@@ -570,6 +610,11 @@ export interface Patent {
 export interface LandscapeSummary {
   snapshot_id: string;
   generated_at: string;
+  analysis_date: string;
+  collection_date: string | null;
+  collection_date_status: string;
+  recent5_start_date: string;
+  recent3_start_date: string;
   family_count: number;
   publication_count: number;
   row_count: number;
@@ -581,7 +626,7 @@ export interface LandscapeSummary {
 export const LANDSCAPE_SUMMARY: LandscapeSummary = ${json(summary)};
 export const LANDSCAPE_COUNTRIES = ${json(dashboardCountries)} as Record<CountryCode, { family_count: number; publication_count: number; recent5_family_count: number }>;
 
-// Real BigQuery family counts per year (current incomplete year excluded).
+// Distinct families within each publication-row priority year; not an exclusive family cohort.
 export const YEARLY_FAMILY_TREND: YearPoint[] = ${json(yearlyFamilyTrend)};
 
 export const COUNTRIES: Country[] = ${json(
@@ -996,6 +1041,49 @@ export function getApplicant(id: string): Applicant | undefined {
 }
 `;
 
+const provenance = {
+  schema_version: "aeropatent.site-data-provenance.v1",
+  snapshot_aggregation_date: site.summary.analysisDate,
+  snapshot_generated_at: site.generatedAt,
+  source_collection_date: site.source?.collectionDate ?? null,
+  source_collection_date_status: collectionDateStatus,
+  raw_input: site.source?.input ?? null,
+  raw_input_available: rawInputAvailable,
+  retained_manifest_date: collectionManifest?.completedAt ?? null,
+  retained_manifest_rows: collectionManifest?.rowsWritten ?? null,
+  current_aggregate_rows: site.summary.rowCount,
+  manifest_rows_match: collectionManifest?.rowsWritten === site.summary.rowCount,
+  aggregate_counts: { families: site.summary.familyCount, publications: site.summary.publicationCount, field_publication_rows: site.summary.rowCount },
+  grain_notes: {
+    candidates: "CPC-prefix candidates, not text-validated aerospace inventions",
+    office_share: "five-office family membership sum; overlapping offices, not applicant domicile",
+    annual_count: "distinct families per publication-row priority year; a family may span years",
+    recent_share: "rolling 3-year families / all candidate families, not a growth rate",
+    recent_windows: { three_year_start: site.summary.recent3StartDate, five_year_start: site.summary.recent5StartDate, end: site.summary.analysisDate },
+    enrichment_priority_window: deepdiveEnrichment.priority_window,
+    enrichment_query_date: deepdiveEnrichment.as_of_query,
+    citing_families: "distinct other families citing candidate publications; no age/field normalization",
+    cr5: "top-five source-name family-count sum / unique field families; co-applicant overlap retained",
+  },
+  seed: {
+    source_rows: normalizedPatents.length,
+    displayed_publications: patents.length,
+    displayed_families: new Set(patents.map((p) => p.family_id || p.id)).size,
+    selection: "manual seed selection; not a probability sample of the aggregate",
+    date_basis_counts: Object.fromEntries(["filing_date", "publication_year"].map((basis) => [basis, patents.filter((p) => p.date_basis === basis).length])),
+    date_quality_records: patents.filter((p) => p.date_quality_notes.length).map((p) => ({ publication: p.publication_number, notes: p.date_quality_notes })),
+    empty_seed_fields: fields.filter((f) => !patents.some((p) => p.field === f.id)).map((f) => f.id),
+    applicant_domicile: "unknown; publication offices retained separately",
+    keyword_edges: "recorded document matched_terms only; no inherited field query terms",
+  },
+  source_files: [
+    "exports/agentbridge/agentbridge_patent_landscape_snapshot.json",
+    "analysis/bq_candidates_production.manifest.json",
+    "analysis/deepdive_enrichment.json", "normalized/patents.jsonl", "normalized/claims.jsonl",
+    "sql/01a_candidate_10y_cpc_first_production.sql", "sql/07_deepdive_enrichment_queries.sql",
+  ].filter((rel) => fs.existsSync(path.join(ROOT, rel))).map((rel) => ({ path: rel, sha256: crypto.createHash("sha256").update(fs.readFileSync(path.join(ROOT, rel))).digest("hex") })),
+};
+fs.writeFileSync(path.join(ROOT, "analysis/site_data_provenance.json"), `${JSON.stringify(provenance, null, 2)}\n`, "utf8");
 fs.writeFileSync(OUT, source, "utf8");
 console.log(
   `Synced web data: ${fields.length} fields, ${patents.length} representative patents, ${subfields.length} subfields`,

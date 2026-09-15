@@ -16,9 +16,13 @@ export const DATA_SNAPSHOT_ID = "aeropatent.bigquery.landscape.v1";
 export const CANDIDATE_SCOPE_NOTE = 'CPC 후보군 기준 (접두어 일치, 텍스트 검증 전)';
 export const DATA_SOURCE_NOTE =
   'Google Patents Public Datasets (BigQuery) — IFI CLAIMS 등 제공, CC BY 4.0, 가공: AEROPATENT';
-export const TREND_BASIS_NOTE = '전체 CPC 후보군 기준. 패밀리 대표 연도를 확정하지 않아 공보 단위 우선연도로 집계되며(한 패밀리가 여러 해에 걸릴 수 있음), 진행 중인 올해는 제외.';
+export const TREND_BASIS_NOTE = '전체 CPC 후보군 기준. 패밀리 대표 연도를 확정하지 않아 공보 단위 우선연도로 집계되며(한 패밀리가 여러 해에 걸릴 수 있음), 진행 중인 올해는 제외. 직전 연도에도 공개·수록 지연이 남아 있어 감소를 활동 감소로 단정할 수 없습니다.';
 export const SAMPLE_SIZE = 63;
-export const SAMPLE_BASIS_NOTE = `대표 문헌 표본 ${SAMPLE_SIZE}건 기준 (전체 후보군 아님)`;
+export const SAMPLE_BASIS_NOTE = `수동 선정 대표 문헌 ${SAMPLE_SIZE}건 기준. 전체 후보군의 확률표본이 아니며, 검색·그래프는 이 문헌만 대상으로 합니다.`;
+export const SAMPLE_DATE_BASIS_NOTE = '표본 날짜는 원천 출원일 기준이며 출원일이 없으면 공개연도를 사용합니다. 원천 날짜의 불일치는 개별 문헌에 표시합니다.';
+export const SAMPLE_SCORE_NOTE = '표본 정렬점수 = 0.56 + min(0.22, 매칭어 수 × 0.045) + min(0.12, 기록된 패밀리 관할 수 × 0.025), 상한 0.99. 인용·기술가치·법적 강도의 지표가 아닙니다.';
+export const OFFICE_SHARE_BASIS_NOTE = '표시 5개 공개 관할의 패밀리-관할 관계 수 합계를 분모로 사용합니다. 동일 패밀리가 여러 관할에 중복되므로 고유 패밀리의 국가별 점유율이 아닙니다.';
+export const DATA_PROVENANCE_NOTE = "전체 CPC 후보군 집계기준일 2026-09-12. 실제 수집일 미확인. 보관 manifest 2026-06-28 (2,522,788행), 현재 집계 2,450,063행. 원시 스냅숏 로컬 부재. 심층 연도·피인용 자료는 별도 2016–2025 우선일 코호트입니다.";
 
 export type CountryCode = "US" | "EP" | "JP" | "CN" | "KR";
 export type FieldId = "space_launch_propulsion_recovery" | "space_satellite_bus_thermal_power" | "space_comm_leo_network" | "space_remote_sensing_payload" | "space_gnc_rendezvous_servicing" | "space_materials_tps_coatings" | "aviation_propulsion_sustainable" | "aviation_structures_aero_composites" | "aviation_avionics_flight_control_autonomy";
@@ -79,7 +83,8 @@ export interface Subfield {
 export interface Applicant {
   id: string;
   name: string;
-  country: CountryCode;
+  country?: CountryCode; // Unknown: publication office is not applicant domicile.
+  publication_countries: CountryCode[];
   primaryField: FieldId;
 }
 
@@ -100,7 +105,13 @@ export interface Patent {
   abstract_ko: string;
   applicant: string;
   applicantName: string;
-  filing_year: number;
+  filing_year: number; // source filing year; publication-year fallback is identified below
+  date_basis: 'filing_date' | 'publication_year';
+  date_basis_label: string;
+  date_quality_notes: string[];
+  source_priority_date: string | null;
+  source_filing_date: string | null;
+  source_publication_date: string | null;
   field: FieldId;
   subfield: string;
   subfield_ids: string[];
@@ -115,6 +126,11 @@ export interface Patent {
 export interface LandscapeSummary {
   snapshot_id: string;
   generated_at: string;
+  analysis_date: string;
+  collection_date: string | null;
+  collection_date_status: string;
+  recent5_start_date: string;
+  recent3_start_date: string;
   family_count: number;
   publication_count: number;
   row_count: number;
@@ -126,6 +142,11 @@ export interface LandscapeSummary {
 export const LANDSCAPE_SUMMARY: LandscapeSummary = {
   "snapshot_id": "aeropatent.bigquery.landscape.v1",
   "generated_at": "2026-09-12T10:13:59.199Z",
+  "analysis_date": "20260912",
+  "collection_date": null,
+  "collection_date_status": "실제 수집일 미확인. 보관 manifest 2026-06-28 (2,522,788행), 현재 집계 2,450,063행. 원시 스냅숏 로컬 부재.",
+  "recent5_start_date": "20210912",
+  "recent3_start_date": "20230912",
   "family_count": 728312,
   "publication_count": 1945811,
   "row_count": 2450063,
@@ -161,7 +182,7 @@ export const LANDSCAPE_COUNTRIES = {
   }
 } as Record<CountryCode, { family_count: number; publication_count: number; recent5_family_count: number }>;
 
-// Real BigQuery family counts per year (current incomplete year excluded).
+// Distinct families within each publication-row priority year; not an exclusive family cohort.
 export const YEARLY_FAMILY_TREND: YearPoint[] = [
   {
     "year": 2016,
@@ -247,7 +268,7 @@ export const FIELDS: Field[] = [
     "short_label_ko": "발사체",
     "label_en": "Launch vehicle, propulsion, and recovery",
     "color": "#e54b4b",
-    "summary_ko": "재사용 발사체, 추진기관, 회수 시스템을 중심으로 출원 집중도와 선도 국가를 추적합니다.",
+    "summary_ko": "발사체·추진·회수 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
     "family_count": 16891,
     "publication_count": 35641,
     "recent5_family_count": 8025,
@@ -336,8 +357,8 @@ export const FIELDS: Field[] = [
       "recovery"
     ],
     "report_bullets": [
-      "중국과 미국의 발사체·추진 특허 밀도가 높아 핵심 부품별 권리범위 검토가 필요합니다.",
-      "재사용·회수 기술은 사업화 전 FTO와 부품 공급망 관점의 세부 청구항 분석이 중요합니다."
+      "발사체·추진·회수 검색축에서 16,891개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
       "추진계와 회수계는 국방·수출통제 이슈가 겹칠 수 있어 공개특허 외 규제 검토가 필요합니다."
@@ -349,7 +370,7 @@ export const FIELDS: Field[] = [
     "short_label_ko": "위성체",
     "label_en": "Satellite bus, thermal control, and power",
     "color": "#f4b942",
-    "summary_ko": "위성 버스, 열제어, 전력 시스템의 최근 5년 특허 흐름과 주요 출원인을 봅니다.",
+    "summary_ko": "위성체·열·전력 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
     "family_count": 29722,
     "publication_count": 63517,
     "recent5_family_count": 10162,
@@ -438,8 +459,8 @@ export const FIELDS: Field[] = [
       "solar array"
     ],
     "report_bullets": [
-      "위성 버스는 열·전력·구조가 함께 묶인 시스템 청구항이 많아 모듈 단위 분해가 필요합니다.",
-      "소형위성 수요와 함께 전력 효율, 열 안정성, 경량화 키워드가 반복적으로 등장합니다."
+      "위성체·열·전력 검색축에서 29,722개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
       "동일 기능을 다른 구조로 구현한 회피 설계 가능성을 청구항 레벨에서 비교해야 합니다."
@@ -451,7 +472,7 @@ export const FIELDS: Field[] = [
     "short_label_ko": "우주통신",
     "label_en": "Satellite communications and LEO networks",
     "color": "#2ca58d",
-    "summary_ko": "LEO 위성통신, 안테나, 링크 관리, 네트워크 운용 특허의 경쟁 구도를 정리합니다.",
+    "summary_ko": "우주통신·LEO 네트워크 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
     "family_count": 140313,
     "publication_count": 457669,
     "recent5_family_count": 64174,
@@ -540,8 +561,8 @@ export const FIELDS: Field[] = [
       "antenna"
     ],
     "report_bullets": [
-      "우주통신은 시스템·네트워크 운용 특허가 많아 단일 장비보다 서비스 구조까지 함께 봐야 합니다.",
-      "빔포밍, 링크 전환, 지상국 연동은 연구기획과 사업제휴 모두에서 우선 검토할 축입니다."
+      "우주통신·LEO 네트워크 검색축에서 140,313개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
       "표준특허 가능성과 통신 규격 의존성이 있어 표준 문헌과 병행 검토가 필요합니다."
@@ -553,7 +574,7 @@ export const FIELDS: Field[] = [
     "short_label_ko": "원격탐사",
     "label_en": "SAR and remote-sensing payload",
     "color": "#4d8cf5",
-    "summary_ko": "센서, 광학/레이더 탑재체, 영상 처리 기반 원격탐사 특허의 응용 영역을 봅니다.",
+    "summary_ko": "원격탐사·탑재체 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
     "family_count": 118575,
     "publication_count": 312352,
     "recent5_family_count": 58371,
@@ -642,8 +663,8 @@ export const FIELDS: Field[] = [
       "image processing"
     ],
     "report_bullets": [
-      "원격탐사는 하드웨어와 데이터 처리 특허가 결합되어 있어 센서-분석 파이프라인으로 분류해야 합니다.",
-      "SAR, 초분광, 온보드 처리 영역은 연구기획용 세부 과제 후보로 분리할 가치가 있습니다."
+      "원격탐사·탑재체 검색축에서 118,575개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
       "데이터 처리 특허는 소프트웨어·알고리즘 권리범위 해석이 국가별로 달라질 수 있습니다."
@@ -655,7 +676,7 @@ export const FIELDS: Field[] = [
     "short_label_ko": "GNC/RPO",
     "label_en": "GNC, rendezvous, docking, and on-orbit servicing",
     "color": "#8b5cf6",
-    "summary_ko": "유도·항법·제어, 랑데부, 도킹, 궤도상 서비스 기술의 특허 맵을 구성합니다.",
+    "summary_ko": "GNC·랑데부·서비스 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
     "family_count": 160354,
     "publication_count": 398435,
     "recent5_family_count": 71585,
@@ -744,8 +765,8 @@ export const FIELDS: Field[] = [
       "on-orbit servicing"
     ],
     "report_bullets": [
-      "GNC/RPO는 센서, 제어, 안전 운용 로직이 결합된 특허가 많아 기능별 클러스터링이 유효합니다.",
-      "궤도상 서비스와 충돌회피는 미래 사업개발용 파트너 탐색에 적합한 영역입니다."
+      "GNC·랑데부·서비스 검색축에서 160,354개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
       "자율제어 특허는 시험 데이터와 실제 운용 조건을 함께 검증해야 해석 신뢰도가 올라갑니다."
@@ -757,7 +778,7 @@ export const FIELDS: Field[] = [
     "short_label_ko": "재료·TPS",
     "label_en": "Space materials, TPS, and coatings",
     "color": "#d65a9d",
-    "summary_ko": "열보호재, 코팅, 복합소재 등 재료 기반 특허의 규모와 응용 가능성을 봅니다.",
+    "summary_ko": "우주재료·TPS·코팅 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
     "family_count": 225901,
     "publication_count": 583861,
     "recent5_family_count": 85076,
@@ -846,8 +867,8 @@ export const FIELDS: Field[] = [
       "ceramic"
     ],
     "report_bullets": [
-      "재료·TPS는 전체 후보군에서 규모가 큰 편이라 소재, 공정, 적용 부품으로 세분화해야 읽힙니다.",
-      "특허 수가 많기 때문에 핵심 청구항과 실시예 기반의 필터링이 연구기획 효율을 좌우합니다."
+      "우주재료·TPS·코팅 검색축에서 225,901개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
       "소재 특허는 조성 범위와 제조 공정의 작은 차이가 권리범위를 크게 바꿀 수 있습니다."
@@ -859,7 +880,7 @@ export const FIELDS: Field[] = [
     "short_label_ko": "항공추진",
     "label_en": "Commercial aviation propulsion, electric, hydrogen, and SAF",
     "color": "#00a7a7",
-    "summary_ko": "민간 항공 추진, 전동화, 지속가능항공유(SAF) 관련 특허 동향을 보여줍니다.",
+    "summary_ko": "민간/상용항공 추진·SAF 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
     "family_count": 26453,
     "publication_count": 82047,
     "recent5_family_count": 10712,
@@ -948,8 +969,8 @@ export const FIELDS: Field[] = [
       "combustor"
     ],
     "report_bullets": [
-      "상용항공 추진은 친환경 연료, 전동화 보조계, 효율 개선 특허를 분리해서 봐야 합니다.",
-      "사업개발 관점에서는 OEM, 엔진사, 연료·소재 기업의 협력 축을 함께 비교하는 것이 유효합니다."
+      "민간/상용항공 추진·SAF 검색축에서 26,453개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
       "SAF와 추진계는 인증·공급망·표준 이슈가 특허 해석만큼 중요합니다."
@@ -961,7 +982,7 @@ export const FIELDS: Field[] = [
     "short_label_ko": "항공구조",
     "label_en": "Aircraft structures, composites, and aerodynamics",
     "color": "#5c8dff",
-    "summary_ko": "기체 구조, 공력 설계, 복합재 제조·수리 특허를 분야별로 정리합니다.",
+    "summary_ko": "항공 구조·공력·복합재 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
     "family_count": 50053,
     "publication_count": 120281,
     "recent5_family_count": 17626,
@@ -1050,8 +1071,8 @@ export const FIELDS: Field[] = [
       "fuselage"
     ],
     "report_bullets": [
-      "항공구조는 중량 절감과 생산성 개선 특허가 많아 제조 공정까지 같이 비교해야 합니다.",
-      "복합재 수리·검사 기술은 상용항공 유지보수 사업과 연결해 볼 수 있습니다."
+      "항공 구조·공력·복합재 검색축에서 50,053개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
       "구조 특허는 인증 조건과 실제 하중 조건이 권리 적용 가능성 판단에 중요합니다."
@@ -1063,7 +1084,7 @@ export const FIELDS: Field[] = [
     "short_label_ko": "항공전자",
     "label_en": "Avionics, flight control, and autonomy",
     "color": "#7c5cff",
-    "summary_ko": "비행제어, 항공전자, 자율운항 관련 특허를 시스템 기능 중심으로 분석합니다.",
+    "summary_ko": "항공전자·비행제어·자율운항 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
     "family_count": 157258,
     "publication_count": 396260,
     "recent5_family_count": 69956,
@@ -1152,8 +1173,8 @@ export const FIELDS: Field[] = [
       "detect and avoid"
     ],
     "report_bullets": [
-      "항공전자·비행제어는 센서융합, 제어 로직, 안전성 보증이 결합된 특허를 우선 분류해야 합니다.",
-      "자율운항 영역은 UAM, 무인기, 상용항공 보조시스템으로 응용 축을 나눠 보는 것이 좋습니다."
+      "항공전자·비행제어·자율운항 검색축에서 157,258개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
       "소프트웨어 기반 항공전자 특허는 인증자료와 표준 요구사항을 함께 검토해야 합니다."
@@ -2411,235 +2432,321 @@ export const APPLICANTS: Applicant[] = [
   {
     "id": "airbus-defence-and-space-gmbh",
     "name": "Airbus Defence and Space GmbH",
-    "country": "EP",
+    "publication_countries": [
+      "EP"
+    ],
     "primaryField": "space_remote_sensing_payload"
   },
   {
     "id": "airbus-ds-gmbh",
     "name": "Airbus DS GmbH",
-    "country": "EP",
+    "publication_countries": [
+      "EP"
+    ],
     "primaryField": "space_remote_sensing_payload"
   },
   {
     "id": "ast-and-science-llc",
     "name": "AST and Science LLC",
-    "country": "US",
+    "publication_countries": [
+      "US"
+    ],
     "primaryField": "space_satellite_bus_thermal_power"
   },
   {
     "id": "astroscale-israel-ltd",
     "name": "Astroscale Israel Ltd",
-    "country": "EP",
+    "publication_countries": [
+      "EP"
+    ],
     "primaryField": "space_gnc_rendezvous_servicing"
   },
   {
     "id": "beihang-university",
     "name": "Beihang University",
-    "country": "CN",
+    "publication_countries": [
+      "CN"
+    ],
     "primaryField": "space_gnc_rendezvous_servicing"
   },
   {
     "id": "beijing-institute-of-control-engineering",
     "name": "Beijing Institute of Control Engineering",
-    "country": "EP",
+    "publication_countries": [
+      "EP"
+    ],
     "primaryField": "space_gnc_rendezvous_servicing"
   },
   {
     "id": "beijing-institute-of-spacecraft-environment-engineering",
     "name": "Beijing Institute of Spacecraft Environment Engineering",
-    "country": "CN",
+    "publication_countries": [
+      "CN"
+    ],
     "primaryField": "space_satellite_bus_thermal_power"
   },
   {
     "id": "blue-origin-manufacturing-llc",
     "name": "Blue Origin Manufacturing LLC",
-    "country": "US",
+    "publication_countries": [
+      "US"
+    ],
     "primaryField": "space_launch_propulsion_recovery"
   },
   {
     "id": "china-academy-of-space-technology-xian",
     "name": "China Academy of Space Technology Xian",
-    "country": "CN",
+    "publication_countries": [
+      "CN"
+    ],
     "primaryField": "space_comm_leo_network"
   },
   {
     "id": "effective-space-solutions-ltd",
     "name": "Effective Space Solutions Ltd",
-    "country": "CN",
+    "publication_countries": [
+      "CN",
+      "JP"
+    ],
     "primaryField": "space_gnc_rendezvous_servicing"
   },
   {
     "id": "foshan-air-navigation-technology-co-ltd",
     "name": "Foshan Air Navigation Technology Co., Ltd.",
-    "country": "CN",
+    "publication_countries": [
+      "CN"
+    ],
     "primaryField": "space_launch_propulsion_recovery"
   },
   {
     "id": "general-electric-co",
     "name": "General Electric Co",
-    "country": "JP",
+    "publication_countries": [
+      "JP"
+    ],
     "primaryField": "space_satellite_bus_thermal_power"
   },
   {
     "id": "hybrid-propulsion-for-space",
     "name": "Hybrid Propulsion For Space",
-    "country": "JP",
+    "publication_countries": [
+      "JP"
+    ],
     "primaryField": "space_launch_propulsion_recovery"
   },
   {
     "id": "iceye-oy",
     "name": "Iceye Oy",
-    "country": "EP",
+    "publication_countries": [
+      "EP"
+    ],
     "primaryField": "space_satellite_bus_thermal_power"
   },
   {
     "id": "ihi-corp",
     "name": "IHI Corp",
-    "country": "JP",
+    "publication_countries": [
+      "JP"
+    ],
     "primaryField": "space_gnc_rendezvous_servicing"
   },
   {
     "id": "institute-of-electronics-of-cas",
     "name": "Institute of Electronics of CAS",
-    "country": "CN",
+    "publication_countries": [
+      "CN"
+    ],
     "primaryField": "space_remote_sensing_payload"
   },
   {
     "id": "intel-corp",
     "name": "Intel Corp",
-    "country": "EP",
+    "publication_countries": [
+      "EP"
+    ],
     "primaryField": "space_comm_leo_network"
   },
   {
     "id": "korea-aerospace-research-institute-kari",
     "name": "Korea Aerospace Research Institute KARI",
-    "country": "EP",
+    "publication_countries": [
+      "EP"
+    ],
     "primaryField": "space_launch_propulsion_recovery"
   },
   {
     "id": "lockheed-martin-corp",
     "name": "Lockheed Martin Corp",
-    "country": "EP",
+    "publication_countries": [
+      "EP"
+    ],
     "primaryField": "space_satellite_bus_thermal_power"
   },
   {
     "id": "lts-systems-llc",
     "name": "LTS Systems LLC",
-    "country": "US",
+    "publication_countries": [
+      "US"
+    ],
     "primaryField": "space_comm_leo_network"
   },
   {
     "id": "nantong-university",
     "name": "Nantong University",
-    "country": "CN",
+    "publication_countries": [
+      "CN"
+    ],
     "primaryField": "space_launch_propulsion_recovery"
   },
   {
     "id": "national-aeronautics-and-space-administration-nasa",
     "name": "National Aeronautics and Space Administration NASA",
-    "country": "US",
+    "publication_countries": [
+      "US"
+    ],
     "primaryField": "space_gnc_rendezvous_servicing"
   },
   {
     "id": "national-university-of-defense-technology",
     "name": "National University of Defense Technology",
-    "country": "CN",
+    "publication_countries": [
+      "CN"
+    ],
     "primaryField": "space_gnc_rendezvous_servicing"
   },
   {
     "id": "new-metallurgy-hi-tech-group-co-ltd-china-iron-and-steel-research-institute-group",
     "name": "New Metallurgy Hi Tech Group Co Ltd China Iron and Steel Research Institute Group",
-    "country": "CN",
+    "publication_countries": [
+      "CN"
+    ],
     "primaryField": "space_materials_tps_coatings"
   },
   {
     "id": "northrop-grumman-innovation-systems-llc",
     "name": "Northrop Grumman Innovation Systems LLC",
-    "country": "CN",
+    "publication_countries": [
+      "CN",
+      "EP",
+      "JP",
+      "US"
+    ],
     "primaryField": "space_materials_tps_coatings"
   },
   {
     "id": "northrop-grumman-systems-corp",
     "name": "Northrop Grumman Systems Corp",
-    "country": "US",
+    "publication_countries": [
+      "US"
+    ],
     "primaryField": "space_gnc_rendezvous_servicing"
   },
   {
     "id": "pangea-aerospace-sl",
     "name": "Pangea Aerospace SL",
-    "country": "EP",
+    "publication_countries": [
+      "EP"
+    ],
     "primaryField": "space_launch_propulsion_recovery"
   },
   {
     "id": "pla-university-of-science-and-technology",
     "name": "PLA University of Science and Technology",
-    "country": "CN",
+    "publication_countries": [
+      "CN"
+    ],
     "primaryField": "space_comm_leo_network"
   },
   {
     "id": "rtx-corp",
     "name": "RTX Corp",
-    "country": "EP",
+    "publication_countries": [
+      "EP",
+      "JP"
+    ],
     "primaryField": "space_materials_tps_coatings"
   },
   {
     "id": "shandong-university",
     "name": "Shandong University",
-    "country": "CN",
+    "publication_countries": [
+      "CN"
+    ],
     "primaryField": "space_materials_tps_coatings"
   },
   {
     "id": "shanghai-institute-of-space-propulsion",
     "name": "Shanghai Institute of Space Propulsion",
-    "country": "CN",
+    "publication_countries": [
+      "CN"
+    ],
     "primaryField": "space_satellite_bus_thermal_power"
   },
   {
     "id": "spacealpha-insights-corp",
     "name": "Spacealpha Insights Corp",
-    "country": "US",
+    "publication_countries": [
+      "US"
+    ],
     "primaryField": "space_remote_sensing_payload"
   },
   {
     "id": "theia-group-inc",
     "name": "Theia Group Inc",
-    "country": "CN",
+    "publication_countries": [
+      "CN",
+      "JP"
+    ],
     "primaryField": "space_comm_leo_network"
   },
   {
     "id": "university-of-manchester",
     "name": "University of Manchester",
-    "country": "US",
+    "publication_countries": [
+      "US"
+    ],
     "primaryField": "space_materials_tps_coatings"
   },
   {
     "id": "unknown-applicant",
     "name": "Unknown Applicant",
-    "country": "JP",
+    "publication_countries": [
+      "JP",
+      "KR"
+    ],
     "primaryField": "space_remote_sensing_payload"
   },
   {
     "id": "viasat-inc",
     "name": "Viasat Inc",
-    "country": "EP",
+    "publication_countries": [
+      "EP"
+    ],
     "primaryField": "space_comm_leo_network"
   },
   {
     "id": "world-satellite-co-ltd",
     "name": "World Satellite Co ltd",
-    "country": "CN",
+    "publication_countries": [
+      "CN"
+    ],
     "primaryField": "space_satellite_bus_thermal_power"
   },
   {
     "id": "worldvu-satellites-ltd",
     "name": "WorldVu Satellites Ltd",
-    "country": "US",
+    "publication_countries": [
+      "US"
+    ],
     "primaryField": "space_satellite_bus_thermal_power"
   },
   {
     "id": "applicant",
     "name": "ワールドビュー・サテライツ・リミテッド",
-    "country": "JP",
+    "publication_countries": [
+      "JP",
+      "KR"
+    ],
     "primaryField": "space_satellite_bus_thermal_power"
   }
 ];
@@ -2714,7 +2821,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "중국 GNC/랑데부/온오빗 서비스 후보 문헌. 핵심은 'Space-orbit trouble shooting operation ground simulating system'이며, 근거 요약은 The invention discloses a kind of space-orbit trouble shooting operation ground simulating system, including analog service spacecraft, simulated target spacecraft, microgravity simulation air floating platform and simu…",
     "applicant": "national-university-of-defense-technology",
     "applicantName": "National University of Defense Technology",
-    "filing_year": 2017,
+    "filing_year": 2016,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2017-04-06",
+    "source_filing_date": "2016-06-07",
+    "source_publication_date": "2016-11-09",
     "field": "space_gnc_rendezvous_servicing",
     "subfield": "space_gnc_rendezvous_servicing__rendezvous",
     "subfield_ids": [
@@ -2722,8 +2837,7 @@ export const PATENTS: Patent[] = [
     ],
     "family_id": "57448491",
     "keywords": [
-      "rendezvous",
-      "GNC"
+      "rendezvous"
     ],
     "importance_score": 0.63,
     "status": "공개",
@@ -2748,7 +2862,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "중국 GNC/랑데부/온오빗 서비스 후보 문헌. 핵심은 'Docking system and method for satellite'이며, 근거 요약은 The invention relates to a service satellite having a body, a controller and a docking unit. The docking unit comprises at least two foldable, adjustable gripping arms pivotally mounted on the satellite body, each gripp…",
     "applicant": "effective-space-solutions-ltd",
     "applicantName": "Effective Space Solutions Ltd",
-    "filing_year": 2018,
+    "filing_year": 2015,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2018-09-17",
+    "source_filing_date": "2015-08-26",
+    "source_publication_date": "2017-08-29",
     "field": "space_gnc_rendezvous_servicing",
     "subfield": "space_gnc_rendezvous_servicing__docking",
     "subfield_ids": [
@@ -2756,9 +2878,7 @@ export const PATENTS: Patent[] = [
     ],
     "family_id": "55398855",
     "keywords": [
-      "docking",
-      "GNC",
-      "rendezvous"
+      "docking"
     ],
     "importance_score": 0.71,
     "status": "공개",
@@ -2783,7 +2903,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "중국 GNC/랑데부/온오빗 서비스 후보 문헌. 핵심은 'Free pedestal Spatial Cooperation task motion reappearance experimental system'이며, 근거 요약은 自由基座空间合作任务运动再现实验系统，属于航天任务地面验证领域。本发明针对现有的空间合作任务地面验证系统不能模拟航天器轨道运动这一不足，利用自由基座模拟航天器的轨道运动，在自由基座上安装任务执行机构，用于完成合作任务。本发明能在地面运动再现空间合作任务从远距离导引、机动变轨、目标逼近到最终任务执行的完整过程，验证变轨控制方案与任务控制方案的可行性。 The invention relates to a motion reproduct…",
     "applicant": "beihang-university",
     "applicantName": "Beihang University",
-    "filing_year": 2018,
+    "filing_year": 2017,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2018-05-15",
+    "source_filing_date": "2017-06-07",
+    "source_publication_date": "2017-10-13",
     "field": "space_gnc_rendezvous_servicing",
     "subfield": "space_gnc_rendezvous_servicing__rendezvous",
     "subfield_ids": [
@@ -2793,8 +2921,7 @@ export const PATENTS: Patent[] = [
     "family_id": "60017915",
     "keywords": [
       "rendezvous",
-      "docking",
-      "GNC"
+      "docking"
     ],
     "importance_score": 0.68,
     "status": "공개",
@@ -2820,7 +2947,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "중국 재사용 발사체/회수 후보 문헌. 핵심은 'Anti-toppling system used during carrier rocket vertical descending recovery'이며, 근거 요약은 本发明公开了一种运载火箭垂直下降回收时的防倾倒系统，包括着陆平台，四辆自动引导小车及钢绳，所述自动引导小车放置在所述着陆平台上并通过钢绳相互连接形成方形着陆区，所述自动引导小车包括底座，安装在底座下方的四对行走小轮，安装在底座上端的多级伸缩式液压缸，固定在底座上的钢绳存储器，安装在所述多级伸缩式液压缸侧壁的数个探测系统及定向轮，所述钢绳存储器内的钢绳穿过定向轮后固定在相邻的自动引导小车的第二级伸缩杆侧壁上。本发明揭示的一种运载火箭垂直…",
     "applicant": "nantong-university",
     "applicantName": "Nantong University",
-    "filing_year": 2016,
+    "filing_year": 2015,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2016-03-14",
+    "source_filing_date": "2015-03-02",
+    "source_publication_date": "2015-06-24",
     "field": "space_launch_propulsion_recovery",
     "subfield": "space_launch_propulsion_recovery__reusable-launch-vehicle",
     "subfield_ids": [
@@ -2831,9 +2966,7 @@ export const PATENTS: Patent[] = [
     "family_id": "53448830",
     "keywords": [
       "reusable launch vehicle",
-      "vertical landing",
-      "launch vehicle",
-      "rocket engine"
+      "vertical landing"
     ],
     "importance_score": 0.68,
     "status": "공개",
@@ -2859,7 +2992,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "중국 재사용 발사체/회수 후보 문헌. 핵심은 'A kind of enhancement rocket recovery device'이며, 근거 요약은 A kind of enhancement rocket recovery device, it is related to space flight equipment recycling field, including platform, funnel device and folding mechanism；Funnel device is in funnel shaped, below platform, funnel de…",
     "applicant": "foshan-air-navigation-technology-co-ltd",
     "applicantName": "Foshan Air Navigation Technology Co., Ltd.",
-    "filing_year": 2020,
+    "filing_year": 2017,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2020-09-17",
+    "source_filing_date": "2017-09-03",
+    "source_publication_date": "2017-11-14",
     "field": "space_launch_propulsion_recovery",
     "subfield": "space_launch_propulsion_recovery__rocket-recovery",
     "subfield_ids": [
@@ -2867,9 +3008,7 @@ export const PATENTS: Patent[] = [
     ],
     "family_id": "60257833",
     "keywords": [
-      "rocket recovery",
-      "launch vehicle",
-      "rocket engine"
+      "rocket recovery"
     ],
     "importance_score": 0.63,
     "status": "공개",
@@ -2894,7 +3033,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "중국 우주재료/TPS/코팅 후보 문헌. 핵심은 'Radiation-resistant addition type room temperature vulcanized liquid silicone rubber and preparation method thereof'이며, 근거 요약은 本发明公开了一种具有耐辐照性能的加成型室温硫化液体硅橡胶，由以重量份计：乙烯基封端的甲基乙烯基硅橡胶100份、抗辐照剂5-60份、Pt催化剂0.5-2.0份、气相法白炭黑和任意重量比的沉淀法白炭黑10-50份、交联剂1-4份的组分为材料混合，经改性制成；本发明的加成型室温硫化液体硅橡胶环境适应性强，可用于生产包括橡胶衬垫、密封零件、减震缓冲件、隔套、膜片等各种耐辐照性能的橡胶制品，在航空航天、核工业、电子通讯、化工、医学、船舶等多种领…",
     "applicant": "shandong-university",
     "applicantName": "Shandong University",
-    "filing_year": 2014,
+    "filing_year": 2010,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2014-12-17",
+    "source_filing_date": "2010-01-12",
+    "source_publication_date": "2012-06-27",
     "field": "space_materials_tps_coatings",
     "subfield": "space_materials_tps_coatings__thermal-protection",
     "subfield_ids": [
@@ -2904,8 +3051,7 @@ export const PATENTS: Patent[] = [
     "family_id": "42511813",
     "keywords": [
       "thermal protection",
-      "spacecraft coating",
-      "coating"
+      "spacecraft coating"
     ],
     "importance_score": 0.68,
     "status": "등록",
@@ -2932,6 +3078,14 @@ export const PATENTS: Patent[] = [
     "applicant": "new-metallurgy-hi-tech-group-co-ltd-china-iron-and-steel-research-institute-group",
     "applicantName": "New Metallurgy Hi Tech Group Co Ltd China Iron and Steel Research Institute Group",
     "filing_year": 2015,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2015-06-05",
+    "source_filing_date": "2015-01-30",
+    "source_publication_date": "2015-04-29",
     "field": "space_materials_tps_coatings",
     "subfield": "space_materials_tps_coatings__thermal-protection",
     "subfield_ids": [
@@ -2941,8 +3095,7 @@ export const PATENTS: Patent[] = [
     "family_id": "53078943",
     "keywords": [
       "thermal protection",
-      "spacecraft coating",
-      "coating"
+      "spacecraft coating"
     ],
     "importance_score": 0.68,
     "status": "공개",
@@ -2968,7 +3121,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "중국 우주재료/TPS/코팅 후보 문헌. 핵심은 'Elastomerized phenolic resin ablative insulation for rocket motors'이며, 근거 요약은 An elastomorized phenolic resin ablative insulation particularly suitable for use in connection with the thermal insulation of selected components of rocket motors and a composition for making the elastomorized ablative…",
     "applicant": "northrop-grumman-innovation-systems-llc",
     "applicantName": "Northrop Grumman Innovation Systems LLC",
-    "filing_year": 2015,
+    "filing_year": 2000,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2015-08-26",
+    "source_filing_date": "2000-09-01",
+    "source_publication_date": "2005-07-20",
     "field": "space_materials_tps_coatings",
     "subfield": "space_materials_tps_coatings__thermal-protection",
     "subfield_ids": [
@@ -2978,8 +3139,7 @@ export const PATENTS: Patent[] = [
     "family_id": "23548767",
     "keywords": [
       "thermal protection",
-      "spacecraft coating",
-      "coating"
+      "spacecraft coating"
     ],
     "importance_score": 0.75,
     "status": "공개",
@@ -3005,7 +3165,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "중국 SAR/원격탐사 페이로드 후보 문헌. 핵심은 'Sparse microwave imaging method'이며, 근거 요약은 本发明公开了一种稀疏微波成像方法，涉及信息获取与处理技术，利用微波成像观测的稀疏性，通过将稀疏信号处理理论引入微波成像技术，即通过寻找被观测对象的稀疏表征域，在空间、时间、频谱或极化域稀疏采样获取被观测对象的稀疏微波信号，经信号处理和信息提取，获取被观测对象的空间位置、散射特征和运动特性等几何与物理特征。本发明的稀疏微波成像方法，解决了现有技术中基于奈奎斯特采样定理和经典数字信号处理理论的微波成像体制存在系统实现困难、成像处理方法复杂…",
     "applicant": "institute-of-electronics-of-cas",
     "applicantName": "Institute of Electronics of CAS",
-    "filing_year": 2012,
+    "filing_year": 2010,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2012-09-10",
+    "source_filing_date": "2010-04-14",
+    "source_publication_date": "2011-10-19",
     "field": "space_remote_sensing_payload",
     "subfield": "space_remote_sensing_payload__sar-imaging",
     "subfield_ids": [
@@ -3013,9 +3181,7 @@ export const PATENTS: Patent[] = [
     ],
     "family_id": "44778298",
     "keywords": [
-      "SAR imaging",
-      "remote sensing",
-      "payload"
+      "SAR imaging"
     ],
     "importance_score": 0.63,
     "status": "공개",
@@ -3040,7 +3206,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "중국 위성 열제어/플랫폼 후보 문헌. 핵심은 'Tracking temperature control device for spacecraft thermal vacuum test'이며, 근거 요약은 本发明涉及一种用于航天器真空热试验中的跟踪控温装置，包括试验支架法兰、卫星对接法兰，两个薄膜加热器、跟踪控温热电偶、温度程控系统，其中，试验支架法兰通过隔热绝缘垫与卫星对接法兰机械绝热连接，卫星对接法兰连接孔附近处确定为作为被跟踪点的热电偶测温点，作为跟踪点的试验支架对接法兰连接孔附近设置两个薄膜加热器构成的跟踪控温加热回路和设置在两个薄膜加热器中间测量跟踪点温度的跟踪控温热电偶，温度程控系统采集被跟踪点和跟踪点的温度，通过对两温度的…",
     "applicant": "beijing-institute-of-spacecraft-environment-engineering",
     "applicantName": "Beijing Institute of Spacecraft Environment Engineering",
-    "filing_year": 2011,
+    "filing_year": 2008,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2011-12-08",
+    "source_filing_date": "2008-12-29",
+    "source_publication_date": "2013-04-17",
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__spacecraft-thermal-control",
     "subfield_ids": [
@@ -3050,9 +3224,7 @@ export const PATENTS: Patent[] = [
     "family_id": "42502821",
     "keywords": [
       "spacecraft thermal control",
-      "satellite radiator",
-      "satellite bus",
-      "thermal control"
+      "satellite radiator"
     ],
     "importance_score": 0.68,
     "status": "등록",
@@ -3078,7 +3250,13 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "중국 위성 열제어/플랫폼 후보 문헌. 핵심은 'Satellite radiator panel with combined reinforcing sheet/heat pipe'이며, 근거 요약은 The present invention relates to a passive thermal system for a satellite comprising a solid radiator panel having a plurality of heat pipes attached to a surface thereof. In addition to its heat transfer capability, th…",
     "applicant": "world-satellite-co-ltd",
     "applicantName": "World Satellite Co ltd",
-    "filing_year": 2014,
+    "filing_year": 2016,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [],
+    "source_priority_date": "2014-12-18",
+    "source_filing_date": "2016-03-30",
+    "source_publication_date": "2021-02-26",
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__satellite-radiator",
     "subfield_ids": [
@@ -3088,9 +3266,7 @@ export const PATENTS: Patent[] = [
     "family_id": "57007537",
     "keywords": [
       "satellite radiator",
-      "heat pipe",
-      "satellite bus",
-      "thermal control"
+      "heat pipe"
     ],
     "importance_score": 0.77,
     "status": "등록",
@@ -3116,7 +3292,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "중국 위성 열제어/플랫폼 후보 문헌. 핵심은 'Spacecraft pressure vessel fixed form'이며, 근거 요약은 The present invention provides a kind of spacecrafts to fix device, including gas cylinder, upper bracket component, lower bracket component, belt package, thermal control component with pressure vessel；Upper bracket co…",
     "applicant": "shanghai-institute-of-space-propulsion",
     "applicantName": "Shanghai Institute of Space Propulsion",
-    "filing_year": 2022,
+    "filing_year": 2018,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2022-01-11",
+    "source_filing_date": "2018-12-12",
+    "source_publication_date": "2019-04-05",
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__spacecraft-thermal-control",
     "subfield_ids": [
@@ -3126,9 +3310,7 @@ export const PATENTS: Patent[] = [
     "family_id": "65927972",
     "keywords": [
       "spacecraft thermal control",
-      "satellite radiator",
-      "satellite bus",
-      "thermal control"
+      "satellite radiator"
     ],
     "importance_score": 0.68,
     "status": "공개",
@@ -3154,7 +3336,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "중국 위성통신/LEO 네트워크 후보 문헌. 핵심은 'Adaptive networking method applicable to small satellite clusters'이며, 근거 요약은 一种适用于小卫星集群的自适应组网方法，本方法采用集中式资源分配与分布式路由相结合的方式，采用时分多址与随机竞争组合接入方法，通过特定的信息帧格式及内容定义设计，配合所设计的小卫星集群自适应组网方法，本发明包括三个阶段，分别为：1、小卫星发射入轨；2、初始组网，初始组网分为先后开机组网模式和同时开机组网模式；3、网络动态路由建立与维护，最终实现小卫星群的自适应组网。本发明有效地解决了分布式卫星系统快速组网与自适应灵活组网的矛盾，对于分布…",
     "applicant": "china-academy-of-space-technology-xian",
     "applicantName": "China Academy of Space Technology Xian",
-    "filing_year": 2015,
+    "filing_year": 2013,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2015-07-21",
+    "source_filing_date": "2013-11-29",
+    "source_publication_date": "2017-01-11",
     "field": "space_comm_leo_network",
     "subfield": "space_comm_leo_network__leo-satellite-constellation",
     "subfield_ids": [
@@ -3164,8 +3354,7 @@ export const PATENTS: Patent[] = [
     "family_id": "50323016",
     "keywords": [
       "LEO satellite constellation",
-      "satellite communication",
-      "LEO network"
+      "satellite communication"
     ],
     "importance_score": 0.68,
     "status": "등록",
@@ -3191,7 +3380,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "중국 위성통신/LEO 네트워크 후보 문헌. 핵심은 'GEO-LEO satellite network for global information distribution'이며, 근거 요약은 本发明公开一种面向全球信息分发的GEO和LEO双层卫星网络，包括由三颗GEO卫星组成的外层骨干网络和至少一颗LEO卫星组成的内层增强网络，所述3颗GEO卫星位于地球赤道上空，定点经度相差120°，GEO卫星之间通过固定星间链路互联，所述LEO卫星轨道高度为1450km，轨道倾角为84.5°，所述外层骨干网络与内层增强网之间通过广播方式进行信息分发，外层骨干网络与内层增强网之间以及双层卫星网络与地面之间广播时采用无速率编码方式。本发明的…",
     "applicant": "pla-university-of-science-and-technology",
     "applicantName": "PLA University of Science and Technology",
-    "filing_year": 2017,
+    "filing_year": 2014,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2017-03-03",
+    "source_filing_date": "2014-04-23",
+    "source_publication_date": "2014-07-30",
     "field": "space_comm_leo_network",
     "subfield": "space_comm_leo_network__inter-satellite-link",
     "subfield_ids": [
@@ -3199,9 +3396,7 @@ export const PATENTS: Patent[] = [
     ],
     "family_id": "51334283",
     "keywords": [
-      "inter-satellite link",
-      "LEO network",
-      "satellite communication"
+      "inter-satellite link"
     ],
     "importance_score": 0.63,
     "status": "공개",
@@ -3226,7 +3421,13 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "중국 위성통신/LEO 네트워크 후보 문헌. 핵심은 'Low earth orbit satellite constellation system and method of use'이며, 근거 요약은 一种在基于LEO卫星星座的通信系统中重用GEO分配的通信频谱的系统，使得LEO卫星发起的信号不会出现在指向GEO的地球站天线的波束宽度中，和卫星配置为通过操纵它们各自的波束传输来提供通信，其可包括前向波束和后向波束，其角度被控制以投射波束并减少或消除与指向GEO的地球站天线干扰的可能性。该系统和LEO卫星可以提供位于地球表面任何地方的地球站的大致100％覆盖，而不与GEO卫星或指向GEO的地面站协调。该系统还可以提供地球站，其配置为增…",
     "applicant": "theia-group-inc",
     "applicantName": "Theia Group Inc",
-    "filing_year": 2016,
+    "filing_year": 2017,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [],
+    "source_priority_date": "2016-08-21",
+    "source_filing_date": "2017-05-03",
+    "source_publication_date": "2020-08-14",
     "field": "space_comm_leo_network",
     "subfield": "space_comm_leo_network__leo-satellite-constellation",
     "subfield_ids": [
@@ -3234,9 +3435,7 @@ export const PATENTS: Patent[] = [
     ],
     "family_id": "60203348",
     "keywords": [
-      "LEO satellite constellation",
-      "LEO network",
-      "satellite communication"
+      "LEO satellite constellation"
     ],
     "importance_score": 0.73,
     "status": "등록",
@@ -3261,7 +3460,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "유럽 GNC/랑데부/온오빗 서비스 후보 문헌. 핵심은 'Docking system and method for satellites'이며, 근거 요약은 Service satellite docking unit with foldable gripping arms.",
     "applicant": "astroscale-israel-ltd",
     "applicantName": "Astroscale Israel Ltd",
-    "filing_year": 2017,
+    "filing_year": 2015,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2017-03-06",
+    "source_filing_date": "2015-08-26",
+    "source_publication_date": "2020-12-30",
     "field": "space_gnc_rendezvous_servicing",
     "subfield": "space_gnc_rendezvous_servicing__docking",
     "subfield_ids": [
@@ -3269,9 +3476,7 @@ export const PATENTS: Patent[] = [
     ],
     "family_id": "55398855",
     "keywords": [
-      "docking",
-      "GNC",
-      "rendezvous"
+      "docking"
     ],
     "importance_score": 0.71,
     "status": "등록",
@@ -3297,6 +3502,14 @@ export const PATENTS: Patent[] = [
     "applicant": "beijing-institute-of-control-engineering",
     "applicantName": "Beijing Institute of Control Engineering",
     "filing_year": 2019,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2019-11-08",
+    "source_filing_date": "2019-06-21",
+    "source_publication_date": "2024-05-01",
     "field": "space_gnc_rendezvous_servicing",
     "subfield": "space_gnc_rendezvous_servicing__rendezvous",
     "subfield_ids": [
@@ -3306,8 +3519,7 @@ export const PATENTS: Patent[] = [
     "family_id": "67911753",
     "keywords": [
       "rendezvous",
-      "docking",
-      "GNC"
+      "docking"
     ],
     "importance_score": 0.7,
     "status": "등록",
@@ -3333,7 +3545,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "유럽 재사용 발사체/회수 후보 문헌. 핵심은 'Return to base space launch vehicles, systems and methods'이며, 근거 요약은 A stage (10) for a space launch vehicle (1) is provided. The space launch vehicle has a main body including a first end (14) and a second end (16), and defines a central longitudinal axis (12) between the first end and…",
     "applicant": "pangea-aerospace-sl",
     "applicantName": "Pangea Aerospace SL",
-    "filing_year": 2020,
+    "filing_year": 2018,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2020-03-31",
+    "source_filing_date": "2018-11-06",
+    "source_publication_date": "2020-05-13",
     "field": "space_launch_propulsion_recovery",
     "subfield": "space_launch_propulsion_recovery__launch-vehicle",
     "subfield_ids": [
@@ -3342,8 +3562,7 @@ export const PATENTS: Patent[] = [
     ],
     "family_id": "64426845",
     "keywords": [
-      "launch vehicle",
-      "rocket engine"
+      "launch vehicle"
     ],
     "importance_score": 0.68,
     "status": "공개",
@@ -3368,7 +3587,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "유럽 재사용 발사체/회수 후보 문헌. 핵심은 'Landing apparatus for a reusable launch vehicle'이며, 근거 요약은 A landing apparatus for a reusable launch vehicle is provided, including a landing leg pivotably mounted at one end to the reusable launch vehicle, for example, to a propellant tank part, and mounted at the other end to…",
     "applicant": "korea-aerospace-research-institute-kari",
     "applicantName": "Korea Aerospace Research Institute KARI",
-    "filing_year": 2023,
+    "filing_year": 2022,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2023-12-27",
+    "source_filing_date": "2022-08-09",
+    "source_publication_date": "2023-03-01",
     "field": "space_launch_propulsion_recovery",
     "subfield": "space_launch_propulsion_recovery__reusable-launch-vehicle",
     "subfield_ids": [
@@ -3379,8 +3606,7 @@ export const PATENTS: Patent[] = [
     "family_id": "83355024",
     "keywords": [
       "reusable launch vehicle",
-      "launch vehicle",
-      "rocket engine"
+      "launch vehicle"
     ],
     "importance_score": 0.73,
     "status": "공개",
@@ -3406,7 +3632,13 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "유럽 우주재료/TPS/코팅 후보 문헌. 핵심은 'Fiber-reinforced rocket motor insulation'이며, 근거 요약은 Insulation for a rocket motor is provided, as is a method for insulating a rocket motor. The insulation includes a cured elastomer and vapor grown carbon fibers dispersed in the cured elastomer. The cured elastomer is p…",
     "applicant": "northrop-grumman-innovation-systems-llc",
     "applicantName": "Northrop Grumman Innovation Systems LLC",
-    "filing_year": 1999,
+    "filing_year": 2002,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [],
+    "source_priority_date": "1999-01-13",
+    "source_filing_date": "2002-01-09",
+    "source_publication_date": "2004-01-02",
     "field": "space_materials_tps_coatings",
     "subfield": "space_materials_tps_coatings__rocket-motor-insulation",
     "subfield_ids": [
@@ -3414,9 +3646,7 @@ export const PATENTS: Patent[] = [
     ],
     "family_id": "22990259",
     "keywords": [
-      "rocket motor insulation",
-      "thermal protection",
-      "coating"
+      "rocket motor insulation"
     ],
     "importance_score": 0.66,
     "status": "공개",
@@ -3441,7 +3671,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "유럽 우주재료/TPS/코팅 후보 문헌. 핵심은 'Silicone-cork ablative material'이며, 근거 요약은 A material for use in a thermal protection system contains a silicone resin binder, a silicone catalyst, ground cork, glass ecospheres, and a silicone solvent. In a preferred embodiment, the material consists of from 65…",
     "applicant": "rtx-corp",
     "applicantName": "RTX Corp",
-    "filing_year": 2010,
+    "filing_year": 2004,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2010-04-22",
+    "source_filing_date": "2004-06-18",
+    "source_publication_date": "2005-01-05",
     "field": "space_materials_tps_coatings",
     "subfield": "space_materials_tps_coatings__thermal-protection",
     "subfield_ids": [
@@ -3451,8 +3689,7 @@ export const PATENTS: Patent[] = [
     "family_id": "33435355",
     "keywords": [
       "thermal protection",
-      "ablative material",
-      "coating"
+      "ablative material"
     ],
     "importance_score": 0.73,
     "status": "공개",
@@ -3478,7 +3715,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "유럽 SAR/원격탐사 페이로드 후보 문헌. 핵심은 'Side-looking synthetic aperture radar system'이며, 근거 요약은 The invention relates to a side-looking SAR system, comprising * a transmit aperture, * a receive aperture of different size, separated from said transmit aperture and divided into a number of receive sub-apertures arra…",
     "applicant": "airbus-ds-gmbh",
     "applicantName": "Airbus DS GmbH",
-    "filing_year": 2005,
+    "filing_year": 2001,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2005-06-01",
+    "source_filing_date": "2001-03-15",
+    "source_publication_date": "2002-09-18",
     "field": "space_remote_sensing_payload",
     "subfield": "space_remote_sensing_payload__synthetic-aperture-radar",
     "subfield_ids": [
@@ -3486,9 +3731,7 @@ export const PATENTS: Patent[] = [
     ],
     "family_id": "8176778",
     "keywords": [
-      "synthetic aperture radar",
-      "remote sensing",
-      "payload"
+      "synthetic aperture radar"
     ],
     "importance_score": 0.68,
     "status": "공개",
@@ -3513,7 +3756,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "유럽 SAR/원격탐사 페이로드 후보 문헌. 핵심은 'High resolution wide swath synthetic aperture radar system'이며, 근거 요약은 High-resolution wide-swath SAR system.",
     "applicant": "airbus-defence-and-space-gmbh",
     "applicantName": "Airbus Defence and Space GmbH",
-    "filing_year": 2019,
+    "filing_year": 2017,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2019-02-22",
+    "source_filing_date": "2017-07-20",
+    "source_publication_date": "2021-09-01",
     "field": "space_remote_sensing_payload",
     "subfield": "space_remote_sensing_payload__synthetic-aperture-radar",
     "subfield_ids": [
@@ -3523,9 +3774,7 @@ export const PATENTS: Patent[] = [
     "family_id": "59383471",
     "keywords": [
       "synthetic aperture radar",
-      "wide swath",
-      "remote sensing",
-      "payload"
+      "wide swath"
     ],
     "importance_score": 0.73,
     "status": "등록",
@@ -3551,7 +3800,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "유럽 위성 열제어/플랫폼 후보 문헌. 핵심은 'Satellite'이며, 근거 요약은 Distributed satellite subsystems with simpler thermal control.",
     "applicant": "iceye-oy",
     "applicantName": "Iceye Oy",
-    "filing_year": 2020,
+    "filing_year": 2019,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2020-12-10",
+    "source_filing_date": "2019-11-08",
+    "source_publication_date": "2024-04-10",
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__spacecraft-thermal-control",
     "subfield_ids": [
@@ -3561,9 +3818,7 @@ export const PATENTS: Patent[] = [
     "family_id": "64739481",
     "keywords": [
       "spacecraft thermal control",
-      "satellite radiator",
-      "satellite bus",
-      "thermal control"
+      "satellite radiator"
     ],
     "importance_score": 0.7,
     "status": "등록",
@@ -3589,7 +3844,13 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "유럽 위성 열제어/플랫폼 후보 문헌. 핵심은 'Thermal control systems and methods for spacecraft'이며, 근거 요약은 According to some embodiments, a spacecraft 110 includes an electronics housing 120 having a sun-facing side 125. The spacecraft 110 further includes a peel-and-stick thermal control material 140 coupled to the sun-faci…",
     "applicant": "lockheed-martin-corp",
     "applicantName": "Lockheed Martin Corp",
-    "filing_year": 1995,
+    "filing_year": 2024,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [],
+    "source_priority_date": "1995-12-22",
+    "source_filing_date": "2024-02-22",
+    "source_publication_date": "2024-09-04",
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__spacecraft-thermal-control",
     "subfield_ids": [
@@ -3599,9 +3860,7 @@ export const PATENTS: Patent[] = [
     "family_id": "90054160",
     "keywords": [
       "spacecraft thermal control",
-      "satellite radiator",
-      "satellite bus",
-      "thermal control"
+      "satellite radiator"
     ],
     "importance_score": 0.7,
     "status": "공개",
@@ -3627,7 +3886,13 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "유럽 위성통신/LEO 네트워크 후보 문헌. 핵심은 'Flexible capacity satellite constellation'이며, 근거 요약은 Satellite constellation capacity allocation and flexibility.",
     "applicant": "viasat-inc",
     "applicantName": "Viasat Inc",
-    "filing_year": 2015,
+    "filing_year": 2016,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [],
+    "source_priority_date": "2015-07-31",
+    "source_filing_date": "2016-07-26",
+    "source_publication_date": "2025-11-26",
     "field": "space_comm_leo_network",
     "subfield": "space_comm_leo_network__leo-satellite-constellation",
     "subfield_ids": [
@@ -3637,8 +3902,7 @@ export const PATENTS: Patent[] = [
     "family_id": "56609966",
     "keywords": [
       "LEO satellite constellation",
-      "satellite communication",
-      "LEO network"
+      "satellite communication"
     ],
     "importance_score": 0.77,
     "status": "등록",
@@ -3665,6 +3929,12 @@ export const PATENTS: Patent[] = [
     "applicant": "intel-corp",
     "applicantName": "Intel Corp",
     "filing_year": 2020,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [],
+    "source_priority_date": "2020-05-01",
+    "source_filing_date": "2020-12-24",
+    "source_publication_date": "2023-03-08",
     "field": "space_comm_leo_network",
     "subfield": "space_comm_leo_network__satellite-communication",
     "subfield_ids": [
@@ -3672,8 +3942,7 @@ export const PATENTS: Patent[] = [
     ],
     "family_id": "78332105",
     "keywords": [
-      "satellite communication",
-      "LEO network"
+      "satellite communication"
     ],
     "importance_score": 0.73,
     "status": "공개",
@@ -3698,7 +3967,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "일본 GNC/랑데부/온오빗 서비스 후보 문헌. 핵심은 'Docking system and docking method for satellite'이며, 근거 요약은 Japanese family publication for service-satellite docking.",
     "applicant": "effective-space-solutions-ltd",
     "applicantName": "Effective Space Solutions Ltd",
-    "filing_year": 2017,
+    "filing_year": 2015,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2017-03-06",
+    "source_filing_date": "2015-08-26",
+    "source_publication_date": "2020-03-25",
     "field": "space_gnc_rendezvous_servicing",
     "subfield": "space_gnc_rendezvous_servicing__docking",
     "subfield_ids": [
@@ -3706,9 +3983,7 @@ export const PATENTS: Patent[] = [
     ],
     "family_id": "55398855",
     "keywords": [
-      "docking",
-      "GNC",
-      "rendezvous"
+      "docking"
     ],
     "importance_score": 0.71,
     "status": "등록",
@@ -3733,7 +4008,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "일본 GNC/랑데부/온오빗 서비스 후보 문헌. 핵심은 'Disconnecting device for apparatus'이며, 근거 요약은 PURPOSE:To make it possible to safely disconnect apparatus under the ultimate circumstances through simple operation without a worker on duty by giving closing force to a disconnecting arm to automatically align the app…",
     "applicant": "ihi-corp",
     "applicantName": "IHI Corp",
-    "filing_year": 1990,
+    "filing_year": 1988,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "1989-12-21",
+    "source_filing_date": "1988-05-09",
+    "source_publication_date": "1989-11-13",
     "field": "space_gnc_rendezvous_servicing",
     "subfield": "space_gnc_rendezvous_servicing__rendezvous",
     "subfield_ids": [
@@ -3743,8 +4026,7 @@ export const PATENTS: Patent[] = [
     "family_id": "14539363",
     "keywords": [
       "rendezvous",
-      "docking",
-      "GNC"
+      "docking"
     ],
     "importance_score": 0.68,
     "status": "공개",
@@ -3770,7 +4052,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "일본 재사용 발사체/회수 후보 문헌. 핵심은 'Hybrid propulsion systems for spacecraft'이며, 근거 요약은 Japanese publication around hybrid spacecraft propulsion.",
     "applicant": "hybrid-propulsion-for-space",
     "applicantName": "Hybrid Propulsion For Space",
-    "filing_year": 2021,
+    "filing_year": 2020,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2021-12-30",
+    "source_filing_date": "2020-10-16",
+    "source_publication_date": "2024-12-20",
     "field": "space_launch_propulsion_recovery",
     "subfield": "space_launch_propulsion_recovery__reusable-launch-vehicle",
     "subfield_ids": [
@@ -3780,9 +4070,7 @@ export const PATENTS: Patent[] = [
     "family_id": "69190974",
     "keywords": [
       "reusable launch vehicle",
-      "vertical landing",
-      "launch vehicle",
-      "rocket engine"
+      "vertical landing"
     ],
     "importance_score": 0.77,
     "status": "등록",
@@ -3808,7 +4096,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "일본 우주재료/TPS/코팅 후보 문헌. 핵심은 'Elastomer-treated phenolic resin ablative insulator for rocket motors'이며, 근거 요약은 (57)【要約】 ロケットモーターの選択された成分・部品の熱絶縁に関しての用途において特に適しているエラストマー処理フェノール樹脂絶縁体、及び該エラストマー化アブレイティブ絶縁体を製造するための組成物が開示される。さらに、該組成物から形成される材料のカレンダー処理したシートを形成する関連する方法も開示される。開示される組成物の好ましい成分は、アクリロニトリルブタジエンゴム、ほう酸亜鉛、フェノールホルムアルデヒド樹脂を含み、これは硬化で…",
     "applicant": "northrop-grumman-innovation-systems-llc",
     "applicantName": "Northrop Grumman Innovation Systems LLC",
-    "filing_year": 2016,
+    "filing_year": 2000,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2016-08-22",
+    "source_filing_date": "2000-09-01",
+    "source_publication_date": "2003-03-11",
     "field": "space_materials_tps_coatings",
     "subfield": "space_materials_tps_coatings__thermal-protection",
     "subfield_ids": [
@@ -3818,8 +4114,7 @@ export const PATENTS: Patent[] = [
     "family_id": "23548767",
     "keywords": [
       "thermal protection",
-      "spacecraft coating",
-      "coating"
+      "spacecraft coating"
     ],
     "importance_score": 0.75,
     "status": "공개",
@@ -3845,7 +4140,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "일본 우주재료/TPS/코팅 후보 문헌. 핵심은 'Ablative material of silicone cork'이며, 근거 요약은 PROBLEM TO BE SOLVED: To provide a heat insulating system material meeting the specified thermal requirements for aerospace launched bodies and transport aircraft. SOLUTION: This material for heat insulating system comp…",
     "applicant": "rtx-corp",
     "applicantName": "RTX Corp",
-    "filing_year": 2011,
+    "filing_year": 2004,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2011-03-02",
+    "source_filing_date": "2004-06-15",
+    "source_publication_date": "2005-01-20",
     "field": "space_materials_tps_coatings",
     "subfield": "space_materials_tps_coatings__thermal-protection",
     "subfield_ids": [
@@ -3855,8 +4158,7 @@ export const PATENTS: Patent[] = [
     "family_id": "33435355",
     "keywords": [
       "thermal protection",
-      "ablative material",
-      "coating"
+      "ablative material"
     ],
     "importance_score": 0.73,
     "status": "공개",
@@ -3883,6 +4185,14 @@ export const PATENTS: Patent[] = [
     "applicant": "unknown-applicant",
     "applicantName": "Unknown Applicant",
     "filing_year": 2024,
+    "date_basis": "publication_year",
+    "date_basis_label": "공개연도·출원일 미확인",
+    "date_quality_notes": [
+      "원천 출원일이 없어 공개연도를 대신 사용합니다."
+    ],
+    "source_priority_date": null,
+    "source_filing_date": null,
+    "source_publication_date": "2024-11-13",
     "field": "space_remote_sensing_payload",
     "subfield": "space_remote_sensing_payload__synthetic-aperture-radar",
     "subfield_ids": [
@@ -3891,9 +4201,7 @@ export const PATENTS: Patent[] = [
     ],
     "keywords": [
       "synthetic aperture radar",
-      "SAR imaging",
-      "remote sensing",
-      "payload"
+      "SAR imaging"
     ],
     "importance_score": 0.65,
     "status": "등록",
@@ -3908,7 +4216,13 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "일본 SAR/원격탐사 페이로드 후보 문헌. 핵심은 'JPS62165582U - - Google Patents'이며, 근거 요약은 Japanese utility-model style publication related to interferometric SAR.",
     "applicant": "unknown-applicant",
     "applicantName": "Unknown Applicant",
-    "filing_year": 1990,
+    "filing_year": 1985,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [],
+    "source_priority_date": null,
+    "source_filing_date": "1985-12-09",
+    "source_publication_date": "1987-10-21",
     "field": "space_remote_sensing_payload",
     "subfield": "space_remote_sensing_payload__synthetic-aperture-radar",
     "subfield_ids": [
@@ -3918,9 +4232,7 @@ export const PATENTS: Patent[] = [
     "family_id": "31141566",
     "keywords": [
       "synthetic aperture radar",
-      "SAR imaging",
-      "remote sensing",
-      "payload"
+      "SAR imaging"
     ],
     "importance_score": 0.68,
     "status": "공개",
@@ -3946,7 +4258,13 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "일본 위성 열제어/플랫폼 후보 문헌. 핵심은 'Artificial satellite heat dissipation panel with combined reinforcement / heat pipe'이며, 근거 요약은 Japanese family publication for satellite radiator/heat-pipe panel.",
     "applicant": "applicant",
     "applicantName": "ワールドビュー・サテライツ・リミテッド",
-    "filing_year": 2014,
+    "filing_year": 2016,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [],
+    "source_priority_date": "2014-12-18",
+    "source_filing_date": "2016-03-30",
+    "source_publication_date": "2020-09-30",
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__satellite-radiator",
     "subfield_ids": [
@@ -3956,9 +4274,7 @@ export const PATENTS: Patent[] = [
     "family_id": "57007537",
     "keywords": [
       "satellite radiator",
-      "heat pipe",
-      "satellite bus",
-      "thermal control"
+      "heat pipe"
     ],
     "importance_score": 0.77,
     "status": "등록",
@@ -3984,7 +4300,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "일본 위성 열제어/플랫폼 후보 문헌. 핵심은 'Heat controller for space-ship'이며, 근거 요약은 (57)【要約】 【目的】 低い傾斜角の地球軌道で動作するようになっ ている宇宙船の内容積を画定する北、南、東および西パ ネル５２，５４，５６，５８の相互間の温度差を小さく し、各パネルの温度を低く保つ。 【構成】 北、南、東および西パネルの外面を好ましく は、そこから熱エネルギを放射するために、実質的にそ の熱放射率より小さい太陽熱吸収率を有する光学太陽熱 反射器のカバーで構成する。また北、南、東および西パ ネルの内面を内容積を横切…",
     "applicant": "general-electric-co",
     "applicantName": "General Electric Co",
-    "filing_year": 2010,
+    "filing_year": 1992,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2010-05-14",
+    "source_filing_date": "1992-08-18",
+    "source_publication_date": "1993-08-03",
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__spacecraft-thermal-control",
     "subfield_ids": [
@@ -3994,9 +4318,7 @@ export const PATENTS: Patent[] = [
     "family_id": "25010171",
     "keywords": [
       "spacecraft thermal control",
-      "heat pipe",
-      "satellite bus",
-      "thermal control"
+      "heat pipe"
     ],
     "importance_score": 0.7,
     "status": "공개",
@@ -4022,7 +4344,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "일본 위성통신/LEO 네트워크 후보 문헌. 핵심은 'Satellite system and method for polar latitudes'이며, 근거 요약은 本発明は、衛星システム、より具体的には、周極地域と呼ばれ、北半球あるいは南半球の６０°を超える緯度を有する領域としてここで定義される、より高緯度における、天候及び気候観測、通信用途、及び科学研究のための衛星システムの提供に関する。当該分野における教示に反して、衛星システム及び方法は、高緯度に位置する特定サービス領域のカバー範囲を最適化するために選ばれた傾斜角（７０°から９０°）、軌道面、赤経、及び離心率（０．２７５−０．４５）を有する…",
     "applicant": "applicant",
     "applicantName": "ワールドビュー・サテライツ・リミテッド",
-    "filing_year": 2015,
+    "filing_year": 2011,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2015-11-27",
+    "source_filing_date": "2011-09-30",
+    "source_publication_date": "2013-11-07",
     "field": "space_comm_leo_network",
     "subfield": "space_comm_leo_network__satellite-communication",
     "subfield_ids": [
@@ -4030,8 +4360,7 @@ export const PATENTS: Patent[] = [
     ],
     "family_id": "45891750",
     "keywords": [
-      "satellite communication",
-      "LEO network"
+      "satellite communication"
     ],
     "importance_score": 0.71,
     "status": "공개",
@@ -4056,7 +4385,13 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "일본 위성통신/LEO 네트워크 후보 문헌. 핵심은 'Earth low earth orbit satellite constellation for communications with geostationary satellite spectrum reuse'이며, 근거 요약은 Japanese family publication for LEO communication spectrum reuse.",
     "applicant": "theia-group-inc",
     "applicantName": "Theia Group Inc",
-    "filing_year": 2016,
+    "filing_year": 2017,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [],
+    "source_priority_date": "2016-08-21",
+    "source_filing_date": "2017-05-03",
+    "source_publication_date": "2021-06-30",
     "field": "space_comm_leo_network",
     "subfield": "space_comm_leo_network__leo-satellite-constellation",
     "subfield_ids": [
@@ -4066,8 +4401,7 @@ export const PATENTS: Patent[] = [
     "family_id": "60203348",
     "keywords": [
       "LEO satellite constellation",
-      "satellite communication",
-      "LEO network"
+      "satellite communication"
     ],
     "importance_score": 0.77,
     "status": "등록",
@@ -4093,7 +4427,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "한국 GNC/랑데부/온오빗 서비스 후보 문헌. 핵심은 'Satellite Attitude and Orbit Control Electrical Test Bench Simulator'이며, 근거 요약은 본 발명은 위성의 모델과 지상시험용 지원장비가 소프트웨어화된 자세제어 시뮬레이터가 포함된 위성 자세제어 지상시험 모사 장치에 관한 것으로, 크게 자세제어 시뮬레이터와 컴퓨터 모듈을 포함하며, 상기 자세제어 시뮬레이터는 상기 컴퓨터 모델이 하드웨어 장치인지 소프트웨어 장치인지에 따라 선택적으로 통신프로토콜을 변화시키는 입출력변환부(ioFSS)을 포함한다.The present invention…",
     "applicant": "applicant",
     "applicantName": "ワールドビュー・サテライツ・リミテッド",
-    "filing_year": 2024,
+    "filing_year": 2020,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2024-02-16",
+    "source_filing_date": "2020-12-02",
+    "source_publication_date": "2022-06-24",
     "field": "space_gnc_rendezvous_servicing",
     "subfield": "space_gnc_rendezvous_servicing__attitude-control",
     "subfield_ids": [
@@ -4101,9 +4443,7 @@ export const PATENTS: Patent[] = [
     ],
     "family_id": "81985755",
     "keywords": [
-      "attitude control",
-      "GNC",
-      "rendezvous"
+      "attitude control"
     ],
     "importance_score": 0.63,
     "status": "등록",
@@ -4128,7 +4468,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "한국 재사용 발사체/회수 후보 문헌. 핵심은 'Landing apparatus for reusable launch vehicle'이며, 근거 요약은 According to an embodiment of the present invention, provided is a reusable projectile landing gear including: a landing leg, one end of which is rotatably mounted on a propellant tank part of a reusable projectile and…",
     "applicant": "applicant",
     "applicantName": "ワールドビュー・サテライツ・リミテッド",
-    "filing_year": 2023,
+    "filing_year": 2021,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2023-09-13",
+    "source_filing_date": "2021-08-24",
+    "source_publication_date": "2023-03-03",
     "field": "space_launch_propulsion_recovery",
     "subfield": "space_launch_propulsion_recovery__reusable-launch-vehicle",
     "subfield_ids": [
@@ -4139,8 +4487,7 @@ export const PATENTS: Patent[] = [
     "family_id": "83355024",
     "keywords": [
       "reusable launch vehicle",
-      "launch vehicle",
-      "rocket engine"
+      "launch vehicle"
     ],
     "importance_score": 0.73,
     "status": "공개",
@@ -4166,7 +4513,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "한국 우주재료/TPS/코팅 후보 문헌. 핵심은 'Manufacturing method of the exit cone for propulsion nozzle unit'이며, 근거 요약은 본 발명의 추력 노즐용 익시트 콘 제조방법에서는 탄소계, 실리콘 카바이드계 섬유(직물)를 기본으로하여 직물 프리폼(10,knit preform), 테이프 프리폼(20,Tape preform), 인볼트 레이업 프리폼(30,Involute layup preform), 필라멘트 프리폼(Filament preform)을 다양하게 제조하고, 이러한 다양한 프리폼(preform)을 고온 내열수지 함침…",
     "applicant": "applicant",
     "applicantName": "ワールドビュー・サテライツ・リミテッド",
-    "filing_year": 2016,
+    "filing_year": 2013,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2016-10-31",
+    "source_filing_date": "2013-11-08",
+    "source_publication_date": "2015-09-03",
     "field": "space_materials_tps_coatings",
     "subfield": "space_materials_tps_coatings__thermal-protection",
     "subfield_ids": [
@@ -4176,8 +4531,7 @@ export const PATENTS: Patent[] = [
     "family_id": "53390113",
     "keywords": [
       "thermal protection",
-      "spacecraft coating",
-      "coating"
+      "spacecraft coating"
     ],
     "importance_score": 0.68,
     "status": "등록",
@@ -4203,7 +4557,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "한국 SAR/원격탐사 페이로드 후보 문헌. 핵심은 'Bistatic synthetic aperture radar system based on global navigation satellite system'이며, 근거 요약은 The present invention relates to a bistatic SAR system using a GNSS which can precisely track a target. The bistatic SAR system using a GNSS comprises: a GNSS satellite transmitting a first signal for tracking a target;…",
     "applicant": "applicant",
     "applicantName": "ワールドビュー・サテライツ・リミテッド",
-    "filing_year": 2019,
+    "filing_year": 2018,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2019-10-01",
+    "source_filing_date": "2018-08-01",
+    "source_publication_date": "2018-11-20",
     "field": "space_remote_sensing_payload",
     "subfield": "space_remote_sensing_payload__synthetic-aperture-radar",
     "subfield_ids": [
@@ -4211,9 +4573,7 @@ export const PATENTS: Patent[] = [
     ],
     "family_id": "64568546",
     "keywords": [
-      "synthetic aperture radar",
-      "remote sensing",
-      "payload"
+      "synthetic aperture radar"
     ],
     "importance_score": 0.63,
     "status": "등록",
@@ -4238,7 +4598,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "한국 SAR/원격탐사 페이로드 후보 문헌. 핵심은 'High resolution wide swath synthetic aperture radar system'이며, 근거 요약은 본 발명은 측면 감시 고해상도 넓은 스와스 합성 개구 레이더인, HRWS-SAR 시스템에 관한 것이다. HRWS-SAR 시스템은 안테나 어레이 및 빔 형성 네트워크를 포함한다. 안테나는 복수의 안테나 요소를 포함한다. 안테나 어레이는 전자파들을 송신하고 수신하도록 적응되고 배열된다. 빔 형성 네트워크는 복수의 실제 시간 지연 라인인, TTDL들을 포함한다. 빔 형성 네트워크는 복수의 이상기…",
     "applicant": "applicant",
     "applicantName": "ワールドビュー・サテライツ・リミテッド",
-    "filing_year": 2019,
+    "filing_year": 2018,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2019-02-22",
+    "source_filing_date": "2018-06-20",
+    "source_publication_date": "2025-10-27",
     "field": "space_remote_sensing_payload",
     "subfield": "space_remote_sensing_payload__synthetic-aperture-radar",
     "subfield_ids": [
@@ -4248,9 +4616,7 @@ export const PATENTS: Patent[] = [
     "family_id": "59383471",
     "keywords": [
       "synthetic aperture radar",
-      "wide swath",
-      "remote sensing",
-      "payload"
+      "wide swath"
     ],
     "importance_score": 0.73,
     "status": "등록",
@@ -4277,15 +4643,21 @@ export const PATENTS: Patent[] = [
     "applicant": "unknown-applicant",
     "applicantName": "Unknown Applicant",
     "filing_year": 2024,
+    "date_basis": "publication_year",
+    "date_basis_label": "공개연도·출원일 미확인",
+    "date_quality_notes": [
+      "원천 출원일이 없어 공개연도를 대신 사용합니다."
+    ],
+    "source_priority_date": null,
+    "source_filing_date": null,
+    "source_publication_date": null,
     "field": "space_remote_sensing_payload",
     "subfield": "space_remote_sensing_payload__sar-imaging",
     "subfield_ids": [
       "space_remote_sensing_payload__sar-imaging"
     ],
     "keywords": [
-      "SAR imaging",
-      "remote sensing",
-      "payload"
+      "SAR imaging"
     ],
     "importance_score": 0.61,
     "status": "공개",
@@ -4300,7 +4672,13 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "한국 위성 열제어/플랫폼 후보 문헌. 핵심은 'Satellite radiator panels with combined stiffener/heat pipe'이며, 근거 요약은 인공위성에서 사용하기 위한 패시브 열 시스템은, 표면에 복수의 히트 파이프가 부착된 고체 방열기 패널을 포함한다. 열 전달 능력 외에도, 히트 파이프는, 히트 파이프가 커플링되는 방열기 패널을 강화한다. 몇몇 실시형태에서, 히트 파이프는 그들의 면적 관성 모멘트를 증가시키도록 구조적으로 변형된다.A passive heat system for use in satellites includes…",
     "applicant": "applicant",
     "applicantName": "ワールドビュー・サテライツ・リミテッド",
-    "filing_year": 2014,
+    "filing_year": 2016,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [],
+    "source_priority_date": "2014-12-18",
+    "source_filing_date": "2016-03-30",
+    "source_publication_date": "2020-06-17",
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__satellite-radiator",
     "subfield_ids": [
@@ -4310,9 +4688,7 @@ export const PATENTS: Patent[] = [
     "family_id": "57007537",
     "keywords": [
       "satellite radiator",
-      "heat pipe",
-      "satellite bus",
-      "thermal control"
+      "heat pipe"
     ],
     "importance_score": 0.77,
     "status": "등록",
@@ -4338,7 +4714,13 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "한국 위성 열제어/플랫폼 후보 문헌. 핵심은 'Solar, electronic, RF radiator for self-contained structures for space-based arrays'이며, 근거 요약은 안테나 조립체 어레이 각각은 태양 전력을 생성하고 해당 안테나 조립체에서 생성된 태양 전력을 이용하고, 이는 많은 양의 전력을 생성시킨다. 안테나 조립체의 제1 외면을 형성하는 평탄한 안테나측과, 상기 안테나 조립체의 제2 외면을 형성하는 평탄한 태양층, 및 안테나층과 태양층 사이에 개재된 평탄한 지지 구조물을 가지는 평탄한 구조층을 안테나 조립체는 가진다. 안테나층은 지구와 통신하기 위하…",
     "applicant": "applicant",
     "applicantName": "ワールドビュー・サテライツ・リミテッド",
-    "filing_year": 2017,
+    "filing_year": 2020,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [],
+    "source_priority_date": "2017-05-11",
+    "source_filing_date": "2020-05-15",
+    "source_publication_date": "2024-12-12",
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__spacecraft-thermal-control",
     "subfield_ids": [
@@ -4348,9 +4730,7 @@ export const PATENTS: Patent[] = [
     "family_id": "73231053",
     "keywords": [
       "spacecraft thermal control",
-      "satellite radiator",
-      "satellite bus",
-      "thermal control"
+      "satellite radiator"
     ],
     "importance_score": 0.75,
     "status": "등록",
@@ -4376,7 +4756,13 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "한국 위성통신/LEO 네트워크 후보 문헌. 핵심은 'Low-orbit satellite star cluster system for communication in which geostationary satellite spectrum is reused'이며, 근거 요약은 LEO 위성 발신 신호가 GEO-포인팅 지구국 안테나의 빔 폭에 나타나지 않도록 LEO 위성 성단 기반 통신 시스템에서 GEO 할당 통신 스펙트럼을 재사용하기 위한 시스템은, 빔을 투영하고 GEO-포인팅 지구국 안테나와의 간섭 가능성을 감소 또는 제거하도록 각도가 제어되는 전방 빔 및 후방 빔을 포함할 수 있는 각각의 빔 전송을 조정함으로써 위성은 통신을 제공하도록 한다. 상기 시스템 및…",
     "applicant": "applicant",
     "applicantName": "ワールドビュー・サテライツ・リミテッド",
-    "filing_year": 2016,
+    "filing_year": 2017,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [],
+    "source_priority_date": "2016-08-21",
+    "source_filing_date": "2017-05-03",
+    "source_publication_date": "2020-10-15",
     "field": "space_comm_leo_network",
     "subfield": "space_comm_leo_network__leo-satellite-constellation",
     "subfield_ids": [
@@ -4386,8 +4772,7 @@ export const PATENTS: Patent[] = [
     "family_id": "60203348",
     "keywords": [
       "LEO satellite constellation",
-      "satellite communication",
-      "LEO network"
+      "satellite communication"
     ],
     "importance_score": 0.77,
     "status": "등록",
@@ -4414,6 +4799,14 @@ export const PATENTS: Patent[] = [
     "applicant": "unknown-applicant",
     "applicantName": "Unknown Applicant",
     "filing_year": 2024,
+    "date_basis": "publication_year",
+    "date_basis_label": "공개연도·출원일 미확인",
+    "date_quality_notes": [
+      "원천 출원일이 없어 공개연도를 대신 사용합니다."
+    ],
+    "source_priority_date": null,
+    "source_filing_date": null,
+    "source_publication_date": null,
     "field": "space_comm_leo_network",
     "subfield": "space_comm_leo_network__leo-satellite-constellation",
     "subfield_ids": [
@@ -4422,8 +4815,7 @@ export const PATENTS: Patent[] = [
     ],
     "keywords": [
       "LEO satellite constellation",
-      "satellite communication",
-      "LEO network"
+      "satellite communication"
     ],
     "importance_score": 0.65,
     "status": "공개",
@@ -4438,7 +4830,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "미국 GNC/랑데부/온오빗 서비스 후보 문헌. 핵심은 'Spacecraft servicing devices and related assemblies, systems, and methods'이며, 근거 요약은 Servicing pods deployed from host spacecraft to service target spacecraft.",
     "applicant": "northrop-grumman-systems-corp",
     "applicantName": "Northrop Grumman Systems Corp",
-    "filing_year": 2019,
+    "filing_year": 2018,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2019-02-15",
+    "source_filing_date": "2018-07-20",
+    "source_publication_date": "2019-01-24",
     "field": "space_gnc_rendezvous_servicing",
     "subfield": "space_gnc_rendezvous_servicing__rendezvous",
     "subfield_ids": [
@@ -4447,8 +4847,7 @@ export const PATENTS: Patent[] = [
     ],
     "keywords": [
       "rendezvous",
-      "docking",
-      "GNC"
+      "docking"
     ],
     "importance_score": 0.65,
     "status": "공개",
@@ -4464,6 +4863,12 @@ export const PATENTS: Patent[] = [
     "applicant": "northrop-grumman-innovation-systems-llc",
     "applicantName": "Northrop Grumman Innovation Systems LLC",
     "filing_year": 2003,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [],
+    "source_priority_date": "2003-06-13",
+    "source_filing_date": "2003-08-15",
+    "source_publication_date": "2005-09-20",
     "field": "space_gnc_rendezvous_servicing",
     "subfield": "space_gnc_rendezvous_servicing__rendezvous",
     "subfield_ids": [
@@ -4473,8 +4878,7 @@ export const PATENTS: Patent[] = [
     "family_id": "34193636",
     "keywords": [
       "rendezvous",
-      "docking",
-      "GNC"
+      "docking"
     ],
     "importance_score": 0.7,
     "status": "등록",
@@ -4500,7 +4904,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "미국 GNC/랑데부/온오빗 서비스 후보 문헌. 핵심은 'Spacecraft docking system'이며, 근거 요약은 A method and apparatus for docking a spacecraft. The apparatus comprises elongate members, movement systems, and force management systems. The elongate members are associated with a docking structure for a spacecraft. T…",
     "applicant": "national-aeronautics-and-space-administration-nasa",
     "applicantName": "National Aeronautics and Space Administration NASA",
-    "filing_year": 2016,
+    "filing_year": 2014,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2016-08-23",
+    "source_filing_date": "2014-03-21",
+    "source_publication_date": "2016-04-05",
     "field": "space_gnc_rendezvous_servicing",
     "subfield": "space_gnc_rendezvous_servicing__docking",
     "subfield_ids": [
@@ -4508,9 +4920,7 @@ export const PATENTS: Patent[] = [
     ],
     "family_id": "52463116",
     "keywords": [
-      "docking",
-      "GNC",
-      "rendezvous"
+      "docking"
     ],
     "importance_score": 0.71,
     "status": "등록",
@@ -4535,7 +4945,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "미국 재사용 발사체/회수 후보 문헌. 핵심은 'Vertical landing systems for space vehicles and associated methods'이며, 근거 요약은 Methods and systems for vertically landing space vehicles are described herein. In one embodiment, a reusable space vehicle lands in a vertical, nose-up orientation by engaging a system of cables suspended from an eleva…",
     "applicant": "blue-origin-manufacturing-llc",
     "applicantName": "Blue Origin Manufacturing LLC",
-    "filing_year": 2019,
+    "filing_year": 2017,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2019-08-12",
+    "source_filing_date": "2017-12-27",
+    "source_publication_date": "2020-11-03",
     "field": "space_launch_propulsion_recovery",
     "subfield": "space_launch_propulsion_recovery__vertical-landing",
     "subfield_ids": [
@@ -4544,9 +4962,7 @@ export const PATENTS: Patent[] = [
     ],
     "family_id": "62625436",
     "keywords": [
-      "vertical landing",
-      "launch vehicle",
-      "rocket engine"
+      "vertical landing"
     ],
     "importance_score": 0.63,
     "status": "등록",
@@ -4571,7 +4987,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "미국 재사용 발사체/회수 후보 문헌. 핵심은 'Sea landing of space launch vehicles and associated systems and methods'이며, 근거 요약은 Launch vehicle systems and methods for landing and recovering a booster stage and/or other portions thereof on a platform at sea or on another body of water are disclosed. In one embodiment, a reusable space launch vehi…",
     "applicant": "blue-origin-manufacturing-llc",
     "applicantName": "Blue Origin Manufacturing LLC",
-    "filing_year": 2013,
+    "filing_year": 2010,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2013-03-15",
+    "source_filing_date": "2010-06-14",
+    "source_publication_date": "2014-03-25",
     "field": "space_launch_propulsion_recovery",
     "subfield": "space_launch_propulsion_recovery__sea-landing",
     "subfield_ids": [
@@ -4582,8 +5006,7 @@ export const PATENTS: Patent[] = [
     "family_id": "43429742",
     "keywords": [
       "sea landing",
-      "launch vehicle",
-      "rocket engine"
+      "launch vehicle"
     ],
     "importance_score": 0.75,
     "status": "등록",
@@ -4609,7 +5032,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "미국 우주재료/TPS/코팅 후보 문헌. 핵심은 'Alternative resin systems for thermal protection materials'이며, 근거 요약은 Thermal protective materials suitable for use in a spacecraft include a substrate, such as carbon fibers or carbon felt, and cyanate ester resin or phthalonitrile resin, and cross-linkers. These thermal protective mater…",
     "applicant": "national-aeronautics-and-space-administration-nasa",
     "applicantName": "National Aeronautics and Space Administration NASA",
-    "filing_year": 2022,
+    "filing_year": 2016,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2022-09-13",
+    "source_filing_date": "2016-06-02",
+    "source_publication_date": "2020-07-21",
     "field": "space_materials_tps_coatings",
     "subfield": "space_materials_tps_coatings__thermal-protection",
     "subfield_ids": [
@@ -4617,8 +5048,7 @@ export const PATENTS: Patent[] = [
     ],
     "family_id": "71611893",
     "keywords": [
-      "thermal protection",
-      "coating"
+      "thermal protection"
     ],
     "importance_score": 0.63,
     "status": "등록",
@@ -4643,7 +5073,13 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "미국 우주재료/TPS/코팅 후보 문헌. 핵심은 'Spacecraft, coating and method'이며, 근거 요약은 A spacecraft, for example a satellite, or a part thereof having a coating comprising a 2D material on an outer surface thereof is described. The 2D material comprises one or more elements, excluding C, N and S, in an am…",
     "applicant": "university-of-manchester",
     "applicantName": "University of Manchester",
-    "filing_year": 1990,
+    "filing_year": 2021,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [],
+    "source_priority_date": "1986-04-23",
+    "source_filing_date": "2021-10-01",
+    "source_publication_date": "2024-01-04",
     "field": "space_materials_tps_coatings",
     "subfield": "space_materials_tps_coatings__thermal-protection",
     "subfield_ids": [
@@ -4653,8 +5089,7 @@ export const PATENTS: Patent[] = [
     "family_id": "73223759",
     "keywords": [
       "thermal protection",
-      "spacecraft coating",
-      "coating"
+      "spacecraft coating"
     ],
     "importance_score": 0.7,
     "status": "공개",
@@ -4680,7 +5115,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "미국 우주재료/TPS/코팅 후보 문헌. 핵심은 'Ceramic/ceramic shell tile thermal protection system and method thereof'이며, 근거 요약은 The present invention discloses a ceramic reusable externally applied thermal protection system (TPS). The system functions by using the composite device created by combining an upper shell, thermal insulation and lower…",
     "applicant": "national-aeronautics-and-space-administration-nasa",
     "applicantName": "National Aeronautics and Space Administration NASA",
-    "filing_year": 1990,
+    "filing_year": 1986,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "1988-04-29",
+    "source_filing_date": "1986-05-14",
+    "source_publication_date": "1987-12-15",
     "field": "space_materials_tps_coatings",
     "subfield": "space_materials_tps_coatings__thermal-protection",
     "subfield_ids": [
@@ -4688,8 +5131,7 @@ export const PATENTS: Patent[] = [
     ],
     "family_id": "25339754",
     "keywords": [
-      "thermal protection",
-      "coating"
+      "thermal protection"
     ],
     "importance_score": 0.68,
     "status": "공개",
@@ -4714,7 +5156,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "미국 SAR/원격탐사 페이로드 후보 문헌. 핵심은 'Apparatus and methods for synthetic aperture radar with digital beamforming'이며, 근거 요약은 Digital beamforming SAR receiver subsystem.",
     "applicant": "spacealpha-insights-corp",
     "applicantName": "Spacealpha Insights Corp",
-    "filing_year": 2019,
+    "filing_year": 2016,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2019-11-05",
+    "source_filing_date": "2016-03-17",
+    "source_publication_date": "2020-12-22",
     "field": "space_remote_sensing_payload",
     "subfield": "space_remote_sensing_payload__synthetic-aperture-radar",
     "subfield_ids": [
@@ -4723,9 +5173,7 @@ export const PATENTS: Patent[] = [
     ],
     "keywords": [
       "synthetic aperture radar",
-      "digital beamforming",
-      "remote sensing",
-      "payload"
+      "digital beamforming"
     ],
     "importance_score": 0.65,
     "status": "등록",
@@ -4740,16 +5188,20 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "미국 SAR/원격탐사 페이로드 후보 문헌. 핵심은 'Synthetic aperture radar imaging apparatus and methods'이며, 근거 요약은 SAR system with interrogation/self-imaging modes.",
     "applicant": "spacealpha-insights-corp",
     "applicantName": "Spacealpha Insights Corp",
-    "filing_year": 2019,
+    "filing_year": 2021,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [],
+    "source_priority_date": "2019-12-19",
+    "source_filing_date": "2021-03-19",
+    "source_publication_date": "2023-09-12",
     "field": "space_remote_sensing_payload",
     "subfield": "space_remote_sensing_payload__synthetic-aperture-radar",
     "subfield_ids": [
       "space_remote_sensing_payload__synthetic-aperture-radar"
     ],
     "keywords": [
-      "synthetic aperture radar",
-      "remote sensing",
-      "payload"
+      "synthetic aperture radar"
     ],
     "importance_score": 0.61,
     "status": "등록",
@@ -4764,7 +5216,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "미국 위성 열제어/플랫폼 후보 문헌. 핵심은 'Satellite Radiator Panels with Combined Stiffener/Heat Pipe'이며, 근거 요약은 A passive thermal system for use in satellites includes a solid radiator panel with a plurality of heat pipes attached to a surface thereof. In addition to their heat transporting capability, the heat pipes strengthen t…",
     "applicant": "worldvu-satellites-ltd",
     "applicantName": "WorldVu Satellites Ltd",
-    "filing_year": 2016,
+    "filing_year": 2015,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2016-11-22",
+    "source_filing_date": "2015-03-30",
+    "source_publication_date": "2016-10-06",
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__satellite-radiator",
     "subfield_ids": [
@@ -4774,9 +5234,7 @@ export const PATENTS: Patent[] = [
     "family_id": "57007537",
     "keywords": [
       "satellite radiator",
-      "heat pipe",
-      "satellite bus",
-      "thermal control"
+      "heat pipe"
     ],
     "importance_score": 0.77,
     "status": "공개",
@@ -4803,6 +5261,14 @@ export const PATENTS: Patent[] = [
     "applicant": "ast-and-science-llc",
     "applicantName": "AST and Science LLC",
     "filing_year": 2021,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2021-12-23",
+    "source_filing_date": "2021-05-25",
+    "source_publication_date": "2021-09-09",
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__spacecraft-thermal-control",
     "subfield_ids": [
@@ -4812,9 +5278,7 @@ export const PATENTS: Patent[] = [
     "family_id": "73231053",
     "keywords": [
       "spacecraft thermal control",
-      "satellite radiator",
-      "satellite bus",
-      "thermal control"
+      "satellite radiator"
     ],
     "importance_score": 0.75,
     "status": "공개",
@@ -4840,7 +5304,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "미국 위성 열제어/플랫폼 후보 문헌. 핵심은 'CubeSat form factor thermal control louvers'이며, 근거 요약은 Thermal control louvers for CubeSats or small spacecraft may include a plurality of springs attached to a back panel of the thermal control louvers. The thermal control louvers may also include a front panel, which incl…",
     "applicant": "national-aeronautics-and-space-administration-nasa",
     "applicantName": "National Aeronautics and Space Administration NASA",
-    "filing_year": 2017,
+    "filing_year": 2015,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2017-02-07",
+    "source_filing_date": "2015-09-28",
+    "source_publication_date": "2018-01-09",
     "field": "space_satellite_bus_thermal_power",
     "subfield": "space_satellite_bus_thermal_power__thermal-louver",
     "subfield_ids": [
@@ -4848,9 +5320,7 @@ export const PATENTS: Patent[] = [
     ],
     "family_id": "58408496",
     "keywords": [
-      "thermal louver",
-      "satellite bus",
-      "thermal control"
+      "thermal louver"
     ],
     "importance_score": 0.63,
     "status": "등록",
@@ -4875,7 +5345,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "미국 위성통신/LEO 네트워크 후보 문헌. 핵심은 'Low earth orbit satellite constellation system for communications with re-use of geostationary satellite spectrum'이며, 근거 요약은 A system for re-using GEO-allocated communications spectrum in a LEO satellite constellation based communications system, such that the LEO satellite originated signals will not appear in the beam-width of GEO-pointed e…",
     "applicant": "lts-systems-llc",
     "applicantName": "LTS Systems LLC",
-    "filing_year": 2019,
+    "filing_year": 2017,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2019-10-23",
+    "source_filing_date": "2017-05-03",
+    "source_publication_date": "2019-07-09",
     "field": "space_comm_leo_network",
     "subfield": "space_comm_leo_network__leo-satellite-constellation",
     "subfield_ids": [
@@ -4883,9 +5361,7 @@ export const PATENTS: Patent[] = [
     ],
     "family_id": "60203348",
     "keywords": [
-      "LEO satellite constellation",
-      "LEO network",
-      "satellite communication"
+      "LEO satellite constellation"
     ],
     "importance_score": 0.73,
     "status": "등록",
@@ -4910,7 +5386,15 @@ export const PATENTS: Patent[] = [
     "abstract_ko": "미국 위성통신/LEO 네트워크 후보 문헌. 핵심은 'Satellite system comprising satellites in LEO and other orbits'이며, 근거 요약은 A satellite communications system comprising satellites in low earth orbit (LEO) as well as one or more satellites in orbits other than LEO, such as satellites in medium earth orbit (MEO) and/or satellites in geostation…",
     "applicant": "worldvu-satellites-ltd",
     "applicantName": "WorldVu Satellites Ltd",
-    "filing_year": 2018,
+    "filing_year": 2017,
+    "date_basis": "filing_date",
+    "date_basis_label": "출원연도",
+    "date_quality_notes": [
+      "원천 우선일이 출원일보다 늦습니다. 원문 재확인이 필요합니다."
+    ],
+    "source_priority_date": "2018-05-16",
+    "source_filing_date": "2017-03-22",
+    "source_publication_date": "2020-05-26",
     "field": "space_comm_leo_network",
     "subfield": "space_comm_leo_network__satellite-communication",
     "subfield_ids": [
@@ -4918,8 +5402,7 @@ export const PATENTS: Patent[] = [
     ],
     "family_id": "61243741",
     "keywords": [
-      "satellite communication",
-      "LEO network"
+      "satellite communication"
     ],
     "importance_score": 0.73,
     "status": "등록",

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styles from './PatentCard.module.css';
-import { FIELDS, COUNTRIES } from '../lib/data';
+import { FIELDS, COUNTRIES, SAMPLE_SCORE_NOTE } from '../lib/data';
 import type { Patent } from '../lib/data';
 
 export default function PatentCard({
@@ -16,8 +16,8 @@ export default function PatentCard({
     <article className={styles.card}>
       <div className={styles.head}>
         <span className={`${styles.pub} mono`}>{patent.publication_number}</span>
-        <span className={styles.score} style={{ color: field?.color }}>
-          ★ {patent.importance_score.toFixed(2)}
+        <span className={styles.score} title={SAMPLE_SCORE_NOTE} style={{ color: field?.color }}>
+          표본 정렬점수 {patent.importance_score.toFixed(2)}
         </span>
       </div>
       <h3 className={styles.title}>{patent.title}</h3>
@@ -25,7 +25,7 @@ export default function PatentCard({
         <span className={styles.metaCode}>{patent.country}</span>
         <span>{country?.label_ko}</span>
         <span className={styles.sep}>·</span>
-        <span className="mono">{patent.filing_year}</span>
+        <span className="mono">{patent.date_basis_label} {patent.filing_year}</span>
         <span className={styles.sep}>·</span>
         <span>{patent.applicantName}</span>
         <span className={styles.sep}>·</span>
@@ -35,6 +35,10 @@ export default function PatentCard({
         </span>
       </div>
       <p className={styles.abstract}>{patent.abstract_ko}</p>
+      {patent.date_quality_notes.length > 0 && <details className={styles.claim}>
+        <summary>날짜 원자료 확인</summary>
+        {patent.date_quality_notes.map((note) => <p key={note}>{note}</p>)}
+      </details>}
 
       {patent.claims.length > 0 ? (
         <details className={styles.claim}>

@@ -11,7 +11,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       <Suspense fallback={null}>
         <Sidebar />
       </Suspense>
-      <div className={styles.main}>
+      <main data-modal-background className={styles.main}>
         <Suspense fallback={null}>
           <TopFilterBar />
         </Suspense>
@@ -22,7 +22,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             집계로 FTO·침해·무효 판단에 사용할 수 없습니다.
           </footer>
         </div>
-      </div>
+      </main>
       <Suspense fallback={null}>
         <ReportDrawer />
       </Suspense>

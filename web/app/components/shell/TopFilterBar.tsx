@@ -21,7 +21,10 @@ export default function TopFilterBar() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const filter = parseFilter(Object.fromEntries(searchParams.entries()));
-  const [q, setQ] = useState('');
+  const [searchDraft, setSearchDraft] = useState<{ urlQuery: string; value: string } | null>(null);
+  const urlQuery = searchParams.get('q') ?? '';
+  const q = searchDraft?.urlQuery === urlQuery ? searchDraft.value : urlQuery;
+  const setQ = (value: string) => setSearchDraft({ urlQuery, value });
 
   const isFixedBasis = FIXED_BASIS_PREFIXES.some(
     (p) => pathname === p || pathname.startsWith(p + '/'),
@@ -33,6 +36,10 @@ export default function TopFilterBar() {
     const base = filterToQuery(merged); // ?field=...&countries=...&period=...
     const extra = new URLSearchParams(searchParams.toString());
     ['field', 'countries', 'period'].forEach((k) => extra.delete(k));
+    if (next.field !== undefined && next.field !== filter.field) {
+      extra.delete('subfield');
+      extra.delete('node');
+    }
     const extraStr = extra.toString();
     const sep = base ? (extraStr ? '&' : '') : extraStr ? '?' : '';
     router.push(`${pathname}${base}${sep}${extraStr}`, { scroll: false });
@@ -58,7 +65,7 @@ export default function TopFilterBar() {
         <div className={styles.group}>
           <span className={styles.groupLabel}>기준</span>
           <span style={{ fontSize: 12, color: 'var(--muted, #8a93a5)' }}>
-            이 화면은 최근 10년 우선권 · 전체 공개 관할 고정 기준 실측 집계입니다. 분야·관할·기간 필터는
+            이 화면은 각 보고서·차트에 명시한 자료 범위와 기간을 사용합니다. 분야·관할·기간 필터는
             특허 검색과 Graph View에만 적용됩니다.
           </span>
         </div>
@@ -73,7 +80,8 @@ export default function TopFilterBar() {
             placeholder="특허 검색"
             aria-label="특허 검색"
           />
-        </form>
+          <button type="submit" className={styles.submit}>검색</button>
+      </form>
       </div>
     );
   }
@@ -86,6 +94,7 @@ export default function TopFilterBar() {
           <button
             className={`${styles.chip} ${filter.field === 'all' ? styles.chipOn : ''}`}
             onClick={() => push({ field: 'all' })}
+            aria-pressed={filter.field === 'all'}
           >
             전체
           </button>
@@ -94,6 +103,7 @@ export default function TopFilterBar() {
               key={f.id}
               className={`${styles.chip} ${filter.field === f.id ? styles.chipOn : ''}`}
               onClick={() => push({ field: f.id as FieldId })}
+              aria-pressed={filter.field === f.id}
               style={filter.field === f.id ? { borderColor: f.color, color: f.color } : undefined}
             >
               <i style={{ background: f.color }} />
@@ -104,13 +114,14 @@ export default function TopFilterBar() {
       </div>
 
       <div className={styles.group}>
-        <span className={styles.groupLabel}>국가</span>
+        <span className={styles.groupLabel}>공개 관할</span>
         <div className={styles.chips}>
           {COUNTRY_ORDER.map((c) => (
             <button
               key={c}
               className={`${styles.chip} ${styles.country} ${filter.countries.includes(c) ? styles.chipOn : ''}`}
               onClick={() => toggleCountry(c)}
+              aria-pressed={filter.countries.includes(c)}
             >
               {c}
             </button>
@@ -126,6 +137,7 @@ export default function TopFilterBar() {
               key={p.id}
               className={`${styles.chip} ${filter.period === p.id ? styles.chipOn : ''}`}
               onClick={() => push({ period: p.id })}
+              aria-pressed={filter.period === p.id}
             >
               {p.label}
             </button>
@@ -144,6 +156,7 @@ export default function TopFilterBar() {
           placeholder="특허 검색"
           aria-label="특허 검색"
         />
+        <button type="submit" className={styles.submit}>검색</button>
       </form>
     </div>
   );

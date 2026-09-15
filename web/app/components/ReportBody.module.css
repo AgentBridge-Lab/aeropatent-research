@@ -170,3 +170,6 @@
   border-color: transparent;
   font-weight: 700;
 }
+
+.basis, .limitations { color: var(--muted); font-size: 12px; line-height: 1.65; }
+.limitations { padding-left: 18px; }

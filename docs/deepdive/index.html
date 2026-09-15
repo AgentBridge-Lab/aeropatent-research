@@ -7,7 +7,7 @@
 --muted:#efece399;--dim:#efece35c;--accent:#8fabd4;--deep:#4a70a9;--cream:#efece3}
 *{box-sizing:border-box}body{margin:0;background:var(--black);color:var(--text);
 font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;-webkit-font-smoothing:antialiased;
-background-image:radial-gradient(1200px 820px at 82% -12%,#8fabd41a,#0000 58%),radial-gradient(1000px 760px at -8% 8%,#4a70a914,#0000 56%);background-attachment:fixed;min-height:100vh;overflow-x:hidden;word-break:keep-all}
+background-image:radial-gradient(1200px 820px at 82% -12%,#8fabd41a,#0000 58%),radial-gradient(1000px 760px at -8% 8%,#4a70a914,#0000 56%);background-attachment:fixed;min-height:100vh;word-break:keep-all;overflow-wrap:anywhere}
 .wrap{max-width:1080px;margin:0 auto;padding:44px 22px 72px}
 a{color:var(--accent)}
 .kicker{font-size:13px;letter-spacing:.14em;color:var(--accent);font-weight:700}
@@ -24,10 +24,16 @@ h1{font-size:clamp(26px,4.5vw,40px);margin:.35em 0 .3em;font-weight:800}
 .row{display:grid;grid-template-columns:minmax(96px,170px) minmax(0,1fr) minmax(88px,118px);gap:10px;align-items:center;margin:7px 0}
 .lbl{font-size:12.5px;color:var(--muted);text-align:left}
 .track{background:#efece314;border-radius:5px;height:15px;overflow:hidden}
-.fill{height:100%;background:var(--deep);border-radius:5px;min-width:3px}
+.fill{height:100%;background:var(--deep);border-radius:5px}
 .fill.accent{background:var(--accent)}
 .val{font-size:12.5px;font-weight:700;white-space:nowrap}.val em{color:var(--dim);font-style:normal;font-weight:400}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.panel,.row>*,.card{min-width:0}
+.table-scroll{max-width:100%;overflow-x:auto}
+.table-scroll table{min-width:380px}
+.table-scroll:focus-visible{outline:2px solid var(--accent)}
+.scroll-hint{display:none;color:var(--muted);font-size:11.5px}
+@media(max-width:560px){.scroll-hint{display:block}}
 @media(max-width:860px){.grid2{grid-template-columns:1fr}}
 @media(max-width:560px){.row{grid-template-columns:minmax(72px,96px) minmax(0,1fr) auto;gap:8px}.lbl{font-size:11px}.val{font-size:11.5px}.panel{padding:18px 16px}}
 table{width:100%;border-collapse:collapse;font-size:13px}
@@ -61,7 +67,8 @@ th{color:var(--muted);font-weight:600;border-top:none;font-size:12px}
 <div class="d">달·행성탐사, 추진, 통신·항법, EDL, 생명유지, 탑재체, 탐사 로봇 — KR 보유 패밀리 별도 정밀 분류</div>
 <div class="n">983<small> 패밀리 (KR 보유 · 2010–2020 · 별도 분류 정의)</small></div></a>
 </div>
-<p class="foot">데이터: Google Patents Public Datasets (BigQuery) · CPC 후보군 기준(접두어 일치, 텍스트 검증 전) · 기준일 2026-09-01 (연도 추세·KR 출원인·피인용은 2026-09-12 쿼리)<br>
+<div class="panel"><h2>원자료와 계산 근거</h2><p class="note">이 페이지 생성에 사용한 로컬 집계와 분류·계산 코드입니다. 집계 기준일은 원자료 재수집일을 뜻하지 않습니다. 실제 수집일은 현재 보관 자료만으로 확인되지 않습니다. 모바일에서는 표를 좌우로 움직여 확인할 수 있습니다.</p><ul><li><a href="sources/bq_summary_by_field.json">analysis/bq_summary_by_field.json</a></li><li><a href="sources/bq_collection_summary.json">analysis/bq_collection_summary.json</a></li><li><a href="sources/deepdive_enrichment.json">analysis/deepdive_enrichment.json</a></li><li><a href="sources/bigquery_aerospace_aviation_taxonomy.json">config/bigquery_aerospace_aviation_taxonomy.json</a></li><li><a href="sources/country_region_strategy.json">config/country_region_strategy.json</a></li><li><a href="sources/07_deepdive_enrichment_queries.sql">sql/07_deepdive_enrichment_queries.sql</a></li><li><a href="sources/01a_candidate_10y_cpc_first_production.sql">sql/01a_candidate_10y_cpc_first_production.sql</a></li><li><a href="sources/build_bq_landscape_from_candidates.mjs">scripts/build_bq_landscape_from_candidates.mjs</a></li><li><a href="sources/build_deepdive_enrichment.mjs">scripts/build_deepdive_enrichment.mjs</a></li><li><a href="sources/site_data_provenance.json">analysis/site_data_provenance.json</a></li></ul></div>
+<p class="foot">데이터: Google Patents Public Datasets (BigQuery) · CPC 후보군 기준(접두어 일치, 텍스트 검증 전) · 집계 기준일 2026-09-12 (연도 추세·KR 출원인·피인용은 2026-09-12 쿼리)<br>
 집계 단위: DOCDB 패밀리 · 공개 관할은 공보 발행 관청 기준(출원인 소재국 아님) · 상위 출원인 명칭은 원자료 표기(정규화 전)<br>
 분류 정의: <a href="https://github.com/AgentBridge-Lab/aeropatent-research/blob/main/config/bigquery_aerospace_aviation_taxonomy.json">config/bigquery_aerospace_aviation_taxonomy.json</a> — 분류 정의에 따라 수치가 달라질 수 있음</p>
 </div></body></html>

@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 import styles from './Hero.module.css';
 
@@ -44,7 +45,7 @@ export default function Hero({ children }: { children: ReactNode }) {
 
       {/* 로고 */}
       <div className={styles.logo}>
-        <img
+        <Image
           src={assetPath('/aero-logo.png')}
           alt="AEROPATENT"
           width={232}
@@ -70,6 +71,7 @@ export default function Hero({ children }: { children: ReactNode }) {
             </svg>
           </span>
         </button>
+        <a className={styles.deepdive} href={assetPath('/deepdive/')} onClick={(event) => event.stopPropagation()}>분야별 심층분석 →</a>
         <span className={styles.hint} aria-hidden>
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
             <path d="M7 10l5 5 5-5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />

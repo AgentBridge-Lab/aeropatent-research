@@ -6,7 +6,7 @@ import type { HeatCell } from '../../lib/data';
 export default function Heatmap({ cells }: { cells: HeatCell[] }) {
   const byKey = new Map(cells.map((c) => [`${c.field}.${c.country}`, c]));
   return (
-    <div className={styles.heat}>
+    <div className={styles.heat} tabIndex={0} role="region" aria-label="분야별 공개 관할 히트맵 · 좌우 스크롤">
       <div className={styles.heatHeadRow}>
         <div className={styles.heatCorner} />
         {COUNTRY_ORDER.map((c) => (

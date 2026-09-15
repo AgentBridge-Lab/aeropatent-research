@@ -20,12 +20,32 @@ export default function PatentSearch({ initialQ }: { initialQ?: string }) {
   const sp = useSearchParams();
   const filter = parseFilter(Object.fromEntries(sp.entries()));
 
-  const [q, setQ] = useState(initialQ || sp.get('q') || '');
-  const [sort, setSort] = useState<'recent' | 'importance'>('recent');
-  const [status, setStatus] = useState<'all' | '등록' | '공개'>('all');
-  const [subfield, setSubfield] = useState(sp.get('subfield') ?? '');
-  const [applicant, setApplicant] = useState(sp.get('applicant') ?? '');
+  // URL이 검색 조건의 기준이다. 같은 경로의 재검색·뒤로가기도 동일하게 반영한다.
+  const q = sp.get('q') ?? initialQ ?? '';
+  const sort = sp.get('sort') === 'importance' ? 'importance' : 'recent';
+  const rawStatus = sp.get('status');
+  const status = rawStatus === '등록' || rawStatus === '공개' ? rawStatus : 'all';
+  const rawSubfield = sp.get('subfield') ?? '';
+  const subfield = SUBFIELDS.some((s) => s.id === rawSubfield && (filter.field === 'all' || s.field === filter.field)) ? rawSubfield : '';
+  const applicant = APPLICANTS.some((a) => a.id === sp.get('applicant')) ? sp.get('applicant')! : '';
   const [limit, setLimit] = useState(PAGE_SIZE);
+
+  const updateSearch = (changes: Record<string, string>) => {
+    const params = new URLSearchParams(sp.toString());
+    for (const [key, value] of Object.entries(changes)) {
+      if (value) params.set(key, value);
+      else params.delete(key);
+    }
+    const query = params.toString();
+    // Next의 native History 연동: 타이핑마다 서버 탐색 없이 URL/검색 상태 동기화.
+    window.history.replaceState(null, '', `${window.location.pathname}${query ? `?${query}` : ''}`);
+    setLimit(PAGE_SIZE);
+  };
+  const setQ = (value: string) => updateSearch({ q: value });
+  const setSort = (value: string) => updateSearch({ sort: value === 'recent' ? '' : value });
+  const setStatus = (value: string) => updateSearch({ status: value === 'all' ? '' : value });
+  const setSubfield = (value: string) => updateSearch({ subfield: value });
+  const setApplicant = (value: string) => updateSearch({ applicant: value });
 
   // Subfields filtered to the current global field if not 'all'
   const subfieldOptions = useMemo(() => {
@@ -82,8 +102,9 @@ export default function PatentSearch({ initialQ }: { initialQ?: string }) {
                   key={s}
                   className={`${styles.chip} ${sort === s ? styles.chipActive : ''}`}
                   onClick={() => setSort(s)}
+                  aria-pressed={sort === s}
                 >
-                  {s === 'recent' ? '최신순' : '중요도순'}
+                  {s === 'recent' ? '최신순' : '표본 정렬점수순'}
                 </button>
               ))}
             </div>
@@ -98,6 +119,7 @@ export default function PatentSearch({ initialQ }: { initialQ?: string }) {
                   key={s}
                   className={`${styles.chip} ${status === s ? styles.chipActive : ''}`}
                   onClick={() => setStatus(s)}
+                  aria-pressed={status === s}
                 >
                   {s === 'all' ? '전체' : s}
                 </button>
@@ -147,19 +169,14 @@ export default function PatentSearch({ initialQ }: { initialQ?: string }) {
 
       {/* Result count */}
       <div className={styles.resultMeta}>
-        <span className={styles.resultCount}>
-          검토 완료 대표 문헌 <strong>{results.length.toLocaleString()}</strong>건
+        <span className={styles.resultCount} role="status" aria-live="polite">
+          수동 선정 대표 문헌 <strong>{results.length.toLocaleString()}</strong>건
         </span>
-        {(q || subfield || applicant || status !== 'all') && (
+        {(q || subfield || applicant || status !== 'all' || sort !== 'recent') && (
           <button
             className={styles.resetBtn}
             onClick={() => {
-              setQ('');
-              setSubfield('');
-              setApplicant('');
-              setStatus('all');
-              setSort('recent');
-              setLimit(PAGE_SIZE);
+              updateSearch({ q: '', subfield: '', applicant: '', status: '', sort: '' });
             }}
           >
             필터 초기화

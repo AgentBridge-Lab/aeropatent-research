@@ -196,7 +196,7 @@ export function getReportGuidance(field: Field, subfield?: Subfield): ReportGuid
         ]
       : [
           field.summary_ko,
-          `검색어 범위: ${field.query_terms.join(', ')}.`,
+          `후속 검토 검색어: ${field.query_terms.join(', ')}. 전체 후보군 집계는 이 검색어의 텍스트 일치가 아니라 CPC 접두어 일치로 수집했습니다.`,
           `분야 집계와 대표 문헌 표본을 분리해 표시하며, 집계 수치에는 대표 문헌 수를 대입하지 않습니다.`,
         ],
     technologyFocus: subfield

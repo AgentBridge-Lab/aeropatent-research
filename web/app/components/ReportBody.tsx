@@ -4,8 +4,8 @@ import KpiRow from './viz/KpiRow';
 import CountryBars from './viz/CountryBars';
 import TrendArea from './viz/TrendArea';
 import { Insights } from './viz/Insights';
-import { FIELDS, COUNTRIES, getApplicant } from '../lib/data';
-import type { NodeReport } from '../lib/graph';
+import { FIELDS, COUNTRIES } from '../lib/data';
+import { getReportSearchQuery, type NodeReport } from '../lib/graph';
 
 export default function ReportBody({
   report,
@@ -14,6 +14,7 @@ export default function ReportBody({
   report: NodeReport;
   query?: string;
 }) {
+  const relatedQuery = getReportSearchQuery(report, query);
   const isPatent = report.node_type === 'patent' && report.patent;
 
   return (
@@ -21,6 +22,8 @@ export default function ReportBody({
       <div className={styles.typeTag}>{typeLabel(report.node_type)}</div>
       <h2 className={styles.title}>{report.title}</h2>
       <p className={styles.oneLine}>{report.one_line_conclusion}</p>
+
+      {report.basis_note && <p className={styles.basis}>{report.basis_note}</p>}
 
       {report.kpis.length > 0 && (
         <div className={styles.block}>
@@ -33,7 +36,7 @@ export default function ReportBody({
           <div className={styles.facts}>
             <Fact label="공개 관할" value={`${report.patent.country} · ${COUNTRIES.find((c) => c.code === report.patent!.country)?.label_ko ?? ''}`} />
             <Fact label="출원인" value={report.patent.applicantName} />
-            <Fact label="출원연도" value={String(report.patent.filing_year)} />
+            <Fact label={report.patent.date_basis_label} value={String(report.patent.filing_year)} />
             <Fact label="분야" value={FIELDS.find((f) => f.id === report.patent!.field)?.label_ko ?? ''} />
             <Fact label="상태" value={report.patent.status} />
           </div>
@@ -41,14 +44,16 @@ export default function ReportBody({
       )}
 
       {report.country_distribution.length > 0 && (
-        <Section label="국가별 분포">
+        <Section label="공개 관할별 분포">
           <CountryBars data={report.country_distribution} />
+          {report.country_distribution_basis && <p className={styles.basis}>{report.country_distribution_basis}</p>}
         </Section>
       )}
 
       {report.yearly_trend.length > 0 && (
         <Section label="기간별 추세">
           <TrendArea data={report.yearly_trend} />
+          {report.yearly_trend_basis && <p className={styles.basis}>{report.yearly_trend_basis}</p>}
         </Section>
       )}
 
@@ -102,8 +107,12 @@ export default function ReportBody({
         </details>
       )}
 
+      {report.limitations && report.limitations.length > 0 && (
+        <Section label="해석 범위"><ul className={styles.limitations}>{report.limitations.map((item) => <li key={item}>{item}</li>)}</ul></Section>
+      )}
+
       <div className={styles.cta}>
-        <Link className={styles.ctaBtn} href={`/patents${query ? `?${query}` : ''}`}>
+        <Link className={styles.ctaBtn} href={`/patents${relatedQuery ? `?${relatedQuery}` : ''}`}>
           관련 특허 검색
         </Link>
         {isPatent && report.patent ? (
@@ -122,7 +131,7 @@ export default function ReportBody({
 
 function typeLabel(t: NodeReport['node_type']): string {
   return (
-    { field: '분야', subfield: '세부분야', patent: '특허', country: '국가', applicant: '출원인', keyword: '키워드' } as const
+    { field: '분야', subfield: '세부분야', patent: '특허', country: '공개 관할', applicant: '출원인', keyword: '키워드' } as const
   )[t];
 }
 

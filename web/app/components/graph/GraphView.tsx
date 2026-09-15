@@ -2,10 +2,10 @@
 
 import { useEffect, useMemo, useRef, useState, useCallback } from 'react';
 import dynamic from 'next/dynamic';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import SpriteText from 'three-spritetext';
 import styles from './GraphView.module.css';
-import { getGraphData, nodeColor as colorOf } from '../../lib/graph';
+import { getGraphData, nodeColor as colorOf, NODE_TYPE_COLOR, graphLayoutPosition } from '../../lib/graph';
 import type {
   GraphNode,
   GraphData,
@@ -30,7 +30,7 @@ const LENSES: { id: Lens; label: string }[] = [
 ];
 const COLOR_BYS: { id: ColorBy; label: string }[] = [
   { id: 'field', label: '분야' },
-  { id: 'country', label: '국가' },
+  { id: 'country', label: '공개 관할' },
   { id: 'period', label: '기간' },
   { id: 'applicant', label: '출원인' },
   { id: 'nodeType', label: '노드 유형' },
@@ -46,7 +46,7 @@ const TYPE_LABEL: Record<string, string> = {
   field: '분야',
   subfield: '세부분야',
   patent: '특허',
-  country: '국가',
+  country: '공개 관할',
   applicant: '출원인',
   keyword: '키워드',
 };
@@ -56,12 +56,22 @@ const DIM_LINK = 'rgba(120,140,170,0.05)';
 
 export default function GraphView() {
   const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
   const filter = useMemo(
     () => parseFilter(Object.fromEntries(searchParams.entries())),
     [searchParams]
   );
   const initialNode = searchParams.get('node');
   const openDrawer = useDrawer((s) => s.open);
+  const closeDrawer = useDrawer((s) => s.close);
+  const selected = useDrawer((s) => s.nodeId);
+  const clearSelection = () => {
+    closeDrawer();
+    const params = new URLSearchParams(searchParams.toString());
+    params.delete('node');
+    router.replace(`${pathname}${params.size ? `?${params}` : ''}`, { scroll: false });
+  };
 
   const [lens, setLens] = useState<Lens>('all');
   const [colorBy, setColorBy] = useState<ColorBy>('field');
@@ -70,16 +80,10 @@ export default function GraphView() {
   const [spacing, setSpacing] = useState<Spacing>('normal');
   const [hopDepth, setHopDepth] = useState<1 | 2>(1);
   const [importantOnly, setImportantOnly] = useState(false);
-  const [selected, setSelected] = useState<string | null>(initialNode);
 
   const fgRef = useRef<any>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState({ w: 800, h: 600 });
-
-  // 그래프는 클라이언트 전용(WebGL + URL 필터). 마운트 후에만 렌더해
-  // 서버/클라이언트 첫 렌더를 일치시켜 하이드레이션 미스매치를 방지한다.
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
 
   // 그래프 데이터 (필터 기반)
   const data: GraphData = useMemo(() => getGraphData(filter), [filter]);
@@ -100,7 +104,7 @@ export default function GraphView() {
 
   // 선택 노드 기준 강조 집합 (1-hop / 2-hop)
   const highlight = useMemo(() => {
-    if (!selected) return null;
+    if (!selected || !data.nodes.some((node) => node.id === selected)) return null;
     const nodes = new Set<string>([selected]);
     let frontier = [selected];
     for (let d = 0; d < hopDepth; d++) {
@@ -116,7 +120,7 @@ export default function GraphView() {
       frontier = next;
     }
     return nodes;
-  }, [selected, hopDepth, adjacency]);
+  }, [selected, hopDepth, adjacency, data.nodes]);
 
   // importantOnly 필터링된 그래프
   const viewData = useMemo(() => {
@@ -147,8 +151,6 @@ export default function GraphView() {
 
   // 컨테이너 크기 추적
   useEffect(() => {
-    // 첫 렌더는 SSR 자리표시자이므로 mounted 이후에 canvas ref가 생긴다.
-    if (!mounted) return;
     const el = wrapRef.current;
     if (!el) return;
     const ro = new ResizeObserver(() => {
@@ -157,7 +159,7 @@ export default function GraphView() {
     ro.observe(el);
     setSize({ w: el.clientWidth, h: el.clientHeight });
     return () => ro.disconnect();
-  }, [mounted]);
+  }, []);
 
   // 좁은 화면에서도 전체 관계망이 보이도록 크기 변경과 배치 완료 후 맞춘다.
   const fitGraph = useCallback(() => {
@@ -235,7 +237,9 @@ export default function GraphView() {
   // 노드 클릭 → 선택 + 카메라 이동 + 드로어
   const onNodeClick = useCallback(
     (node: any) => {
-      setSelected(node.id);
+      const params = new URLSearchParams(searchParams.toString());
+      params.set('node', node.id);
+      router.replace(`${pathname}?${params}`, { scroll: false });
       const fg = fgRef.current;
       if (fg && typeof node.x === 'number') {
         const dist = 90;
@@ -248,7 +252,7 @@ export default function GraphView() {
       }
       openDrawer(node.id);
     },
-    [openDrawer]
+    [openDrawer, pathname, router, searchParams]
   );
 
   // 힘/레이아웃 적용
@@ -259,39 +263,21 @@ export default function GraphView() {
     fg.d3Force('charge')?.strength(charge);
     fg.d3Force('link')?.distance(spacing === 'wide' ? 80 : spacing === 'compact' ? 26 : 46);
 
-    const span = CURRENT_YEAR - 2016 || 1;
-    fgData.nodes.forEach((n: any) => {
-      if (layout === 'timeline') {
-        if (n.year) n.fx = ((n.year - 2016) / span) * 900 - 450;
-        else n.fx = undefined;
-        n.fy = undefined;
-        n.fz = undefined;
-      } else if (layout === 'cluster') {
-        const idx = FIELDS.findIndex((f) => f.id === n.field);
-        if (idx >= 0) {
-          const ang = (idx / FIELDS.length) * Math.PI * 2;
-          n.fx = Math.cos(ang) * 260;
-          n.fz = Math.sin(ang) * 260;
-        } else {
-          n.fx = undefined;
-          n.fz = undefined;
-        }
-        n.fy = undefined;
-      } else {
-        n.fx = undefined;
-        n.fy = undefined;
-        n.fz = undefined;
-      }
+    fgData.nodes.forEach((node: any) => {
+      Object.assign(node, graphLayoutPosition(node, layout, CURRENT_YEAR));
     });
     fg.d3ReheatSimulation?.();
   }, [spacing, layout, fgData]);
 
   // 초기 노드 포커스 + 드로어
   useEffect(() => {
-    if (!initialNode) return;
+    if (!initialNode || !fgData.nodes.some((node) => node.id === initialNode)) {
+      closeDrawer();
+      return;
+    }
     openDrawer(initialNode);
-    const fg = fgRef.current;
     const t = setTimeout(() => {
+      const fg = fgRef.current;
       const n = fgData.nodes.find((x: any) => x.id === initialNode) as any;
       if (fg && n && typeof n.x === 'number') {
         const ratio = 1 + 90 / Math.hypot(n.x, n.y, n.z || 1);
@@ -299,12 +285,7 @@ export default function GraphView() {
       }
     }, 1500);
     return () => clearTimeout(t);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [initialNode, fgData]);
-
-  if (!mounted) {
-    return <div className={styles.layout} aria-hidden />;
-  }
+  }, [initialNode, fgData, openDrawer, closeDrawer]);
 
   return (
     <div className={styles.layout}>
@@ -364,21 +345,30 @@ export default function GraphView() {
               checked={importantOnly}
               onChange={(e) => setImportantOnly(e.target.checked)}
             />
-            중요 특허만 보기
+            표본 정렬점수 0.8 이상
           </label>
         </Group>
 
+        <Group title="키보드로 노드 선택">
+          <select aria-label="보고서 노드 선택" value={viewData.nodes.some((node) => node.id === selected) ? selected ?? '' : ''} onChange={(event) => {
+            const node = fgData.nodes.find((item) => item.id === event.target.value);
+            if (node) onNodeClick(node); else clearSelection();
+          }}>
+            <option value="">선택 안 함</option>
+            {viewData.nodes.map((node) => <option key={node.id} value={node.id}>{TYPE_LABEL[node.type]} · {node.label}</option>)}
+          </select>
+        </Group>
         <Group title="범례">
           <Legend colorBy={colorBy} />
         </Group>
 
         {selected && (
-          <button className={styles.clear} onClick={() => setSelected(null)}>
+          <button className={styles.clear} onClick={clearSelection}>
             선택 해제
           </button>
         )}
         <div className={styles.count}>
-          노드 {viewData.nodes.length} · 엣지 {viewData.edges.length}
+          대표 문헌 {viewData.nodes.filter((node) => node.type === 'patent').length} · 노드 {viewData.nodes.length} · 엣지 {viewData.edges.length}
         </div>
       </aside>
 
@@ -416,7 +406,7 @@ export default function GraphView() {
           linkOpacity={0.7}
           enableNodeDrag={false}
           onNodeClick={onNodeClick}
-          onBackgroundClick={() => setSelected(null)}
+          onBackgroundClick={clearSelection}
           onEngineStop={fitGraph}
           cooldownTicks={120}
         />
@@ -452,6 +442,7 @@ function Pills<T extends string | number>({
           key={String(o.id)}
           className={`${styles.pill} ${value === o.id ? styles.pillOn : ''}`}
           onClick={() => onChange(o.id)}
+          aria-pressed={value === o.id}
         >
           {o.label}
         </button>
@@ -466,19 +457,12 @@ function Legend({ colorBy }: { colorBy: ColorBy }) {
   else if (colorBy === 'country') items = COUNTRIES.map((c) => ({ c: c.color, l: `${c.code} ${c.label_ko}` }));
   else if (colorBy === 'period')
     items = [
-      { c: 'hsl(196,90%,32%)', l: '오래된 특허' },
-      { c: 'hsl(196,90%,75%)', l: '최신 특허' },
+      { c: 'hsl(214, 38%, 40%)', l: '오래된 기준연도' },
+      { c: 'hsl(214, 22%, 88%)', l: '최신 기준연도' },
     ];
   else if (colorBy === 'nodeType')
-    items = [
-      { c: '#66e7ff', l: '분야' },
-      { c: '#88f2a8', l: '세부분야' },
-      { c: '#cfe6ff', l: '특허' },
-      { c: '#ffd36a', l: '국가' },
-      { c: '#b69cff', l: '출원인' },
-      { c: '#7fa7ff', l: '키워드' },
-    ];
-  else items = [{ c: '#b69cff', l: '출원인별 색상' }];
+    items = Object.entries(NODE_TYPE_COLOR).map(([type, color]) => ({ c: color, l: TYPE_LABEL[type] }));
+  else items = [{ c: 'hsl(214, 30%, 72%)', l: '출원인별 명도 구분' }];
 
   return (
     <div className={styles.legend}>

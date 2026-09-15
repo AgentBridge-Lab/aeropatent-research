@@ -1,0 +1,246 @@
+{
+  "version": "2026-06-26",
+  "scope": {
+    "includes": [
+      "space systems",
+      "commercial aviation",
+      "civil aircraft",
+      "aerospace manufacturing",
+      "dual-use aerospace technologies"
+    ],
+    "emphasis": "Commercial and civil aviation are prioritized over defense-only aircraft, while defense relevance is retained as a tag.",
+    "collection_publication_countries": "ALL_AVAILABLE",
+    "default_display_publication_countries": ["US", "EP", "CN", "JP", "KR"],
+    "secondary_watch_publication_countries": ["WO", "DE", "FR", "GB", "CA", "AU", "IL", "IN", "TW", "SG"],
+    "country_region_strategy_file": "config/country_region_strategy.json",
+    "primary_country_basis": "publication_country_code",
+    "primary_count_basis": "patent_family",
+    "secondary_count_basis": "publication"
+  },
+  "date_windows": {
+    "collection_backbone": {
+      "label_ko": "최근 10년 수집",
+      "years": 10,
+      "date_basis": "priority_date",
+      "purpose": "기술 발생 시점 기준의 장기 판세와 경쟁구도 파악"
+    },
+    "default_dashboard": {
+      "label_ko": "최근 5년 기본 대시보드",
+      "years": 5,
+      "date_basis": "priority_date",
+      "purpose": "현재 기술동향, 국가별 강점, 분야별 성장률 표시"
+    },
+    "emerging_trend": {
+      "label_ko": "최근 3년 급상승 분석",
+      "years": 3,
+      "date_basis": "priority_date",
+      "purpose": "급성장 분야, 신규 출원인, 사업화 후보 탐지"
+    },
+    "annual_watch": {
+      "label_ko": "최근 1년 신규 공개 모니터링",
+      "months": 12,
+      "date_basis": "publication_date",
+      "purpose": "새로 공개된 문헌과 경쟁사 watchlist"
+    },
+    "monthly_watch": {
+      "label_ko": "최근 1개월 신규 공개 모니터링",
+      "months": 1,
+      "date_basis": "publication_date",
+      "purpose": "월간 업데이트 카드와 알림"
+    },
+    "grant_signal": {
+      "label_ko": "최근 등록 신호",
+      "months": 12,
+      "date_basis": "grant_date",
+      "purpose": "권리화된 문헌과 사업 리스크 후보 확인"
+    }
+  },
+  "fields": [
+    {
+      "id": "space_launch_propulsion_recovery",
+      "domain": "space",
+      "label_ko": "발사체/추진/회수",
+      "label_en": "Launch vehicle, propulsion, and recovery",
+      "keywords": [
+        "launch vehicle",
+        "rocket engine",
+        "reusable launch vehicle",
+        "booster recovery",
+        "vertical landing",
+        "cryogenic propulsion",
+        "hybrid propulsion",
+        "rocket stage"
+      ],
+      "cpc_prefixes": ["B64G1", "F02K9", "F02K99"],
+      "visual_color": "#e54b4b"
+    },
+    {
+      "id": "space_satellite_bus_thermal_power",
+      "domain": "space",
+      "label_ko": "위성 플랫폼/열제어/전력",
+      "label_en": "Satellite bus, thermal control, and power",
+      "keywords": [
+        "satellite bus",
+        "spacecraft platform",
+        "thermal control",
+        "satellite radiator",
+        "heat pipe",
+        "solar array",
+        "spacecraft power"
+      ],
+      "cpc_prefixes": ["B64G1", "H01L31", "F28D15"],
+      "visual_color": "#f4b942"
+    },
+    {
+      "id": "space_comm_leo_network",
+      "domain": "space",
+      "label_ko": "위성통신/LEO 네트워크",
+      "label_en": "Satellite communications and LEO networks",
+      "keywords": [
+        "satellite communication",
+        "LEO constellation",
+        "inter-satellite link",
+        "satellite network",
+        "beam hopping",
+        "satellite MIMO",
+        "edge computing satellite"
+      ],
+      "cpc_prefixes": ["H04B7", "H04W84", "H04L45"],
+      "visual_color": "#2ca58d"
+    },
+    {
+      "id": "space_remote_sensing_payload",
+      "domain": "space",
+      "label_ko": "SAR/원격탐사 페이로드",
+      "label_en": "SAR and remote-sensing payload",
+      "keywords": [
+        "synthetic aperture radar",
+        "SAR imaging",
+        "remote sensing satellite",
+        "earth observation",
+        "digital beamforming",
+        "wide swath",
+        "multispectral imaging"
+      ],
+      "cpc_prefixes": ["G01S13", "G01S7", "G01J3"],
+      "visual_color": "#4d8cf5"
+    },
+    {
+      "id": "space_gnc_rendezvous_servicing",
+      "domain": "space",
+      "label_ko": "GNC/랑데부/온오빗 서비스",
+      "label_en": "GNC, rendezvous, docking, and on-orbit servicing",
+      "keywords": [
+        "attitude control",
+        "orbit control",
+        "rendezvous",
+        "docking",
+        "on-orbit servicing",
+        "proximity operation",
+        "debris removal"
+      ],
+      "cpc_prefixes": ["B64G1", "G05D1", "G01C21"],
+      "visual_color": "#8b5cf6"
+    },
+    {
+      "id": "space_materials_tps_coatings",
+      "domain": "space",
+      "label_ko": "우주재료/TPS/코팅",
+      "label_en": "Space materials, TPS, and coatings",
+      "keywords": [
+        "thermal protection",
+        "ablative material",
+        "spacecraft coating",
+        "radiation shielding",
+        "ceramic tile",
+        "rocket insulation",
+        "high temperature coating"
+      ],
+      "cpc_prefixes": ["C04B35", "C09D5", "B32B"],
+      "visual_color": "#d65a9d"
+    },
+    {
+      "id": "aviation_propulsion_sustainable",
+      "domain": "aviation",
+      "label_ko": "상용항공 추진/전기추진/수소/SAF",
+      "label_en": "Commercial aviation propulsion, electric, hydrogen, and SAF",
+      "keywords": [
+        "aircraft engine",
+        "turbofan",
+        "hybrid electric aircraft",
+        "electric propulsion aircraft",
+        "hydrogen aircraft",
+        "sustainable aviation fuel",
+        "fuel cell aircraft"
+      ],
+      "cpc_prefixes": ["B64D27", "B64D33", "F02C7", "F02K3"],
+      "visual_color": "#00a7a7"
+    },
+    {
+      "id": "aviation_structures_aero_composites",
+      "domain": "aviation",
+      "label_ko": "항공 구조/복합재/공력",
+      "label_en": "Aircraft structures, composites, and aerodynamics",
+      "keywords": [
+        "aircraft wing",
+        "fuselage",
+        "airframe",
+        "composite aircraft structure",
+        "laminar flow",
+        "aerodynamic surface",
+        "morphing wing"
+      ],
+      "cpc_prefixes": ["B64C3", "B64C21", "B64C23", "B29C70"],
+      "visual_color": "#5c8dff"
+    },
+    {
+      "id": "aviation_avionics_flight_control_autonomy",
+      "domain": "aviation",
+      "label_ko": "항전/비행제어/자율비행",
+      "label_en": "Avionics, flight control, and autonomy",
+      "keywords": [
+        "flight control",
+        "autopilot",
+        "avionics",
+        "aircraft navigation",
+        "autonomous aircraft",
+        "sense and avoid",
+        "flight management system"
+      ],
+      "cpc_prefixes": ["G05D1", "B64C13", "G08G5", "G01C21"],
+      "visual_color": "#7c5cff"
+    }
+  ],
+  "sub_tags": [
+    {
+      "id": "uav_aam_drone",
+      "label_ko": "UAV/AAM/드론",
+      "keywords": ["UAV", "unmanned aerial vehicle", "drone", "AAM", "urban air mobility", "eVTOL"],
+      "use": "항공 하위 태그로 표시하고 메인 분야로는 승격하지 않는다."
+    },
+    {
+      "id": "commercial_aviation",
+      "label_ko": "민간/상용항공",
+      "keywords": ["commercial aircraft", "passenger aircraft", "civil aircraft", "airliner"],
+      "use": "항공 분야에서 우선 가중치를 준다."
+    },
+    {
+      "id": "defense_relevance",
+      "label_ko": "방산/군사용 관련성",
+      "keywords": ["military aircraft", "missile", "fighter aircraft", "weapon", "defense", "surveillance"],
+      "use": "제외하지 않고 dual-use 또는 defense_relevance 태그로 표시한다."
+    },
+    {
+      "id": "public_research",
+      "label_ko": "공공연구기관",
+      "keywords": ["NASA", "JAXA", "KARI", "ESA", "DLR", "ONERA", "CASC", "CASIC"],
+      "use": "기관 태깅과 연구기획 리포트에 사용한다."
+    },
+    {
+      "id": "private_company",
+      "label_ko": "민간기업",
+      "keywords": ["Boeing", "Airbus", "SpaceX", "Blue Origin", "Lockheed", "RTX", "GE Aerospace", "Safran", "Rolls-Royce"],
+      "use": "사업개발/경쟁사 리포트에 사용한다."
+    }
+  ]
+}

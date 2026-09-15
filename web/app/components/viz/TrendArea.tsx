@@ -1,9 +1,12 @@
+'use client';
+
+import { useId } from 'react';
 import styles from './viz.module.css';
 import type { YearPoint } from '../../lib/data';
 
 const W = 560;
 const H = 200;
-const PAD = { top: 16, right: 14, bottom: 26, left: 28 };
+const PAD = { top: 16, right: 14, bottom: 26, left: 60 };
 
 export default function TrendArea({
   data,
@@ -12,6 +15,7 @@ export default function TrendArea({
   data: YearPoint[];
   color?: string;
 }) {
+  const gid = `trend-${useId()}`;
   if (!data.length) return null;
   const max = Math.max(...data.map((d) => d.count), 1);
   const innerW = W - PAD.left - PAD.right;
@@ -22,7 +26,6 @@ export default function TrendArea({
   const pts = data.map((d, i) => ({ x: x(i), y: y(d.count), ...d }));
   const line = pts.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' ');
   const area = `${line} L ${pts[pts.length - 1].x.toFixed(1)} ${H - PAD.bottom} L ${pts[0].x.toFixed(1)} ${H - PAD.bottom} Z`;
-  const gid = `ta-${Math.round(pts[0].x)}-${data.length}`;
 
   return (
     <svg className={styles.trend} viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label="연도별 추세">
@@ -38,7 +41,7 @@ export default function TrendArea({
           <g key={i}>
             <line x1={PAD.left} y1={gy} x2={W - PAD.right} y2={gy} stroke="rgba(255,255,255,0.07)" />
             <text x={PAD.left - 6} y={gy + 3} textAnchor="end" className={styles.trendAxis}>
-              {Math.round(max - max * t)}
+              {Math.round(max - max * t).toLocaleString()}
             </text>
           </g>
         );

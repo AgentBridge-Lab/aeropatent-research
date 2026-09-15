@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useEffect, useRef, useCallback } from 'react';
+import { useModalFocus } from '../../lib/useModalFocus';
+import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import styles from './ReportDrawer.module.css';
 import ReportBody from '../ReportBody';
 import { useDrawer } from '../../lib/store';
@@ -12,13 +13,23 @@ export default function ReportDrawer() {
   const { nodeId, close } = useDrawer();
   const searchParams = useSearchParams();
 
+  const pathname = usePathname();
+  const router = useRouter();
+  const drawerRef = useRef<HTMLElement>(null);
+  const previousPath = useRef(pathname);
+  const handleClose = useCallback(() => {
+    close();
+    if (searchParams.has('node')) {
+      const params = new URLSearchParams(searchParams.toString());
+      params.delete('node');
+      router.replace(`${pathname}${params.size ? `?${params}` : ''}`, { scroll: false });
+    }
+  }, [close, pathname, router, searchParams]);
+  useModalFocus(Boolean(nodeId), drawerRef, handleClose);
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') close();
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [close]);
+    if (previousPath.current !== pathname) close();
+    previousPath.current = pathname;
+  }, [pathname, close]);
 
   if (!nodeId) return null;
 
@@ -28,9 +39,9 @@ export default function ReportDrawer() {
 
   return (
     <>
-      <div className={styles.scrim} onClick={close} aria-hidden />
-      <aside className={styles.drawer} role="dialog" aria-label="노드 보고서">
-        <button className={styles.close} onClick={close} aria-label="닫기">
+      <div className={styles.scrim} onClick={handleClose} aria-hidden />
+      <aside ref={drawerRef} className={styles.drawer} role="dialog" aria-modal="true" aria-label="노드 보고서" tabIndex={-1}>
+        <button className={styles.close} onClick={handleClose} aria-label="닫기">
           ✕
         </button>
         <div className={styles.inner}>

@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
+import { useModalFocus } from '../../lib/useModalFocus';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname, useSearchParams } from 'next/navigation';
@@ -25,12 +26,21 @@ export default function Sidebar() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [open, setOpen] = useState(false);
+  const asideRef = useRef<HTMLElement>(null);
+  const closeMenu = useCallback(() => setOpen(false), []);
+  useModalFocus(open, asideRef, closeMenu);
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 901px)");
+    const onChange = () => { if (desktop.matches) closeMenu(); };
+    desktop.addEventListener("change", onChange);
+    return () => desktop.removeEventListener("change", onChange);
+  }, [closeMenu]);
 
   const filter = parseFilter(Object.fromEntries(searchParams.entries()));
   const fieldLabel =
     filter.field === 'all' ? '전체 분야' : FIELDS.find((f) => f.id === filter.field)?.label_ko ?? '전체 분야';
   const countriesLabel =
-    filter.countries.length === COUNTRY_ORDER.length ? '전체 국가' : filter.countries.join(', ');
+    filter.countries.length === COUNTRY_ORDER.length ? '전체 공개 관할' : filter.countries.join(', ');
 
   const query = searchParams.toString();
   const withQuery = (href: string) => (query ? `${href}?${query}` : href);
@@ -40,15 +50,17 @@ export default function Sidebar() {
       <button
         className={styles.hamburger}
         onClick={() => setOpen((o) => !o)}
-        aria-label="메뉴 열기"
+        aria-label={open ? "메뉴 닫기" : "메뉴 열기"}
+        aria-expanded={open}
+        aria-controls="app-navigation"
       >
         <span /> <span /> <span />
       </button>
 
-      <aside className={`${styles.sidebar} ${open ? styles.open : ''}`}>
+      <aside id="app-navigation" ref={asideRef} data-modal-background className={`${styles.sidebar} ${open ? styles.open : ''}`} role={open ? "dialog" : undefined} aria-modal={open || undefined} aria-label="주 메뉴" tabIndex={-1}>
         <Link href="/" className={styles.brand} onClick={() => setOpen(false)} aria-label="AEROPATENT 홈">
           <Image
-            src="/aero-logo.png"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/aero-logo.png`}
             alt="AEROPATENT"
             width={184}
             height={46}
@@ -64,6 +76,7 @@ export default function Sidebar() {
               <Link
                 key={m.href}
                 href={withQuery(m.href)}
+                aria-current={active ? "page" : undefined}
                 className={`${styles.link} ${active ? styles.active : ''}`}
                 onClick={() => setOpen(false)}
               >

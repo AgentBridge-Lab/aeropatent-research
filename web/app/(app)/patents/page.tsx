@@ -15,9 +15,9 @@ export default async function PatentsPage() {
         <h1 className="page-title">특허 검색</h1>
         <p className="page-sub">
           최근 10년 CPC 기준 분석 후보군은 {LANDSCAPE_SUMMARY.family_count.toLocaleString()}개 패밀리,
-          {' '}{LANDSCAPE_SUMMARY.publication_count.toLocaleString()}개 공개 문헌입니다. 아래 검색은 제목·초록과
-          원문 링크를 검토한 대표 문헌 {PATENTS.length.toLocaleString()}건을 대상으로 하며, 기본 화면에서는
-          기간 제한 없이 모두 표시합니다.
+          {' '}{LANDSCAPE_SUMMARY.publication_count.toLocaleString()}개 공개 문헌입니다. 아래 검색은 원문 검토를 위해
+          수동 선정한 대표 문헌 {PATENTS.length.toLocaleString()}건을 대상으로 하며, 기본 화면에서는
+          기간 제한 없이 모두 표시합니다. 서지정보의 불일치와 미확인 항목은 각 문헌에 표시합니다.
         </p>
       </div>
       <Suspense fallback={null}>

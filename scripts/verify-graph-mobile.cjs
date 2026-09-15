@@ -36,15 +36,17 @@ global.ResizeObserver = class { constructor(fn) { resize = fn; } observe() {} di
 const graph = { d3Force: () => null, zoomToFit: () => fits++, d3ReheatSimulation() {} };
 const searchParams = new URLSearchParams();
 const open = () => {};
+const close = () => {};
+const router = { replace() {} };
 const originalLoad = Module._load;
 Module._load = function (name, parent, main) {
   if (name === 'react') return react;
   if (name === 'react/jsx-runtime') return { jsx: (type, props) => ({ type, props }), jsxs: (type, props) => ({ type, props }) };
   if (name === 'next/dynamic') return () => 'ForceGraph';
-  if (name === 'next/navigation') return { useSearchParams: () => searchParams };
+  if (name === 'next/navigation') return { useSearchParams: () => searchParams, usePathname: () => '/graph', useRouter: () => router };
   if (name === 'three-spritetext') return class {};
   if (name.endsWith('.module.css')) return new Proxy({}, { get: (_, key) => key });
-  if (name === '../../lib/store') return { useDrawer: fn => fn({ open }) };
+  if (name === '../../lib/store') return { useDrawer: fn => fn({ open, close, nodeId: null }) };
   return originalLoad(name, parent, main);
 };
 for (const ext of ['.ts', '.tsx']) require.extensions[ext] = (m, filename) => {

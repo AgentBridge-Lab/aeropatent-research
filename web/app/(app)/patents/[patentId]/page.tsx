@@ -9,6 +9,7 @@ import {
   parseFilter,
   COUNTRIES,
   PATENTS,
+  SAMPLE_SCORE_NOTE,
 } from '../../../lib/data';
 import type { Metadata } from 'next';
 
@@ -98,7 +99,7 @@ export default async function PatentDetailPage({ params }: Props) {
                 <dd className={styles.factValue}>{patent.applicantName}</dd>
               </div>
               <div className={styles.factItem}>
-                <dt className={styles.factLabel}>출원연도</dt>
+                <dt className={styles.factLabel}>{patent.date_basis_label}</dt>
                 <dd className={`${styles.factValue} mono`}>{patent.filing_year}</dd>
               </div>
               <div className={styles.factItem}>
@@ -122,16 +123,20 @@ export default async function PatentDetailPage({ params }: Props) {
                 </dd>
               </div>
               <div className={styles.factItem}>
-                <dt className={styles.factLabel}>중요도</dt>
+                <dt className={styles.factLabel}>표본 정렬점수</dt>
                 <dd className={styles.factValue}>
                   <span className={styles.importanceScore} style={{ color: field?.color }}>
                     ★ {patent.importance_score.toFixed(2)}
                   </span>
                   <span className={styles.factSep}>·</span>
-                  <span className={styles.factMuted}>검색어 일치·패밀리 관할 수 기반 내부 정렬 지표</span>
+                  <span className={styles.factMuted}>{SAMPLE_SCORE_NOTE}</span>
                 </dd>
               </div>
             </dl>
+            {patent.date_quality_notes.length > 0 && <details>
+              <summary>날짜 원자료 확인</summary>
+              {patent.date_quality_notes.map((note) => <p key={note}>{note}</p>)}
+            </details>}
           </section>
 
           {/* Abstract */}

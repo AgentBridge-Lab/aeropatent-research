@@ -28,5 +28,5 @@ const css = fs.readFileSync(path.join(root, 'web/app/components/viz/viz.module.c
 const fill = css.match(/\.barFill\s*\{([^}]+)\}/)[1];
 assert.match(fill, /display:\s*(?:block|inline-block|flex|grid)/, 'Empty inline span cannot render its width/height');
 assert.doesNotMatch(fill, /min-width:\s*[1-9]/, 'Zero values must not gain a fabricated minimum bar');
-assert.equal(TREND_BASIS_NOTE, '전체 CPC 후보군 기준. 패밀리 대표 연도를 확정하지 않아 공보 단위 우선연도로 집계되며(한 패밀리가 여러 해에 걸릴 수 있음), 진행 중인 올해는 제외.');
+assert.equal(TREND_BASIS_NOTE, '전체 CPC 후보군 기준. 패밀리 대표 연도를 확정하지 않아 공보 단위 우선연도로 집계되며(한 패밀리가 여러 해에 걸릴 수 있음), 진행 중인 올해는 제외. 직전 연도에도 공개·수록 지연이 남아 있어 감소를 활동 감소로 단정할 수 없습니다.');
 console.log('PASS: 5 measured jurisdiction counts, 5 positive bar widths, paintable bar CSS, exact trend note');

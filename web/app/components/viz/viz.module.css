@@ -110,11 +110,13 @@
 .heat {
   display: grid;
   gap: 4px;
+  overflow-x: auto;
 }
 .heatHeadRow,
 .heatRow {
   display: grid;
-  grid-template-columns: 120px repeat(5, 1fr);
+  grid-template-columns: 180px repeat(5, minmax(66px, 1fr));
+  min-width: 530px;
   gap: 4px;
   align-items: center;
 }
@@ -133,9 +135,9 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
 }
 .heatDot {
   width: 8px;
@@ -218,6 +220,11 @@
   }
   .heatHeadRow,
   .heatRow {
-    grid-template-columns: 84px repeat(5, 1fr);
+    grid-template-columns: 180px repeat(5, minmax(66px, 1fr));
   }
+}
+
+@media (max-width: 480px) {
+  .kpiRow { grid-template-columns: minmax(0, 1fr); }
+  .kpiValue { overflow-wrap: anywhere; }
 }
