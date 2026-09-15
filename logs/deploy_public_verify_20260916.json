@@ -1,0 +1,73 @@
+{
+  "checked_at_kst": "2026-09-16T07:28:14.541361+09:00",
+  "commit": "a6cc80ab04923b8b82ffbb989e99522bec2f6f6e",
+  "base_url": "https://agentbridge-lab.github.io/aeropatent-research/",
+  "sitemap_sha256": "706adf52471e807d3fd37098c8c5932646501eeb93d0d5d91e2e5a81e804c341",
+  "local_sitemap_sha256": "706adf52471e807d3fd37098c8c5932646501eeb93d0d5d91e2e5a81e804c341",
+  "sitemap_locs": 315,
+  "unique_locs": 315,
+  "all_http_200": true,
+  "failures": [],
+  "sample_results": [
+    {
+      "url": "https://agentbridge-lab.github.io/aeropatent-research/",
+      "status": 200,
+      "bytes": 12386,
+      "sha256": "8ff686e233abd4dbb8b2cb625bab571de18997e1cebab500b10b674a8845fa21"
+    },
+    {
+      "url": "https://agentbridge-lab.github.io/aeropatent-research/analysis/",
+      "status": 200,
+      "bytes": 79825,
+      "sha256": "7dc69970f17166f757c8c58a9eb045312f32318f167069a6bd04353a9e5ab61e"
+    },
+    {
+      "url": "https://agentbridge-lab.github.io/aeropatent-research/analysis/aviation_avionics_flight_control_autonomy/",
+      "status": 200,
+      "bytes": 46335,
+      "sha256": "e69343b0b9fb9b65fcb9741af7c174c3995bac3109019d482d032fa6c7342f03"
+    },
+    {
+      "url": "https://agentbridge-lab.github.io/aeropatent-research/analysis/aviation_propulsion_sustainable/",
+      "status": 200,
+      "bytes": 46179,
+      "sha256": "2370428afc6686778b57a344c536202167303b235db2c6ff95f37888fb523f84"
+    },
+    {
+      "url": "https://agentbridge-lab.github.io/aeropatent-research/analysis/aviation_structures_aero_composites/",
+      "status": 200,
+      "bytes": 46272,
+      "sha256": "72c5be62dffb807ef1e6d6f0bf74cd9d0ffb01e63c1c4c401cc5b2ffbc59f51b"
+    },
+    {
+      "url": "https://agentbridge-lab.github.io/aeropatent-research/analysis/space_comm_leo_network/",
+      "status": 200,
+      "bytes": 81156,
+      "sha256": "3d8d357ab6803e7c78a7a6fc8450bbe267c7439844fe668bf2bc5d08b466d28c"
+    },
+    {
+      "url": "https://agentbridge-lab.github.io/aeropatent-research/analysis/space_gnc_rendezvous_servicing/",
+      "status": 200,
+      "bytes": 81554,
+      "sha256": "363a14d6f17e32dfa4b7f765189648fdd5aaf857d426deaec616885bb77bcd82"
+    },
+    {
+      "url": "https://agentbridge-lab.github.io/aeropatent-research/analysis/space_launch_propulsion_recovery/",
+      "status": 200,
+      "bytes": 84881,
+      "sha256": "bedf739f78c25b4cffaf4b48f9706f5ddf9bd935dca9f1a8712ee4e604d936af"
+    },
+    {
+      "url": "https://agentbridge-lab.github.io/aeropatent-research/analysis/space_materials_tps_coatings/",
+      "status": 200,
+      "bytes": 83232,
+      "sha256": "3640e8339812750ff7e26f75a86ef0d595b4559f249ead14be0b48af6ba370e1"
+    },
+    {
+      "url": "https://agentbridge-lab.github.io/aeropatent-research/analysis/space_remote_sensing_payload/",
+      "status": 200,
+      "bytes": 81347,
+      "sha256": "54061bf9ec9a2220bbf4cf2d7919be24f141f8928144f369efae0e8980a3346f"
+    }
+  ]
+}
