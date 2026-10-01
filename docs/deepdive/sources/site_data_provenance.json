@@ -1,19 +1,19 @@
 {
   "schema_version": "aeropatent.site-data-provenance.v1",
-  "snapshot_aggregation_date": 20260912,
-  "snapshot_generated_at": "2026-09-12T10:13:59.199Z",
+  "snapshot_aggregation_date": 20261002,
+  "snapshot_generated_at": "2026-10-01T22:31:20.871Z",
   "source_collection_date": null,
-  "source_collection_date_status": "실제 수집일 미확인. 보관 manifest 2026-06-28 (2,522,788행), 현재 집계 2,450,063행. 원시 스냅숏 로컬 부재.",
+  "source_collection_date_status": "실제 수집일 미확인. 보관 manifest 2026-06-28 (2,522,788행), 현재 집계 2,572,239행. 원시 스냅숏 로컬 존재.",
   "raw_input": "raw/bigquery/bq_candidates_latest.jsonl",
-  "raw_input_available": false,
+  "raw_input_available": true,
   "retained_manifest_date": "2026-06-28T17:28:21.807Z",
   "retained_manifest_rows": 2522788,
-  "current_aggregate_rows": 2450063,
+  "current_aggregate_rows": 2572239,
   "manifest_rows_match": false,
   "aggregate_counts": {
-    "families": 728312,
-    "publications": 1945811,
-    "field_publication_rows": 2450063
+    "families": 753369,
+    "publications": 2041681,
+    "field_publication_rows": 2572239
   },
   "grain_notes": {
     "candidates": "CPC-prefix candidates, not text-validated aerospace inventions",
@@ -21,15 +21,15 @@
     "annual_count": "distinct families per publication-row priority year; a family may span years",
     "recent_share": "rolling 3-year families / all candidate families, not a growth rate",
     "recent_windows": {
-      "three_year_start": 20230912,
-      "five_year_start": 20210912,
-      "end": 20260912
+      "three_year_start": 20231002,
+      "five_year_start": 20211002,
+      "end": 20261002
     },
     "enrichment_priority_window": [
       2016,
       2025
     ],
-    "enrichment_query_date": "2026-09-12",
+    "enrichment_query_date": "2026-10-01",
     "citing_families": "distinct other families citing candidate publications; no age/field normalization",
     "cr5": "top-five source-name family-count sum / unique field families; co-applicant overlap retained"
   },
@@ -343,7 +343,7 @@
   "source_files": [
     {
       "path": "exports/agentbridge/agentbridge_patent_landscape_snapshot.json",
-      "sha256": "f9495c12ea90fd3fec288edd543c0865e319f51de9792603ee80bd1c0eed81da"
+      "sha256": "43af21df74721ddf8dffceb5766feeecf0f3d7b238166475c5347c2c7eabaafc"
     },
     {
       "path": "analysis/bq_candidates_production.manifest.json",
@@ -351,7 +351,7 @@
     },
     {
       "path": "analysis/deepdive_enrichment.json",
-      "sha256": "6b762329d42919b0a058744513441f8f1e0903a46f3a9fd1dac7158c4e02f477"
+      "sha256": "d611a1a4459016948269cf00a2d5017a5d4d774b5d71014af15e56d9b519a5f7"
     },
     {
       "path": "normalized/patents.jsonl",

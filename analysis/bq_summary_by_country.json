@@ -2,379 +2,379 @@
   "CN": {
     "country": "CN",
     "labelKo": "중국",
-    "familyCount": 510380,
-    "publicationCount": 742361,
-    "recent5FamilyCount": 230851
+    "familyCount": 527867,
+    "publicationCount": 774682,
+    "recent5FamilyCount": 246600
   },
   "US": {
     "country": "US",
     "labelKo": "미국",
-    "familyCount": 200641,
-    "publicationCount": 383741,
-    "recent5FamilyCount": 52877
+    "familyCount": 208727,
+    "publicationCount": 401431,
+    "recent5FamilyCount": 61018
   },
   "WO": {
     "country": "WO",
     "labelKo": "PCT",
-    "familyCount": 151714,
-    "publicationCount": 160312,
-    "recent5FamilyCount": 53315
+    "familyCount": 159376,
+    "publicationCount": 168364,
+    "recent5FamilyCount": 60533
   },
   "EP": {
     "country": "EP",
     "labelKo": "유럽특허청",
-    "familyCount": 104984,
-    "publicationCount": 201687,
-    "recent5FamilyCount": 31168
+    "familyCount": 110492,
+    "publicationCount": 215312,
+    "recent5FamilyCount": 36464
   },
   "KR": {
     "country": "KR",
     "labelKo": "한국",
-    "familyCount": 93177,
-    "publicationCount": 136856,
-    "recent5FamilyCount": 32710
+    "familyCount": 98190,
+    "publicationCount": 145107,
+    "recent5FamilyCount": 37554
   },
   "JP": {
     "country": "JP",
     "labelKo": "일본",
-    "familyCount": 68569,
-    "publicationCount": 125247,
-    "recent5FamilyCount": 18094
+    "familyCount": 71688,
+    "publicationCount": 132459,
+    "recent5FamilyCount": 20942
   },
   "DE": {
     "country": "DE",
     "labelKo": "DE",
-    "familyCount": 28834,
-    "publicationCount": 33089,
-    "recent5FamilyCount": 8807
+    "familyCount": 30094,
+    "publicationCount": 34751,
+    "recent5FamilyCount": 9889
   },
   "TW": {
     "country": "TW",
     "labelKo": "TW",
-    "familyCount": 19931,
-    "publicationCount": 32942,
-    "recent5FamilyCount": 6256
+    "familyCount": 20679,
+    "publicationCount": 34614,
+    "recent5FamilyCount": 6979
   },
   "CA": {
     "country": "CA",
     "labelKo": "CA",
-    "familyCount": 14573,
-    "publicationCount": 18257,
-    "recent5FamilyCount": 2631
+    "familyCount": 14694,
+    "publicationCount": 18533,
+    "recent5FamilyCount": 2814
   },
   "AU": {
     "country": "AU",
     "labelKo": "AU",
-    "familyCount": 9642,
-    "publicationCount": 16502,
-    "recent5FamilyCount": 2336
+    "familyCount": 10004,
+    "publicationCount": 17410,
+    "recent5FamilyCount": 2712
   },
   "FR": {
     "country": "FR",
     "labelKo": "FR",
-    "familyCount": 9224,
-    "publicationCount": 15853,
-    "recent5FamilyCount": 3405
+    "familyCount": 9682,
+    "publicationCount": 16636,
+    "recent5FamilyCount": 3873
   },
   "GB": {
     "country": "GB",
     "labelKo": "GB",
-    "familyCount": 7517,
-    "publicationCount": 17865,
-    "recent5FamilyCount": 2778
+    "familyCount": 7781,
+    "publicationCount": 18472,
+    "recent5FamilyCount": 3029
   },
   "BR": {
     "country": "BR",
     "labelKo": "BR",
-    "familyCount": 7088,
-    "publicationCount": 8218,
-    "recent5FamilyCount": 148
-  },
-  "RU": {
-    "country": "RU",
-    "labelKo": "RU",
-    "familyCount": 6649,
-    "publicationCount": 8480,
-    "recent5FamilyCount": 59
-  },
-  "MX": {
-    "country": "MX",
-    "labelKo": "MX",
-    "familyCount": 6104,
-    "publicationCount": 6669,
-    "recent5FamilyCount": 1515
+    "familyCount": 6972,
+    "publicationCount": 8040,
+    "recent5FamilyCount": 130
   },
   "ES": {
     "country": "ES",
     "labelKo": "ES",
-    "familyCount": 5970,
-    "publicationCount": 6738,
-    "recent5FamilyCount": 450
+    "familyCount": 6578,
+    "publicationCount": 7415,
+    "recent5FamilyCount": 676
+  },
+  "RU": {
+    "country": "RU",
+    "labelKo": "RU",
+    "familyCount": 6538,
+    "publicationCount": 8285,
+    "recent5FamilyCount": 48
+  },
+  "MX": {
+    "country": "MX",
+    "labelKo": "MX",
+    "familyCount": 6395,
+    "publicationCount": 7543,
+    "recent5FamilyCount": 1837
   },
   "PL": {
     "country": "PL",
     "labelKo": "PL",
-    "familyCount": 2968,
-    "publicationCount": 3414,
-    "recent5FamilyCount": 585
+    "familyCount": 3229,
+    "publicationCount": 3753,
+    "recent5FamilyCount": 718
   },
   "IL": {
     "country": "IL",
     "labelKo": "IL",
-    "familyCount": 2402,
-    "publicationCount": 4799,
-    "recent5FamilyCount": 499
+    "familyCount": 2491,
+    "publicationCount": 5142,
+    "recent5FamilyCount": 596
   },
   "IT": {
     "country": "IT",
     "labelKo": "IT",
-    "familyCount": 1901,
-    "publicationCount": 1901,
-    "recent5FamilyCount": 596
+    "familyCount": 1985,
+    "publicationCount": 1985,
+    "recent5FamilyCount": 684
   },
   "SG": {
     "country": "SG",
     "labelKo": "SG",
-    "familyCount": 1808,
-    "publicationCount": 1932,
+    "familyCount": 1798,
+    "publicationCount": 1920,
     "recent5FamilyCount": 0
   },
   "DK": {
     "country": "DK",
     "labelKo": "DK",
-    "familyCount": 1123,
-    "publicationCount": 1307,
-    "recent5FamilyCount": 78
-  },
-  "ZA": {
-    "country": "ZA",
-    "labelKo": "ZA",
-    "familyCount": 1103,
-    "publicationCount": 1151,
-    "recent5FamilyCount": 191
+    "familyCount": 1174,
+    "publicationCount": 1368,
+    "recent5FamilyCount": 99
   },
   "FI": {
     "country": "FI",
     "labelKo": "FI",
-    "familyCount": 1095,
-    "publicationCount": 1484,
-    "recent5FamilyCount": 242
+    "familyCount": 1158,
+    "publicationCount": 1571,
+    "recent5FamilyCount": 280
+  },
+  "ZA": {
+    "country": "ZA",
+    "labelKo": "ZA",
+    "familyCount": 1157,
+    "publicationCount": 1207,
+    "recent5FamilyCount": 239
   },
   "SE": {
     "country": "SE",
     "labelKo": "SE",
-    "familyCount": 971,
-    "publicationCount": 1769,
-    "recent5FamilyCount": 391
+    "familyCount": 1031,
+    "publicationCount": 1870,
+    "recent5FamilyCount": 446
   },
   "NL": {
     "country": "NL",
     "labelKo": "NL",
-    "familyCount": 776,
-    "publicationCount": 939,
-    "recent5FamilyCount": 360
+    "familyCount": 827,
+    "publicationCount": 1005,
+    "recent5FamilyCount": 402
   },
   "PH": {
     "country": "PH",
     "labelKo": "PH",
-    "familyCount": 738,
-    "publicationCount": 838,
-    "recent5FamilyCount": 4
-  },
-  "MY": {
-    "country": "MY",
-    "labelKo": "MY",
     "familyCount": 730,
-    "publicationCount": 755,
-    "recent5FamilyCount": 14
+    "publicationCount": 827,
+    "recent5FamilyCount": 4
   },
   "AR": {
     "country": "AR",
     "labelKo": "AR",
-    "familyCount": 709,
-    "publicationCount": 737,
-    "recent5FamilyCount": 172
+    "familyCount": 719,
+    "publicationCount": 747,
+    "recent5FamilyCount": 198
+  },
+  "MY": {
+    "country": "MY",
+    "labelKo": "MY",
+    "familyCount": 713,
+    "publicationCount": 736,
+    "recent5FamilyCount": 14
   },
   "HU": {
     "country": "HU",
     "labelKo": "HU",
-    "familyCount": 685,
-    "publicationCount": 749,
-    "recent5FamilyCount": 49
+    "familyCount": 683,
+    "publicationCount": 744,
+    "recent5FamilyCount": 58
   },
   "PT": {
     "country": "PT",
     "labelKo": "PT",
-    "familyCount": 654,
-    "publicationCount": 719,
-    "recent5FamilyCount": 37
+    "familyCount": 665,
+    "publicationCount": 734,
+    "recent5FamilyCount": 45
   },
   "CO": {
     "country": "CO",
     "labelKo": "CO",
-    "familyCount": 606,
-    "publicationCount": 613,
-    "recent5FamilyCount": 169
+    "familyCount": 634,
+    "publicationCount": 640,
+    "recent5FamilyCount": 197
   },
   "CL": {
     "country": "CL",
     "labelKo": "CL",
-    "familyCount": 571,
-    "publicationCount": 606,
-    "recent5FamilyCount": 139
-  },
-  "LU": {
-    "country": "LU",
-    "labelKo": "LU",
-    "familyCount": 518,
-    "publicationCount": 537,
-    "recent5FamilyCount": 318
+    "familyCount": 607,
+    "publicationCount": 640,
+    "recent5FamilyCount": 179
   },
   "TR": {
     "country": "TR",
     "labelKo": "TR",
-    "familyCount": 455,
-    "publicationCount": 457,
-    "recent5FamilyCount": 275
+    "familyCount": 597,
+    "publicationCount": 604,
+    "recent5FamilyCount": 412
+  },
+  "LU": {
+    "country": "LU",
+    "labelKo": "LU",
+    "familyCount": 573,
+    "publicationCount": 592,
+    "recent5FamilyCount": 367
   },
   "AT": {
     "country": "AT",
     "labelKo": "AT",
-    "familyCount": 454,
-    "publicationCount": 792,
-    "recent5FamilyCount": 134
+    "familyCount": 476,
+    "publicationCount": 835,
+    "recent5FamilyCount": 152
   },
   "CZ": {
     "country": "CZ",
     "labelKo": "CZ",
-    "familyCount": 417,
-    "publicationCount": 537,
-    "recent5FamilyCount": 194
+    "familyCount": 439,
+    "publicationCount": 563,
+    "recent5FamilyCount": 214
   },
   "BE": {
     "country": "BE",
     "labelKo": "BE",
-    "familyCount": 356,
-    "publicationCount": 697,
-    "recent5FamilyCount": 112
+    "familyCount": 373,
+    "publicationCount": 731,
+    "recent5FamilyCount": 131
   },
   "CH": {
     "country": "CH",
     "labelKo": "CH",
-    "familyCount": 317,
-    "publicationCount": 470,
-    "recent5FamilyCount": 113
+    "familyCount": 341,
+    "publicationCount": 503,
+    "recent5FamilyCount": 136
   },
   "NZ": {
     "country": "NZ",
     "labelKo": "NZ",
-    "familyCount": 315,
-    "publicationCount": 354,
-    "recent5FamilyCount": 16
+    "familyCount": 329,
+    "publicationCount": 372,
+    "recent5FamilyCount": 19
   },
   "MA": {
     "country": "MA",
     "labelKo": "MA",
-    "familyCount": 307,
-    "publicationCount": 412,
-    "recent5FamilyCount": 29
+    "familyCount": 318,
+    "publicationCount": 425,
+    "recent5FamilyCount": 45
   },
   "SA": {
     "country": "SA",
     "labelKo": "SA",
-    "familyCount": 264,
-    "publicationCount": 277,
-    "recent5FamilyCount": 9
+    "familyCount": 261,
+    "publicationCount": 274,
+    "recent5FamilyCount": 8
   },
   "EA": {
     "country": "EA",
     "labelKo": "EA",
-    "familyCount": 261,
-    "publicationCount": 370,
+    "familyCount": 256,
+    "publicationCount": 363,
     "recent5FamilyCount": 0
-  },
-  "NO": {
-    "country": "NO",
-    "labelKo": "NO",
-    "familyCount": 237,
-    "publicationCount": 392,
-    "recent5FamilyCount": 68
   },
   "PE": {
     "country": "PE",
     "labelKo": "PE",
-    "familyCount": 228,
-    "publicationCount": 234,
-    "recent5FamilyCount": 52
+    "familyCount": 246,
+    "publicationCount": 253,
+    "recent5FamilyCount": 70
+  },
+  "NO": {
+    "country": "NO",
+    "labelKo": "NO",
+    "familyCount": 236,
+    "publicationCount": 398,
+    "recent5FamilyCount": 68
   },
   "HR": {
     "country": "HR",
     "labelKo": "HR",
-    "familyCount": 214,
-    "publicationCount": 226,
-    "recent5FamilyCount": 15
+    "familyCount": 220,
+    "publicationCount": 232,
+    "recent5FamilyCount": 18
   },
   "UA": {
     "country": "UA",
     "labelKo": "UA",
-    "familyCount": 206,
-    "publicationCount": 212,
+    "familyCount": 214,
+    "publicationCount": 220,
+    "recent5FamilyCount": 16
+  },
+  "RS": {
+    "country": "RS",
+    "labelKo": "RS",
+    "familyCount": 189,
+    "publicationCount": 201,
     "recent5FamilyCount": 14
   },
   "SI": {
     "country": "SI",
     "labelKo": "SI",
-    "familyCount": 184,
-    "publicationCount": 194,
-    "recent5FamilyCount": 6
-  },
-  "RS": {
-    "country": "RS",
-    "labelKo": "RS",
-    "familyCount": 174,
-    "publicationCount": 186,
-    "recent5FamilyCount": 11
+    "familyCount": 180,
+    "publicationCount": 187,
+    "recent5FamilyCount": 8
   },
   "LT": {
     "country": "LT",
     "labelKo": "LT",
     "familyCount": 141,
-    "publicationCount": 161,
-    "recent5FamilyCount": 6
+    "publicationCount": 163,
+    "recent5FamilyCount": 9
   },
   "GR": {
     "country": "GR",
     "labelKo": "GR",
-    "familyCount": 107,
-    "publicationCount": 128,
-    "recent5FamilyCount": 42
+    "familyCount": 117,
+    "publicationCount": 138,
+    "recent5FamilyCount": 50
   },
   "BG": {
     "country": "BG",
     "labelKo": "BG",
-    "familyCount": 63,
-    "publicationCount": 86,
-    "recent5FamilyCount": 48
+    "familyCount": 83,
+    "publicationCount": 109,
+    "recent5FamilyCount": 68
   },
   "CR": {
     "country": "CR",
     "labelKo": "CR",
-    "familyCount": 59,
-    "publicationCount": 62,
-    "recent5FamilyCount": 12
+    "familyCount": 60,
+    "publicationCount": 63,
+    "recent5FamilyCount": 16
   },
   "JO": {
     "country": "JO",
     "labelKo": "JO",
-    "familyCount": 51,
-    "publicationCount": 65,
+    "familyCount": 50,
+    "publicationCount": 64,
     "recent5FamilyCount": 16
   },
   "RO": {
     "country": "RO",
     "labelKo": "RO",
     "familyCount": 48,
-    "publicationCount": 88,
+    "publicationCount": 89,
     "recent5FamilyCount": 8
   },
   "EC": {
@@ -382,28 +382,42 @@
     "labelKo": "EC",
     "familyCount": 44,
     "publicationCount": 47,
-    "recent5FamilyCount": 1
-  },
-  "HK": {
-    "country": "HK",
-    "labelKo": "HK",
-    "familyCount": 36,
-    "publicationCount": 38,
     "recent5FamilyCount": 0
   },
   "UY": {
     "country": "UY",
     "labelKo": "UY",
-    "familyCount": 31,
-    "publicationCount": 32,
-    "recent5FamilyCount": 5
+    "familyCount": 34,
+    "publicationCount": 35,
+    "recent5FamilyCount": 8
+  },
+  "HK": {
+    "country": "HK",
+    "labelKo": "HK",
+    "familyCount": 33,
+    "publicationCount": 35,
+    "recent5FamilyCount": 0
   },
   "SM": {
     "country": "SM",
     "labelKo": "SM",
+    "familyCount": 26,
+    "publicationCount": 27,
+    "recent5FamilyCount": 3
+  },
+  "DO": {
+    "country": "DO",
+    "labelKo": "DO",
     "familyCount": 25,
-    "publicationCount": 26,
-    "recent5FamilyCount": 1
+    "publicationCount": 25,
+    "recent5FamilyCount": 12
+  },
+  "SK": {
+    "country": "SK",
+    "labelKo": "SK",
+    "familyCount": 25,
+    "publicationCount": 42,
+    "recent5FamilyCount": 5
   },
   "PY": {
     "country": "PY",
@@ -412,33 +426,19 @@
     "publicationCount": 24,
     "recent5FamilyCount": 6
   },
-  "SK": {
-    "country": "SK",
-    "labelKo": "SK",
-    "familyCount": 24,
-    "publicationCount": 40,
-    "recent5FamilyCount": 5
-  },
-  "DO": {
-    "country": "DO",
-    "labelKo": "DO",
-    "familyCount": 20,
-    "publicationCount": 20,
-    "recent5FamilyCount": 6
-  },
   "CY": {
     "country": "CY",
     "labelKo": "CY",
-    "familyCount": 17,
-    "publicationCount": 17,
+    "familyCount": 21,
+    "publicationCount": 21,
     "recent5FamilyCount": 0
   },
   "IE": {
     "country": "IE",
     "labelKo": "IE",
-    "familyCount": 15,
-    "publicationCount": 27,
-    "recent5FamilyCount": 7
+    "familyCount": 18,
+    "publicationCount": 30,
+    "recent5FamilyCount": 10
   },
   "TN": {
     "country": "TN",
@@ -450,23 +450,23 @@
   "IN": {
     "country": "IN",
     "labelKo": "IN",
-    "familyCount": 9,
-    "publicationCount": 9,
-    "recent5FamilyCount": 2
-  },
-  "GE": {
-    "country": "GE",
-    "labelKo": "GE",
-    "familyCount": 8,
-    "publicationCount": 14,
-    "recent5FamilyCount": 2
+    "familyCount": 11,
+    "publicationCount": 11,
+    "recent5FamilyCount": 3
   },
   "LV": {
     "country": "LV",
     "labelKo": "LV",
-    "familyCount": 8,
-    "publicationCount": 12,
-    "recent5FamilyCount": 2
+    "familyCount": 9,
+    "publicationCount": 13,
+    "recent5FamilyCount": 3
+  },
+  "GE": {
+    "country": "GE",
+    "labelKo": "GE",
+    "familyCount": 7,
+    "publicationCount": 11,
+    "recent5FamilyCount": 3
   },
   "CU": {
     "country": "CU",

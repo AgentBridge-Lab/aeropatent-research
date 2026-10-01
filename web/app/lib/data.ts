@@ -22,7 +22,7 @@ export const SAMPLE_BASIS_NOTE = `수동 선정 대표 문헌 ${SAMPLE_SIZE}건 
 export const SAMPLE_DATE_BASIS_NOTE = '표본 날짜는 원천 출원일 기준이며 출원일이 없으면 공개연도를 사용합니다. 원천 날짜의 불일치는 개별 문헌에 표시합니다.';
 export const SAMPLE_SCORE_NOTE = '표본 정렬점수 = 0.56 + min(0.22, 매칭어 수 × 0.045) + min(0.12, 기록된 패밀리 관할 수 × 0.025), 상한 0.99. 인용·기술가치·법적 강도의 지표가 아닙니다.';
 export const OFFICE_SHARE_BASIS_NOTE = '표시 5개 공개 관할의 패밀리-관할 관계 수 합계를 분모로 사용합니다. 동일 패밀리가 여러 관할에 중복되므로 고유 패밀리의 국가별 점유율이 아닙니다.';
-export const DATA_PROVENANCE_NOTE = "전체 CPC 후보군 집계기준일 2026-09-12. 실제 수집일 미확인. 보관 manifest 2026-06-28 (2,522,788행), 현재 집계 2,450,063행. 원시 스냅숏 로컬 부재. 심층 연도·피인용 자료는 별도 2016–2025 우선일 코호트입니다.";
+export const DATA_PROVENANCE_NOTE = "전체 CPC 후보군 집계기준일 2026-10-02. 실제 수집일 미확인. 보관 manifest 2026-06-28 (2,522,788행), 현재 집계 2,572,239행. 원시 스냅숏 로컬 존재. 심층 연도·피인용 자료는 별도 2016–2025 우선일 코호트입니다.";
 
 export type CountryCode = "US" | "EP" | "JP" | "CN" | "KR";
 export type FieldId = "space_launch_propulsion_recovery" | "space_satellite_bus_thermal_power" | "space_comm_leo_network" | "space_remote_sensing_payload" | "space_gnc_rendezvous_servicing" | "space_materials_tps_coatings" | "aviation_propulsion_sustainable" | "aviation_structures_aero_composites" | "aviation_avionics_flight_control_autonomy";
@@ -141,44 +141,44 @@ export interface LandscapeSummary {
 
 export const LANDSCAPE_SUMMARY: LandscapeSummary = {
   "snapshot_id": "aeropatent.bigquery.landscape.v1",
-  "generated_at": "2026-09-12T10:13:59.199Z",
-  "analysis_date": "20260912",
+  "generated_at": "2026-10-01T22:31:20.871Z",
+  "analysis_date": "20261002",
   "collection_date": null,
-  "collection_date_status": "실제 수집일 미확인. 보관 manifest 2026-06-28 (2,522,788행), 현재 집계 2,450,063행. 원시 스냅숏 로컬 부재.",
-  "recent5_start_date": "20210912",
-  "recent3_start_date": "20230912",
-  "family_count": 728312,
-  "publication_count": 1945811,
-  "row_count": 2450063,
+  "collection_date_status": "실제 수집일 미확인. 보관 manifest 2026-06-28 (2,522,788행), 현재 집계 2,572,239행. 원시 스냅숏 로컬 존재.",
+  "recent5_start_date": "20211002",
+  "recent3_start_date": "20231002",
+  "family_count": 753369,
+  "publication_count": 2041681,
+  "row_count": 2572239,
   "current_year": 2026,
   "recent5_start_year": 2021,
   "recent3_start_year": 2023
 };
 export const LANDSCAPE_COUNTRIES = {
   "US": {
-    "family_count": 200641,
-    "publication_count": 383741,
-    "recent5_family_count": 52877
+    "family_count": 208727,
+    "publication_count": 401431,
+    "recent5_family_count": 61018
   },
   "EP": {
-    "family_count": 104984,
-    "publication_count": 201687,
-    "recent5_family_count": 31168
+    "family_count": 110492,
+    "publication_count": 215312,
+    "recent5_family_count": 36464
   },
   "CN": {
-    "family_count": 510380,
-    "publication_count": 742361,
-    "recent5_family_count": 230851
+    "family_count": 527867,
+    "publication_count": 774682,
+    "recent5_family_count": 246600
   },
   "JP": {
-    "family_count": 68569,
-    "publication_count": 125247,
-    "recent5_family_count": 18094
+    "family_count": 71688,
+    "publication_count": 132459,
+    "recent5_family_count": 20942
   },
   "KR": {
-    "family_count": 93177,
-    "publication_count": 136856,
-    "recent5_family_count": 32710
+    "family_count": 98190,
+    "publication_count": 145107,
+    "recent5_family_count": 37554
   }
 } as Record<CountryCode, { family_count: number; publication_count: number; recent5_family_count: number }>;
 
@@ -186,43 +186,43 @@ export const LANDSCAPE_COUNTRIES = {
 export const YEARLY_FAMILY_TREND: YearPoint[] = [
   {
     "year": 2016,
-    "count": 26612
+    "count": 22051
   },
   {
     "year": 2017,
-    "count": 79826
+    "count": 79782
   },
   {
     "year": 2018,
-    "count": 85292
+    "count": 85267
   },
   {
     "year": 2019,
-    "count": 80853
+    "count": 80872
   },
   {
     "year": 2020,
-    "count": 88322
+    "count": 88343
   },
   {
     "year": 2021,
-    "count": 86929
+    "count": 86944
   },
   {
     "year": 2022,
-    "count": 81421
+    "count": 81983
   },
   {
     "year": 2023,
-    "count": 80328
+    "count": 81811
   },
   {
     "year": 2024,
-    "count": 76741
+    "count": 86780
   },
   {
     "year": 2025,
-    "count": 41174
+    "count": 51589
   }
 ];
 
@@ -269,84 +269,84 @@ export const FIELDS: Field[] = [
     "label_en": "Launch vehicle, propulsion, and recovery",
     "color": "#e54b4b",
     "summary_ko": "발사체·추진·회수 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
-    "family_count": 16891,
-    "publication_count": 35641,
-    "recent5_family_count": 8025,
-    "recent3_family_count": 4104,
-    "recent_momentum": 0.243,
+    "family_count": 17535,
+    "publication_count": 37721,
+    "recent5_family_count": 8608,
+    "recent3_family_count": 4696,
+    "recent_momentum": 0.2678,
     "country_family_counts": {
-      "US": 2827,
-      "EP": 1430,
-      "JP": 677,
-      "CN": 11606,
-      "KR": 972
+      "US": 2967,
+      "EP": 1510,
+      "JP": 713,
+      "CN": 11997,
+      "KR": 1055
     },
     "top_applicants": [
       {
         "name": "HARBIN INST TECHNOLOGY",
-        "count": 498
+        "count": 504
       },
       {
         "name": "SHANGHAI SATELLITE ENG INST",
-        "count": 433
+        "count": 443
       },
       {
         "name": "UNIV BEIHANG",
-        "count": 392
+        "count": 405
       },
       {
         "name": "UNIV NORTHWESTERN POLYTECHNICAL",
-        "count": 375
-      },
-      {
-        "name": "SHANGHAI AEROSPACE SYSTEM ENGINEERING INST",
-        "count": 351
+        "count": 378
       },
       {
         "name": "BEIJING INST SPACECRAFT SYSTEM ENGINEERING",
-        "count": 346
+        "count": 367
+      },
+      {
+        "name": "SHANGHAI AEROSPACE SYSTEM ENGINEERING INST",
+        "count": 362
       },
       {
         "name": "XIAN AEROSPACE PROPULSION INSTITUTE",
-        "count": 327
+        "count": 347
       },
       {
         "name": "BEIJING INST CONTROL ENG",
-        "count": 326
+        "count": 333
       }
     ],
     "top_cpc_codes": [
       {
         "code": "B64G1",
-        "count": 94763
+        "count": 100690
       },
       {
         "code": "F02K9",
-        "count": 25530
+        "count": 26702
       },
       {
         "code": "H04B7",
-        "count": 3355
+        "count": 3511
       },
       {
         "code": "F03H1",
-        "count": 2496
+        "count": 2728
       },
       {
         "code": "H01Q1",
-        "count": 2335
+        "count": 2441
       },
       {
         "code": "B64G3",
-        "count": 1688
+        "count": 1821
+      },
+      {
+        "code": "G06T2207",
+        "count": 1733
       },
       {
         "code": "F05D2260",
-        "count": 1387
-      },
-      {
-        "code": "Y02E10",
-        "count": 1309
+        "count": 1416
       }
     ],
     "query_terms": [
@@ -357,7 +357,7 @@ export const FIELDS: Field[] = [
       "recovery"
     ],
     "report_bullets": [
-      "발사체·추진·회수 검색축에서 16,891개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "발사체·추진·회수 검색축에서 17,535개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
       "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
@@ -371,84 +371,84 @@ export const FIELDS: Field[] = [
     "label_en": "Satellite bus, thermal control, and power",
     "color": "#f4b942",
     "summary_ko": "위성체·열·전력 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
-    "family_count": 29722,
-    "publication_count": 63517,
-    "recent5_family_count": 10162,
-    "recent3_family_count": 4131,
-    "recent_momentum": 0.139,
+    "family_count": 30299,
+    "publication_count": 65824,
+    "recent5_family_count": 10800,
+    "recent3_family_count": 4793,
+    "recent_momentum": 0.1582,
     "country_family_counts": {
-      "US": 10834,
-      "EP": 1904,
-      "JP": 1241,
-      "CN": 13081,
-      "KR": 6079
+      "US": 10915,
+      "EP": 2017,
+      "JP": 1299,
+      "CN": 13537,
+      "KR": 6136
     },
     "top_applicants": [
       {
         "name": "HARBIN INST TECHNOLOGY",
-        "count": 495
+        "count": 499
       },
       {
         "name": "SHANGHAI SATELLITE ENG INST",
-        "count": 442
-      },
-      {
-        "name": "LG ELECTRONICS INC",
-        "count": 386
+        "count": 452
       },
       {
         "name": "BEIJING INST SPACECRAFT SYSTEM ENGINEERING",
-        "count": 374
+        "count": 397
+      },
+      {
+        "name": "LG ELECTRONICS INC",
+        "count": 373
       },
       {
         "name": "SHANGHAI AEROSPACE SYSTEM ENGINEERING INST",
-        "count": 325
+        "count": 336
       },
       {
         "name": "BEIJING INST CONTROL ENG",
-        "count": 299
+        "count": 306
       },
       {
         "name": "UNIV BEIHANG",
-        "count": 246
+        "count": 256
       },
       {
         "name": "SHANGHAI ENG CT MICROSATELLITES",
-        "count": 227
+        "count": 235
       }
     ],
     "top_cpc_codes": [
       {
         "code": "B64G1",
-        "count": 94763
+        "count": 100690
       },
       {
         "code": "F28D15",
-        "count": 43582
+        "count": 45986
       },
       {
         "code": "H10F77",
-        "count": 42344
+        "count": 41456
       },
       {
         "code": "H01L31",
-        "count": 40565
+        "count": 39917
       },
       {
         "code": "H05K7",
-        "count": 18587
+        "count": 20116
       },
       {
         "code": "H10F39",
-        "count": 15788
+        "count": 15711
       },
       {
         "code": "Y02E10",
-        "count": 15749
+        "count": 15520
       },
       {
         "code": "H10F19",
-        "count": 14103
+        "count": 13819
       }
     ],
     "query_terms": [
@@ -459,7 +459,7 @@ export const FIELDS: Field[] = [
       "solar array"
     ],
     "report_bullets": [
-      "위성체·열·전력 검색축에서 29,722개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "위성체·열·전력 검색축에서 30,299개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
       "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
@@ -473,84 +473,84 @@ export const FIELDS: Field[] = [
     "label_en": "Satellite communications and LEO networks",
     "color": "#2ca58d",
     "summary_ko": "우주통신·LEO 네트워크 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
-    "family_count": 140313,
-    "publication_count": 457669,
-    "recent5_family_count": 64174,
-    "recent3_family_count": 29455,
-    "recent_momentum": 0.2099,
+    "family_count": 146374,
+    "publication_count": 483166,
+    "recent5_family_count": 70114,
+    "recent3_family_count": 34919,
+    "recent_momentum": 0.2386,
     "country_family_counts": {
-      "US": 57123,
-      "EP": 32709,
-      "JP": 11417,
-      "CN": 94422,
-      "KR": 15403
+      "US": 60029,
+      "EP": 34708,
+      "JP": 11938,
+      "CN": 98474,
+      "KR": 16517
     },
     "top_applicants": [
       {
         "name": "HUAWEI TECH CO LTD",
-        "count": 7488
+        "count": 8014
       },
       {
         "name": "QUALCOMM INC",
-        "count": 7355
+        "count": 7706
       },
       {
         "name": "SAMSUNG ELECTRONICS CO LTD",
-        "count": 4466
+        "count": 4784
       },
       {
         "name": "LG ELECTRONICS INC",
-        "count": 2978
+        "count": 3150
       },
       {
         "name": "ERICSSON TELEFON AB L M",
-        "count": 2977
+        "count": 3067
       },
       {
         "name": "ZTE CORP",
-        "count": 2344
+        "count": 2424
       },
       {
         "name": "NOKIA TECHNOLOGIES OY",
-        "count": 1867
+        "count": 2106
       },
       {
         "name": "CISCO TECH INC",
-        "count": 1824
+        "count": 1922
       }
     ],
     "top_cpc_codes": [
       {
         "code": "H04B7",
-        "count": 812244
+        "count": 852021
       },
       {
         "code": "H04L5",
-        "count": 390159
+        "count": 410736
       },
       {
         "code": "H04W72",
-        "count": 352550
+        "count": 372223
       },
       {
         "code": "H04L45",
-        "count": 317420
+        "count": 330352
       },
       {
         "code": "H04W84",
-        "count": 258718
+        "count": 276574
       },
       {
         "code": "H04W76",
-        "count": 157729
+        "count": 168730
       },
       {
         "code": "H04L1",
-        "count": 146697
+        "count": 153531
       },
       {
-        "code": "H04W4",
-        "count": 142339
+        "code": "H04W24",
+        "count": 149807
       }
     ],
     "query_terms": [
@@ -561,7 +561,7 @@ export const FIELDS: Field[] = [
       "antenna"
     ],
     "report_bullets": [
-      "우주통신·LEO 네트워크 검색축에서 140,313개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "우주통신·LEO 네트워크 검색축에서 146,374개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
       "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
@@ -575,84 +575,84 @@ export const FIELDS: Field[] = [
     "label_en": "SAR and remote-sensing payload",
     "color": "#4d8cf5",
     "summary_ko": "원격탐사·탑재체 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
-    "family_count": 118575,
-    "publication_count": 312352,
-    "recent5_family_count": 58371,
-    "recent3_family_count": 28002,
-    "recent_momentum": 0.2362,
+    "family_count": 123043,
+    "publication_count": 328930,
+    "recent5_family_count": 62474,
+    "recent3_family_count": 31926,
+    "recent_momentum": 0.2595,
     "country_family_counts": {
-      "US": 33938,
-      "EP": 16833,
-      "JP": 11227,
-      "CN": 82435,
-      "KR": 12365
+      "US": 35351,
+      "EP": 17682,
+      "JP": 11639,
+      "CN": 85450,
+      "KR": 13142
     },
     "top_applicants": [
       {
         "name": "UNIV XIDIAN",
-        "count": 2161
+        "count": 2228
       },
       {
         "name": "BOSCH GMBH ROBERT",
-        "count": 1813
-      },
-      {
-        "name": "SAMSUNG ELECTRONICS CO LTD",
-        "count": 1086
+        "count": 1905
       },
       {
         "name": "HUAWEI TECH CO LTD",
-        "count": 1055
+        "count": 1141
+      },
+      {
+        "name": "SAMSUNG ELECTRONICS CO LTD",
+        "count": 1117
       },
       {
         "name": "BEIJING INSTITUTE TECH",
-        "count": 1004
+        "count": 1021
       },
       {
         "name": "UNIV ELECTRONIC SCI & TECH CHINA",
-        "count": 982
+        "count": 1020
       },
       {
         "name": "QUALCOMM INC",
-        "count": 863
+        "count": 906
       },
       {
         "name": "SONY SEMICONDUCTOR SOLUTIONS CORP",
-        "count": 829
+        "count": 866
       }
     ],
     "top_cpc_codes": [
       {
         "code": "G01S7",
-        "count": 599625
+        "count": 632034
       },
       {
         "code": "G01S13",
-        "count": 379284
+        "count": 402489
       },
       {
         "code": "G01S17",
-        "count": 286127
+        "count": 299069
       },
       {
         "code": "G01J3",
-        "count": 173709
+        "count": 181962
       },
       {
         "code": "G01N21",
-        "count": 70950
+        "count": 74817
       },
       {
         "code": "G01S15",
-        "count": 61235
+        "count": 64280
       },
       {
         "code": "G01S2013",
-        "count": 59525
+        "count": 61634
       },
       {
         "code": "A61B8",
-        "count": 53099
+        "count": 54230
       }
     ],
     "query_terms": [
@@ -663,7 +663,7 @@ export const FIELDS: Field[] = [
       "image processing"
     ],
     "report_bullets": [
-      "원격탐사·탑재체 검색축에서 118,575개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "원격탐사·탑재체 검색축에서 123,043개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
       "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
@@ -677,84 +677,84 @@ export const FIELDS: Field[] = [
     "label_en": "GNC, rendezvous, docking, and on-orbit servicing",
     "color": "#8b5cf6",
     "summary_ko": "GNC·랑데부·서비스 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
-    "family_count": 160354,
-    "publication_count": 398435,
-    "recent5_family_count": 71585,
-    "recent3_family_count": 36315,
-    "recent_momentum": 0.2265,
+    "family_count": 167178,
+    "publication_count": 419667,
+    "recent5_family_count": 78087,
+    "recent3_family_count": 42922,
+    "recent_momentum": 0.2567,
     "country_family_counts": {
-      "US": 43479,
-      "EP": 16424,
-      "JP": 13870,
-      "CN": 115194,
-      "KR": 15424
+      "US": 44868,
+      "EP": 17300,
+      "JP": 14638,
+      "CN": 120301,
+      "KR": 16634
     },
     "top_applicants": [
       {
         "name": "TOYOTA MOTOR CO LTD",
-        "count": 2253
+        "count": 2319
       },
       {
         "name": "TOYOTA MOTOR CORP",
-        "count": 1982
+        "count": 2113
       },
       {
         "name": "UNIV BEIHANG",
-        "count": 1475
+        "count": 1551
       },
       {
         "name": "HONDA MOTOR CO LTD",
-        "count": 1364
+        "count": 1383
       },
       {
         "name": "HYUNDAI MOTOR CO LTD",
-        "count": 1317
+        "count": 1369
       },
       {
         "name": "BEIJING INSTITUTE TECH",
-        "count": 1229
+        "count": 1235
       },
       {
         "name": "UNIV NORTHWESTERN POLYTECHNICAL",
-        "count": 1156
+        "count": 1212
       },
       {
-        "name": "FORD GLOBAL TECH LLC",
-        "count": 1102
+        "name": "UNIV NANJING AERONAUTICS & ASTRONAUTICS",
+        "count": 1103
       }
     ],
     "top_cpc_codes": [
       {
         "code": "G05D1",
-        "count": 567167
+        "count": 620928
       },
       {
         "code": "G01C21",
-        "count": 452030
+        "count": 476481
       },
       {
         "code": "G08G1",
-        "count": 147050
+        "count": 150380
       },
       {
         "code": "B64G1",
-        "count": 94763
+        "count": 100690
       },
       {
         "code": "G06V20",
-        "count": 77106
-      },
-      {
-        "code": "G08G5",
-        "count": 72224
+        "count": 80432
       },
       {
         "code": "G06Q10",
-        "count": 71118
+        "count": 74772
+      },
+      {
+        "code": "G08G5",
+        "count": 74015
       },
       {
         "code": "H04W4",
-        "count": 70055
+        "count": 72108
       }
     ],
     "query_terms": [
@@ -765,7 +765,7 @@ export const FIELDS: Field[] = [
       "on-orbit servicing"
     ],
     "report_bullets": [
-      "GNC·랑데부·서비스 검색축에서 160,354개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "GNC·랑데부·서비스 검색축에서 167,178개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
       "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
@@ -779,84 +779,84 @@ export const FIELDS: Field[] = [
     "label_en": "Space materials, TPS, and coatings",
     "color": "#d65a9d",
     "summary_ko": "우주재료·TPS·코팅 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
-    "family_count": 225901,
-    "publication_count": 583861,
-    "recent5_family_count": 85076,
-    "recent3_family_count": 40290,
-    "recent_momentum": 0.1784,
+    "family_count": 231774,
+    "publication_count": 609280,
+    "recent5_family_count": 90917,
+    "recent3_family_count": 46059,
+    "recent_momentum": 0.1987,
     "country_family_counts": {
-      "US": 39736,
-      "EP": 26838,
-      "JP": 28159,
-      "CN": 174657,
-      "KR": 36461
+      "US": 41424,
+      "EP": 28066,
+      "JP": 29443,
+      "CN": 178957,
+      "KR": 38186
     },
     "top_applicants": [
       {
         "name": "NITTO DENKO CORP",
-        "count": 1589
+        "count": 1656
       },
       {
         "name": "FUJIFILM CORP",
-        "count": 884
-      },
-      {
-        "name": "LG CHEMICAL LTD",
-        "count": 808
-      },
-      {
-        "name": "SAINT GOBAIN",
-        "count": 781
+        "count": 910
       },
       {
         "name": "AGC INC",
-        "count": 764
+        "count": 808
+      },
+      {
+        "name": "LG CHEMICAL LTD",
+        "count": 806
+      },
+      {
+        "name": "SAINT GOBAIN",
+        "count": 785
       },
       {
         "name": "SUMITOMO CHEMICAL CO",
-        "count": 727
+        "count": 741
       },
       {
         "name": "SAMSUNG DISPLAY CO LTD",
-        "count": 661
+        "count": 684
       },
       {
-        "name": "DAINIPPON PRINTING CO LTD",
-        "count": 578
+        "name": "TOYO BOSEKI",
+        "count": 601
       }
     ],
     "top_cpc_codes": [
       {
         "code": "C04B2235",
-        "count": 547071
+        "count": 571426
       },
       {
         "code": "B32B27",
-        "count": 486576
+        "count": 508733
       },
       {
         "code": "B32B2307",
-        "count": 423901
+        "count": 443817
       },
       {
         "code": "C04B35",
-        "count": 297636
+        "count": 311212
       },
       {
         "code": "C09D5",
-        "count": 223506
+        "count": 233939
       },
       {
         "code": "C09D7",
-        "count": 186264
+        "count": 198013
       },
       {
         "code": "B32B7",
-        "count": 178096
+        "count": 187888
       },
       {
         "code": "B32B5",
-        "count": 173379
+        "count": 180846
       }
     ],
     "query_terms": [
@@ -867,7 +867,7 @@ export const FIELDS: Field[] = [
       "ceramic"
     ],
     "report_bullets": [
-      "우주재료·TPS·코팅 검색축에서 225,901개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "우주재료·TPS·코팅 검색축에서 231,774개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
       "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
@@ -881,84 +881,84 @@ export const FIELDS: Field[] = [
     "label_en": "Commercial aviation propulsion, electric, hydrogen, and SAF",
     "color": "#00a7a7",
     "summary_ko": "민간/상용항공 추진·SAF 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
-    "family_count": 26453,
-    "publication_count": 82047,
-    "recent5_family_count": 10712,
-    "recent3_family_count": 4355,
-    "recent_momentum": 0.1646,
+    "family_count": 27439,
+    "publication_count": 86172,
+    "recent5_family_count": 11702,
+    "recent3_family_count": 5279,
+    "recent_momentum": 0.1924,
     "country_family_counts": {
-      "US": 12308,
-      "EP": 7618,
-      "JP": 1748,
-      "CN": 13974,
-      "KR": 2361
+      "US": 12881,
+      "EP": 8026,
+      "JP": 1835,
+      "CN": 14397,
+      "KR": 2455
     },
     "top_applicants": [
       {
         "name": "GEN ELECTRIC",
-        "count": 1827
+        "count": 1907
       },
       {
         "name": "SAFRAN AIRCRAFT ENGINES",
-        "count": 1145
-      },
-      {
-        "name": "RAYTHEON TECH CORP",
-        "count": 985
+        "count": 1221
       },
       {
         "name": "ROLLS ROYCE PLC",
-        "count": 975
-      },
-      {
-        "name": "PRATT & WHITNEY CANADA",
-        "count": 909
+        "count": 997
       },
       {
         "name": "RTX CORP",
-        "count": 858
+        "count": 988
+      },
+      {
+        "name": "RAYTHEON TECH CORP",
+        "count": 980
+      },
+      {
+        "name": "PRATT & WHITNEY CANADA",
+        "count": 973
       },
       {
         "name": "UNITED TECHNOLOGIES CORP",
-        "count": 706
+        "count": 694
       },
       {
         "name": "AIRBUS OPERATIONS SAS",
-        "count": 556
+        "count": 588
       }
     ],
     "top_cpc_codes": [
       {
         "code": "F02C7",
-        "count": 121193
+        "count": 127518
       },
       {
         "code": "B64D27",
-        "count": 73769
+        "count": 78606
       },
       {
         "code": "F05D2260",
-        "count": 62833
+        "count": 65654
       },
       {
         "code": "F05D2220",
-        "count": 39346
+        "count": 40989
       },
       {
         "code": "F01D25",
-        "count": 35251
+        "count": 36574
       },
       {
         "code": "F23R3",
-        "count": 31533
+        "count": 33326
       },
       {
         "code": "F05D2240",
-        "count": 28404
+        "count": 29310
       },
       {
         "code": "Y02T50",
-        "count": 25181
+        "count": 25731
       }
     ],
     "query_terms": [
@@ -969,7 +969,7 @@ export const FIELDS: Field[] = [
       "combustor"
     ],
     "report_bullets": [
-      "민간/상용항공 추진·SAF 검색축에서 26,453개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "민간/상용항공 추진·SAF 검색축에서 27,439개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
       "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
@@ -983,84 +983,84 @@ export const FIELDS: Field[] = [
     "label_en": "Aircraft structures, composites, and aerodynamics",
     "color": "#5c8dff",
     "summary_ko": "항공 구조·공력·복합재 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
-    "family_count": 50053,
-    "publication_count": 120281,
-    "recent5_family_count": 17626,
-    "recent3_family_count": 6723,
-    "recent_momentum": 0.1343,
+    "family_count": 50841,
+    "publication_count": 124258,
+    "recent5_family_count": 18377,
+    "recent3_family_count": 7599,
+    "recent_momentum": 0.1495,
     "country_family_counts": {
-      "US": 14235,
-      "EP": 6247,
-      "JP": 3169,
-      "CN": 27635,
-      "KR": 9318
+      "US": 14452,
+      "EP": 6461,
+      "JP": 3255,
+      "CN": 28163,
+      "KR": 9454
     },
     "top_applicants": [
       {
         "name": "BOEING CO",
-        "count": 1285
+        "count": 1283
       },
       {
         "name": "SZ DJI TECHNOLOGY CO LTD",
-        "count": 461
+        "count": 446
       },
       {
         "name": "UNIV NANJING AERONAUTICS & ASTRONAUTICS",
-        "count": 410
-      },
-      {
-        "name": "UNIV BEIHANG",
-        "count": 363
+        "count": 424
       },
       {
         "name": "AIRBUS OPERATIONS GMBH",
-        "count": 362
+        "count": 374
+      },
+      {
+        "name": "UNIV BEIHANG",
+        "count": 368
       },
       {
         "name": "AIRBUS OPERATIONS LTD",
-        "count": 322
+        "count": 345
       },
       {
         "name": "UNIV NORTHWESTERN POLYTECHNICAL",
-        "count": 262
+        "count": 265
       },
       {
         "name": "SAFRAN AIRCRAFT ENGINES",
-        "count": 230
+        "count": 239
       }
     ],
     "top_cpc_codes": [
       {
         "code": "B29C70",
-        "count": 171380
+        "count": 179241
       },
       {
         "code": "B64C39",
-        "count": 48937
-      },
-      {
-        "code": "B64U2101",
-        "count": 36525
+        "count": 50150
       },
       {
         "code": "B64C3",
-        "count": 36521
+        "count": 38196
+      },
+      {
+        "code": "B64U2101",
+        "count": 37296
       },
       {
         "code": "B29L2031",
-        "count": 32139
-      },
-      {
-        "code": "G08G5",
-        "count": 29090
+        "count": 33991
       },
       {
         "code": "G05D1",
-        "count": 28338
+        "count": 29617
       },
       {
         "code": "B64U10",
-        "count": 27836
+        "count": 28640
+      },
+      {
+        "code": "G08G5",
+        "count": 27310
       }
     ],
     "query_terms": [
@@ -1071,7 +1071,7 @@ export const FIELDS: Field[] = [
       "fuselage"
     ],
     "report_bullets": [
-      "항공 구조·공력·복합재 검색축에서 50,053개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "항공 구조·공력·복합재 검색축에서 50,841개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
       "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
@@ -1085,84 +1085,84 @@ export const FIELDS: Field[] = [
     "label_en": "Avionics, flight control, and autonomy",
     "color": "#7c5cff",
     "summary_ko": "항공전자·비행제어·자율운항 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
-    "family_count": 157258,
-    "publication_count": 396260,
-    "recent5_family_count": 69956,
-    "recent3_family_count": 35280,
-    "recent_momentum": 0.2243,
+    "family_count": 164048,
+    "publication_count": 417221,
+    "recent5_family_count": 76450,
+    "recent3_family_count": 41880,
+    "recent_momentum": 0.2553,
     "country_family_counts": {
-      "US": 44959,
-      "EP": 17549,
-      "JP": 13859,
-      "CN": 111478,
-      "KR": 15676
+      "US": 46393,
+      "EP": 18430,
+      "JP": 14611,
+      "CN": 116540,
+      "KR": 16873
     },
     "top_applicants": [
       {
         "name": "TOYOTA MOTOR CO LTD",
-        "count": 2256
+        "count": 2323
       },
       {
         "name": "TOYOTA MOTOR CORP",
-        "count": 1985
-      },
-      {
-        "name": "HONDA MOTOR CO LTD",
-        "count": 1371
+        "count": 2115
       },
       {
         "name": "UNIV BEIHANG",
-        "count": 1336
+        "count": 1410
+      },
+      {
+        "name": "HONDA MOTOR CO LTD",
+        "count": 1390
       },
       {
         "name": "HYUNDAI MOTOR CO LTD",
-        "count": 1329
+        "count": 1384
       },
       {
         "name": "FORD GLOBAL TECH LLC",
-        "count": 1112
-      },
-      {
-        "name": "BEIJING INSTITUTE TECH",
-        "count": 1080
+        "count": 1101
       },
       {
         "name": "BOSCH GMBH ROBERT",
-        "count": 1058
+        "count": 1095
+      },
+      {
+        "name": "UNIV NANJING AERONAUTICS & ASTRONAUTICS",
+        "count": 1092
       }
     ],
     "top_cpc_codes": [
       {
         "code": "G05D1",
-        "count": 567167
+        "count": 620928
       },
       {
         "code": "G01C21",
-        "count": 452030
+        "count": 476481
       },
       {
         "code": "G08G5",
-        "count": 160213
+        "count": 171618
       },
       {
         "code": "G08G1",
-        "count": 149226
+        "count": 152590
       },
       {
         "code": "G06V20",
-        "count": 78697
-      },
-      {
-        "code": "H04W4",
-        "count": 74107
+        "count": 82157
       },
       {
         "code": "G06Q10",
-        "count": 74088
+        "count": 77771
+      },
+      {
+        "code": "H04W4",
+        "count": 76426
       },
       {
         "code": "B60W30",
-        "count": 67101
+        "count": 68941
       }
     ],
     "query_terms": [
@@ -1173,7 +1173,7 @@ export const FIELDS: Field[] = [
       "detect and avoid"
     ],
     "report_bullets": [
-      "항공전자·비행제어·자율운항 검색축에서 157,258개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "항공전자·비행제어·자율운항 검색축에서 164,048개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
       "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
@@ -1184,49 +1184,49 @@ export const FIELDS: Field[] = [
 export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
   "space_launch_propulsion_recovery": {
     "label_ko": "발사체 추진·회수",
-    "momentum_recent3_share": 0.243,
-    "korea_publication_gap_score": 0.2293,
-    "korea_assignee_gap_score": 0.231,
-    "cr5": 0.1213,
+    "momentum_recent3_share": 0.2678,
+    "korea_publication_gap_score": 0.2513,
+    "korea_assignee_gap_score": 0.2532,
+    "cr5": 0.1196,
     "region_family_counts": {
-      "NORTH_AMERICA": 2854,
-      "INTERNATIONAL": 1836,
-      "EAST_ASIA": 12951,
-      "EUROPE": 1964,
-      "OCEANIA": 207,
-      "OTHER_WORLD": 1068,
-      "AFRICA": 22,
-      "MIDDLE_EAST": 116,
-      "LATIN_AMERICA": 50
+      "NORTH_AMERICA": 2993,
+      "EAST_ASIA": 13444,
+      "INTERNATIONAL": 1935,
+      "EUROPE": 2061,
+      "OTHER_WORLD": 1071,
+      "MIDDLE_EAST": 126,
+      "OCEANIA": 216,
+      "AFRICA": 21,
+      "LATIN_AMERICA": 51
     },
     "yearly_families": {
       "2016": 1315,
       "2017": 1407,
       "2018": 1686,
-      "2019": 1806,
-      "2020": 2137,
-      "2021": 1969,
-      "2022": 1901,
-      "2023": 2172,
-      "2024": 2097,
-      "2025": 1169
+      "2019": 1807,
+      "2020": 2140,
+      "2021": 1974,
+      "2022": 1904,
+      "2023": 2194,
+      "2024": 2283,
+      "2025": 1458
     },
     "kr_top_applicants": [
       {
         "name": "KOREA AEROSPACE RES INST",
-        "families": 243
+        "families": 244
       },
       {
         "name": "AGENCY DEFENSE DEV",
-        "families": 114
+        "families": 120
+      },
+      {
+        "name": "HANWHA SYSTEMS CO LTD",
+        "families": 44
       },
       {
         "name": "HANWHA CORP",
         "families": 43
-      },
-      {
-        "name": "HANWHA SYSTEMS CO LTD",
-        "families": 38
       },
       {
         "name": "LEE JEONG YONG",
@@ -1234,50 +1234,50 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
       },
       {
         "name": "KOREA ADVANCED INST SCI & TECH",
-        "families": 20
+        "families": 21
       },
       {
         "name": "UNIV CHOSUN IACF",
-        "families": 17
+        "families": 18
       },
       {
         "name": "LIG NEX1 CO LTD",
-        "families": 16
+        "families": 17
       }
     ],
     "top_cited": [
       {
         "family_id": "59859573",
         "rep_pub": "CN-108960483-A",
-        "citing_families": 146,
+        "citing_families": 157,
         "title_en": "satellite dispatching method, processing system and software program product",
         "gp_url": "https://patents.google.com/patent/CN108960483A"
       },
       {
         "family_id": "58005805",
         "rep_pub": "CN-106406086-A",
-        "citing_families": 107,
+        "citing_families": 115,
         "title_en": "Large flexible spacecraft interference compensation method based on sliding mode disturbance observer",
         "gp_url": "https://patents.google.com/patent/CN106406086A"
       },
       {
         "family_id": "61249620",
         "rep_pub": "CN-110753662-A",
-        "citing_families": 67,
+        "citing_families": 70,
         "title_en": "Formation of mini-satellites and several mini-satellites capable of flying in formation",
         "gp_url": "https://patents.google.com/patent/CN110753662A"
       },
       {
         "family_id": "67818782",
         "rep_pub": "CN-110216924-A",
-        "citing_families": 66,
+        "citing_families": 70,
         "title_en": "A kind of recombination radiation refrigeration film",
         "gp_url": "https://patents.google.com/patent/CN110216924A"
       },
       {
         "family_id": "59717360",
         "rep_pub": "CN-107124899-A",
-        "citing_families": 62,
+        "citing_families": 67,
         "title_en": "Movable fixture, follow shot equipment, movable fixture control system and method",
         "gp_url": "https://patents.google.com/patent/CN107124899A"
       }
@@ -1285,32 +1285,32 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
   },
   "space_satellite_bus_thermal_power": {
     "label_ko": "위성 플랫폼·열제어·전력",
-    "momentum_recent3_share": 0.139,
-    "korea_publication_gap_score": 0.119,
-    "korea_assignee_gap_score": 0.1214,
-    "cr5": 0.068,
+    "momentum_recent3_share": 0.1582,
+    "korea_publication_gap_score": 0.1353,
+    "korea_assignee_gap_score": 0.1379,
+    "cr5": 0.0679,
     "region_family_counts": {
-      "NORTH_AMERICA": 10867,
-      "EAST_ASIA": 19658,
-      "INTERNATIONAL": 2800,
-      "EUROPE": 2638,
-      "OCEANIA": 228,
-      "OTHER_WORLD": 812,
-      "AFRICA": 32,
-      "MIDDLE_EAST": 122,
-      "LATIN_AMERICA": 84
+      "NORTH_AMERICA": 10950,
+      "EAST_ASIA": 20187,
+      "INTERNATIONAL": 2964,
+      "EUROPE": 2785,
+      "OTHER_WORLD": 818,
+      "MIDDLE_EAST": 135,
+      "OCEANIA": 241,
+      "AFRICA": 31,
+      "LATIN_AMERICA": 85
     },
     "yearly_families": {
       "2016": 4152,
-      "2017": 4230,
-      "2018": 4027,
-      "2019": 3737,
-      "2020": 3764,
-      "2021": 3501,
-      "2022": 2962,
-      "2023": 2807,
-      "2024": 2165,
-      "2025": 1033
+      "2017": 4229,
+      "2018": 4025,
+      "2019": 3736,
+      "2020": 3770,
+      "2021": 3504,
+      "2022": 2971,
+      "2023": 2847,
+      "2024": 2434,
+      "2025": 1324
     },
     "kr_top_applicants": [
       {
@@ -1319,19 +1319,19 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
       },
       {
         "name": "KOREA AEROSPACE RES INST",
-        "families": 175
+        "families": 176
+      },
+      {
+        "name": "SAMSUNG ELECTRONICS CO LTD",
+        "families": 109
       },
       {
         "name": "KOREA INST ENERGY RES",
         "families": 106
       },
       {
-        "name": "SAMSUNG ELECTRONICS CO LTD",
-        "families": 104
-      },
-      {
         "name": "UNIV KOREA RES & BUS FOUND",
-        "families": 97
+        "families": 98
       },
       {
         "name": "KOREA INST SCI & TECH",
@@ -1339,148 +1339,148 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
       },
       {
         "name": "KOREA ADVANCED INST SCI & TECH",
-        "families": 90
+        "families": 91
       },
       {
         "name": "RESEARCH & BUSINESS FOUND SUNGKYUNKWAN UNIV",
-        "families": 73
+        "families": 74
       }
     ],
     "top_cited": [
       {
         "family_id": "77180912",
         "rep_pub": "US-2021257509-A1",
-        "citing_families": 238,
+        "citing_families": 242,
         "title_en": "Substrate processing apparatus including light receiving device and calibration method of light receiving device",
         "gp_url": "https://patents.google.com/patent/US2021257509A1"
       },
       {
         "family_id": "63371075",
         "rep_pub": "KR-20190131050-A",
-        "citing_families": 172,
+        "citing_families": 183,
         "title_en": null,
         "gp_url": "https://patents.google.com/patent/KR20190131050A"
       },
       {
         "family_id": "59859573",
         "rep_pub": "CN-108960483-A",
-        "citing_families": 146,
+        "citing_families": 157,
         "title_en": "satellite dispatching method, processing system and software program product",
         "gp_url": "https://patents.google.com/patent/CN108960483A"
       },
       {
         "family_id": "64096629",
         "rep_pub": "US-10222475-B2",
-        "citing_families": 130,
+        "citing_families": 140,
         "title_en": "Optical imaging transmitter with brightness enhancement",
         "gp_url": "https://patents.google.com/patent/US10222475B2"
       },
       {
-        "family_id": "64902644",
-        "rep_pub": "US-10444359-B2",
-        "citing_families": 121,
-        "title_en": "Light ranging device with electronically scanned emitter array and synchronized sensor array",
-        "gp_url": "https://patents.google.com/patent/US10444359B2"
+        "family_id": "65361064",
+        "rep_pub": "US-11105925-B2",
+        "citing_families": 133,
+        "title_en": "Accurate photo detector measurements for LIDAR",
+        "gp_url": "https://patents.google.com/patent/US11105925B2"
       }
     ]
   },
   "space_comm_leo_network": {
     "label_ko": "위성통신·LEO 네트워크",
-    "momentum_recent3_share": 0.2099,
-    "korea_publication_gap_score": 0.1909,
-    "korea_assignee_gap_score": 0.1899,
-    "cr5": 0.1801,
+    "momentum_recent3_share": 0.2386,
+    "korea_publication_gap_score": 0.2154,
+    "korea_assignee_gap_score": 0.2142,
+    "cr5": 0.1826,
     "region_family_counts": {
-      "NORTH_AMERICA": 57311,
-      "EUROPE": 35431,
-      "INTERNATIONAL": 50786,
-      "EAST_ASIA": 106626,
-      "AFRICA": 301,
-      "OCEANIA": 2211,
-      "OTHER_WORLD": 1773,
-      "MIDDLE_EAST": 563,
-      "LATIN_AMERICA": 2399,
-      "SOUTH_ASIA": 3
+      "NORTH_AMERICA": 60208,
+      "EAST_ASIA": 111557,
+      "INTERNATIONAL": 54004,
+      "EUROPE": 37546,
+      "AFRICA": 304,
+      "OTHER_WORLD": 1771,
+      "LATIN_AMERICA": 2378,
+      "MIDDLE_EAST": 594,
+      "OCEANIA": 2267,
+      "SOUTH_ASIA": 4
     },
     "yearly_families": {
-      "2016": 14423,
-      "2017": 14169,
-      "2018": 14621,
+      "2016": 14419,
+      "2017": 14162,
+      "2018": 14618,
       "2019": 14543,
-      "2020": 16507,
-      "2021": 16838,
-      "2022": 17037,
-      "2023": 17939,
-      "2024": 16145,
-      "2025": 7245
+      "2020": 16510,
+      "2021": 16833,
+      "2022": 17184,
+      "2023": 18624,
+      "2024": 18998,
+      "2025": 9658
     },
     "kr_top_applicants": [
       {
         "name": "SAMSUNG ELECTRONICS CO LTD",
-        "families": 2840
+        "families": 3156
       },
       {
         "name": "LG ELECTRONICS INC",
-        "families": 1329
+        "families": 1526
       },
       {
         "name": "QUALCOMM INC",
-        "families": 1216
+        "families": 1277
       },
       {
         "name": "ELECTRONICS & TELECOMMUNICATIONS RES INST",
-        "families": 920
+        "families": 932
       },
       {
         "name": "HUAWEI TECH CO LTD",
-        "families": 748
+        "families": 808
       },
       {
         "name": "ZTE CORP",
-        "families": 478
+        "families": 489
       },
       {
         "name": "GUANGDONG OPPO MOBILE TELECOMMUNICATIONS CORP LTD",
-        "families": 291
+        "families": 305
       },
       {
         "name": "HYUNDAI MOTOR CO LTD",
-        "families": 267
+        "families": 274
       }
     ],
     "top_cited": [
       {
         "family_id": "61018023",
         "rep_pub": "CN-110024330-A",
-        "citing_families": 1351,
+        "citing_families": 1408,
         "title_en": "The service of IoT device is provided",
         "gp_url": "https://patents.google.com/patent/CN110024330A"
       },
       {
         "family_id": "58745329",
         "rep_pub": "AU-2017262847-A1",
-        "citing_families": 987,
+        "citing_families": 1029,
         "title_en": "Network architecture, methods, and devices for a wireless communications network",
         "gp_url": "https://patents.google.com/patent/AU2017262847A1"
       },
       {
         "family_id": "62710015",
         "rep_pub": "CN-110301143-A",
-        "citing_families": 906,
+        "citing_families": 952,
         "title_en": "Method and apparatus for radio communication",
         "gp_url": "https://patents.google.com/patent/CN110301143A"
       },
       {
         "family_id": "58995202",
         "rep_pub": "AU-2017264328-A1",
-        "citing_families": 818,
+        "citing_families": 850,
         "title_en": "Multiplexing of subframes with different subcarrier spacings",
         "gp_url": "https://patents.google.com/patent/AU2017264328A1"
       },
       {
         "family_id": "60804962",
         "rep_pub": "CN-109213437-A",
-        "citing_families": 724,
+        "citing_families": 760,
         "title_en": "The dynamic allocation technology of the layer of the memory resource of decomposition",
         "gp_url": "https://patents.google.com/patent/CN109213437A"
       }
@@ -1488,101 +1488,101 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
   },
   "space_remote_sensing_payload": {
     "label_ko": "SAR·원격탐사 페이로드",
-    "momentum_recent3_share": 0.2362,
-    "korea_publication_gap_score": 0.2164,
-    "korea_assignee_gap_score": 0.2189,
-    "cr5": 0.06,
+    "momentum_recent3_share": 0.2595,
+    "korea_publication_gap_score": 0.2362,
+    "korea_assignee_gap_score": 0.2388,
+    "cr5": 0.0602,
     "region_family_counts": {
-      "NORTH_AMERICA": 34089,
-      "INTERNATIONAL": 23584,
-      "EAST_ASIA": 95172,
-      "OTHER_WORLD": 1810,
-      "LATIN_AMERICA": 526,
-      "EUROPE": 26586,
-      "OCEANIA": 1319,
-      "AFRICA": 107,
-      "MIDDLE_EAST": 740,
+      "NORTH_AMERICA": 35483,
+      "EAST_ASIA": 98985,
+      "INTERNATIONAL": 24714,
+      "EUROPE": 27862,
+      "MIDDLE_EAST": 793,
+      "OTHER_WORLD": 1820,
+      "AFRICA": 114,
+      "LATIN_AMERICA": 532,
+      "OCEANIA": 1386,
       "SOUTH_ASIA": 1
     },
     "yearly_families": {
-      "2016": 7962,
-      "2017": 8984,
-      "2018": 11335,
-      "2019": 12871,
-      "2020": 14364,
-      "2021": 15001,
-      "2022": 15146,
-      "2023": 15593,
-      "2024": 14972,
-      "2025": 7295
+      "2016": 7963,
+      "2017": 8977,
+      "2018": 11329,
+      "2019": 12870,
+      "2020": 14367,
+      "2021": 14992,
+      "2022": 15237,
+      "2023": 15807,
+      "2024": 16788,
+      "2025": 9062
     },
     "kr_top_applicants": [
       {
         "name": "SAMSUNG ELECTRONICS CO LTD",
-        "families": 785
+        "families": 844
       },
       {
         "name": "AGENCY DEFENSE DEV",
-        "families": 535
+        "families": 559
       },
       {
         "name": "LIG NEX1 CO LTD",
-        "families": 443
+        "families": 447
       },
       {
         "name": "HYUNDAI MOTOR CO LTD",
-        "families": 369
+        "families": 392
       },
       {
         "name": "HYUNDAI MOBIS CO LTD",
-        "families": 338
+        "families": 356
       },
       {
         "name": "HANWHA SYSTEMS CO LTD",
-        "families": 324
+        "families": 337
       },
       {
         "name": "KIA CORP",
-        "families": 264
+        "families": 292
       },
       {
         "name": "QUALCOMM INC",
-        "families": 257
+        "families": 269
       }
     ],
     "top_cited": [
       {
-        "family_id": "63104544",
-        "rep_pub": "CN-110291489-A",
-        "citing_families": 724,
-        "title_en": "The efficient mankind identify intelligent assistant&#39;s computer in calculating",
-        "gp_url": "https://patents.google.com/patent/CN110291489A"
-      },
-      {
         "family_id": "69770900",
         "rep_pub": "CN-113795773-A",
-        "citing_families": 720,
+        "citing_families": 794,
         "title_en": "Component for a LIDAR sensor system, LIDAR sensor device, method for a LIDAR sensor system and method for a LIDAR sensor device",
         "gp_url": "https://patents.google.com/patent/CN113795773A"
       },
       {
+        "family_id": "63104544",
+        "rep_pub": "CN-110291489-A",
+        "citing_families": 765,
+        "title_en": "The efficient mankind identify intelligent assistant&#39;s computer in calculating",
+        "gp_url": "https://patents.google.com/patent/CN110291489A"
+      },
+      {
         "family_id": "60413226",
         "rep_pub": "CN-109997057-A",
-        "citing_families": 649,
+        "citing_families": 687,
         "title_en": "Laser radar system and method",
         "gp_url": "https://patents.google.com/patent/CN109997057A"
       },
       {
         "family_id": "59743547",
         "rep_pub": "US-11255663-B2",
-        "citing_families": 493,
+        "citing_families": 533,
         "title_en": "Method and apparatus for cooperative usage of multiple distance meters",
         "gp_url": "https://patents.google.com/patent/US11255663B2"
       },
       {
         "family_id": "62144259",
         "rep_pub": "CN-110167815-A",
-        "citing_families": 469,
+        "citing_families": 485,
         "title_en": "Sensor surface object detecting method and system",
         "gp_url": "https://patents.google.com/patent/CN110167815A"
       }
@@ -1590,100 +1590,100 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
   },
   "space_gnc_rendezvous_servicing": {
     "label_ko": "GNC·랑데부·온오빗 서비스",
-    "momentum_recent3_share": 0.2265,
-    "korea_publication_gap_score": 0.2069,
-    "korea_assignee_gap_score": 0.2091,
-    "cr5": 0.0523,
+    "momentum_recent3_share": 0.2567,
+    "korea_publication_gap_score": 0.2327,
+    "korea_assignee_gap_score": 0.235,
+    "cr5": 0.0522,
     "region_family_counts": {
-      "NORTH_AMERICA": 43632,
-      "INTERNATIONAL": 24635,
-      "EAST_ASIA": 131771,
-      "EUROPE": 25457,
-      "OTHER_WORLD": 2421,
+      "NORTH_AMERICA": 45014,
+      "EAST_ASIA": 138161,
+      "INTERNATIONAL": 25793,
+      "EUROPE": 26839,
+      "AFRICA": 181,
       "LATIN_AMERICA": 968,
-      "OCEANIA": 2560,
-      "AFRICA": 175,
-      "MIDDLE_EAST": 645
+      "OTHER_WORLD": 2438,
+      "MIDDLE_EAST": 681,
+      "OCEANIA": 2656
     },
     "yearly_families": {
-      "2016": 13485,
-      "2017": 15932,
-      "2018": 17813,
-      "2019": 18502,
-      "2020": 19230,
-      "2021": 18680,
-      "2022": 17709,
-      "2023": 16458,
-      "2024": 18296,
-      "2025": 12444
+      "2016": 13465,
+      "2017": 15925,
+      "2018": 17820,
+      "2019": 18529,
+      "2020": 19255,
+      "2021": 18702,
+      "2022": 17824,
+      "2023": 16664,
+      "2024": 20327,
+      "2025": 15462
     },
     "kr_top_applicants": [
       {
         "name": "HYUNDAI MOTOR CO LTD",
-        "families": 1294
+        "families": 1359
       },
       {
         "name": "LG ELECTRONICS INC",
-        "families": 908
+        "families": 963
       },
       {
         "name": "KIA CORP",
-        "families": 809
+        "families": 869
       },
       {
         "name": "SAMSUNG ELECTRONICS CO LTD",
-        "families": 532
+        "families": 605
       },
       {
         "name": "KIA MOTORS CORP",
-        "families": 371
-      },
-      {
-        "name": "ELECTRONICS & TELECOMMUNICATIONS RES INST",
-        "families": 238
+        "families": 375
       },
       {
         "name": "HYUNDAI MOBIS CO LTD",
-        "families": 234
+        "families": 244
       },
       {
-        "name": "KOREA AEROSPACE RES INST",
-        "families": 229
+        "name": "ELECTRONICS & TELECOMMUNICATIONS RES INST",
+        "families": 241
+      },
+      {
+        "name": "AGENCY DEFENSE DEV",
+        "families": 238
       }
     ],
     "top_cited": [
       {
         "family_id": "63014052",
         "rep_pub": "US-10042359-B1",
-        "citing_families": 848,
+        "citing_families": 893,
         "title_en": "Autonomous vehicle refueling",
         "gp_url": "https://patents.google.com/patent/US10042359B1"
       },
       {
         "family_id": "72666352",
         "rep_pub": "CN-113508066-A",
-        "citing_families": 774,
+        "citing_families": 872,
         "title_en": "Autonomous vehicle system",
         "gp_url": "https://patents.google.com/patent/CN113508066A"
       },
       {
         "family_id": "64664395",
         "rep_pub": "CN-111587407-A",
-        "citing_families": 727,
+        "citing_families": 784,
         "title_en": "System and method for safe and reliable autonomous vehicle",
         "gp_url": "https://patents.google.com/patent/CN111587407A"
       },
       {
         "family_id": "60413226",
         "rep_pub": "CN-109997057-A",
-        "citing_families": 649,
+        "citing_families": 687,
         "title_en": "Laser radar system and method",
         "gp_url": "https://patents.google.com/patent/CN109997057A"
       },
       {
         "family_id": "63364092",
         "rep_pub": "CN-111149141-A",
-        "citing_families": 549,
+        "citing_families": 588,
         "title_en": "Method and apparatus for collecting and using sensor data from a vehicle",
         "gp_url": "https://patents.google.com/patent/CN111149141A"
       }
@@ -1691,101 +1691,101 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
   },
   "space_materials_tps_coatings": {
     "label_ko": "우주재료·TPS·코팅",
-    "momentum_recent3_share": 0.1784,
-    "korea_publication_gap_score": 0.1533,
-    "korea_assignee_gap_score": 0.1616,
+    "momentum_recent3_share": 0.1987,
+    "korea_publication_gap_score": 0.1688,
+    "korea_assignee_gap_score": 0.1786,
     "cr5": 0.0214,
     "region_family_counts": {
-      "NORTH_AMERICA": 40377,
-      "INTERNATIONAL": 44221,
-      "EAST_ASIA": 201335,
-      "OTHER_WORLD": 3961,
-      "AFRICA": 630,
-      "EUROPE": 33932,
-      "LATIN_AMERICA": 3356,
-      "OCEANIA": 2965,
-      "MIDDLE_EAST": 790,
-      "SOUTH_ASIA": 4
+      "NORTH_AMERICA": 42045,
+      "EAST_ASIA": 206696,
+      "INTERNATIONAL": 46037,
+      "EUROPE": 35407,
+      "OTHER_WORLD": 3982,
+      "MIDDLE_EAST": 847,
+      "LATIN_AMERICA": 3336,
+      "AFRICA": 670,
+      "OCEANIA": 3089,
+      "SOUTH_ASIA": 5
     },
     "yearly_families": {
-      "2016": 33560,
-      "2017": 30329,
-      "2018": 30713,
-      "2019": 24986,
-      "2020": 27745,
-      "2021": 25795,
-      "2022": 22012,
-      "2023": 21786,
-      "2024": 20981,
-      "2025": 11233
+      "2016": 33551,
+      "2017": 30312,
+      "2018": 30703,
+      "2019": 24985,
+      "2020": 27738,
+      "2021": 25809,
+      "2022": 22200,
+      "2023": 22108,
+      "2024": 23374,
+      "2025": 13604
     },
     "kr_top_applicants": [
       {
         "name": "NITTO DENKO CORP",
-        "families": 1181
+        "families": 1255
       },
       {
         "name": "LG CHEMICAL LTD",
-        "families": 836
+        "families": 844
       },
       {
         "name": "SAMSUNG DISPLAY CO LTD",
-        "families": 652
+        "families": 686
       },
       {
         "name": "SUMITOMO CHEMICAL CO",
-        "families": 592
+        "families": 608
       },
       {
         "name": "NIPPON STEEL CORP",
-        "families": 325
+        "families": 372
       },
       {
         "name": "SAMSUNG ELECTRONICS CO LTD",
-        "families": 324
+        "families": 347
       },
       {
         "name": "TOYO BOSEKI",
-        "families": 324
+        "families": 330
       },
       {
-        "name": "DONGWOO FINE CHEM CO LTD",
-        "families": 291
+        "name": "HYUNDAI MOTOR CO LTD",
+        "families": 306
       }
     ],
     "top_cited": [
       {
         "family_id": "59855301",
         "rep_pub": "US-10343920-B2",
-        "citing_families": 363,
+        "citing_families": 366,
         "title_en": "Aligned carbon nanotubes",
         "gp_url": "https://patents.google.com/patent/US10343920B2"
       },
       {
         "family_id": "63519556",
         "rep_pub": "CN-110573651-A",
-        "citing_families": 348,
+        "citing_families": 352,
         "title_en": "Novel formulations for the deposition of silicon-doped hafnium oxide as ferroelectric material",
         "gp_url": "https://patents.google.com/patent/CN110573651A"
       },
       {
         "family_id": "64097080",
         "rep_pub": "CN-108866509-A",
-        "citing_families": 286,
+        "citing_families": 299,
         "title_en": "Metal oxygen fluoride films for chamber part",
         "gp_url": "https://patents.google.com/patent/CN108866509A"
       },
       {
         "family_id": "64568065",
         "rep_pub": "US-2018371610-A1",
-        "citing_families": 282,
+        "citing_families": 285,
         "title_en": "Cvd composite refractory coatings and applications thereof",
         "gp_url": "https://patents.google.com/patent/US2018371610A1"
       },
       {
         "family_id": "61301607",
         "rep_pub": "CN-109922952-A",
-        "citing_families": 269,
+        "citing_families": 273,
         "title_en": "Siloxane plasma polymers for sheet bonding",
         "gp_url": "https://patents.google.com/patent/CN109922952A"
       }
@@ -1793,32 +1793,32 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
   },
   "aviation_propulsion_sustainable": {
     "label_ko": "민간항공 추진·전기·수소·SAF",
-    "momentum_recent3_share": 0.1646,
-    "korea_publication_gap_score": 0.1543,
-    "korea_assignee_gap_score": 0.1581,
-    "cr5": 0.2208,
+    "momentum_recent3_share": 0.1924,
+    "korea_publication_gap_score": 0.1797,
+    "korea_assignee_gap_score": 0.1843,
+    "cr5": 0.2221,
     "region_family_counts": {
-      "NORTH_AMERICA": 12358,
-      "INTERNATIONAL": 3834,
-      "EAST_ASIA": 16151,
-      "EUROPE": 10598,
-      "OCEANIA": 277,
-      "OTHER_WORLD": 636,
-      "LATIN_AMERICA": 223,
-      "MIDDLE_EAST": 126,
-      "AFRICA": 20
+      "NORTH_AMERICA": 12933,
+      "EAST_ASIA": 16677,
+      "INTERNATIONAL": 4044,
+      "EUROPE": 11146,
+      "OTHER_WORLD": 628,
+      "OCEANIA": 290,
+      "AFRICA": 21,
+      "MIDDLE_EAST": 134,
+      "LATIN_AMERICA": 223
     },
     "yearly_families": {
-      "2016": 2979,
+      "2016": 2978,
       "2017": 2968,
-      "2018": 3196,
-      "2019": 3143,
-      "2020": 3177,
-      "2021": 3343,
-      "2022": 3212,
-      "2023": 3055,
-      "2024": 2426,
-      "2025": 882
+      "2018": 3197,
+      "2019": 3142,
+      "2020": 3180,
+      "2021": 3345,
+      "2022": 3246,
+      "2023": 3115,
+      "2024": 2928,
+      "2025": 1270
     },
     "kr_top_applicants": [
       {
@@ -1827,11 +1827,11 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
       },
       {
         "name": "MITSUBISHI POWER LTD",
-        "families": 174
+        "families": 188
       },
       {
         "name": "DOOSAN ENERBILITY CO LTD",
-        "families": 127
+        "families": 138
       },
       {
         "name": "MITSUBISHI HITACHI POWER SYS",
@@ -1843,11 +1843,11 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
       },
       {
         "name": "HYUNDAI MOTOR CO LTD",
-        "families": 61
+        "families": 66
       },
       {
         "name": "KIA CORP",
-        "families": 58
+        "families": 63
       },
       {
         "name": "KOREA AEROSPACE RES INST",
@@ -1856,76 +1856,76 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
     ],
     "top_cited": [
       {
-        "family_id": "63584722",
-        "rep_pub": "US-11465763-B2",
-        "citing_families": 166,
-        "title_en": "Hybrid-electric aircraft, and methods, apparatus and systems for facilitating same",
-        "gp_url": "https://patents.google.com/patent/US11465763B2"
-      },
-      {
         "family_id": "57910169",
         "rep_pub": "CN-108367803-A",
-        "citing_families": 163,
+        "citing_families": 173,
         "title_en": "Hybrid power push type VTOL aircraft",
         "gp_url": "https://patents.google.com/patent/CN108367803A"
       },
       {
-        "family_id": "56801439",
-        "rep_pub": "US-2018002011-A1",
-        "citing_families": 152,
-        "title_en": "Aircraft with Selectively Attachable Passenger Pod Assembly",
-        "gp_url": "https://patents.google.com/patent/US2018002011A1"
+        "family_id": "63584722",
+        "rep_pub": "US-11465763-B2",
+        "citing_families": 173,
+        "title_en": "Hybrid-electric aircraft, and methods, apparatus and systems for facilitating same",
+        "gp_url": "https://patents.google.com/patent/US11465763B2"
       },
       {
         "family_id": "72921228",
         "rep_pub": "CN-114041229-A",
-        "citing_families": 148,
+        "citing_families": 159,
         "title_en": "Battery thermal management system and method",
         "gp_url": "https://patents.google.com/patent/CN114041229A"
       },
       {
-        "family_id": "59269890",
-        "rep_pub": "CA-2972527-A1",
-        "citing_families": 94,
-        "title_en": "Aircraft having a versatile propulsion system",
-        "gp_url": "https://patents.google.com/patent/CA2972527A1"
+        "family_id": "56801439",
+        "rep_pub": "US-2018002011-A1",
+        "citing_families": 154,
+        "title_en": "Aircraft with Selectively Attachable Passenger Pod Assembly",
+        "gp_url": "https://patents.google.com/patent/US2018002011A1"
+      },
+      {
+        "family_id": "75382721",
+        "rep_pub": "CN-112664349-A",
+        "citing_families": 115,
+        "title_en": "Propulsion system architecture",
+        "gp_url": "https://patents.google.com/patent/CN112664349A"
       }
     ]
   },
   "aviation_structures_aero_composites": {
     "label_ko": "항공 구조·복합재·공력",
-    "momentum_recent3_share": 0.1343,
-    "korea_publication_gap_score": 0.1108,
-    "korea_assignee_gap_score": 0.1126,
-    "cr5": 0.0576,
+    "momentum_recent3_share": 0.1495,
+    "korea_publication_gap_score": 0.1232,
+    "korea_assignee_gap_score": 0.1251,
+    "cr5": 0.0569,
     "region_family_counts": {
-      "NORTH_AMERICA": 14328,
-      "INTERNATIONAL": 6571,
-      "EAST_ASIA": 36829,
-      "EUROPE": 9203,
-      "AFRICA": 93,
-      "OCEANIA": 741,
-      "OTHER_WORLD": 1115,
-      "LATIN_AMERICA": 667,
-      "MIDDLE_EAST": 334,
+      "NORTH_AMERICA": 14533,
+      "EAST_ASIA": 37518,
+      "INTERNATIONAL": 6764,
+      "EUROPE": 9490,
+      "OTHER_WORLD": 1108,
+      "AFRICA": 100,
+      "LATIN_AMERICA": 668,
+      "MIDDLE_EAST": 360,
+      "OCEANIA": 761,
       "SOUTH_ASIA": 1
     },
     "yearly_families": {
-      "2016": 5877,
-      "2017": 6368,
+      "2016": 5876,
+      "2017": 6369,
       "2018": 6852,
-      "2019": 6176,
-      "2020": 6739,
-      "2021": 6608,
-      "2022": 5638,
-      "2023": 4500,
-      "2024": 3440,
-      "2025": 1668
+      "2019": 6180,
+      "2020": 6741,
+      "2021": 6613,
+      "2022": 5659,
+      "2023": 4545,
+      "2024": 3827,
+      "2025": 2027
     },
     "kr_top_applicants": [
       {
         "name": "HYUNDAI MOTOR CO LTD",
-        "families": 176
+        "families": 181
       },
       {
         "name": "KOREA AEROSPACE RES INST",
@@ -1933,15 +1933,15 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
       },
       {
         "name": "AGENCY DEFENSE DEV",
-        "families": 125
+        "families": 129
       },
       {
         "name": "KIA CORP",
-        "families": 110
+        "families": 115
       },
       {
         "name": "ELECTRONICS & TELECOMMUNICATIONS RES INST",
-        "families": 107
+        "families": 108
       },
       {
         "name": "LG HAUSYS LTD",
@@ -1949,7 +1949,7 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
       },
       {
         "name": "TORAY INDUSTRIES",
-        "families": 83
+        "families": 84
       },
       {
         "name": "KOREA ELECTRIC POWER CORP",
@@ -1960,35 +1960,35 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
       {
         "family_id": "59930747",
         "rep_pub": "US-10202192-B2",
-        "citing_families": 398,
+        "citing_families": 413,
         "title_en": "Methods for picking up a parcel via an unmanned aerial vehicle",
         "gp_url": "https://patents.google.com/patent/US10202192B2"
       },
       {
         "family_id": "61071241",
         "rep_pub": "US-2018035606-A1",
-        "citing_families": 245,
+        "citing_families": 259,
         "title_en": "Smart Interactive and Autonomous Robotic Property Maintenance Apparatus, System, and Method",
         "gp_url": "https://patents.google.com/patent/US2018035606A1"
       },
       {
         "family_id": "62240584",
         "rep_pub": "US-11295458-B2",
-        "citing_families": 185,
+        "citing_families": 196,
         "title_en": "Object tracking by an unmanned aerial vehicle using visual sensors",
         "gp_url": "https://patents.google.com/patent/US11295458B2"
       },
       {
         "family_id": "59313917",
         "rep_pub": "US-10217207-B2",
-        "citing_families": 180,
+        "citing_families": 184,
         "title_en": "System and method for structural inspection and construction estimation using an unmanned aerial vehicle",
         "gp_url": "https://patents.google.com/patent/US10217207B2"
       },
       {
         "family_id": "56801439",
         "rep_pub": "CA-2972528-A1",
-        "citing_families": 175,
+        "citing_families": 177,
         "title_en": "Aircraft with selectively attachable passenger pod assembly",
         "gp_url": "https://patents.google.com/patent/CA2972528A1"
       }
@@ -1996,100 +1996,100 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
   },
   "aviation_avionics_flight_control_autonomy": {
     "label_ko": "항전·비행제어·자율비행",
-    "momentum_recent3_share": 0.2243,
-    "korea_publication_gap_score": 0.2044,
-    "korea_assignee_gap_score": 0.2065,
+    "momentum_recent3_share": 0.2553,
+    "korea_publication_gap_score": 0.2308,
+    "korea_assignee_gap_score": 0.233,
     "cr5": 0.0526,
     "region_family_counts": {
-      "NORTH_AMERICA": 45118,
-      "INTERNATIONAL": 24598,
-      "EAST_ASIA": 128157,
-      "EUROPE": 26732,
-      "OTHER_WORLD": 1899,
-      "LATIN_AMERICA": 1120,
-      "OCEANIA": 2534,
-      "AFRICA": 175,
-      "MIDDLE_EAST": 637
+      "NORTH_AMERICA": 46543,
+      "EAST_ASIA": 134487,
+      "INTERNATIONAL": 25742,
+      "EUROPE": 28124,
+      "AFRICA": 182,
+      "LATIN_AMERICA": 1117,
+      "OTHER_WORLD": 1908,
+      "OCEANIA": 2624,
+      "MIDDLE_EAST": 687
     },
     "yearly_families": {
-      "2016": 13422,
-      "2017": 15787,
-      "2018": 17529,
-      "2019": 18262,
-      "2020": 18817,
-      "2021": 18273,
-      "2022": 17481,
-      "2023": 16068,
-      "2024": 17567,
-      "2025": 12282
+      "2016": 13402,
+      "2017": 15780,
+      "2018": 17535,
+      "2019": 18287,
+      "2020": 18838,
+      "2021": 18286,
+      "2022": 17596,
+      "2023": 16270,
+      "2024": 19615,
+      "2025": 15308
     },
     "kr_top_applicants": [
       {
         "name": "HYUNDAI MOTOR CO LTD",
-        "families": 1302
+        "families": 1369
       },
       {
         "name": "LG ELECTRONICS INC",
-        "families": 903
+        "families": 959
       },
       {
         "name": "KIA CORP",
-        "families": 817
+        "families": 879
       },
       {
         "name": "SAMSUNG ELECTRONICS CO LTD",
-        "families": 542
+        "families": 617
       },
       {
         "name": "KIA MOTORS CORP",
-        "families": 371
+        "families": 375
       },
       {
         "name": "ELECTRONICS & TELECOMMUNICATIONS RES INST",
-        "families": 268
+        "families": 271
       },
       {
         "name": "HYUNDAI MOBIS CO LTD",
-        "families": 238
+        "families": 248
       },
       {
         "name": "AGENCY DEFENSE DEV",
-        "families": 216
+        "families": 228
       }
     ],
     "top_cited": [
       {
         "family_id": "63014052",
         "rep_pub": "US-10042359-B1",
-        "citing_families": 848,
+        "citing_families": 893,
         "title_en": "Autonomous vehicle refueling",
         "gp_url": "https://patents.google.com/patent/US10042359B1"
       },
       {
         "family_id": "72666352",
         "rep_pub": "CN-113508066-A",
-        "citing_families": 774,
+        "citing_families": 872,
         "title_en": "Autonomous vehicle system",
         "gp_url": "https://patents.google.com/patent/CN113508066A"
       },
       {
         "family_id": "64664395",
         "rep_pub": "CN-111587407-A",
-        "citing_families": 727,
+        "citing_families": 784,
         "title_en": "System and method for safe and reliable autonomous vehicle",
         "gp_url": "https://patents.google.com/patent/CN111587407A"
       },
       {
         "family_id": "60413226",
         "rep_pub": "CN-109997057-A",
-        "citing_families": 649,
+        "citing_families": 687,
         "title_en": "Laser radar system and method",
         "gp_url": "https://patents.google.com/patent/CN109997057A"
       },
       {
         "family_id": "63364092",
         "rep_pub": "CN-111149141-A",
-        "citing_families": 549,
+        "citing_families": 588,
         "title_en": "Method and apparatus for collecting and using sensor data from a vehicle",
         "gp_url": "https://patents.google.com/patent/CN111149141A"
       }

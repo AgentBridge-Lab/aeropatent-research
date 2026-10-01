@@ -4,5 +4,5 @@
 4:I[97367,["/aeropatent-research/_next/static/chunks/05-c3ty_6dwfk.js","/aeropatent-research/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
 5:"$Sreact.suspense"
 :HL["/aeropatent-research/_next/static/chunks/0183gimq-27s1.css","style"]
-0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"children":["$","$L3",null,{}]}],[["$","link","0",{"rel":"stylesheet","href":"/aeropatent-research/_next/static/chunks/0183gimq-27s1.css","precedence":"next"}],["$","script","script-0",{"src":"/aeropatent-research/_next/static/chunks/1dig12l2ow4u7.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"v4YIhBNpRgjAqn7kOmqzi"}
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"children":["$","$L3",null,{}]}],[["$","link","0",{"rel":"stylesheet","href":"/aeropatent-research/_next/static/chunks/0183gimq-27s1.css","precedence":"next"}],["$","script","script-0",{"src":"/aeropatent-research/_next/static/chunks/1dig12l2ow4u7.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"_PdTb5iGVIZK_doECm2RB"}
 6:null
