@@ -5,11 +5,15 @@ import assert from 'node:assert/strict';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import ts from '../web/node_modules/typescript/lib/typescript.js';
+import { createRequire } from 'node:module';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = (p) => fs.readFileSync(path.join(root,p),'utf8');
 const json = (p) => JSON.parse(read(p));
-const code = ts.transpileModule(read('web/app/lib/data.ts'),{compilerOptions:{module:ts.ModuleKind.ES2022,target:ts.ScriptTarget.ES2022}}).outputText;
-const d = await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'));
+const require = createRequire(import.meta.url);
+require.extensions['.ts'] = (module, filename) => module._compile(ts.transpileModule(fs.readFileSync(filename, 'utf8'), {
+  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, esModuleInterop: true },
+}).outputText, filename);
+const d = require('../web/app/lib/data.ts');
 const raw = read('normalized/patents.jsonl').trim().split('\n').map(JSON.parse);
 const site = json('exports/agentbridge/agentbridge_patent_landscape_snapshot.json');
 let checks=0; const eq=(a,b)=>{assert.deepEqual(a,b);checks++;};

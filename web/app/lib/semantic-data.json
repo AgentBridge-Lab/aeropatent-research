@@ -1,0 +1,1380 @@
+{
+  "schema_version": "aeropatent.semantic.v1",
+  "corpus_hash": "b65496d61affd7fa45ee8aa3b9a27e272d131d3f6648324b5a5ff3d35a48200d",
+  "model": {
+    "name": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "revision": "e8f8c211226b894fcb81acc59f3b34ba3efd5f42",
+    "dimensions": 384
+  },
+  "method": {
+    "algorithm": "agglomerative_complete_cosine",
+    "similarity_threshold": 0.62,
+    "max_neighbors": 4,
+    "input": "title + recorded abstract; chunked mean pooling",
+    "label_method": "extractive TF-IDF terms; not LLM generated"
+  },
+  "scope": "recorded_patent_text_only",
+  "documents": [
+    {
+      "id": "patent.CN101769825B",
+      "publication_number": "CN101769825B",
+      "family_id": "42502821",
+      "country": "CN",
+      "title": "Tracking temperature control device for spacecraft thermal vacuum test",
+      "text_basis": "title_abstract",
+      "text_hash": "c6bde44b49e417ec98851035b08cf029167760a52ce93fb2569701e31e5550fd"
+    },
+    {
+      "id": "patent.CN101775219B",
+      "publication_number": "CN101775219B",
+      "family_id": "42511813",
+      "country": "CN",
+      "title": "Radiation-resistant addition type room temperature vulcanized liquid silicone rubber and preparation method thereof",
+      "text_basis": "title_abstract",
+      "text_hash": "036238f40867f76022bab56867c0ecda34413be19e7bd7c165d40a63e7d8a129"
+    },
+    {
+      "id": "patent.CN102221696A",
+      "publication_number": "CN102221696A",
+      "family_id": "44778298",
+      "country": "CN",
+      "title": "Sparse microwave imaging method",
+      "text_basis": "title_abstract",
+      "text_hash": "2ea303ee359da0ce3841b9a86999396c77a7875cc701d6893291e81ee6d4dd51"
+    },
+    {
+      "id": "patent.CN103687081B",
+      "publication_number": "CN103687081B",
+      "family_id": "50323016",
+      "country": "CN",
+      "title": "Adaptive networking method applicable to small satellite clusters",
+      "text_basis": "title_abstract",
+      "text_hash": "83740a7a389465887c9ab230be2921a0c5d3c35e31806f10de2dcdc6ce5979e8"
+    },
+    {
+      "id": "patent.CN103957045A",
+      "publication_number": "CN103957045A",
+      "family_id": "51334283",
+      "country": "CN",
+      "title": "GEO-LEO satellite network for global information distribution",
+      "text_basis": "title_abstract",
+      "text_hash": "b0a26207273da7e972de0e6093c26fb6ba0df888ed2fa8fdc62201c622fe1ebc"
+    },
+    {
+      "id": "patent.CN104561882A",
+      "publication_number": "CN104561882A",
+      "family_id": "53078943",
+      "country": "CN",
+      "title": "High-temperature oxidation resistant coating on niobium alloy surface and preparation method of high-temperature oxidation resistant coating",
+      "text_basis": "title_abstract",
+      "text_hash": "b6c46c447d6917a4cea3afd94fa533165cd85be01cc1d37698aae1b8f92cf20b"
+    },
+    {
+      "id": "patent.CN104724297A",
+      "publication_number": "CN104724297A",
+      "family_id": "53448830",
+      "country": "CN",
+      "title": "Anti-toppling system used during carrier rocket vertical descending recovery",
+      "text_basis": "title_abstract",
+      "text_hash": "29810416845468f78b42208851104d1231e8ec5d7b0b97e9c7320bf352d97b1c"
+    },
+    {
+      "id": "patent.CN106081171A",
+      "publication_number": "CN106081171A",
+      "family_id": "57448491",
+      "country": "CN",
+      "title": "Space-orbit trouble shooting operation ground simulating system",
+      "text_basis": "title_abstract",
+      "text_hash": "43cf45193d64ddbdcad7dfa1d4dc210bdcbdd1630c15e3869b0bd6cb701c8498"
+    },
+    {
+      "id": "patent.CN107108047A",
+      "publication_number": "CN107108047A",
+      "family_id": "55398855",
+      "country": "CN",
+      "title": "Docking system and method for satellite",
+      "text_basis": "title_abstract",
+      "text_hash": "01ce0321c777d692a8d42f6d1e1a6df6fa588cdf3291fe9b38fec993b32be7f3"
+    },
+    {
+      "id": "patent.CN107244432A",
+      "publication_number": "CN107244432A",
+      "family_id": "60017915",
+      "country": "CN",
+      "title": "Free pedestal Spatial Cooperation task motion reappearance experimental system",
+      "text_basis": "title_abstract",
+      "text_hash": "d4a38c1012ca82129174df7765bf1ef056bce708522092749040a4a8c01f7b8a"
+    },
+    {
+      "id": "patent.CN107344631A",
+      "publication_number": "CN107344631A",
+      "family_id": "60257833",
+      "country": "CN",
+      "title": "A kind of enhancement rocket recovery device",
+      "text_basis": "title_abstract",
+      "text_hash": "ba5d1eaa8f8ae727731707792fb72e4ff30958a96085928c4a515a9cd220755e"
+    },
+    {
+      "id": "patent.CN107848635B",
+      "publication_number": "CN107848635B",
+      "family_id": "57007537",
+      "country": "CN",
+      "title": "Satellite radiator panel with combined reinforcing sheet/heat pipe",
+      "text_basis": "title_abstract",
+      "text_hash": "4b16657639f129e1a7df5c068ab39a7cc2c44520d91a554431cf326ca7375b3f"
+    },
+    {
+      "id": "patent.CN109417827B",
+      "publication_number": "CN109417827B",
+      "family_id": "60203348",
+      "country": "CN",
+      "title": "Low earth orbit satellite constellation system and method of use",
+      "text_basis": "title_abstract",
+      "text_hash": "f365dfb3f7a009f115cdea27d7cb1f89f039c7ecfa98aefdddc9ba76291717cc"
+    },
+    {
+      "id": "patent.CN109573107A",
+      "publication_number": "CN109573107A",
+      "family_id": "65927972",
+      "country": "CN",
+      "title": "Spacecraft pressure vessel fixed form",
+      "text_basis": "title_abstract",
+      "text_hash": "27473b8f45328483e94b463bdd10d2c98ba75feba50fab5fd18dd9693476cfcc"
+    },
+    {
+      "id": "patent.CN1641200A",
+      "publication_number": "CN1641200A",
+      "family_id": "23548767",
+      "country": "CN",
+      "title": "Elastomerized phenolic resin ablative insulation for rocket motors",
+      "text_basis": "title_abstract",
+      "text_hash": "8b09710e84936d3d8f1524663c05d184f001d27ac559410f3782d6327fc58f2e"
+    },
+    {
+      "id": "patent.EP1241487A1",
+      "publication_number": "EP1241487A1",
+      "family_id": "8176778",
+      "country": "EP",
+      "title": "Side-looking synthetic aperture radar system",
+      "text_basis": "title_abstract",
+      "text_hash": "7a65ae403040746684d5a6d4b6b0770a6da37248c8181955d924ac31bfacdb12"
+    },
+    {
+      "id": "patent.EP1373386A2",
+      "publication_number": "EP1373386A2",
+      "family_id": "22990259",
+      "country": "EP",
+      "title": "Fiber-reinforced rocket motor insulation",
+      "text_basis": "title_abstract",
+      "text_hash": "d6e3d30d9cb73971886d8c0359226b316f798abf01ac8728bab7dd069f557cca"
+    },
+    {
+      "id": "patent.EP1493788A1",
+      "publication_number": "EP1493788A1",
+      "family_id": "33435355",
+      "country": "EP",
+      "title": "Silicone-cork ablative material",
+      "text_basis": "title_abstract",
+      "text_hash": "0e0d41f28fefc807175c8e6a12e85e623b6b64ca2e23e78c71389ad44809f428"
+    },
+    {
+      "id": "patent.EP3186151B1",
+      "publication_number": "EP3186151B1",
+      "family_id": "55398855",
+      "country": "EP",
+      "title": "Docking system and method for satellites",
+      "text_basis": "title_only",
+      "text_hash": "c1b7177c1f727a4b85f06352c753dd13486f8a1c6b753fd47cd9a9386c552b7b"
+    },
+    {
+      "id": "patent.EP3329612B1",
+      "publication_number": "EP3329612B1",
+      "family_id": "56609966",
+      "country": "EP",
+      "title": "Flexible capacity satellite constellation",
+      "text_basis": "title_only",
+      "text_hash": "23ec0fbb6d515de918426197f1a311e6b21b45864056a9651a19c6c056d0ad79"
+    },
+    {
+      "id": "patent.EP3432027B1",
+      "publication_number": "EP3432027B1",
+      "family_id": "59383471",
+      "country": "EP",
+      "title": "High resolution wide swath synthetic aperture radar system",
+      "text_basis": "title_only",
+      "text_hash": "5361c87da3b33a7cd8572d05ada6017f012a54b97c2857d6a9a867cdc1e1713c"
+    },
+    {
+      "id": "patent.EP3650358A1",
+      "publication_number": "EP3650358A1",
+      "family_id": "64426845",
+      "country": "EP",
+      "title": "Return to base space launch vehicles, systems and methods",
+      "text_basis": "title_abstract",
+      "text_hash": "452f92681e88b5ce2a8f41d3dae84734e61055a3854a6d4c3c9814c75d4232a2"
+    },
+    {
+      "id": "patent.EP3877263B1",
+      "publication_number": "EP3877263B1",
+      "family_id": "64739481",
+      "country": "EP",
+      "title": "Satellite",
+      "text_basis": "title_only",
+      "text_hash": "ad1b033f4885a8bc3ae4f055f591a79c59ce73a6a7380b00c4fcb75ac3eefffb"
+    },
+    {
+      "id": "patent.EP3932810B1",
+      "publication_number": "EP3932810B1",
+      "family_id": "67911753",
+      "country": "EP",
+      "title": "Flight control intelligent data analysis and decision support system for spacecraft rendezvous and docking",
+      "text_basis": "title_only",
+      "text_hash": "4a57d9dcd0b25dd3613a4ad008b0c42543d9c422b3dddb227efa65a92928751f"
+    },
+    {
+      "id": "patent.EP4140898A1",
+      "publication_number": "EP4140898A1",
+      "family_id": "83355024",
+      "country": "EP",
+      "title": "Landing apparatus for a reusable launch vehicle",
+      "text_basis": "title_abstract",
+      "text_hash": "43e535e25f2a830617699bc1b07af239ea030a3912861acbdc0799be2a0e716b"
+    },
+    {
+      "id": "patent.EP4143990A2",
+      "publication_number": "EP4143990A2",
+      "family_id": "78332105",
+      "country": "EP",
+      "title": "Edge computing in satellite connectivity environments",
+      "text_basis": "title_abstract",
+      "text_hash": "ca06122ec48374f1ded909e130d24a994d02473468f8e1818ea56a9c914503c6"
+    },
+    {
+      "id": "patent.EP4424602A1",
+      "publication_number": "EP4424602A1",
+      "family_id": "90054160",
+      "country": "EP",
+      "title": "Thermal control systems and methods for spacecraft",
+      "text_basis": "title_abstract",
+      "text_hash": "d5aacaeb1e2569afef9121b85f88a2bd97e8f2404b2d4d5e6f070bf0f98352cb"
+    },
+    {
+      "id": "patent.JP2003509279A",
+      "publication_number": "JP2003509279A",
+      "family_id": "23548767",
+      "country": "JP",
+      "title": "Elastomer-treated phenolic resin ablative insulator for rocket motors",
+      "text_basis": "title_abstract",
+      "text_hash": "e9596608d189a2ecf4b8960b87539fa853621a21384941f84fd000c3a0df5ad8"
+    },
+    {
+      "id": "patent.JP2005014900A",
+      "publication_number": "JP2005014900A",
+      "family_id": "33435355",
+      "country": "JP",
+      "title": "Ablative material of silicone cork",
+      "text_basis": "title_abstract",
+      "text_hash": "6d115fc996ef699bc274e791df7f4527b68eb339985ffeed3451ae2b5f86ea6a"
+    },
+    {
+      "id": "patent.JP2013540639A",
+      "publication_number": "JP2013540639A",
+      "family_id": "45891750",
+      "country": "JP",
+      "title": "Satellite system and method for polar latitudes",
+      "text_basis": "title_abstract",
+      "text_hash": "c38bbee61d299d37c0d481628c7d75766ee6e2da9abd06e71c5b2ec360bf933c"
+    },
+    {
+      "id": "patent.JP6670837B2",
+      "publication_number": "JP6670837B2",
+      "family_id": "55398855",
+      "country": "JP",
+      "title": "Docking system and docking method for satellite",
+      "text_basis": "title_only",
+      "text_hash": "75e649ba7d26de4b06d1304a2c2a2167ff6e95788cd7dab793143e650c860224"
+    },
+    {
+      "id": "patent.JP6763875B2",
+      "publication_number": "JP6763875B2",
+      "family_id": "57007537",
+      "country": "JP",
+      "title": "Artificial satellite heat dissipation panel with combined reinforcement / heat pipe",
+      "text_basis": "title_only",
+      "text_hash": "3e3ba5b50eb633ccd1a0beb30b6dcfad68bb26931b5a2fbc7b0a762f267fce36"
+    },
+    {
+      "id": "patent.JP6896982B2",
+      "publication_number": "JP6896982B2",
+      "family_id": "60203348",
+      "country": "JP",
+      "title": "Earth low earth orbit satellite constellation for communications with geostationary satellite spectrum reuse",
+      "text_basis": "title_only",
+      "text_hash": "54d99f30fd5e36851949f6ccee70ecf669749db64b49c12843f6b10f1673a628"
+    },
+    {
+      "id": "patent.JP7582444B2",
+      "publication_number": "JP7582444B2",
+      "family_id": "publication:JP7582444B2",
+      "country": "JP",
+      "title": "Change detection device and change detection method",
+      "text_basis": "title_only",
+      "text_hash": "f07f55c6887ebe11af832cb2d48dfc894355122c64a64b8ad3183c8ab322e0c6"
+    },
+    {
+      "id": "patent.JP7603675B2",
+      "publication_number": "JP7603675B2",
+      "family_id": "69190974",
+      "country": "JP",
+      "title": "Hybrid propulsion systems for spacecraft",
+      "text_basis": "title_only",
+      "text_hash": "605f3e38c7de32be6b344a7d9c710d57618a391db5659bcb9fda76008398e04f"
+    },
+    {
+      "id": "patent.JPH01282098A",
+      "publication_number": "JPH01282098A",
+      "family_id": "14539363",
+      "country": "JP",
+      "title": "Disconnecting device for apparatus",
+      "text_basis": "title_abstract",
+      "text_hash": "f4f53611296286bda68afc77b014504418ca93ab69e71531ec959fb9a0112d8e"
+    },
+    {
+      "id": "patent.JPH05193592A",
+      "publication_number": "JPH05193592A",
+      "family_id": "25010171",
+      "country": "JP",
+      "title": "Heat controller for space-ship",
+      "text_basis": "title_abstract",
+      "text_hash": "43e1ac801af9723f97bdadcf32cb89160ff055023ad08e80a9da7994fe0e9fb8"
+    },
+    {
+      "id": "patent.JPS62165582U",
+      "publication_number": "JPS62165582U",
+      "family_id": "31141566",
+      "country": "JP",
+      "title": "JPS62165582U - - Google Patents",
+      "text_basis": "title_only",
+      "text_hash": "4046fb9625eca22a8b06b7e99266f54bb7d73e60bfdb5bab54daadb858afde97"
+    },
+    {
+      "id": "patent.KR101549952B1",
+      "publication_number": "KR101549952B1",
+      "family_id": "53390113",
+      "country": "KR",
+      "title": "Manufacturing method of the exit cone for propulsion nozzle unit",
+      "text_basis": "title_abstract",
+      "text_hash": "6bfc062a17ad4957442a4ad670080d15dc8b06fb3d7e5835996c216c8b97bf3a"
+    },
+    {
+      "id": "patent.KR101920379B1",
+      "publication_number": "KR101920379B1",
+      "family_id": "64568546",
+      "country": "KR",
+      "title": "Bistatic synthetic aperture radar system based on global navigation satellite system",
+      "text_basis": "title_abstract",
+      "text_hash": "b40379b123866b5d413f93b5133ebd948e211cf593f027cf9324082dd2759854"
+    },
+    {
+      "id": "patent.KR102124242B1",
+      "publication_number": "KR102124242B1",
+      "family_id": "57007537",
+      "country": "KR",
+      "title": "Satellite radiator panels with combined stiffener/heat pipe",
+      "text_basis": "title_abstract",
+      "text_hash": "93600fb66d44140d39cd5e7c0f253de1d8df6a73367984ca936aa4b6773410a9"
+    },
+    {
+      "id": "patent.KR102165365B1",
+      "publication_number": "KR102165365B1",
+      "family_id": "60203348",
+      "country": "KR",
+      "title": "Low-orbit satellite star cluster system for communication in which geostationary satellite spectrum is reused",
+      "text_basis": "title_abstract",
+      "text_hash": "3c2886c9e3c62032fa2fd7d9399eeda48d7a8960899286953d88dc4470cc0965"
+    },
+    {
+      "id": "patent.KR102412775B1",
+      "publication_number": "KR102412775B1",
+      "family_id": "81985755",
+      "country": "KR",
+      "title": "Satellite Attitude and Orbit Control Electrical Test Bench Simulator",
+      "text_basis": "title_abstract",
+      "text_hash": "5aaa7f3cc12e4d0f9f7396171d1a5d455571daab0fdd8ae58f5aecaf91e03523"
+    },
+    {
+      "id": "patent.KR102742715B1",
+      "publication_number": "KR102742715B1",
+      "family_id": "73231053",
+      "country": "KR",
+      "title": "Solar, electronic, RF radiator for self-contained structures for space-based arrays",
+      "text_basis": "title_abstract",
+      "text_hash": "445ab6c98cd9ec199e5f29c325ca4f7bc762081a09d58c881070f2b090f89144"
+    },
+    {
+      "id": "patent.KR102876480B1",
+      "publication_number": "KR102876480B1",
+      "family_id": "59383471",
+      "country": "KR",
+      "title": "High resolution wide swath synthetic aperture radar system",
+      "text_basis": "title_abstract",
+      "text_hash": "b4c8d09d9a14a09c3b42a9d096f921aa6c9eb99832a96d346b109199e9b61f38"
+    },
+    {
+      "id": "patent.KR20230029274A",
+      "publication_number": "KR20230029274A",
+      "family_id": "83355024",
+      "country": "KR",
+      "title": "Landing apparatus for reusable launch vehicle",
+      "text_basis": "title_abstract",
+      "text_hash": "3216968ed2d84010498d88f502b2d9d666bbbbe54c634725a933cf65e52e55f5"
+    },
+    {
+      "id": "patent.KR20240127357A",
+      "publication_number": "KR20240127357A",
+      "family_id": "publication:KR20240127357A",
+      "country": "KR",
+      "title": "Distributed multi-input multi-output low earth orbit satellite system and method",
+      "text_basis": "title_only",
+      "text_hash": "44cf884b919dcc812a5d79a39e90f7b21858a706ed5986e0a31a372465a44a06"
+    },
+    {
+      "id": "patent.KR20240129160A",
+      "publication_number": "KR20240129160A",
+      "family_id": "publication:KR20240129160A",
+      "country": "KR",
+      "title": "High-resolution wide-area swath SAR imaging",
+      "text_basis": "title_only",
+      "text_hash": "99c762a86dea50eeec346561ad1d3fdd93ba53be16a7b64ae7ded7001e923cfd"
+    },
+    {
+      "id": "patent.US10348396B2",
+      "publication_number": "US10348396B2",
+      "family_id": "60203348",
+      "country": "US",
+      "title": "Low earth orbit satellite constellation system for communications with re-use of geostationary satellite spectrum",
+      "text_basis": "title_abstract",
+      "text_hash": "55cc4dbc4bd96897490d1cbef254f7b3755c859f96a3192636b60d5d5aace576"
+    },
+    {
+      "id": "patent.US10666352B2",
+      "publication_number": "US10666352B2",
+      "family_id": "61243741",
+      "country": "US",
+      "title": "Satellite system comprising satellites in LEO and other orbits",
+      "text_basis": "title_abstract",
+      "text_hash": "3710ecded4999a22602c6e9254f92ea0f8acc83b70229cc5166f566b3e4368cc"
+    },
+    {
+      "id": "patent.US10717836B1",
+      "publication_number": "US10717836B1",
+      "family_id": "71611893",
+      "country": "US",
+      "title": "Alternative resin systems for thermal protection materials",
+      "text_basis": "title_abstract",
+      "text_hash": "4040f883acfb6103bcb16d4fe2141cb7bfa10bdc5b0879b9b5dc6cd44e81c9f1"
+    },
+    {
+      "id": "patent.US10822122B2",
+      "publication_number": "US10822122B2",
+      "family_id": "62625436",
+      "country": "US",
+      "title": "Vertical landing systems for space vehicles and associated methods",
+      "text_basis": "title_abstract",
+      "text_hash": "e37b417119ac37b68e1cacf55111973ba0f8b9f08423f7a24bbe35d20ba1890a"
+    },
+    {
+      "id": "patent.US10871561B2",
+      "publication_number": "US10871561B2",
+      "family_id": "publication:US10871561B2",
+      "country": "US",
+      "title": "Apparatus and methods for synthetic aperture radar with digital beamforming",
+      "text_basis": "title_only",
+      "text_hash": "d83ce1e6480bd025fd842a0d9ae5de7e10831503269da099ab5757219d83c03b"
+    },
+    {
+      "id": "patent.US11754703B2",
+      "publication_number": "US11754703B2",
+      "family_id": "publication:US11754703B2",
+      "country": "US",
+      "title": "Synthetic aperture radar imaging apparatus and methods",
+      "text_basis": "title_only",
+      "text_hash": "74149e10c27d12b8e7027f8624f2222b398948e07508ce2d45a70f6f494f3b0a"
+    },
+    {
+      "id": "patent.US20160288926A1",
+      "publication_number": "US20160288926A1",
+      "family_id": "57007537",
+      "country": "US",
+      "title": "Satellite Radiator Panels with Combined Stiffener/Heat Pipe",
+      "text_basis": "title_abstract",
+      "text_hash": "e00c6a1911ee86540e8caf739029300d66fa5924ab1aeabd3c4f3668f9788274"
+    },
+    {
+      "id": "patent.US20190023422A1",
+      "publication_number": "US20190023422A1",
+      "family_id": "publication:US20190023422A1",
+      "country": "US",
+      "title": "Spacecraft servicing devices and related assemblies, systems, and methods",
+      "text_basis": "title_only",
+      "text_hash": "506a1ae4dd11da45e6f86bdaf7dc5c281ed5f70ea4e4a31b3eccf73c4445d548"
+    },
+    {
+      "id": "patent.US20210276736A1",
+      "publication_number": "US20210276736A1",
+      "family_id": "73231053",
+      "country": "US",
+      "title": "Thermal management system for structures in space",
+      "text_basis": "title_abstract",
+      "text_hash": "90fb53409940878b078157d01d99466b7321aa3ec538f0142e981b6b433c91aa"
+    },
+    {
+      "id": "patent.US20240002672A1",
+      "publication_number": "US20240002672A1",
+      "family_id": "73223759",
+      "country": "US",
+      "title": "Spacecraft, coating and method",
+      "text_basis": "title_abstract",
+      "text_hash": "c4c9cfb220d73fab7d745457d883b675e3c5c0d53aa3842274ff857d4c600534"
+    },
+    {
+      "id": "patent.US4713275A",
+      "publication_number": "US4713275A",
+      "family_id": "25339754",
+      "country": "US",
+      "title": "Ceramic/ceramic shell tile thermal protection system and method thereof",
+      "text_basis": "title_abstract",
+      "text_hash": "3c4e4cfb122fe9687bfff106668d63e6c6ea5085acd85ca2af9b6e18693b8a45"
+    },
+    {
+      "id": "patent.US6945500B2",
+      "publication_number": "US6945500B2",
+      "family_id": "34193636",
+      "country": "US",
+      "title": "Apparatus for a geosynchronous life extension spacecraft",
+      "text_basis": "title_abstract",
+      "text_hash": "0ab471e805a5a612567dc304125b5935ab88d6d02785cd9a7fa7173f8e848759"
+    },
+    {
+      "id": "patent.US8678321B2",
+      "publication_number": "US8678321B2",
+      "family_id": "43429742",
+      "country": "US",
+      "title": "Sea landing of space launch vehicles and associated systems and methods",
+      "text_basis": "title_abstract",
+      "text_hash": "d10c1eaa82347ad92b0937037c585dd132f8de82c6381f4e39a2cb4c1e4a79c7"
+    },
+    {
+      "id": "patent.US9302793B2",
+      "publication_number": "US9302793B2",
+      "family_id": "52463116",
+      "country": "US",
+      "title": "Spacecraft docking system",
+      "text_basis": "title_abstract",
+      "text_hash": "9d878b7d4f25e4b05167eb6b1c97fd88afa3effc49dc1ae22752bc595ca117c2"
+    },
+    {
+      "id": "patent.US9862507B2",
+      "publication_number": "US9862507B2",
+      "family_id": "58408496",
+      "country": "US",
+      "title": "CubeSat form factor thermal control louvers",
+      "text_basis": "title_abstract",
+      "text_hash": "2790c89fd0d0134f55b68f115e37dbb2436660e8630d71f14d7339aa39cb4b4a"
+    },
+    {
+      "id": "patent.WO2001081173A1",
+      "publication_number": "WO2001081173A1",
+      "family_id": "22738801",
+      "country": "WO",
+      "title": "Louvers for spacecraft thermal control",
+      "text_basis": "title_abstract",
+      "text_hash": "71e1ad08ff7cf09b1337077d5ccf3cb6dabaafd203ac1cf32339ccc6d506a604"
+    },
+    {
+      "id": "patent.WO2011131694A1",
+      "publication_number": "WO2011131694A1",
+      "family_id": "publication:WO2011131694A1",
+      "country": "WO",
+      "title": "Thermal protection material",
+      "text_basis": "title_only",
+      "text_hash": "563b9fe69190711562fc824c0522c1b093dbc746de9dc51dd61ac8f61d9e2c92"
+    }
+  ],
+  "summary": {
+    "publication_count": 65,
+    "family_count": 52,
+    "cluster_count": 13,
+    "unclustered_family_count": 17,
+    "edge_count": 69,
+    "title_only_count": 17
+  },
+  "clusters": [
+    {
+      "id": "cluster.28a9b222cf15",
+      "label": "leo · satellite",
+      "terms": [
+        "leo",
+        "satellite",
+        "satellites",
+        "earth",
+        "geo",
+        "communications"
+      ],
+      "family_ids": [
+        "45891750",
+        "51334283",
+        "60203348",
+        "61243741",
+        "78332105"
+      ],
+      "patent_ids": [
+        "patent.CN103957045A",
+        "patent.CN109417827B",
+        "patent.EP4143990A2",
+        "patent.JP2013540639A",
+        "patent.JP6896982B2",
+        "patent.KR102165365B1",
+        "patent.US10348396B2",
+        "patent.US10666352B2"
+      ],
+      "family_count": 5,
+      "publication_count": 8,
+      "mean_similarity": 0.752004,
+      "min_similarity": 0.66097,
+      "representative_id": "patent.KR102165365B1",
+      "representative_title": "Low-orbit satellite star cluster system for communication in which geostationary satellite spectrum is reused"
+    },
+    {
+      "id": "cluster.3210bc63b97d",
+      "label": "landing · leg",
+      "terms": [
+        "landing",
+        "leg",
+        "landing leg",
+        "mounted",
+        "end",
+        "booster"
+      ],
+      "family_ids": [
+        "43429742",
+        "62625436",
+        "83355024"
+      ],
+      "patent_ids": [
+        "patent.EP4140898A1",
+        "patent.KR20230029274A",
+        "patent.US10822122B2",
+        "patent.US8678321B2"
+      ],
+      "family_count": 3,
+      "publication_count": 4,
+      "mean_similarity": 0.65266,
+      "min_similarity": 0.64586,
+      "representative_id": "patent.EP4140898A1",
+      "representative_title": "Landing apparatus for a reusable launch vehicle"
+    },
+    {
+      "id": "cluster.a5581703dd04",
+      "label": "thermal control · control",
+      "terms": [
+        "thermal control",
+        "control",
+        "thermal",
+        "panels",
+        "louvers",
+        "control louvers"
+      ],
+      "family_ids": [
+        "25010171",
+        "58408496",
+        "90054160"
+      ],
+      "patent_ids": [
+        "patent.EP4424602A1",
+        "patent.JPH05193592A",
+        "patent.US9862507B2"
+      ],
+      "family_count": 3,
+      "publication_count": 3,
+      "mean_similarity": 0.685152,
+      "min_similarity": 0.640582,
+      "representative_id": "patent.JPH05193592A",
+      "representative_title": "Heat controller for space-ship"
+    },
+    {
+      "id": "cluster.bd9da65e56cf",
+      "label": "radar · synthetic",
+      "terms": [
+        "radar",
+        "synthetic",
+        "synthetic aperture",
+        "aperture radar",
+        "aperture",
+        "apparatus"
+      ],
+      "family_ids": [
+        "59383471",
+        "publication:US10871561B2",
+        "publication:US11754703B2"
+      ],
+      "patent_ids": [
+        "patent.EP3432027B1",
+        "patent.KR102876480B1",
+        "patent.US10871561B2",
+        "patent.US11754703B2"
+      ],
+      "family_count": 3,
+      "publication_count": 4,
+      "mean_similarity": 0.81448,
+      "min_similarity": 0.790186,
+      "representative_id": "patent.US11754703B2",
+      "representative_title": "Synthetic aperture radar imaging apparatus and methods"
+    },
+    {
+      "id": "cluster.c6cd81cd7660",
+      "label": "spacecraft · control",
+      "terms": [
+        "spacecraft",
+        "control",
+        "attitude",
+        "ground",
+        "simulation",
+        "task"
+      ],
+      "family_ids": [
+        "57448491",
+        "60017915",
+        "81985755"
+      ],
+      "patent_ids": [
+        "patent.CN106081171A",
+        "patent.CN107244432A",
+        "patent.KR102412775B1"
+      ],
+      "family_count": 3,
+      "publication_count": 3,
+      "mean_similarity": 0.733502,
+      "min_similarity": 0.667788,
+      "representative_id": "patent.CN106081171A",
+      "representative_title": "Space-orbit trouble shooting operation ground simulating system"
+    },
+    {
+      "id": "cluster.db11447cf5a9",
+      "label": "satellite · satellite constellation",
+      "terms": [
+        "satellite",
+        "satellite constellation",
+        "capacity",
+        "capacity satellite",
+        "flexible capacity",
+        "constellation"
+      ],
+      "family_ids": [
+        "56609966",
+        "64739481",
+        "publication:KR20240127357A"
+      ],
+      "patent_ids": [
+        "patent.EP3329612B1",
+        "patent.EP3877263B1",
+        "patent.KR20240127357A"
+      ],
+      "family_count": 3,
+      "publication_count": 3,
+      "mean_similarity": 0.691955,
+      "min_similarity": 0.661075,
+      "representative_id": "patent.EP3329612B1",
+      "representative_title": "Flexible capacity satellite constellation"
+    },
+    {
+      "id": "cluster.ef6fa02eb99c",
+      "label": "heat · radiator",
+      "terms": [
+        "heat",
+        "radiator",
+        "panel",
+        "pipe",
+        "heat pipe",
+        "temperature"
+      ],
+      "family_ids": [
+        "22738801",
+        "42502821",
+        "57007537"
+      ],
+      "patent_ids": [
+        "patent.CN101769825B",
+        "patent.CN107848635B",
+        "patent.JP6763875B2",
+        "patent.KR102124242B1",
+        "patent.US20160288926A1",
+        "patent.WO2001081173A1"
+      ],
+      "family_count": 3,
+      "publication_count": 6,
+      "mean_similarity": 0.743264,
+      "min_similarity": 0.690321,
+      "representative_id": "patent.WO2001081173A1",
+      "representative_title": "Louvers for spacecraft thermal control"
+    },
+    {
+      "id": "cluster.1c5c878ba5fe",
+      "label": "silicone · material",
+      "terms": [
+        "silicone",
+        "material",
+        "cork",
+        "rubber",
+        "parts",
+        "silicone solvent"
+      ],
+      "family_ids": [
+        "33435355",
+        "42511813"
+      ],
+      "patent_ids": [
+        "patent.CN101775219B",
+        "patent.EP1493788A1",
+        "patent.JP2005014900A"
+      ],
+      "family_count": 2,
+      "publication_count": 3,
+      "mean_similarity": 0.733588,
+      "min_similarity": 0.733588,
+      "representative_id": "patent.JP2005014900A",
+      "representative_title": "Ablative material of silicone cork"
+    },
+    {
+      "id": "cluster.3b5e21e289b7",
+      "label": "docking · satellite",
+      "terms": [
+        "docking",
+        "satellite",
+        "docking method",
+        "method satellites",
+        "satellites",
+        "docking docking"
+      ],
+      "family_ids": [
+        "55398855",
+        "publication:US20190023422A1"
+      ],
+      "patent_ids": [
+        "patent.CN107108047A",
+        "patent.EP3186151B1",
+        "patent.JP6670837B2",
+        "patent.US20190023422A1"
+      ],
+      "family_count": 2,
+      "publication_count": 4,
+      "mean_similarity": 0.711103,
+      "min_similarity": 0.711103,
+      "representative_id": "patent.CN107108047A",
+      "representative_title": "Docking system and method for satellite"
+    },
+    {
+      "id": "cluster.3fe7f400f44c",
+      "label": "rocket · insulation",
+      "terms": [
+        "rocket",
+        "insulation",
+        "disclosed",
+        "rocket motors",
+        "resin",
+        "ablative"
+      ],
+      "family_ids": [
+        "22990259",
+        "23548767"
+      ],
+      "patent_ids": [
+        "patent.CN1641200A",
+        "patent.EP1373386A2",
+        "patent.JP2003509279A"
+      ],
+      "family_count": 2,
+      "publication_count": 3,
+      "mean_similarity": 0.758369,
+      "min_similarity": 0.758369,
+      "representative_id": "patent.JP2003509279A",
+      "representative_title": "Elastomer-treated phenolic resin ablative insulator for rocket motors"
+    },
+    {
+      "id": "cluster.baac42196cf8",
+      "label": "rocket · funnel",
+      "terms": [
+        "rocket",
+        "funnel",
+        "device",
+        "funnel device",
+        "steel",
+        "base"
+      ],
+      "family_ids": [
+        "53448830",
+        "60257833"
+      ],
+      "patent_ids": [
+        "patent.CN104724297A",
+        "patent.CN107344631A"
+      ],
+      "family_count": 2,
+      "publication_count": 2,
+      "mean_similarity": 0.69846,
+      "min_similarity": 0.69846,
+      "representative_id": "patent.CN104724297A",
+      "representative_title": "Anti-toppling system used during carrier rocket vertical descending recovery"
+    },
+    {
+      "id": "cluster.c381f44c9677",
+      "label": "thermal · protection material",
+      "terms": [
+        "thermal",
+        "protection material",
+        "resin",
+        "thermal protection",
+        "protection",
+        "material"
+      ],
+      "family_ids": [
+        "71611893",
+        "publication:WO2011131694A1"
+      ],
+      "patent_ids": [
+        "patent.US10717836B1",
+        "patent.WO2011131694A1"
+      ],
+      "family_count": 2,
+      "publication_count": 2,
+      "mean_similarity": 0.741577,
+      "min_similarity": 0.741577,
+      "representative_id": "patent.US10717836B1",
+      "representative_title": "Alternative resin systems for thermal protection materials"
+    },
+    {
+      "id": "cluster.fdec60402bd9",
+      "label": "preform · ceramic",
+      "terms": [
+        "preform",
+        "ceramic",
+        "shell",
+        "upper",
+        "tile",
+        "upper shell"
+      ],
+      "family_ids": [
+        "25339754",
+        "53390113"
+      ],
+      "patent_ids": [
+        "patent.KR101549952B1",
+        "patent.US4713275A"
+      ],
+      "family_count": 2,
+      "publication_count": 2,
+      "mean_similarity": 0.62416,
+      "min_similarity": 0.62416,
+      "representative_id": "patent.US4713275A",
+      "representative_title": "Ceramic/ceramic shell tile thermal protection system and method thereof"
+    }
+  ],
+  "membership": {
+    "patent.KR101549952B1": "cluster.fdec60402bd9",
+    "patent.US4713275A": "cluster.fdec60402bd9",
+    "patent.EP4140898A1": "cluster.3210bc63b97d",
+    "patent.KR20230029274A": "cluster.3210bc63b97d",
+    "patent.US10822122B2": "cluster.3210bc63b97d",
+    "patent.US8678321B2": "cluster.3210bc63b97d",
+    "patent.EP4424602A1": "cluster.a5581703dd04",
+    "patent.JPH05193592A": "cluster.a5581703dd04",
+    "patent.US9862507B2": "cluster.a5581703dd04",
+    "patent.CN101775219B": "cluster.1c5c878ba5fe",
+    "patent.EP1493788A1": "cluster.1c5c878ba5fe",
+    "patent.JP2005014900A": "cluster.1c5c878ba5fe",
+    "patent.CN103957045A": "cluster.28a9b222cf15",
+    "patent.CN109417827B": "cluster.28a9b222cf15",
+    "patent.EP4143990A2": "cluster.28a9b222cf15",
+    "patent.JP2013540639A": "cluster.28a9b222cf15",
+    "patent.JP6896982B2": "cluster.28a9b222cf15",
+    "patent.KR102165365B1": "cluster.28a9b222cf15",
+    "patent.US10348396B2": "cluster.28a9b222cf15",
+    "patent.US10666352B2": "cluster.28a9b222cf15",
+    "patent.EP3329612B1": "cluster.db11447cf5a9",
+    "patent.EP3877263B1": "cluster.db11447cf5a9",
+    "patent.KR20240127357A": "cluster.db11447cf5a9",
+    "patent.CN1641200A": "cluster.3fe7f400f44c",
+    "patent.EP1373386A2": "cluster.3fe7f400f44c",
+    "patent.JP2003509279A": "cluster.3fe7f400f44c",
+    "patent.CN107108047A": "cluster.3b5e21e289b7",
+    "patent.EP3186151B1": "cluster.3b5e21e289b7",
+    "patent.JP6670837B2": "cluster.3b5e21e289b7",
+    "patent.US20190023422A1": "cluster.3b5e21e289b7",
+    "patent.CN101769825B": "cluster.ef6fa02eb99c",
+    "patent.CN107848635B": "cluster.ef6fa02eb99c",
+    "patent.JP6763875B2": "cluster.ef6fa02eb99c",
+    "patent.KR102124242B1": "cluster.ef6fa02eb99c",
+    "patent.US20160288926A1": "cluster.ef6fa02eb99c",
+    "patent.WO2001081173A1": "cluster.ef6fa02eb99c",
+    "patent.CN106081171A": "cluster.c6cd81cd7660",
+    "patent.CN107244432A": "cluster.c6cd81cd7660",
+    "patent.KR102412775B1": "cluster.c6cd81cd7660",
+    "patent.CN104724297A": "cluster.baac42196cf8",
+    "patent.CN107344631A": "cluster.baac42196cf8",
+    "patent.EP3432027B1": "cluster.bd9da65e56cf",
+    "patent.KR102876480B1": "cluster.bd9da65e56cf",
+    "patent.US10871561B2": "cluster.bd9da65e56cf",
+    "patent.US11754703B2": "cluster.bd9da65e56cf",
+    "patent.US10717836B1": "cluster.c381f44c9677",
+    "patent.WO2011131694A1": "cluster.c381f44c9677"
+  },
+  "edges": [
+    {
+      "source_family": "60203348",
+      "target_family": "61243741",
+      "similarity": 0.847578
+    },
+    {
+      "source_family": "publication:US10871561B2",
+      "target_family": "publication:US11754703B2",
+      "similarity": 0.841606
+    },
+    {
+      "source_family": "22738801",
+      "target_family": "42502821",
+      "similarity": 0.82748
+    },
+    {
+      "source_family": "51334283",
+      "target_family": "60203348",
+      "similarity": 0.818445
+    },
+    {
+      "source_family": "59383471",
+      "target_family": "publication:US11754703B2",
+      "similarity": 0.811647
+    },
+    {
+      "source_family": "59383471",
+      "target_family": "publication:US10871561B2",
+      "similarity": 0.790186
+    },
+    {
+      "source_family": "45891750",
+      "target_family": "51334283",
+      "similarity": 0.783016
+    },
+    {
+      "source_family": "57448491",
+      "target_family": "60017915",
+      "similarity": 0.780806
+    },
+    {
+      "source_family": "51334283",
+      "target_family": "61243741",
+      "similarity": 0.773834
+    },
+    {
+      "source_family": "59383471",
+      "target_family": "8176778",
+      "similarity": 0.759238
+    },
+    {
+      "source_family": "25010171",
+      "target_family": "90054160",
+      "similarity": 0.758882
+    },
+    {
+      "source_family": "22990259",
+      "target_family": "23548767",
+      "similarity": 0.758369
+    },
+    {
+      "source_family": "61243741",
+      "target_family": "78332105",
+      "similarity": 0.755819
+    },
+    {
+      "source_family": "57448491",
+      "target_family": "81985755",
+      "similarity": 0.751911
+    },
+    {
+      "source_family": "56609966",
+      "target_family": "64739481",
+      "similarity": 0.747729
+    },
+    {
+      "source_family": "71611893",
+      "target_family": "publication:WO2011131694A1",
+      "similarity": 0.741577
+    },
+    {
+      "source_family": "45891750",
+      "target_family": "64739481",
+      "similarity": 0.740946
+    },
+    {
+      "source_family": "60203348",
+      "target_family": "78332105",
+      "similarity": 0.735667
+    },
+    {
+      "source_family": "22738801",
+      "target_family": "25010171",
+      "similarity": 0.734226
+    },
+    {
+      "source_family": "33435355",
+      "target_family": "42511813",
+      "similarity": 0.733588
+    },
+    {
+      "source_family": "51334283",
+      "target_family": "78332105",
+      "similarity": 0.731025
+    },
+    {
+      "source_family": "60203348",
+      "target_family": "publication:KR20240127357A",
+      "similarity": 0.727955
+    },
+    {
+      "source_family": "61243741",
+      "target_family": "publication:KR20240127357A",
+      "similarity": 0.716466
+    },
+    {
+      "source_family": "45891750",
+      "target_family": "60203348",
+      "similarity": 0.714486
+    },
+    {
+      "source_family": "22738801",
+      "target_family": "57007537",
+      "similarity": 0.711991
+    },
+    {
+      "source_family": "55398855",
+      "target_family": "publication:US20190023422A1",
+      "similarity": 0.711103
+    },
+    {
+      "source_family": "22738801",
+      "target_family": "90054160",
+      "similarity": 0.710045
+    },
+    {
+      "source_family": "69190974",
+      "target_family": "publication:US20190023422A1",
+      "similarity": 0.709756
+    },
+    {
+      "source_family": "51334283",
+      "target_family": "64739481",
+      "similarity": 0.707024
+    },
+    {
+      "source_family": "51334283",
+      "target_family": "publication:KR20240127357A",
+      "similarity": 0.704297
+    },
+    {
+      "source_family": "90054160",
+      "target_family": "publication:US20190023422A1",
+      "similarity": 0.701877
+    },
+    {
+      "source_family": "45891750",
+      "target_family": "61243741",
+      "similarity": 0.699194
+    },
+    {
+      "source_family": "53448830",
+      "target_family": "60257833",
+      "similarity": 0.69846
+    },
+    {
+      "source_family": "56609966",
+      "target_family": "60203348",
+      "similarity": 0.696974
+    },
+    {
+      "source_family": "25010171",
+      "target_family": "57007537",
+      "similarity": 0.690648
+    },
+    {
+      "source_family": "42502821",
+      "target_family": "57007537",
+      "similarity": 0.690321
+    },
+    {
+      "source_family": "51334283",
+      "target_family": "56609966",
+      "similarity": 0.687416
+    },
+    {
+      "source_family": "61243741",
+      "target_family": "64739481",
+      "similarity": 0.682527
+    },
+    {
+      "source_family": "53448830",
+      "target_family": "83355024",
+      "similarity": 0.678863
+    },
+    {
+      "source_family": "59383471",
+      "target_family": "publication:KR20240129160A",
+      "similarity": 0.675769
+    },
+    {
+      "source_family": "53448830",
+      "target_family": "62625436",
+      "similarity": 0.674223
+    },
+    {
+      "source_family": "52463116",
+      "target_family": "55398855",
+      "similarity": 0.673534
+    },
+    {
+      "source_family": "publication:KR20240129160A",
+      "target_family": "publication:US11754703B2",
+      "similarity": 0.672182
+    },
+    {
+      "source_family": "50323016",
+      "target_family": "51334283",
+      "similarity": 0.671972
+    },
+    {
+      "source_family": "60017915",
+      "target_family": "81985755",
+      "similarity": 0.667788
+    },
+    {
+      "source_family": "56609966",
+      "target_family": "publication:KR20240127357A",
+      "similarity": 0.667061
+    },
+    {
+      "source_family": "25010171",
+      "target_family": "42502821",
+      "similarity": 0.663396
+    },
+    {
+      "source_family": "43429742",
+      "target_family": "83355024",
+      "similarity": 0.662048
+    },
+    {
+      "source_family": "43429742",
+      "target_family": "64426845",
+      "similarity": 0.661039
+    },
+    {
+      "source_family": "45891750",
+      "target_family": "78332105",
+      "similarity": 0.66097
+    },
+    {
+      "source_family": "50323016",
+      "target_family": "78332105",
+      "similarity": 0.66003
+    },
+    {
+      "source_family": "25010171",
+      "target_family": "58408496",
+      "similarity": 0.655991
+    },
+    {
+      "source_family": "8176778",
+      "target_family": "publication:US11754703B2",
+      "similarity": 0.655944
+    },
+    {
+      "source_family": "57448491",
+      "target_family": "publication:US20190023422A1",
+      "similarity": 0.653901
+    },
+    {
+      "source_family": "57007537",
+      "target_family": "58408496",
+      "similarity": 0.653466
+    },
+    {
+      "source_family": "59383471",
+      "target_family": "64568546",
+      "similarity": 0.651281
+    },
+    {
+      "source_family": "62625436",
+      "target_family": "83355024",
+      "similarity": 0.650072
+    },
+    {
+      "source_family": "43429742",
+      "target_family": "62625436",
+      "similarity": 0.64586
+    },
+    {
+      "source_family": "23548767",
+      "target_family": "71611893",
+      "similarity": 0.643458
+    },
+    {
+      "source_family": "58408496",
+      "target_family": "90054160",
+      "similarity": 0.640582
+    },
+    {
+      "source_family": "23548767",
+      "target_family": "53390113",
+      "similarity": 0.640006
+    },
+    {
+      "source_family": "55398855",
+      "target_family": "67911753",
+      "similarity": 0.634037
+    },
+    {
+      "source_family": "60017915",
+      "target_family": "publication:US20190023422A1",
+      "similarity": 0.631702
+    },
+    {
+      "source_family": "60257833",
+      "target_family": "83355024",
+      "similarity": 0.630252
+    },
+    {
+      "source_family": "23548767",
+      "target_family": "42511813",
+      "similarity": 0.630012
+    },
+    {
+      "source_family": "25339754",
+      "target_family": "71611893",
+      "similarity": 0.629632
+    },
+    {
+      "source_family": "55398855",
+      "target_family": "64739481",
+      "similarity": 0.624573
+    },
+    {
+      "source_family": "25339754",
+      "target_family": "53390113",
+      "similarity": 0.62416
+    },
+    {
+      "source_family": "42511813",
+      "target_family": "71611893",
+      "similarity": 0.621159
+    }
+  ],
+  "source_file_hash": "ccf159c6b58f0283f70770f1560c33c144a8e48773e068b1625c3e4b8009121d",
+  "generated_at": "2026-10-26T13:04:34.443568+00:00"
+}

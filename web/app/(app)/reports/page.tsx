@@ -2,6 +2,7 @@ import Link from 'next/link';
 import styles from './reports.module.css';
 import { FIELDS, SUBFIELDS, filterToQuery } from '../../lib/data';
 import { getNodeReport, REPORT_FILTER } from '../../lib/graph';
+import { SEMANTIC, SEMANTIC_SCOPE, semanticColor } from '../../lib/semantic';
 
 export const metadata = { title: '분석 보고서 · AEROPATENT' };
 
@@ -24,6 +25,19 @@ export default function ReportsPage() {
         </p>
       </div>
 
+      <h2 className={styles.sectionLabel}>의미 기반 기술 군집 · {SEMANTIC.summary.cluster_count}개</h2>
+      <p className={styles.sectionIntro}>{SEMANTIC_SCOPE}. 분석 {SEMANTIC.summary.family_count}개 패밀리 중 미군집 {SEMANTIC.summary.unclustered_family_count}개.</p>
+      <div className={styles.grid}>
+        {SEMANTIC.clusters.map((cluster) => (
+          <Link key={cluster.id} href={`/reports/${cluster.id}`} className={styles.card} style={{ borderLeftColor: semanticColor(cluster.id) }}>
+            <div className={styles.cardType}>제목·초록 의미 분석</div>
+            <div className={styles.cardTitle}>{cluster.label}</div>
+            <div className={styles.cardConclusion}>{cluster.representative_title}</div>
+            <div className={styles.cardConclusion}>{cluster.family_count}개 패밀리 · 평균 코사인 유사도 {cluster.mean_similarity.toFixed(3)}</div>
+            <span className={styles.cardArrow}>군집 보고서 보기 →</span>
+          </Link>
+        ))}
+      </div>
       <h2 className={styles.sectionLabel}>분야별 보고서 · 9개</h2>
       <div className={styles.grid}>
         {fieldReports.map(({ field, report }) => {

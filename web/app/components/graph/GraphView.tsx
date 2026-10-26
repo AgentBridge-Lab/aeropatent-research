@@ -16,6 +16,7 @@ import type {
 } from '../../lib/graph';
 import { parseFilter, FIELDS, COUNTRIES, CURRENT_YEAR } from '../../lib/data';
 import { useDrawer } from '../../lib/store';
+import { SEMANTIC, SEMANTIC_SCOPE, semanticColor } from '../../lib/semantic';
 
 const ForceGraph3D = dynamic(() => import('react-force-graph-3d'), { ssr: false });
 
@@ -26,9 +27,10 @@ const LENSES: { id: Lens; label: string }[] = [
   { id: 'field', label: '분야별' },
   { id: 'country', label: '관할별' },
   { id: 'applicant', label: '출원인별' },
-  { id: 'similar', label: '동일 세부분야' },
+  { id: 'similar', label: '의미 유사도' },
 ];
 const COLOR_BYS: { id: ColorBy; label: string }[] = [
+  { id: 'semantic', label: '의미 군집' },
   { id: 'field', label: '분야' },
   { id: 'country', label: '공개 관할' },
   { id: 'period', label: '기간' },
@@ -37,12 +39,13 @@ const COLOR_BYS: { id: ColorBy; label: string }[] = [
 ];
 const LAYOUTS: { id: LayoutMode; label: string }[] = [
   { id: 'galaxy', label: '은하' },
-  { id: 'cluster', label: '클러스터' },
+  { id: 'cluster', label: '의미 군집' },
   { id: 'timeline', label: '타임라인' },
   { id: 'hierarchy', label: '계층' },
 ];
 
 const TYPE_LABEL: Record<string, string> = {
+  cluster: '의미 군집',
   field: '분야',
   subfield: '세부분야',
   patent: '특허',
@@ -74,7 +77,7 @@ export default function GraphView() {
   };
 
   const [lens, setLens] = useState<Lens>('all');
-  const [colorBy, setColorBy] = useState<ColorBy>('field');
+  const [colorBy, setColorBy] = useState<ColorBy>('semantic');
   const [layout, setLayout] = useState<LayoutMode>('galaxy');
   const [labelMode, setLabelMode] = useState<LabelMode>('important');
   const [spacing, setSpacing] = useState<Spacing>('normal');
@@ -92,6 +95,7 @@ export default function GraphView() {
   const adjacency = useMemo(() => {
     const m = new Map<string, Set<string>>();
     data.edges.forEach((e) => {
+      if (lens === 'similar' && e.type !== 'semantic_similar' && e.type !== 'in_semantic_cluster') return;
       const s = typeof e.source === 'string' ? e.source : (e.source as any).id;
       const t = typeof e.target === 'string' ? e.target : (e.target as any).id;
       if (!m.has(s)) m.set(s, new Set());
@@ -100,7 +104,7 @@ export default function GraphView() {
       m.get(t)!.add(s);
     });
     return m;
-  }, [data]);
+  }, [data, lens]);
 
   // 선택 노드 기준 강조 집합 (1-hop / 2-hop)
   const highlight = useMemo(() => {
@@ -124,10 +128,11 @@ export default function GraphView() {
 
   // importantOnly 필터링된 그래프
   const viewData = useMemo(() => {
-    if (!importantOnly) return data;
+    if (!importantOnly && lens !== 'similar') return data;
     const keep = new Set(
       data.nodes
-        .filter((n) => n.type !== 'patent' || n.importance >= 0.8)
+        .filter((n) => (!importantOnly || n.type !== 'patent' || n.importance >= 0.8)
+          && (lens !== 'similar' || n.type === 'patent' || n.type === 'cluster'))
         .map((n) => n.id)
     );
     return {
@@ -138,7 +143,7 @@ export default function GraphView() {
         return keep.has(s) && keep.has(t);
       }),
     };
-  }, [data, importantOnly]);
+  }, [data, importantOnly, lens]);
 
   // ForceGraph용 데이터 (edges → links)
   const fgData = useMemo(
@@ -174,7 +179,7 @@ export default function GraphView() {
   const linkVisible = useCallback(
     (link: any) => {
       const type = link.type;
-      if (lens === 'similar') return type === 'same_subfield';
+      if (lens === 'similar') return type === 'semantic_similar' || type === 'in_semantic_cluster';
       if (lens === 'applicant') return type === 'filed_by' || type === 'belongs_to';
       if (lens === 'country') return type === 'filed_in' || type === 'belongs_to';
       if (lens === 'field') return type === 'belongs_to';
@@ -194,7 +199,7 @@ export default function GraphView() {
 
   const getLinkColor = useCallback(
     (link: any) => {
-      if (!highlight) return 'rgba(150,180,220,0.35)';
+      if (!highlight) return link.type === 'semantic_similar' ? 'rgba(98,203,183,0.65)' : 'rgba(150,180,220,0.25)';
       const s = typeof link.source === 'string' ? link.source : link.source.id;
       const t = typeof link.target === 'string' ? link.target : link.target.id;
       return highlight.has(s) && highlight.has(t) ? 'rgba(150,200,255,0.55)' : DIM_LINK;
@@ -207,6 +212,7 @@ export default function GraphView() {
     (node: any) => {
       if (labelMode === 'hidden') return null;
       const isKey =
+        node.type === 'cluster' ||
         node.type === 'field' ||
         node.type === 'country' ||
         node.type === 'subfield' ||
@@ -217,7 +223,7 @@ export default function GraphView() {
       const sprite = new SpriteText(node.label);
       sprite.color = highlight && !highlight.has(node.id) ? 'rgba(200,215,235,0.35)' : '#eaf3ff';
       sprite.textHeight =
-        node.type === 'field' ? 5.5 : node.type === 'country' || node.type === 'subfield' ? 3.6 : 2.4;
+        node.type === 'field' || node.type === 'cluster' ? 5.5 : node.type === 'country' || node.type === 'subfield' ? 3.6 : 2.4;
       sprite.fontFace = 'Helvetica, Arial, sans-serif';
       sprite.backgroundColor = 'rgba(4,8,18,0.5)';
       sprite.padding = 1.5;
@@ -242,8 +248,8 @@ export default function GraphView() {
       router.replace(`${pathname}?${params}`, { scroll: false });
       const fg = fgRef.current;
       if (fg && typeof node.x === 'number') {
-        const dist = 90;
-        const ratio = 1 + dist / Math.hypot(node.x, node.y, node.z || 1);
+        const dist = size.w < 600 ? 260 : 160;
+        const ratio = 1 + dist / Math.max(1, Math.hypot(node.x, node.y, node.z || 1));
         fg.cameraPosition(
           { x: node.x * ratio, y: node.y * ratio, z: (node.z || 0) * ratio },
           node,
@@ -252,7 +258,7 @@ export default function GraphView() {
       }
       openDrawer(node.id);
     },
-    [openDrawer, pathname, router, searchParams]
+    [openDrawer, pathname, router, searchParams, size.w]
   );
 
   // 힘/레이아웃 적용
@@ -264,10 +270,15 @@ export default function GraphView() {
     fg.d3Force('link')?.distance(spacing === 'wide' ? 80 : spacing === 'compact' ? 26 : 46);
 
     fgData.nodes.forEach((node: any) => {
-      Object.assign(node, graphLayoutPosition(node, layout, CURRENT_YEAR));
+      const position = graphLayoutPosition(node, layout, CURRENT_YEAR);
+      Object.assign(node, position);
+      if (position.fx !== undefined) node.x = position.fx;
+      if (position.fy !== undefined) node.y = position.fy;
+      if (position.fz !== undefined) node.z = position.fz;
     });
     fg.d3ReheatSimulation?.();
-  }, [spacing, layout, fgData]);
+    fitGraph();
+  }, [spacing, layout, fgData, fitGraph]);
 
   // 초기 노드 포커스 + 드로어
   useEffect(() => {
@@ -280,25 +291,37 @@ export default function GraphView() {
       const fg = fgRef.current;
       const n = fgData.nodes.find((x: any) => x.id === initialNode) as any;
       if (fg && n && typeof n.x === 'number') {
-        const ratio = 1 + 90 / Math.hypot(n.x, n.y, n.z || 1);
+        const ratio = 1 + (size.w < 600 ? 260 : 160) / Math.max(1, Math.hypot(n.x, n.y, n.z || 1));
         fg.cameraPosition({ x: n.x * ratio, y: n.y * ratio, z: (n.z || 0) * ratio }, n, 1200);
       }
     }, 1500);
     return () => clearTimeout(t);
-  }, [initialNode, fgData, openDrawer, closeDrawer]);
+  }, [initialNode, fgData, openDrawer, closeDrawer, size.w]);
 
   return (
     <div className={styles.layout}>
       {/* 좌측 컨트롤 패널 */}
       <aside className={styles.panel}>
         <Group title="렌즈">
-          <Pills options={LENSES} value={lens} onChange={setLens} />
+          <Pills options={LENSES} value={lens} onChange={(next) => { setLens(next); clearSelection(); }} />
         </Group>
         <Group title="색상 기준">
           <Pills options={COLOR_BYS} value={colorBy} onChange={setColorBy} />
         </Group>
         <Group title="레이아웃">
           <Pills options={LAYOUTS} value={layout} onChange={setLayout} />
+        </Group>
+        <Group title="기술 군집">
+          <select aria-label="의미 군집 선택" value={selected?.startsWith('cluster.') && data.nodes.some((n) => n.id === selected) ? selected : ''} onChange={(event) => {
+            const node = fgData.nodes.find((item) => item.id === event.target.value);
+            if (node) onNodeClick(node); else clearSelection();
+          }}>
+            <option value="">군집 선택</option>
+            {SEMANTIC.clusters.filter((cluster) => data.nodes.some((node) => node.id === cluster.id)).map((cluster) => (
+              <option key={cluster.id} value={cluster.id}>{cluster.label} · {cluster.family_count} 패밀리</option>
+            ))}
+          </select>
+          <p className={styles.scope}>{SEMANTIC_SCOPE}</p>
         </Group>
         <Group title="표시 옵션">
           <div className={styles.optRow}>
@@ -369,6 +392,7 @@ export default function GraphView() {
         )}
         <div className={styles.count}>
           대표 문헌 {viewData.nodes.filter((node) => node.type === 'patent').length} · 노드 {viewData.nodes.length} · 엣지 {viewData.edges.length}
+          <br />의미 군집 {viewData.nodes.filter((node) => node.type === 'cluster').length} · 유사도 기준 {SEMANTIC.method.similarity_threshold}
         </div>
       </aside>
 
@@ -397,6 +421,7 @@ export default function GraphView() {
           nodeThreeObject={nodeThreeObject}
           linkColor={getLinkColor}
           linkVisibility={linkVisible}
+          linkLabel={(link: any) => link.type === 'semantic_similar' ? `코사인 유사도 ${link.confidence.toFixed(3)}` : link.type === 'in_semantic_cluster' ? '의미 군집 소속' : ''}
           linkWidth={(l: any) => {
             if (!highlight) return 0.7;
             const s = typeof l.source === 'string' ? l.source : l.source.id;
@@ -453,7 +478,8 @@ function Pills<T extends string | number>({
 
 function Legend({ colorBy }: { colorBy: ColorBy }) {
   let items: { c: string; l: string }[] = [];
-  if (colorBy === 'field') items = FIELDS.map((f) => ({ c: f.color, l: f.label_ko }));
+  if (colorBy === 'semantic') items = [...SEMANTIC.clusters.map((cluster) => ({ c: semanticColor(cluster.id), l: cluster.label })), { c: '#7c8794', l: '미군집 / 분류 노드' }];
+  else if (colorBy === 'field') items = FIELDS.map((f) => ({ c: f.color, l: f.label_ko }));
   else if (colorBy === 'country') items = COUNTRIES.map((c) => ({ c: c.color, l: `${c.code} ${c.label_ko}` }));
   else if (colorBy === 'period')
     items = [

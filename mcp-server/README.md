@@ -2,6 +2,12 @@
 
 Local MCP server for the aerospace patent landscape, NASA taxonomy crosswalk, AgentBridge evidence packs, and LLM Wiki graph data.
 
+Semantic analysis: `get_semantic_clusters` accepts `clusterId`, `publicationNumber`, and `limit`.
+It returns family-deduplicated, measured cosine similarities from recorded patent titles and abstracts,
+not the full BigQuery landscape. Resource: `aeropatent://semantic/clusters`.
+`get_graph_neighbors` includes semantic cluster memberships and similarity links.
+No model or API is invoked during MCP calls. Restart the server after regenerating the snapshot.
+
 ## Run
 
 ```powershell

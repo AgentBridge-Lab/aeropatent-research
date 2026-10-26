@@ -15,9 +15,12 @@ import {
   KEYWORDS,
 } from '../../../lib/data';
 import { getNodeReport, REPORT_FILTER } from '../../../lib/graph';
+import { SEMANTIC } from '../../../lib/semantic';
+import ReportBody from '../../../components/ReportBody';
 
 export function generateStaticParams() {
   return [
+    ...SEMANTIC.clusters.map((cluster) => ({ reportId: cluster.id })),
     ...FIELDS.map((field) => ({ reportId: `field.${field.id}` })),
     ...SUBFIELDS.map((subfield) => ({ reportId: `subfield.${subfield.id}` })),
     ...COUNTRIES.map((country) => ({ reportId: `country.${country.code}` })),
@@ -80,6 +83,13 @@ export default async function ReportDetailPage({
   }
 
   const isPatentNode = report.node_type === 'patent';
+  if (report.node_type === 'cluster') return (
+    <div>
+      <Link href="/reports" className={styles.back}>보고서 목록</Link>
+      <ReportBody report={report} />
+      <Link href={`/graph?node=${encodeURIComponent(nodeId)}`} className={styles.ctaBtn}>그래프에서 보기</Link>
+    </div>
+  );
   const typeLabel = NODE_TYPE_LABEL[report.node_type] ?? report.node_type;
   const rawNodeId = nodeId.split('.').slice(1).join('.');
   const patentSearchParams = new URLSearchParams(query);

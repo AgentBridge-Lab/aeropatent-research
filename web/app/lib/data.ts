@@ -10,6 +10,7 @@
 // ============================================================================
 
 export const CURRENT_YEAR = 2026;
+import { semanticNeighbors, semanticClusterId } from './semantic';
 export const DATA_SNAPSHOT_ID = "aeropatent.bigquery.landscape.v1";
 
 // P0-4: 총량·분야 수치에 일관 적용할 라벨/출처 문구
@@ -2206,12 +2207,6 @@ export const SUBFIELDS: Subfield[] = [
     "label_en": "LEO satellite constellation"
   },
   {
-    "id": "space_gnc_rendezvous_servicing__gnc-rpo",
-    "field": "space_gnc_rendezvous_servicing",
-    "label_ko": "GNC/RPO 핵심",
-    "label_en": "GNC/RPO 핵심"
-  },
-  {
     "id": "space_gnc_rendezvous_servicing__proximity-operation",
     "field": "space_gnc_rendezvous_servicing",
     "label_ko": "근접운용",
@@ -2240,6 +2235,12 @@ export const SUBFIELDS: Subfield[] = [
     "field": "space_gnc_rendezvous_servicing",
     "label_ko": "자세제어",
     "label_en": "attitude control"
+  },
+  {
+    "id": "space_gnc_rendezvous_servicing__gnc-rpo",
+    "field": "space_gnc_rendezvous_servicing",
+    "label_ko": "GNC/RPO 핵심",
+    "label_en": "GNC/RPO 핵심"
   },
   {
     "id": "space_launch_propulsion_recovery__rocket-engine",
@@ -2332,12 +2333,6 @@ export const SUBFIELDS: Subfield[] = [
     "label_en": "재료·TPS 핵심"
   },
   {
-    "id": "space_remote_sensing_payload__sar-imaging",
-    "field": "space_remote_sensing_payload",
-    "label_ko": "SAR 영상화",
-    "label_en": "SAR imaging"
-  },
-  {
     "id": "space_remote_sensing_payload__wide-swath",
     "field": "space_remote_sensing_payload",
     "label_ko": "광역 관측폭",
@@ -2378,6 +2373,12 @@ export const SUBFIELDS: Subfield[] = [
     "field": "space_remote_sensing_payload",
     "label_ko": "합성개구레이더(SAR)",
     "label_en": "SAR"
+  },
+  {
+    "id": "space_remote_sensing_payload__sar-imaging",
+    "field": "space_remote_sensing_payload",
+    "label_ko": "SAR 영상화",
+    "label_en": "SAR imaging"
   },
   {
     "id": "space_satellite_bus_thermal_power__thermal-control",
@@ -5766,6 +5767,7 @@ export interface SearchOptions {
   q?: string;
   filter: Filter;
   subfield?: string;
+  cluster?: string;
   applicant?: string;
   status?: PatentStatus | 'all';
   sort?: 'recent' | 'importance';
@@ -5773,6 +5775,7 @@ export interface SearchOptions {
 
 export function searchPatents(opts: SearchOptions): Patent[] {
   let result = applyFilter(opts.filter);
+  if (opts.cluster) result = result.filter((p) => semanticClusterId(p.id) === opts.cluster);
   if (opts.subfield) result = result.filter((p) => hasSubfield(p, opts.subfield!));
   if (opts.applicant) result = result.filter((p) => p.applicant === opts.applicant);
   if (opts.status && opts.status !== 'all') result = result.filter((p) => p.status === opts.status);
@@ -5797,11 +5800,8 @@ export function getPatent(idOrPub: string): Patent | null {
 }
 
 export function similarPatents(patent: Patent, limit = 4): Patent[] {
-  return PATENTS.filter((p) =>
-    p.id !== patent.id && patent.subfield_ids.some((subfieldId) => hasSubfield(p, subfieldId))
-  )
-    .sort((a, b) => b.importance_score - a.importance_score)
-    .slice(0, limit);
+  const byId = new Map(PATENTS.map((p) => [p.id, p]));
+  return semanticNeighbors(patent.id, new Set(byId.keys()), limit).map((item) => byId.get(item.id)!);
 }
 
 export function getSubfield(id: string): Subfield | undefined {

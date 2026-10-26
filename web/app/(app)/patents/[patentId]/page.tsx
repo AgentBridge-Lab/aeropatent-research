@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { semanticSimilarity, SEMANTIC } from '../../../lib/semantic';
 import styles from './detail.module.css';
 import {
   getPatent,
@@ -214,9 +215,9 @@ export default async function PatentDetailPage({ params }: Props) {
         {/* Sidebar: similar patents */}
         <aside className={styles.sidebar}>
           <div className={styles.card}>
-            <h2 className={styles.sectionTitle}>유사 특허</h2>
+            <h2 className={styles.sectionTitle}>의미가 유사한 특허</h2>
             {similar.length === 0 ? (
-              <p className={styles.noSimilar}>유사 특허가 없습니다.</p>
+              <p className={styles.noSimilar}>현재 표본에서 코사인 유사도 {SEMANTIC.method.similarity_threshold} 이상인 다른 패밀리 문헌이 없습니다.</p>
             ) : (
               <div className={styles.similarList}>
                 {similar.map((p) => {
@@ -231,7 +232,7 @@ export default async function PatentDetailPage({ params }: Props) {
                       <div className={styles.similarHead}>
                         <span className={`${styles.similarPub} mono`}>{p.publication_number}</span>
                         <span className={styles.similarScore} style={{ color: pField?.color }}>
-                          ★ {p.importance_score.toFixed(2)}
+                          유사도 {semanticSimilarity(patent.id, p.id)?.toFixed(3)}
                         </span>
                       </div>
                       <p className={styles.similarTitle}>{p.title}</p>

@@ -6,6 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 
 const paths = {
+  semantic: path.join(root, 'analysis', 'semantic_clusters.json'),
   mcpSnapshot: path.join(root, "mcp", "agentbridge_patent_mcp_snapshot.json"),
   bigqueryEvidencePacks: path.join(root, "exports", "agentbridge", "agentbridge_program_evidence_packs.json"),
   patents: path.join(root, "normalized", "patents.jsonl"),
@@ -21,6 +22,17 @@ const paths = {
 };
 
 const tools = [
+  {
+    name: 'get_semantic_clusters',
+    description: 'Return measured text-based patent clusters and cosine-similarity neighbours. Representative text corpus only, not the full landscape.',
+    inputSchema: {
+      type: 'object', properties: {
+        clusterId: { type: 'string' },
+        publicationNumber: { type: 'string' },
+        limit: { type: 'integer', minimum: 1, maximum: 50 },
+      }, additionalProperties: false,
+    },
+  },
   {
     name: "get_global_patent_landscape",
     description:
@@ -124,6 +136,7 @@ const tools = [
 ];
 
 const resources = [
+  { uri: 'aeropatent://semantic/clusters', name: 'Measured semantic patent clusters', mimeType: 'application/json' },
   {
     uri: "aeropatent://snapshot/mcp",
     name: "AgentBridge patent MCP snapshot",
@@ -273,6 +286,11 @@ async function callTool(params) {
   const name = params.name;
   const args = params.arguments ?? {};
   switch (name) {
+    case 'get_semantic_clusters':
+      optionalString(args, 'clusterId');
+      optionalString(args, 'publicationNumber');
+      optionalInteger(args, 'limit', 1, 50);
+      return toToolResult(getSemanticClusters(args));
     case "get_global_patent_landscape":
       validateGlobalLandscapeArgs(args);
       return toToolResult(getGlobalPatentLandscape(args));
@@ -781,8 +799,27 @@ function getGraphNeighbors(args) {
   };
 }
 
+function getSemanticClusters(args) {
+  const snapshot = loadData().semantic;
+  const limit = args.limit ?? 20;
+  const document = snapshot.documents.find((doc) => doc.publication_number === args.publicationNumber);
+  const membership = document ? snapshot.membership[document.id] : undefined;
+  const clusters = snapshot.clusters.filter((cluster) => (!args.clusterId || cluster.id === args.clusterId)
+    && (!args.publicationNumber || (document && cluster.id === membership))).slice(0, limit);
+  const neighbors = document ? snapshot.edges.flatMap((edge) => {
+    const family = edge.source_family === document.family_id ? edge.target_family
+      : edge.target_family === document.family_id ? edge.source_family : null;
+    if (!family) return [];
+    const candidate = snapshot.documents.find((doc) => doc.family_id === family);
+    return candidate ? [{ publicationNumber: candidate.publication_number, title: candidate.title, similarity: edge.similarity }] : [];
+  }).sort((a, b) => b.similarity - a.similarity).slice(0, limit) : [];
+  return { scope: snapshot.scope, generatedAt: snapshot.generated_at, model: snapshot.model, method: snapshot.method,
+    summary: snapshot.summary, clusters, neighbors, found: args.publicationNumber ? Boolean(document) : clusters.length > 0 };
+}
+
 function readResource(uri) {
   const table = {
+    'aeropatent://semantic/clusters': [paths.semantic, 'application/json'],
     "aeropatent://snapshot/mcp": [paths.mcpSnapshot, "application/json"],
     "aeropatent://landscape/global": [paths.mcpSnapshot, "application/json"],
     "aeropatent://reports/bigquery-landscape": [paths.bigqueryLandscapeReport, "text/markdown"],
@@ -836,6 +873,8 @@ function findPackByTopic(packs, topic) {
 function normalizeGraphNodeId(rawNodeId, data) {
   const nodeId = String(rawNodeId ?? "").trim();
   if (data.nodesById.has(nodeId)) return nodeId;
+  const semanticId = nodeId.replace(/^patent:/, 'patent.');
+  if (data.nodesById.has(semanticId)) return semanticId;
   const value = nodeId.includes(":") ? nodeId.split(":").slice(1).join(":") : nodeId;
   const txCode = normalizeCode(value);
   if (/^TX\d{2}$/.test(txCode) && data.nodesById.has("taxonomy:" + txCode)) return "taxonomy:" + txCode;
@@ -902,6 +941,20 @@ function loadData() {
   const claims = readJsonl(paths.claims);
   const nodes = readJsonl(paths.nodes);
   const edges = readJsonl(paths.edges);
+  const semantic = readJson(paths.semantic);
+  const existingNodeIds = new Set(nodes.map((node) => node.id));
+  for (const doc of semantic.documents) {
+    if (!existingNodeIds.has(doc.id)) nodes.push({ id: doc.id, type: 'patent', label: doc.publication_number, metadata: { family_id: doc.family_id } });
+  }
+  for (const cluster of semantic.clusters) {
+    nodes.push({ id: cluster.id, type: 'semantic_cluster', label: cluster.label, metadata: { familyCount: cluster.family_count, meanSimilarity: cluster.mean_similarity } });
+    for (const id of cluster.patent_ids) edges.push({ source: id, target: cluster.id, type: 'in_semantic_cluster' });
+  }
+  for (const edge of semantic.edges) {
+    const a = semantic.documents.find((doc) => doc.family_id === edge.source_family);
+    const b = semantic.documents.find((doc) => doc.family_id === edge.target_family);
+    if (a && b) edges.push({ source: a.id, target: b.id, type: 'semantic_similar', similarity: edge.similarity });
+  }
   const mcpSnapshot = readJson(paths.mcpSnapshot);
   const bigqueryEvidencePackIndex = readJson(paths.bigqueryEvidencePacks);
   const seedEvidencePackIndex = readJson(paths.evidencePackIndex);
@@ -922,6 +975,7 @@ function loadData() {
   }
 
   dataCache = {
+    semantic,
     patents,
     chunks,
     landscapeEvidenceChunks,

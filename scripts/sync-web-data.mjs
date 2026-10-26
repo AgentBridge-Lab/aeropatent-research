@@ -6,6 +6,12 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const WEB_ROOT = path.join(ROOT, "web");
 const OUT = path.join(WEB_ROOT, "app", "lib", "data.ts");
+const semanticSnapshot = JSON.parse(fs.readFileSync(path.join(ROOT, 'analysis/semantic_clusters.json'), 'utf8'));
+const textCorpusHash = crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT, 'normalized/patents.jsonl'), 'utf8').replace(/^\uFEFF/, '').replace(/\r\n/g, '\n')).digest('hex');
+if (semanticSnapshot.source_file_hash !== textCorpusHash) {
+  throw new Error('Semantic clusters are stale. Run scripts/build_semantic_clusters.py before syncing web data.');
+}
+fs.writeFileSync(path.join(WEB_ROOT, 'app/lib/semantic-data.json'), `${JSON.stringify(semanticSnapshot, null, 2)}\n`, 'utf8');
 
 const TARGET_COUNTRIES = ["US", "EP", "JP", "CN", "KR"];
 const COUNTRY_LABELS = {
@@ -494,6 +500,7 @@ const source = `// =============================================================
 // ============================================================================
 
 export const CURRENT_YEAR = ${summary.current_year};
+import { semanticNeighbors, semanticClusterId } from './semantic';
 export const DATA_SNAPSHOT_ID = ${JSON.stringify(summary.snapshot_id)};
 
 // P0-4: 총량·분야 수치에 일관 적용할 라벨/출처 문구
@@ -990,6 +997,7 @@ export interface SearchOptions {
   q?: string;
   filter: Filter;
   subfield?: string;
+  cluster?: string;
   applicant?: string;
   status?: PatentStatus | 'all';
   sort?: 'recent' | 'importance';
@@ -997,6 +1005,7 @@ export interface SearchOptions {
 
 export function searchPatents(opts: SearchOptions): Patent[] {
   let result = applyFilter(opts.filter);
+  if (opts.cluster) result = result.filter((p) => semanticClusterId(p.id) === opts.cluster);
   if (opts.subfield) result = result.filter((p) => hasSubfield(p, opts.subfield!));
   if (opts.applicant) result = result.filter((p) => p.applicant === opts.applicant);
   if (opts.status && opts.status !== 'all') result = result.filter((p) => p.status === opts.status);
@@ -1021,11 +1030,8 @@ export function getPatent(idOrPub: string): Patent | null {
 }
 
 export function similarPatents(patent: Patent, limit = 4): Patent[] {
-  return PATENTS.filter((p) =>
-    p.id !== patent.id && patent.subfield_ids.some((subfieldId) => hasSubfield(p, subfieldId))
-  )
-    .sort((a, b) => b.importance_score - a.importance_score)
-    .slice(0, limit);
+  const byId = new Map(PATENTS.map((p) => [p.id, p]));
+  return semanticNeighbors(patent.id, new Set(byId.keys()), limit).map((item) => byId.get(item.id)!);
 }
 
 export function getSubfield(id: string): Subfield | undefined {

@@ -26,9 +26,16 @@
 - `scripts/build_deepdive_pages.py` → `docs/deepdive/`: 분야별 심층 페이지
 - `scripts/build_exploration_page.py` → `docs/exploration/`: 탐사 방법론 페이지
 - `web/app/`: Next.js 화면과 보고서
+- `analysis/semantic_clusters.json`: 제목·초록 임베딩으로 계산한 패밀리별 의미 군집과 유사도
 - `docs/`: 전체 공개 사이트의 정적 생성물
 
 ## 기존 자료로 로컬 전체 빌드
+
+의미 기반 군집은 유료 API 없이 다국어 임베딩 모델을 로컬 CPU에서 실행합니다.
+원문이 저장된 대표 문헌만 분석하며, 전체 CPC 후보군을 의미 분석한 결과는 아닙니다.
+Graph View의 ‘의미 유사도’ 렌즈와 ‘의미 군집’ 배치, 군집 보고서, 관련 특허 추천,
+MCP `get_semantic_clusters`에 연결했습니다. 데이터 범위·실행·재생성 방법은
+[`reports/semantic_clustering_implementation.md`](reports/semantic_clustering_implementation.md)를 참고하세요.
 
 기존 의존성이 준비된 환경에서 실행합니다. 아래 명령은 외부 데이터 수집이나 배포를 수행하지 않습니다.
 

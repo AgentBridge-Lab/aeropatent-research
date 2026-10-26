@@ -6,6 +6,7 @@ import TrendArea from './viz/TrendArea';
 import { Insights } from './viz/Insights';
 import { FIELDS, COUNTRIES } from '../lib/data';
 import { getReportSearchQuery, type NodeReport } from '../lib/graph';
+import { semanticSimilarity, SEMANTIC } from '../lib/semantic';
 
 export default function ReportBody({
   report,
@@ -79,12 +80,13 @@ export default function ReportBody({
       )}
 
       {isPatent && report.similar && report.similar.length > 0 && (
-        <Section label="유사 특허">
+        <Section label="의미가 유사한 특허">
           <ol className={styles.patentList}>
             {report.similar.map((p) => (
               <li key={p.id}>
                 <Link href={`/patents/${encodeURIComponent(p.publication_number)}`} className={styles.patentItem}>
                   <span className={`${styles.patentPub} mono`}>{p.publication_number}</span>
+                  <span className={styles.basis}>코사인 유사도 {semanticSimilarity(report.patent!.id, p.id)?.toFixed(3)}</span>
                   <span className={styles.patentTitle}>{p.title}</span>
                 </Link>
               </li>
@@ -92,6 +94,7 @@ export default function ReportBody({
           </ol>
         </Section>
       )}
+      {isPatent && !report.similar?.length && <p className={styles.basis}>현재 표본에서 유사도 기준 {SEMANTIC.method.similarity_threshold} 이상인 다른 패밀리 문헌이 없습니다.</p>}
 
       {report.evidence && report.evidence.length > 0 && (
         <details className={styles.evidence}>
@@ -131,7 +134,7 @@ export default function ReportBody({
 
 function typeLabel(t: NodeReport['node_type']): string {
   return (
-    { field: '분야', subfield: '세부분야', patent: '특허', country: '공개 관할', applicant: '출원인', keyword: '키워드' } as const
+    { cluster: '의미 군집', field: '분야', subfield: '세부분야', patent: '특허', country: '공개 관할', applicant: '출원인', keyword: '키워드' } as const
   )[t];
 }
 

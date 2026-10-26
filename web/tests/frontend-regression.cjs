@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const ts = require('../node_modules/typescript');
 require.extensions['.ts'] = (module, filename) => module._compile(ts.transpileModule(fs.readFileSync(filename, 'utf8'), {
-  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 },
+  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020, esModuleInterop: true },
 }).outputText, filename);
 const { FIELDS, SUBFIELDS, APPLICANTS, PATENTS, DEFAULT_FILTER, CURRENT_YEAR } = require('../app/lib/data.ts');
 const { getGraphData, getNodeReport, getReportSearchQuery, graphLayoutPosition, NODE_TYPE_COLOR, nodeColor } = require('../app/lib/graph.ts');

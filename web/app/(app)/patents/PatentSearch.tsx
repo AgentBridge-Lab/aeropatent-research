@@ -12,6 +12,7 @@ import {
   APPLICANTS,
   FIELDS,
 } from '../../lib/data';
+import { SEMANTIC } from '../../lib/semantic';
 
 const PAGE_SIZE = 40;
 const LOAD_MORE = 20;
@@ -28,6 +29,7 @@ export default function PatentSearch({ initialQ }: { initialQ?: string }) {
   const rawSubfield = sp.get('subfield') ?? '';
   const subfield = SUBFIELDS.some((s) => s.id === rawSubfield && (filter.field === 'all' || s.field === filter.field)) ? rawSubfield : '';
   const applicant = APPLICANTS.some((a) => a.id === sp.get('applicant')) ? sp.get('applicant')! : '';
+  const cluster = sp.get('cluster') ?? '';
   const [limit, setLimit] = useState(PAGE_SIZE);
 
   const updateSearch = (changes: Record<string, string>) => {
@@ -54,8 +56,8 @@ export default function PatentSearch({ initialQ }: { initialQ?: string }) {
   }, [filter.field]);
 
   const results = useMemo(
-    () => searchPatents({ q, filter, subfield: subfield || undefined, applicant: applicant || undefined, status, sort }),
-    [q, filter, subfield, applicant, status, sort]
+    () => searchPatents({ q, filter, subfield: subfield || undefined, applicant: applicant || undefined, cluster: cluster || undefined, status, sort }),
+    [q, filter, subfield, applicant, cluster, status, sort]
   );
 
   const visible = results.slice(0, limit);
@@ -70,6 +72,10 @@ export default function PatentSearch({ initialQ }: { initialQ?: string }) {
     <div>
       {/* Controls */}
       <div className={styles.controls}>
+        {cluster && <div className={styles.controlGroup}>
+          <span>의미 군집: {SEMANTIC.clusters.find((item) => item.id === cluster)?.label ?? '알 수 없는 군집'}</span>
+          <button className={styles.clearBtn} onClick={() => updateSearch({ cluster: '' })} aria-label="군집 필터 해제">×</button>
+        </div>}
         {/* Search input */}
         <div className={styles.searchBox}>
           <svg className={styles.searchIcon} viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -172,11 +178,11 @@ export default function PatentSearch({ initialQ }: { initialQ?: string }) {
         <span className={styles.resultCount} role="status" aria-live="polite">
           수동 선정 대표 문헌 <strong>{results.length.toLocaleString()}</strong>건
         </span>
-        {(q || subfield || applicant || status !== 'all' || sort !== 'recent') && (
+        {(q || subfield || applicant || cluster || status !== 'all' || sort !== 'recent') && (
           <button
             className={styles.resetBtn}
             onClick={() => {
-              updateSearch({ q: '', subfield: '', applicant: '', status: '', sort: '' });
+              updateSearch({ q: '', subfield: '', applicant: '', cluster: '', status: '', sort: '' });
             }}
           >
             필터 초기화

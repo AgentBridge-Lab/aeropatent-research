@@ -28,4 +28,5 @@ raw/
 *.log
 *.tmp
 *.tsbuildinfo
+__pycache__/
 verification-*.png

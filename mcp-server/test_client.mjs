@@ -1,6 +1,7 @@
 import { spawn } from "node:child_process";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import assert from 'node:assert/strict';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const serverPath = path.join(__dirname, "server.mjs");
@@ -79,6 +80,22 @@ try {
     clientInfo: { name: "aeropatent-smoke-test", version: "0.1.0" },
   });
   const tools = await request("tools/list");
+  const semantic = JSON.parse((await request('tools/call', { name: 'get_semantic_clusters', arguments: {} })).content[0].text);
+  assert.equal(semantic.scope, 'recorded_patent_text_only');
+  assert(semantic.summary.family_count > 0);
+  if (semantic.clusters.length) {
+    const cluster = semantic.clusters[0];
+    const neighborhood = JSON.parse((await request('tools/call', {
+      name: 'get_graph_neighbors', arguments: { nodeId: cluster.id },
+    })).content[0].text);
+    assert(neighborhood.found && neighborhood.edges.some(edge => edge.type === 'in_semantic_cluster'));
+    const publicationNumber = cluster.representative_id.replace('patent.', '');
+    const result = JSON.parse((await request('tools/call', {
+      name: 'get_semantic_clusters', arguments: { publicationNumber },
+    })).content[0].text);
+    assert(result.found);
+    assert(result.neighbors.every(item => item.similarity >= semantic.method.similarity_threshold));
+  }
   const globalLandscape = await request("tools/call", {
     name: "get_global_patent_landscape",
     arguments: { country: "KR", period: "5y", limit: 4 },

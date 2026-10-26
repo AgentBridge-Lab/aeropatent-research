@@ -1,0 +1,10 @@
+{
+  "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "revision": "e8f8c211226b894fcb81acc59f3b34ba3efd5f42",
+  "similarity_threshold": 0.62,
+  "max_neighbors": 4,
+  "max_families": 5000,
+  "batch_size": 16,
+  "chunk_tokens": 110,
+  "chunk_overlap": 20
+}

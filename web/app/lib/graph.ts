@@ -29,7 +29,9 @@ import {
   getSubfield,
   getApplicant,
   hasSubfield,
+  similarPatents,
 } from './data';
+import { SEMANTIC, SEMANTIC_SCOPE, semanticClusterId, semanticColor, semanticNeighbors } from './semantic';
 import { getReportGuidance } from './report-content';
 import type {
   Filter,
@@ -43,6 +45,7 @@ import type {
 } from './data';
 
 export type GraphNodeType =
+  | 'cluster'
   | 'field'
   | 'subfield'
   | 'patent'
@@ -50,7 +53,7 @@ export type GraphNodeType =
   | 'applicant'
   | 'keyword';
 
-export type ColorBy = 'field' | 'country' | 'period' | 'applicant' | 'nodeType';
+export type ColorBy = 'field' | 'country' | 'period' | 'applicant' | 'nodeType' | 'semantic';
 export type Lens =
   | 'all'
   | 'field'
@@ -69,6 +72,7 @@ export interface GraphNode {
   country?: CountryCode;
   year?: number;
   applicant?: string;
+  cluster_id?: string;
   val: number; // 노드 크기 (importance 기반)
   importance: number;
 }
@@ -86,6 +90,7 @@ export interface GraphData {
 }
 
 export const NODE_TYPE_COLOR: Record<GraphNodeType, string> = {
+  cluster: '#62cbb7',
   field: '#8fabd4',
   subfield: '#b9c8dd',
   patent: '#efece3',
@@ -103,6 +108,8 @@ export function countryColor(code?: CountryCode): string {
 
 export function nodeColor(node: GraphNode, colorBy: ColorBy): string {
   switch (colorBy) {
+    case 'semantic':
+      return semanticColor(node.cluster_id);
     case 'field':
       return fieldColor(node.field);
     case 'country':
@@ -202,6 +209,7 @@ export function getGraphData(filter: Filter, maxPatents = 150): GraphData {
       applicant: p.applicant,
       val: 3 + p.importance_score * 6,
       importance: p.importance_score,
+      cluster_id: semanticClusterId(p.id),
     });
     p.subfield_ids.forEach((subfieldId) => {
       edges.push({ source: p.id, target: `subfield.${subfieldId}`, type: 'belongs_to', confidence: 0.9 });
@@ -215,27 +223,20 @@ export function getGraphData(filter: Filter, maxPatents = 150): GraphData {
     });
   });
 
-  // 동일 세부분야 엣지 — 같은 subfield 문헌끼리의 표시용 연결이다.
-  // 원천 인용 레코드가 없으므로 인용 관계로 표시하지 않는다.
-  const bySub = new Map<string, Patent[]>();
-  patents.forEach((p) => {
-    p.subfield_ids.forEach((subfieldId) => {
-      const arr = bySub.get(subfieldId) ?? [];
-      arr.push(p);
-      bySub.set(subfieldId, arr);
-    });
+  SEMANTIC.clusters.forEach((cluster) => {
+    const members = patents.filter((p) => semanticClusterId(p.id) === cluster.id);
+    if (!members.length) return;
+    add({ id: cluster.id, type: 'cluster', label: cluster.label, cluster_id: cluster.id, val: 18, importance: 1 });
+    members.forEach((p) => edges.push({ source: p.id, target: cluster.id, type: 'in_semantic_cluster', confidence: cluster.mean_similarity }));
   });
-  bySub.forEach((arr) => {
-    const sorted = arr.sort((a, b) => b.importance_score - a.importance_score).slice(0, 6);
-    for (let i = 0; i < sorted.length - 1; i++) {
-      edges.push({
-        source: sorted[i].id,
-        target: sorted[i + 1].id,
-        type: 'same_subfield',
-        confidence: 0.5,
-      });
-    }
-  });
+  const available = new Set(patents.map((p) => p.id));
+  const pairs = new Set<string>();
+  patents.forEach((p) => semanticNeighbors(p.id, available, SEMANTIC.method.max_neighbors).forEach((neighbor) => {
+    const pair = [p.id, neighbor.id].sort().join('|');
+    if (pairs.has(pair)) return;
+    pairs.add(pair);
+    edges.push({ source: p.id, target: neighbor.id, type: 'semantic_similar', confidence: neighbor.similarity });
+  }));
 
   return { nodes, edges };
 }
@@ -320,15 +321,33 @@ function enrichmentTrend(enrichment?: FieldEnrichment): YearPoint[] {
 export function getNodeReport(nodeId: string, filter: Filter): NodeReport | null {
   const [type, rawId] = [nodeId.split('.')[0], nodeId.split('.').slice(1).join('.')];
 
+  if (type === 'cluster') {
+    const cluster = SEMANTIC.clusters.find((item) => item.id === nodeId);
+    if (!cluster) return null;
+    const patents = applyFilter(filter).filter((p) => semanticClusterId(p.id) === nodeId);
+    const families = new Set(patents.map((p) => p.family_id ?? p.id));
+    return {
+      node_id: nodeId, node_type: 'cluster', title: cluster.label,
+      one_line_conclusion: `제목·초록의 의미가 가까운 ${cluster.family_count}개 패밀리를 묶었습니다. 현재 필터에서는 ${families.size}개 패밀리, ${patents.length}개 문헌이 표시됩니다.`,
+      kpis: [{ label: '군집 패밀리', value: String(cluster.family_count) },
+        { label: '표시 문헌', value: String(patents.length) },
+        { label: '평균 코사인 유사도', value: cluster.mean_similarity.toFixed(3) }],
+      country_distribution: patents.length ? countryDistribution(patents) : [],
+      yearly_trend: patents.length ? yearlyTrend(patents) : [],
+      insights: [`대표 기술: ${cluster.representative_title}`, `주요 용어: ${cluster.terms.join(', ')}`],
+      top_patents: patents, sample_count: patents.length, basis_note: SEMANTIC_SCOPE,
+      country_distribution_basis: '필터된 군집 대표 문헌의 공개 관할 분포', yearly_trend_basis: SAMPLE_DATE_BASIS_NOTE,
+      evidence: [{ label: '분석 방법', text: `다국어 제목·초록 임베딩, 패밀리 중복 제거, complete-linkage 군집화. 군집 내부 최소 코사인 유사도 ${cluster.min_similarity.toFixed(3)}. 기준값 ${SEMANTIC.method.similarity_threshold}.` }],
+      limitations: ['코사인 유사도는 모델의 텍스트 유사도이며 정확도·침해 가능성·권리 중첩 확률이 아닙니다.',
+        '군집명은 원문에서 추출한 용어입니다. 전체 모집단 동향이나 검증된 기술 분류를 뜻하지 않습니다.'],
+    };
+  }
+
   // 특허 노드: patent.XXXX
   if (type === 'patent') {
     const patent = PATENTS.find((p) => p.id === nodeId);
     if (!patent) return null;
-    const similar = PATENTS.filter(
-      (p) => p.id !== patent.id && patent.subfield_ids.some((subfieldId) => hasSubfield(p, subfieldId))
-    )
-      .sort((a, b) => b.importance_score - a.importance_score)
-      .slice(0, 4);
+    const similar = similarPatents(patent);
     return {
       node_id: nodeId,
       node_type: 'patent',
@@ -620,6 +639,23 @@ export function graphLayoutPosition(node: GraphNode, layout: LayoutMode, current
   if (layout === 'timeline' && node.year) {
     position.fx = ((node.year - 2016) / Math.max(1, currentYear - 2016)) * 900 - 450;
   } else if (layout === 'cluster') {
+    const clusterIndex = SEMANTIC.clusters.findIndex((cluster) => cluster.id === node.cluster_id);
+    if (clusterIndex >= 0) {
+      const angle = clusterIndex / Math.max(1, SEMANTIC.clusters.length) * Math.PI * 2;
+      let hash = 0;
+      for (const char of node.id) hash = (hash * 31 + char.charCodeAt(0)) >>> 0;
+      const offset = node.type === 'cluster' ? 0 : 40 + hash % 50;
+      const phase = (hash % 360) * Math.PI / 180;
+      return { fx: Math.cos(angle) * 280 + Math.cos(phase) * offset,
+        fy: Math.sin(angle) * 220 + (node.type === 'cluster' ? 0 : (hash % 100) - 50),
+        fz: Math.sin(angle * 2) * 100 + Math.sin(phase) * offset };
+    }
+    if (node.type === 'patent') {
+      let hash = 0;
+      for (const char of node.id) hash = (hash * 31 + char.charCodeAt(0)) >>> 0;
+      const angle = (hash % 360) * Math.PI / 180;
+      return { fx: Math.cos(angle) * 420, fy: Math.sin(angle) * 330, fz: (hash % 180) - 90 };
+    }
     const index = FIELDS.findIndex((field) => field.id === node.field);
     if (index >= 0) {
       const angle = (index / FIELDS.length) * Math.PI * 2;
@@ -627,7 +663,7 @@ export function graphLayoutPosition(node: GraphNode, layout: LayoutMode, current
       position.fz = Math.sin(angle) * 260;
     }
   } else if (layout === 'hierarchy') {
-    const level = { field: -220, subfield: -100, patent: 60, country: 220, applicant: 220, keyword: 220 };
+    const level = { cluster: -160, field: -220, subfield: -100, patent: 60, country: 220, applicant: 220, keyword: 220 };
     position.fy = level[node.type];
   }
   return position;
@@ -637,7 +673,8 @@ export function graphLayoutPosition(node: GraphNode, layout: LayoutMode, current
 /** Search link matching the node shown in the drawer, with unrelated local controls removed. */
 export function getReportSearchQuery(report: NodeReport, query = ''): string {
   const params = new URLSearchParams(query);
-  ['q', 'subfield', 'applicant', 'node', 'status', 'sort'].forEach((key) => params.delete(key));
+  ['q', 'subfield', 'applicant', 'cluster', 'node', 'status', 'sort'].forEach((key) => params.delete(key));
+  if (report.node_type === 'cluster') params.set('cluster', report.node_id);
   const rawId = report.node_id.split('.').slice(1).join('.');
   if (report.node_type === 'field') params.set('field', rawId);
   if (report.node_type === 'subfield') {

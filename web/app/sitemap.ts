@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { FIELDS, SUBFIELDS, COUNTRIES, PATENTS, APPLICANTS, KEYWORDS } from './lib/data';
+import { SEMANTIC } from './lib/semantic';
 
 export const dynamic = 'force-static';
 const SITE_URL = 'https://agentbridge-lab.github.io/aeropatent-research';
@@ -10,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/deepdive/aviation', '/exploration'];
   // Match all report and patent routes exported by generateStaticParams.
   const reportIds = new Set([
+    ...SEMANTIC.clusters.map((cluster) => cluster.id),
     ...FIELDS.map((field) => `field.${field.id}`),
     ...SUBFIELDS.map((subfield) => `subfield.${subfield.id}`),
     ...COUNTRIES.map((country) => `country.${country.code}`),

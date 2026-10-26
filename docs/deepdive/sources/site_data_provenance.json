@@ -343,7 +343,7 @@
   "source_files": [
     {
       "path": "exports/agentbridge/agentbridge_patent_landscape_snapshot.json",
-      "sha256": "43af21df74721ddf8dffceb5766feeecf0f3d7b238166475c5347c2c7eabaafc"
+      "sha256": "fff5ce43a3b6c51ce488204612a31d8cfdb810a9943d037ad0d89f7fd779adc8"
     },
     {
       "path": "analysis/bq_candidates_production.manifest.json",
@@ -351,15 +351,15 @@
     },
     {
       "path": "analysis/deepdive_enrichment.json",
-      "sha256": "d611a1a4459016948269cf00a2d5017a5d4d774b5d71014af15e56d9b519a5f7"
+      "sha256": "91fdba54cf46928b2b4eadc53bd5d563b79a57c9577cc249257bd865d65b220b"
     },
     {
       "path": "normalized/patents.jsonl",
-      "sha256": "ccf159c6b58f0283f70770f1560c33c144a8e48773e068b1625c3e4b8009121d"
+      "sha256": "1004d6623a1a38f98841213b3762de2b1cd8ad2204092d4a2c45334edc8d73da"
     },
     {
       "path": "normalized/claims.jsonl",
-      "sha256": "d6f8c972edf72873921cdddd47a5f1205db53511eaacadcce76a9f2f612721ff"
+      "sha256": "54fcf47dfeb089c214297fca72d54bb870cf0559520f42574ceb9883435be7d8"
     },
     {
       "path": "sql/01a_candidate_10y_cpc_first_production.sql",
@@ -367,7 +367,7 @@
     },
     {
       "path": "sql/07_deepdive_enrichment_queries.sql",
-      "sha256": "6c90c42cd2a9e3ce496eed45ccae1320291b2ae4905cd6ceb0dbf1b04dcf10f3"
+      "sha256": "806711b91ebc438396803331e6c22b87919f04d7a3d6c14d0e95f96f0c9ec611"
     }
   ]
 }

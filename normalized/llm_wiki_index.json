@@ -1,6 +1,7 @@
 {
   "schema_version": "aeropatent.llm_wiki.v1",
   "entrypoints": {
+    "semantic_clusters": "analysis/semantic_clusters.json",
     "patents": "normalized/patents.jsonl",
     "chunks": "normalized/evidence_chunks.jsonl",
     "nodes": "graph/nodes.jsonl",
@@ -8,6 +9,7 @@
     "report_cards": "reports/site_report_cards.json"
   },
   "recommended_retrieval": [
+    "For semantic topics, read analysis/semantic_clusters.json or call get_semantic_clusters; coverage is recorded patent text only. Scores are cosine similarities, not confidence probabilities.",
     "1. Start with field or country node from graph/nodes.jsonl.",
     "2. Follow CLASSIFIED_AS and PUBLISHED_IN edges to patent nodes.",
     "3. Load patent record from normalized/patents.jsonl.",
