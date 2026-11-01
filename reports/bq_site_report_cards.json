@@ -3,73 +3,73 @@
     "id": "bq-field:space_launch_propulsion_recovery",
     "type": "field_summary",
     "title": "발사체 추진·회수",
-    "metric": 17535,
+    "metric": 17410,
     "metricLabel": "family",
-    "description": "발사체 추진·회수 분야는 최근 10년 우선권 기준 17,535개 패밀리, 37,721개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 8,608개입니다.",
+    "description": "발사체 추진·회수 분야는 최근 10년 우선권 기준 17,410개 패밀리, 37,428개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 8,487개입니다.",
     "countryFamilyCounts": {
-      "US": 2967,
-      "CN": 11997,
-      "JP": 713,
-      "KR": 1055,
-      "WO": 1935,
-      "CA": 320,
+      "US": 2939,
+      "CN": 11933,
+      "JP": 710,
+      "WO": 1920,
       "DE": 309,
-      "EP": 1510,
-      "RU": 973,
-      "TW": 36,
-      "IL": 104,
+      "KR": 1037,
+      "RU": 960,
+      "CA": 317,
+      "EP": 1498,
       "AU": 210,
+      "IL": 104,
       "SG": 16,
-      "GB": 178,
+      "TW": 36,
+      "GB": 177,
+      "FR": 369,
       "ZA": 18,
+      "ES": 207,
       "IT": 73,
-      "ES": 209,
-      "FR": 377,
-      "EA": 16,
-      "LT": 5,
-      "CZ": 11,
+      "LT": 4,
+      "EA": 15,
       "GR": 2,
-      "DK": 12,
-      "AT": 13,
       "PL": 69,
+      "DK": 12,
       "BR": 40,
+      "CZ": 11,
+      "AR": 8,
+      "AT": 13,
+      "NO": 2,
       "PT": 9,
       "NZ": 20,
-      "NO": 2,
-      "AR": 8,
-      "LU": 10,
-      "BG": 7,
-      "TR": 21,
-      "MX": 17,
       "CH": 6,
+      "BG": 7,
+      "LU": 10,
+      "MX": 17,
+      "TR": 21,
       "FI": 13,
       "MA": 5,
-      "EC": 3,
       "RO": 6,
-      "SE": 12,
-      "BE": 2,
       "NL": 6,
-      "MY": 2,
-      "HU": 9,
       "UA": 9,
+      "BE": 2,
+      "MY": 2,
+      "SE": 12,
+      "EC": 3,
       "SI": 4,
       "SA": 2,
-      "CO": 3,
-      "IE": 1,
-      "UY": 3,
+      "HU": 8,
       "MD": 1,
+      "CO": 3,
+      "UY": 3,
+      "IE": 1,
+      "CL": 1,
       "PH": 1,
-      "RS": 1,
-      "CL": 1
+      "RS": 1
     },
     "regionFamilyCounts": {
-      "NORTH_AMERICA": 2993,
-      "EAST_ASIA": 13444,
-      "INTERNATIONAL": 1935,
-      "EUROPE": 2061,
-      "OTHER_WORLD": 1071,
-      "MIDDLE_EAST": 126,
+      "NORTH_AMERICA": 2965,
+      "EAST_ASIA": 13362,
+      "INTERNATIONAL": 1920,
+      "EUROPE": 2046,
+      "OTHER_WORLD": 1056,
       "OCEANIA": 216,
+      "MIDDLE_EAST": 126,
       "AFRICA": 21,
       "LATIN_AMERICA": 51
     },
@@ -80,19 +80,19 @@
       },
       {
         "key": "SHANGHAI SATELLITE ENG INST",
-        "count": 443
+        "count": 441
       },
       {
         "key": "UNIV BEIHANG",
-        "count": 405
+        "count": 404
       },
       {
         "key": "UNIV NORTHWESTERN POLYTECHNICAL",
-        "count": 378
+        "count": 376
       },
       {
         "key": "BEIJING INST SPACECRAFT SYSTEM ENGINEERING",
-        "count": 367
+        "count": 366
       },
       {
         "key": "SHANGHAI AEROSPACE SYSTEM ENGINEERING INST",
@@ -104,17 +104,17 @@
       },
       {
         "key": "BEIJING INST CONTROL ENG",
-        "count": 333
+        "count": 328
       }
     ],
     "topCpcCodes": [
       {
         "key": "B64G1",
-        "count": 100690
+        "count": 99977
       },
       {
         "key": "F02K9",
-        "count": 26702
+        "count": 26538
       },
       {
         "key": "H04B7",
@@ -122,31 +122,31 @@
       },
       {
         "key": "F03H1",
-        "count": 2728
+        "count": 2692
       },
       {
         "key": "H01Q1",
-        "count": 2441
+        "count": 2427
       },
       {
         "key": "B64G3",
-        "count": 1821
+        "count": 1818
       },
       {
         "key": "G06T2207",
         "count": 1733
       },
       {
-        "key": "F05D2260",
-        "count": 1416
-      },
-      {
         "key": "Y02E10",
-        "count": 1416
+        "count": 1405
       },
       {
         "key": "G01S13",
         "count": 1387
+      },
+      {
+        "key": "F05D2260",
+        "count": 1344
       }
     ],
     "graphFocusNode": "field:space_launch_propulsion_recovery"
@@ -155,74 +155,74 @@
     "id": "bq-field:space_satellite_bus_thermal_power",
     "type": "field_summary",
     "title": "위성 플랫폼·열제어·전력",
-    "metric": 30299,
+    "metric": 29971,
     "metricLabel": "family",
-    "description": "위성 플랫폼·열제어·전력 분야는 최근 10년 우선권 기준 30,299개 패밀리, 65,824개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 10,800개입니다.",
+    "description": "위성 플랫폼·열제어·전력 분야는 최근 10년 우선권 기준 29,971개 패밀리, 65,044개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 10,550개입니다.",
     "countryFamilyCounts": {
-      "US": 10915,
-      "CN": 13537,
-      "KR": 6136,
-      "JP": 1299,
-      "TW": 552,
-      "WO": 2964,
-      "DE": 508,
-      "EP": 2017,
-      "RU": 720,
-      "IL": 102,
+      "US": 10753,
+      "CN": 13462,
+      "KR": 6026,
+      "WO": 2938,
+      "TW": 551,
+      "JP": 1288,
+      "DE": 502,
+      "RU": 709,
+      "EP": 2001,
       "AU": 236,
+      "IL": 102,
       "SG": 23,
+      "GB": 204,
+      "CA": 368,
       "ZA": 28,
-      "CA": 370,
-      "GB": 205,
+      "FR": 352,
+      "ES": 211,
       "IT": 80,
-      "ES": 212,
-      "FR": 359,
-      "MX": 41,
-      "EA": 14,
       "LT": 4,
+      "LU": 13,
+      "EA": 13,
       "PL": 54,
       "GR": 2,
-      "DK": 16,
-      "AT": 21,
-      "AR": 15,
+      "MX": 41,
       "BR": 66,
-      "PT": 8,
-      "NO": 5,
-      "NZ": 19,
-      "RO": 5,
-      "LU": 13,
+      "DK": 15,
+      "AR": 15,
       "TR": 29,
-      "FI": 35,
-      "BG": 5,
+      "AT": 21,
+      "NO": 5,
+      "RO": 5,
+      "PT": 8,
+      "NZ": 19,
       "CH": 4,
+      "BG": 5,
+      "FI": 35,
       "HK": 1,
-      "CL": 5,
-      "HU": 10,
+      "HU": 9,
       "SI": 6,
       "CZ": 6,
-      "SE": 13,
       "MA": 4,
-      "BE": 3,
       "NL": 10,
-      "MY": 4,
       "UA": 8,
+      "CL": 5,
+      "SE": 13,
+      "BE": 3,
+      "MY": 4,
       "SA": 6,
-      "EC": 2,
       "JO": 2,
-      "PH": 3,
-      "UY": 3,
       "CO": 3,
       "MD": 1,
-      "PE": 1
+      "PE": 1,
+      "EC": 2,
+      "UY": 3,
+      "PH": 3
     },
     "regionFamilyCounts": {
-      "NORTH_AMERICA": 10950,
-      "EAST_ASIA": 20187,
-      "INTERNATIONAL": 2964,
-      "EUROPE": 2785,
-      "OTHER_WORLD": 818,
-      "MIDDLE_EAST": 135,
+      "NORTH_AMERICA": 10788,
+      "EAST_ASIA": 19999,
+      "INTERNATIONAL": 2938,
+      "EUROPE": 2762,
+      "OTHER_WORLD": 806,
       "OCEANIA": 241,
+      "MIDDLE_EAST": 135,
       "AFRICA": 31,
       "LATIN_AMERICA": 85
     },
@@ -233,15 +233,15 @@
       },
       {
         "key": "SHANGHAI SATELLITE ENG INST",
-        "count": 452
+        "count": 450
       },
       {
         "key": "BEIJING INST SPACECRAFT SYSTEM ENGINEERING",
-        "count": 397
+        "count": 395
       },
       {
         "key": "LG ELECTRONICS INC",
-        "count": 373
+        "count": 359
       },
       {
         "key": "SHANGHAI AEROSPACE SYSTEM ENGINEERING INST",
@@ -249,7 +249,7 @@
       },
       {
         "key": "BEIJING INST CONTROL ENG",
-        "count": 306
+        "count": 302
       },
       {
         "key": "UNIV BEIHANG",
@@ -257,49 +257,49 @@
       },
       {
         "key": "SHANGHAI ENG CT MICROSATELLITES",
-        "count": 235
+        "count": 232
       }
     ],
     "topCpcCodes": [
       {
         "key": "B64G1",
-        "count": 100690
+        "count": 99977
       },
       {
         "key": "F28D15",
-        "count": 45986
+        "count": 45616
       },
       {
         "key": "H10F77",
-        "count": 41456
+        "count": 40338
       },
       {
         "key": "H01L31",
-        "count": 39917
+        "count": 38965
       },
       {
         "key": "H05K7",
-        "count": 20116
+        "count": 20013
       },
       {
         "key": "H10F39",
-        "count": 15711
+        "count": 15298
       },
       {
         "key": "Y02E10",
-        "count": 15520
+        "count": 15062
       },
       {
         "key": "H10F19",
-        "count": 13819
+        "count": 13540
       },
       {
         "key": "H10W40",
-        "count": 12254
+        "count": 12116
       },
       {
         "key": "H10F71",
-        "count": 11936
+        "count": 11692
       }
     ],
     "graphFocusNode": "field:space_satellite_bus_thermal_power"
@@ -308,157 +308,157 @@
     "id": "bq-field:space_comm_leo_network",
     "type": "field_summary",
     "title": "위성통신·LEO 네트워크",
-    "metric": 146374,
+    "metric": 145346,
     "metricLabel": "family",
-    "description": "위성통신·LEO 네트워크 분야는 최근 10년 우선권 기준 146,374개 패밀리, 483,166개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 70,114개입니다.",
+    "description": "위성통신·LEO 네트워크 분야는 최근 10년 우선권 기준 145,346개 패밀리, 478,982개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 68,895개입니다.",
     "countryFamilyCounts": {
-      "US": 60029,
-      "CN": 98474,
-      "KR": 16517,
-      "WO": 54004,
-      "EP": 34708,
-      "JP": 11938,
-      "DE": 1982,
-      "TW": 3439,
-      "ZA": 296,
-      "RU": 759,
-      "BR": 2141,
+      "US": 59512,
+      "KR": 16397,
+      "CN": 97851,
+      "WO": 53654,
+      "JP": 11833,
+      "EP": 34484,
+      "DE": 1960,
+      "TW": 3409,
+      "RU": 740,
+      "ZA": 291,
+      "DK": 154,
+      "BR": 2101,
+      "CA": 2571,
       "TR": 121,
-      "DK": 155,
-      "CA": 2605,
+      "ES": 1463,
+      "AU": 2239,
       "UA": 11,
-      "IL": 443,
-      "AU": 2260,
-      "ES": 1477,
-      "SG": 584,
-      "FR": 723,
-      "NL": 38,
-      "CO": 214,
-      "GB": 1538,
+      "IT": 83,
+      "SG": 567,
+      "FR": 718,
+      "GB": 1521,
+      "CO": 213,
+      "IL": 438,
+      "PH": 332,
       "PT": 117,
-      "PH": 336,
-      "IT": 84,
-      "HU": 106,
-      "BE": 12,
-      "CL": 91,
-      "JO": 11,
+      "HU": 105,
+      "CL": 89,
+      "NL": 38,
       "CZ": 24,
-      "IE": 5,
-      "MX": 1246,
-      "PL": 329,
-      "FI": 298,
+      "FI": 295,
+      "BE": 12,
+      "JO": 11,
+      "IE": 4,
       "LU": 65,
-      "MA": 17,
-      "BG": 13,
-      "DO": 8,
-      "AR": 123,
-      "NZ": 47,
-      "CR": 14,
-      "HK": 8,
-      "HR": 18,
-      "MY": 126,
-      "EA": 22,
+      "MX": 1228,
+      "PL": 326,
       "SA": 38,
-      "SE": 71,
-      "PE": 23,
+      "CR": 14,
+      "MA": 17,
+      "DO": 7,
+      "AR": 123,
+      "BG": 13,
+      "MY": 120,
+      "HR": 18,
+      "NZ": 45,
+      "HK": 5,
+      "SE": 70,
+      "EA": 21,
+      "PE": 22,
+      "NO": 6,
       "LT": 15,
       "AT": 16,
       "CY": 3,
       "IN": 4,
-      "NO": 6,
       "EC": 3,
       "CH": 5,
-      "GR": 8,
       "SI": 3,
       "RS": 4,
+      "GR": 8,
       "CU": 1
     },
     "regionFamilyCounts": {
-      "NORTH_AMERICA": 60208,
-      "EAST_ASIA": 111557,
-      "INTERNATIONAL": 54004,
-      "EUROPE": 37546,
-      "AFRICA": 304,
-      "OTHER_WORLD": 1771,
-      "LATIN_AMERICA": 2378,
-      "MIDDLE_EAST": 594,
-      "OCEANIA": 2267,
+      "NORTH_AMERICA": 59688,
+      "EAST_ASIA": 110822,
+      "INTERNATIONAL": 53654,
+      "EUROPE": 37292,
+      "OTHER_WORLD": 1739,
+      "AFRICA": 299,
+      "LATIN_AMERICA": 2338,
+      "MIDDLE_EAST": 589,
+      "OCEANIA": 2246,
       "SOUTH_ASIA": 4
     },
     "topApplicants": [
       {
         "key": "HUAWEI TECH CO LTD",
-        "count": 8014
+        "count": 7964
       },
       {
         "key": "QUALCOMM INC",
-        "count": 7706
+        "count": 7655
       },
       {
         "key": "SAMSUNG ELECTRONICS CO LTD",
-        "count": 4784
+        "count": 4762
       },
       {
         "key": "LG ELECTRONICS INC",
-        "count": 3150
+        "count": 3124
       },
       {
         "key": "ERICSSON TELEFON AB L M",
-        "count": 3067
+        "count": 3041
       },
       {
         "key": "ZTE CORP",
-        "count": 2424
+        "count": 2403
       },
       {
         "key": "NOKIA TECHNOLOGIES OY",
-        "count": 2106
+        "count": 2100
       },
       {
         "key": "CISCO TECH INC",
-        "count": 1922
+        "count": 1906
       }
     ],
     "topCpcCodes": [
       {
         "key": "H04B7",
-        "count": 852021
+        "count": 844087
       },
       {
         "key": "H04L5",
-        "count": 410736
+        "count": 407800
       },
       {
         "key": "H04W72",
-        "count": 372223
+        "count": 369070
       },
       {
         "key": "H04L45",
-        "count": 330352
+        "count": 327065
       },
       {
         "key": "H04W84",
-        "count": 276574
+        "count": 273396
       },
       {
         "key": "H04W76",
-        "count": 168730
+        "count": 167549
       },
       {
         "key": "H04L1",
-        "count": 153531
+        "count": 152196
       },
       {
         "key": "H04W24",
-        "count": 149807
+        "count": 148762
       },
       {
         "key": "H04W4",
-        "count": 148819
+        "count": 147298
       },
       {
         "key": "H04W52",
-        "count": 132030
+        "count": 130724
       }
     ],
     "graphFocusNode": "field:space_comm_leo_network"
@@ -467,103 +467,103 @@
     "id": "bq-field:space_remote_sensing_payload",
     "type": "field_summary",
     "title": "SAR·원격탐사 페이로드",
-    "metric": 123043,
+    "metric": 122460,
     "metricLabel": "family",
-    "description": "SAR·원격탐사 페이로드 분야는 최근 10년 우선권 기준 123,043개 패밀리, 328,930개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 62,474개입니다.",
+    "description": "SAR·원격탐사 페이로드 분야는 최근 10년 우선권 기준 122,460개 패밀리, 326,569개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 61,331개입니다.",
     "countryFamilyCounts": {
-      "US": 35351,
-      "TW": 1977,
-      "WO": 24714,
-      "CN": 85450,
-      "EP": 17682,
-      "KR": 13142,
-      "JP": 11639,
-      "DE": 10371,
-      "IL": 705,
-      "RU": 1231,
-      "ZA": 96,
-      "CA": 1719,
+      "US": 35082,
+      "TW": 1965,
+      "CN": 85135,
+      "KR": 13061,
+      "WO": 24569,
+      "EP": 17565,
+      "DE": 10290,
+      "JP": 11550,
+      "RU": 1202,
+      "IL": 699,
+      "ZA": 92,
+      "CA": 1702,
+      "SG": 196,
       "UA": 10,
-      "SG": 198,
-      "BR": 439,
-      "HU": 63,
-      "AU": 1386,
       "AR": 44,
-      "AT": 75,
-      "MY": 30,
-      "SE": 180,
-      "MX": 359,
-      "GB": 1149,
+      "AT": 74,
+      "SE": 179,
+      "AU": 1376,
+      "BR": 434,
+      "NL": 136,
+      "GB": 1135,
       "BE": 44,
-      "FR": 1421,
-      "CZ": 46,
-      "NZ": 41,
-      "PL": 219,
-      "NL": 137,
-      "DK": 130,
+      "FR": 1412,
+      "MY": 30,
+      "MX": 353,
+      "NZ": 40,
+      "PL": 218,
+      "DK": 127,
+      "CZ": 45,
+      "IT": 258,
+      "CL": 70,
+      "ES": 607,
+      "PT": 37,
       "CH": 29,
       "CO": 27,
-      "PT": 38,
-      "IT": 261,
-      "ES": 614,
-      "CL": 70,
+      "TR": 65,
+      "HU": 60,
+      "MA": 21,
+      "PE": 20,
       "PH": 41,
       "LU": 151,
-      "FI": 179,
       "EA": 30,
-      "MA": 22,
-      "TR": 65,
-      "PE": 20,
-      "RS": 10,
+      "FI": 178,
       "NO": 59,
-      "HR": 25,
+      "RS": 10,
       "LT": 18,
-      "IE": 1,
+      "HR": 25,
+      "BG": 7,
       "SA": 31,
+      "IE": 1,
       "GE": 1,
       "SI": 10,
-      "BG": 7,
       "PY": 2,
+      "RO": 3,
       "MT": 1,
       "GR": 11,
-      "RO": 3,
-      "LV": 1,
-      "CR": 1,
       "IN": 1,
+      "HK": 4,
+      "LV": 1,
       "SM": 3,
-      "HK": 6,
       "CY": 2,
-      "UY": 3,
-      "TN": 1
+      "CR": 1,
+      "TN": 1,
+      "UY": 3
     },
     "regionFamilyCounts": {
-      "NORTH_AMERICA": 35483,
-      "EAST_ASIA": 98985,
-      "INTERNATIONAL": 24714,
-      "EUROPE": 27862,
-      "MIDDLE_EAST": 793,
-      "OTHER_WORLD": 1820,
-      "AFRICA": 114,
-      "LATIN_AMERICA": 532,
-      "OCEANIA": 1386,
+      "NORTH_AMERICA": 35213,
+      "EAST_ASIA": 98572,
+      "INTERNATIONAL": 24569,
+      "EUROPE": 27667,
+      "OTHER_WORLD": 1785,
+      "MIDDLE_EAST": 787,
+      "AFRICA": 109,
+      "LATIN_AMERICA": 527,
+      "OCEANIA": 1376,
       "SOUTH_ASIA": 1
     },
     "topApplicants": [
       {
         "key": "UNIV XIDIAN",
-        "count": 2228
+        "count": 2222
       },
       {
         "key": "BOSCH GMBH ROBERT",
-        "count": 1905
+        "count": 1891
       },
       {
         "key": "HUAWEI TECH CO LTD",
-        "count": 1141
+        "count": 1140
       },
       {
         "key": "SAMSUNG ELECTRONICS CO LTD",
-        "count": 1117
+        "count": 1116
       },
       {
         "key": "BEIJING INSTITUTE TECH",
@@ -575,53 +575,53 @@
       },
       {
         "key": "QUALCOMM INC",
-        "count": 906
+        "count": 905
       },
       {
         "key": "SONY SEMICONDUCTOR SOLUTIONS CORP",
-        "count": 866
+        "count": 864
       }
     ],
     "topCpcCodes": [
       {
         "key": "G01S7",
-        "count": 632034
+        "count": 627235
       },
       {
         "key": "G01S13",
-        "count": 402489
+        "count": 399201
       },
       {
         "key": "G01S17",
-        "count": 299069
+        "count": 295992
       },
       {
         "key": "G01J3",
-        "count": 181962
+        "count": 179501
       },
       {
         "key": "G01N21",
-        "count": 74817
+        "count": 74062
       },
       {
         "key": "G01S15",
-        "count": 64280
+        "count": 63689
       },
       {
         "key": "G01S2013",
-        "count": 61634
+        "count": 60874
       },
       {
         "key": "A61B8",
-        "count": 54230
+        "count": 53703
       },
       {
         "key": "G06T2207",
-        "count": 49455
+        "count": 49368
       },
       {
         "key": "G06V10",
-        "count": 40505
+        "count": 40425
       }
     ],
     "graphFocusNode": "field:space_remote_sensing_payload"
@@ -630,109 +630,109 @@
     "id": "bq-field:space_gnc_rendezvous_servicing",
     "type": "field_summary",
     "title": "GNC·랑데부·온오빗 서비스",
-    "metric": 167178,
+    "metric": 166138,
     "metricLabel": "family",
-    "description": "GNC·랑데부·온오빗 서비스 분야는 최근 10년 우선권 기준 167,178개 패밀리, 419,667개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 78,087개입니다.",
+    "description": "GNC·랑데부·온오빗 서비스 분야는 최근 10년 우선권 기준 166,138개 패밀리, 415,852개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 76,765개입니다.",
     "countryFamilyCounts": {
-      "US": 44868,
-      "CN": 120301,
-      "KR": 16634,
-      "WO": 25793,
-      "EP": 17300,
-      "JP": 14638,
-      "TW": 1351,
-      "ZA": 161,
-      "DE": 8945,
-      "CO": 40,
-      "RU": 1546,
-      "CA": 2680,
-      "SE": 380,
-      "UA": 27,
-      "BR": 840,
+      "US": 44405,
+      "CN": 119692,
+      "KR": 16489,
+      "WO": 25523,
+      "EP": 17113,
+      "JP": 14511,
+      "TW": 1337,
+      "RU": 1508,
+      "ZA": 158,
+      "CO": 39,
+      "DE": 8845,
       "CL": 119,
-      "IL": 538,
-      "AU": 2644,
-      "SG": 448,
-      "EC": 12,
-      "AT": 93,
-      "MX": 528,
+      "CA": 2636,
+      "BR": 827,
+      "SE": 378,
+      "UA": 27,
+      "AU": 2618,
       "TR": 89,
-      "AR": 47,
-      "GB": 1579,
+      "IL": 533,
+      "IT": 380,
+      "SG": 438,
       "PH": 68,
-      "PL": 291,
-      "FR": 1492,
-      "MY": 67,
-      "IT": 382,
-      "DK": 208,
-      "NZ": 97,
-      "PT": 65,
-      "NL": 138,
-      "ES": 936,
-      "HU": 63,
-      "FI": 177,
-      "HR": 28,
-      "CZ": 24,
-      "CH": 46,
+      "MY": 62,
+      "GB": 1559,
+      "FR": 1463,
+      "MX": 502,
+      "DK": 205,
+      "EC": 12,
+      "AT": 92,
+      "PL": 286,
+      "AR": 47,
+      "ES": 920,
+      "FI": 175,
+      "NL": 136,
       "BE": 41,
-      "EA": 36,
-      "PE": 43,
-      "RS": 18,
-      "HK": 6,
+      "HU": 62,
+      "CZ": 24,
+      "HR": 28,
+      "CH": 44,
+      "PT": 64,
       "LT": 21,
-      "NO": 99,
-      "RO": 8,
       "LU": 153,
-      "GR": 17,
+      "NO": 98,
+      "HK": 5,
+      "NZ": 94,
+      "EA": 35,
       "MA": 29,
+      "GR": 15,
+      "RS": 18,
+      "PE": 43,
+      "RO": 8,
       "SM": 6,
-      "SA": 60,
+      "SA": 59,
       "JO": 9,
-      "DO": 3,
-      "BG": 10,
       "CR": 6,
-      "PY": 4,
+      "BG": 10,
       "MD": 2,
+      "PY": 4,
+      "DO": 3,
       "SI": 22,
       "CU": 2,
-      "CY": 3,
       "EE": 2,
-      "UY": 7,
+      "CY": 3,
       "IS": 1,
+      "UY": 7,
       "SK": 1,
       "IE": 1
     },
     "regionFamilyCounts": {
-      "NORTH_AMERICA": 45014,
-      "EAST_ASIA": 138161,
-      "INTERNATIONAL": 25793,
-      "EUROPE": 26839,
-      "AFRICA": 181,
-      "LATIN_AMERICA": 968,
-      "OTHER_WORLD": 2438,
-      "MIDDLE_EAST": 681,
-      "OCEANIA": 2656
+      "NORTH_AMERICA": 44550,
+      "EAST_ASIA": 137412,
+      "INTERNATIONAL": 25523,
+      "EUROPE": 26553,
+      "OTHER_WORLD": 2385,
+      "AFRICA": 178,
+      "LATIN_AMERICA": 954,
+      "OCEANIA": 2630,
+      "MIDDLE_EAST": 675
     },
     "topApplicants": [
       {
         "key": "TOYOTA MOTOR CO LTD",
-        "count": 2319
+        "count": 2311
       },
       {
         "key": "TOYOTA MOTOR CORP",
-        "count": 2113
+        "count": 2107
       },
       {
         "key": "UNIV BEIHANG",
-        "count": 1551
+        "count": 1546
       },
       {
         "key": "HONDA MOTOR CO LTD",
-        "count": 1383
+        "count": 1369
       },
       {
         "key": "HYUNDAI MOTOR CO LTD",
-        "count": 1369
+        "count": 1352
       },
       {
         "key": "BEIJING INSTITUTE TECH",
@@ -740,53 +740,53 @@
       },
       {
         "key": "UNIV NORTHWESTERN POLYTECHNICAL",
-        "count": 1212
+        "count": 1207
       },
       {
         "key": "UNIV NANJING AERONAUTICS & ASTRONAUTICS",
-        "count": 1103
+        "count": 1098
       }
     ],
     "topCpcCodes": [
       {
         "key": "G05D1",
-        "count": 620928
+        "count": 615800
       },
       {
         "key": "G01C21",
-        "count": 476481
+        "count": 472375
       },
       {
         "key": "G08G1",
-        "count": 150380
+        "count": 148513
       },
       {
         "key": "B64G1",
-        "count": 100690
+        "count": 99977
       },
       {
         "key": "G06V20",
-        "count": 80432
+        "count": 79680
       },
       {
         "key": "G06Q10",
-        "count": 74772
+        "count": 73997
       },
       {
         "key": "G08G5",
-        "count": 74015
+        "count": 72951
       },
       {
         "key": "H04W4",
-        "count": 72108
+        "count": 71169
       },
       {
         "key": "B60W30",
-        "count": 68864
+        "count": 67723
       },
       {
         "key": "B60W60",
-        "count": 64819
+        "count": 64279
       }
     ],
     "graphFocusNode": "field:space_gnc_rendezvous_servicing"
@@ -795,169 +795,169 @@
     "id": "bq-field:space_materials_tps_coatings",
     "type": "field_summary",
     "title": "우주재료·TPS·코팅",
-    "metric": 231774,
+    "metric": 229908,
     "metricLabel": "family",
-    "description": "우주재료·TPS·코팅 분야는 최근 10년 우선권 기준 231,774개 패밀리, 609,280개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 90,917개입니다.",
+    "description": "우주재료·TPS·코팅 분야는 최근 10년 우선권 기준 229,908개 패밀리, 602,293개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 89,045개입니다.",
     "countryFamilyCounts": {
-      "US": 41424,
-      "CN": 178957,
-      "KR": 38186,
-      "WO": 46037,
-      "EP": 28066,
-      "JP": 29443,
-      "RU": 1603,
-      "BE": 184,
-      "DK": 482,
-      "TW": 13108,
-      "UA": 151,
-      "DE": 5998,
-      "HU": 402,
-      "IL": 585,
-      "BR": 2808,
-      "ZA": 515,
-      "SE": 369,
-      "EA": 154,
-      "IT": 918,
-      "ES": 2609,
-      "CA": 5185,
-      "CL": 310,
-      "CH": 183,
-      "PL": 1912,
-      "SA": 92,
-      "SG": 531,
-      "AU": 3075,
-      "AR": 481,
-      "MY": 470,
-      "NL": 354,
+      "US": 40908,
+      "CN": 177571,
+      "KR": 37750,
+      "WO": 45576,
+      "JP": 29115,
+      "EP": 27738,
+      "RU": 1558,
+      "TW": 12987,
+      "UA": 147,
+      "BE": 183,
+      "DK": 466,
+      "ZA": 511,
+      "DE": 5925,
+      "HU": 392,
+      "IL": 571,
+      "IT": 913,
+      "EA": 149,
+      "BR": 2753,
+      "CA": 5096,
+      "CH": 181,
+      "SA": 88,
+      "SG": 515,
+      "CL": 305,
+      "SE": 364,
+      "ES": 2551,
+      "AR": 476,
+      "AU": 3028,
+      "AT": 228,
+      "PL": 1875,
+      "TR": 186,
+      "NL": 351,
+      "GB": 1397,
+      "CO": 333,
+      "FR": 1992,
+      "MY": 457,
+      "MX": 3925,
+      "PE": 154,
+      "PT": 361,
       "LT": 79,
-      "MX": 3982,
-      "NO": 47,
-      "AT": 231,
-      "CO": 339,
-      "GB": 1412,
+      "CZ": 278,
       "RO": 27,
-      "FR": 2014,
-      "CZ": 279,
-      "PE": 156,
-      "PT": 371,
-      "PY": 17,
-      "TR": 187,
-      "PH": 264,
-      "RS": 138,
-      "HR": 132,
-      "SI": 127,
+      "SI": 124,
+      "NO": 46,
+      "FI": 416,
+      "HR": 131,
+      "RS": 136,
       "LU": 157,
-      "MA": 216,
-      "FI": 422,
+      "MA": 210,
+      "PY": 17,
+      "JO": 26,
       "IE": 7,
       "GE": 6,
-      "JO": 26,
       "BG": 30,
+      "PH": 257,
       "EC": 26,
-      "CR": 37,
-      "SK": 19,
-      "NZ": 132,
       "LV": 6,
-      "MD": 2,
+      "CR": 36,
+      "SK": 19,
+      "NZ": 127,
+      "MD": 1,
       "DO": 12,
       "CY": 12,
-      "GR": 59,
       "EE": 2,
-      "IN": 5,
+      "GR": 58,
       "SM": 17,
-      "TN": 11,
-      "HK": 9,
+      "IN": 5,
+      "UY": 23,
+      "HK": 8,
+      "TN": 10,
       "CU": 1,
       "NI": 1,
-      "UY": 23,
       "IS": 1
     },
     "regionFamilyCounts": {
-      "NORTH_AMERICA": 42045,
-      "EAST_ASIA": 206696,
-      "INTERNATIONAL": 46037,
-      "EUROPE": 35407,
-      "OTHER_WORLD": 3982,
-      "MIDDLE_EAST": 847,
-      "LATIN_AMERICA": 3336,
-      "AFRICA": 670,
-      "OCEANIA": 3089,
+      "NORTH_AMERICA": 41525,
+      "EAST_ASIA": 205044,
+      "INTERNATIONAL": 45576,
+      "EUROPE": 35003,
+      "OTHER_WORLD": 3901,
+      "AFRICA": 660,
+      "MIDDLE_EAST": 829,
+      "LATIN_AMERICA": 3280,
+      "OCEANIA": 3042,
       "SOUTH_ASIA": 5
     },
     "topApplicants": [
       {
         "key": "NITTO DENKO CORP",
-        "count": 1656
+        "count": 1642
       },
       {
         "key": "FUJIFILM CORP",
-        "count": 910
+        "count": 902
       },
       {
         "key": "AGC INC",
-        "count": 808
+        "count": 803
       },
       {
         "key": "LG CHEMICAL LTD",
-        "count": 806
+        "count": 799
       },
       {
         "key": "SAINT GOBAIN",
-        "count": 785
+        "count": 778
       },
       {
         "key": "SUMITOMO CHEMICAL CO",
-        "count": 741
+        "count": 732
       },
       {
         "key": "SAMSUNG DISPLAY CO LTD",
-        "count": 684
+        "count": 668
       },
       {
         "key": "TOYO BOSEKI",
-        "count": 601
+        "count": 598
       }
     ],
     "topCpcCodes": [
       {
         "key": "C04B2235",
-        "count": 571426
+        "count": 565546
       },
       {
         "key": "B32B27",
-        "count": 508733
+        "count": 502159
       },
       {
         "key": "B32B2307",
-        "count": 443817
+        "count": 438333
       },
       {
         "key": "C04B35",
-        "count": 311212
+        "count": 307957
       },
       {
         "key": "C09D5",
-        "count": 233939
+        "count": 230812
       },
       {
         "key": "C09D7",
-        "count": 198013
+        "count": 195587
       },
       {
         "key": "B32B7",
-        "count": 187888
+        "count": 185400
       },
       {
         "key": "B32B5",
-        "count": 180846
+        "count": 178861
       },
       {
         "key": "B32B15",
-        "count": 161068
+        "count": 159084
       },
       {
         "key": "B32B37",
-        "count": 145298
+        "count": 143470
       }
     ],
     "graphFocusNode": "field:space_materials_tps_coatings"
@@ -966,149 +966,149 @@
     "id": "bq-field:aviation_propulsion_sustainable",
     "type": "field_summary",
     "title": "민간항공 추진·전기·수소·SAF",
-    "metric": 27439,
+    "metric": 27232,
     "metricLabel": "family",
-    "description": "민간항공 추진·전기·수소·SAF 분야는 최근 10년 우선권 기준 27,439개 패밀리, 86,172개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 11,702개입니다.",
+    "description": "민간항공 추진·전기·수소·SAF 분야는 최근 10년 우선권 기준 27,232개 패밀리, 85,321개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 11,425개입니다.",
     "countryFamilyCounts": {
-      "US": 12881,
-      "CN": 14397,
-      "WO": 4044,
-      "EP": 8026,
-      "RU": 515,
-      "JP": 1835,
-      "KR": 2455,
-      "DE": 1402,
-      "IT": 146,
-      "PL": 175,
-      "AU": 288,
+      "US": 12763,
+      "CN": 14314,
+      "WO": 4013,
+      "EP": 7954,
+      "RU": 506,
+      "JP": 1813,
+      "DE": 1386,
+      "KR": 2403,
+      "IT": 143,
+      "PL": 172,
+      "FR": 2873,
       "ZA": 18,
-      "FR": 2884,
-      "CA": 1564,
       "NL": 18,
-      "NZ": 12,
-      "IL": 98,
-      "BE": 67,
-      "GB": 1330,
-      "ES": 249,
-      "MX": 83,
+      "GB": 1321,
+      "CA": 1541,
+      "AU": 285,
+      "IL": 97,
+      "ES": 239,
+      "BE": 65,
+      "DK": 15,
+      "MX": 82,
       "SA": 19,
-      "DK": 16,
-      "HR": 3,
       "DO": 2,
-      "BR": 211,
-      "AR": 8,
       "SE": 18,
+      "BR": 209,
+      "AR": 8,
       "EA": 15,
       "TW": 78,
-      "BG": 8,
+      "MA": 4,
       "CZ": 12,
+      "NZ": 10,
+      "BG": 8,
       "CH": 46,
       "LU": 13,
       "CL": 8,
-      "NO": 13,
-      "PH": 11,
       "RS": 4,
-      "TR": 19,
-      "MA": 4,
-      "FI": 19,
-      "MY": 9,
-      "SG": 30,
-      "GR": 4,
+      "NO": 13,
+      "PH": 10,
+      "FI": 18,
       "SK": 2,
+      "MY": 9,
+      "TR": 19,
+      "SG": 29,
       "AT": 5,
+      "HR": 3,
+      "GR": 4,
       "SI": 8,
-      "PT": 6,
+      "PT": 5,
       "HU": 6,
-      "CO": 1,
       "UA": 4,
-      "RO": 1,
-      "IE": 1
+      "IE": 1,
+      "CO": 1,
+      "RO": 1
     },
     "regionFamilyCounts": {
-      "NORTH_AMERICA": 12933,
-      "EAST_ASIA": 16677,
-      "INTERNATIONAL": 4044,
-      "EUROPE": 11146,
-      "OTHER_WORLD": 628,
-      "OCEANIA": 290,
+      "NORTH_AMERICA": 12814,
+      "EAST_ASIA": 16549,
+      "INTERNATIONAL": 4013,
+      "EUROPE": 11053,
+      "OTHER_WORLD": 618,
       "AFRICA": 21,
-      "MIDDLE_EAST": 134,
-      "LATIN_AMERICA": 223
+      "OCEANIA": 287,
+      "MIDDLE_EAST": 133,
+      "LATIN_AMERICA": 221
     },
     "topApplicants": [
       {
         "key": "GEN ELECTRIC",
-        "count": 1907
+        "count": 1884
       },
       {
         "key": "SAFRAN AIRCRAFT ENGINES",
-        "count": 1221
+        "count": 1215
       },
       {
         "key": "ROLLS ROYCE PLC",
-        "count": 997
+        "count": 993
       },
       {
         "key": "RTX CORP",
-        "count": 988
+        "count": 985
       },
       {
         "key": "RAYTHEON TECH CORP",
-        "count": 980
+        "count": 974
       },
       {
         "key": "PRATT & WHITNEY CANADA",
-        "count": 973
+        "count": 968
       },
       {
         "key": "UNITED TECHNOLOGIES CORP",
-        "count": 694
+        "count": 683
       },
       {
         "key": "AIRBUS OPERATIONS SAS",
-        "count": 588
+        "count": 584
       }
     ],
     "topCpcCodes": [
       {
         "key": "F02C7",
-        "count": 127518
+        "count": 126438
       },
       {
         "key": "B64D27",
-        "count": 78606
+        "count": 78045
       },
       {
         "key": "F05D2260",
-        "count": 65654
+        "count": 65128
       },
       {
         "key": "F05D2220",
-        "count": 40989
+        "count": 40592
       },
       {
         "key": "F01D25",
-        "count": 36574
+        "count": 36190
       },
       {
         "key": "F23R3",
-        "count": 33326
+        "count": 32576
       },
       {
         "key": "F05D2240",
-        "count": 29310
+        "count": 29061
       },
       {
         "key": "Y02T50",
-        "count": 25731
+        "count": 25499
       },
       {
         "key": "F02C9",
-        "count": 23520
+        "count": 23397
       },
       {
         "key": "F02C3",
-        "count": 22429
+        "count": 22259
       }
     ],
     "graphFocusNode": "field:aviation_propulsion_sustainable"
@@ -1117,118 +1117,118 @@
     "id": "bq-field:aviation_structures_aero_composites",
     "type": "field_summary",
     "title": "항공 구조·복합재·공력",
-    "metric": 50841,
+    "metric": 50443,
     "metricLabel": "family",
-    "description": "항공 구조·복합재·공력 분야는 최근 10년 우선권 기준 50,841개 패밀리, 124,258개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 18,377개입니다.",
+    "description": "항공 구조·복합재·공력 분야는 최근 10년 우선권 기준 50,443개 패밀리, 123,099개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 17,909개입니다.",
     "countryFamilyCounts": {
-      "US": 14452,
-      "KR": 9454,
-      "WO": 6764,
-      "EP": 6461,
-      "CN": 28163,
-      "RU": 705,
-      "JP": 3255,
-      "TW": 548,
-      "DK": 217,
-      "ZA": 66,
-      "DE": 1940,
-      "EA": 16,
-      "BR": 632,
-      "CA": 1204,
-      "PL": 370,
+      "US": 14269,
+      "CN": 28028,
+      "KR": 9358,
+      "WO": 6708,
+      "EP": 6406,
+      "RU": 699,
+      "JP": 3230,
+      "TW": 539,
+      "DE": 1904,
+      "ZA": 65,
+      "EA": 15,
+      "CA": 1190,
       "SA": 33,
-      "IL": 253,
-      "AU": 756,
-      "AT": 65,
-      "BE": 25,
-      "GB": 988,
-      "PY": 3,
-      "RO": 10,
+      "BR": 623,
+      "DK": 217,
+      "AU": 749,
+      "IL": 252,
+      "PL": 367,
       "TR": 76,
       "NL": 153,
-      "ES": 888,
-      "AR": 23,
-      "MX": 307,
-      "PH": 20,
-      "IT": 217,
-      "FR": 1149,
-      "FI": 79,
+      "GB": 975,
+      "RO": 10,
+      "ES": 873,
+      "PY": 3,
+      "FR": 1143,
+      "IT": 215,
+      "BE": 25,
+      "AT": 65,
       "SK": 4,
-      "HU": 56,
+      "FI": 79,
+      "AR": 22,
+      "PH": 20,
+      "HU": 55,
       "CZ": 51,
-      "PT": 90,
+      "MX": 301,
       "RS": 22,
-      "CO": 20,
-      "CL": 22,
+      "PT": 88,
       "SI": 17,
+      "SG": 84,
       "EC": 3,
-      "SG": 85,
+      "CL": 21,
       "MA": 36,
-      "HR": 21,
-      "BG": 21,
       "LU": 35,
-      "MY": 21,
-      "NZ": 17,
+      "CO": 19,
       "NO": 24,
-      "PE": 13,
-      "LV": 2,
+      "MY": 21,
+      "GR": 23,
+      "BG": 21,
+      "HR": 21,
       "SE": 46,
-      "GR": 25,
-      "DO": 1,
+      "PE": 12,
+      "NZ": 17,
+      "LV": 2,
       "CR": 3,
-      "CH": 36,
       "LT": 11,
+      "CH": 36,
+      "DO": 1,
       "UA": 13,
-      "CU": 3,
       "JO": 2,
+      "CU": 3,
       "HK": 3,
       "UY": 2,
-      "SM": 2,
-      "CY": 3,
-      "IE": 2,
       "IS": 1,
+      "CY": 3,
+      "SM": 2,
+      "IE": 2,
       "IN": 1
     },
     "regionFamilyCounts": {
-      "NORTH_AMERICA": 14533,
-      "EAST_ASIA": 37518,
-      "INTERNATIONAL": 6764,
-      "EUROPE": 9490,
-      "OTHER_WORLD": 1108,
-      "AFRICA": 100,
-      "LATIN_AMERICA": 668,
-      "MIDDLE_EAST": 360,
-      "OCEANIA": 761,
+      "NORTH_AMERICA": 14349,
+      "EAST_ASIA": 37302,
+      "INTERNATIONAL": 6708,
+      "EUROPE": 9390,
+      "OTHER_WORLD": 1097,
+      "AFRICA": 99,
+      "MIDDLE_EAST": 359,
+      "LATIN_AMERICA": 659,
+      "OCEANIA": 754,
       "SOUTH_ASIA": 1
     },
     "topApplicants": [
       {
         "key": "BOEING CO",
-        "count": 1283
+        "count": 1275
       },
       {
         "key": "SZ DJI TECHNOLOGY CO LTD",
-        "count": 446
+        "count": 433
       },
       {
         "key": "UNIV NANJING AERONAUTICS & ASTRONAUTICS",
-        "count": 424
+        "count": 423
       },
       {
         "key": "AIRBUS OPERATIONS GMBH",
-        "count": 374
+        "count": 373
       },
       {
         "key": "UNIV BEIHANG",
-        "count": 368
+        "count": 364
       },
       {
         "key": "AIRBUS OPERATIONS LTD",
-        "count": 345
+        "count": 341
       },
       {
         "key": "UNIV NORTHWESTERN POLYTECHNICAL",
-        "count": 265
+        "count": 263
       },
       {
         "key": "SAFRAN AIRCRAFT ENGINES",
@@ -1238,43 +1238,43 @@
     "topCpcCodes": [
       {
         "key": "B29C70",
-        "count": 179241
+        "count": 177539
       },
       {
         "key": "B64C39",
-        "count": 50150
+        "count": 49743
       },
       {
         "key": "B64C3",
-        "count": 38196
+        "count": 37854
       },
       {
         "key": "B64U2101",
-        "count": 37296
+        "count": 36954
       },
       {
         "key": "B29L2031",
-        "count": 33991
+        "count": 33738
       },
       {
         "key": "G05D1",
-        "count": 29617
+        "count": 29284
       },
       {
         "key": "B64U10",
-        "count": 28640
+        "count": 28282
       },
       {
         "key": "G08G5",
-        "count": 27310
+        "count": 26972
       },
       {
         "key": "B64U2201",
-        "count": 23853
+        "count": 23492
       },
       {
         "key": "B64C2201",
-        "count": 19881
+        "count": 19433
       }
     ],
     "graphFocusNode": "field:aviation_structures_aero_composites"
@@ -1283,163 +1283,163 @@
     "id": "bq-field:aviation_avionics_flight_control_autonomy",
     "type": "field_summary",
     "title": "항전·비행제어·자율비행",
-    "metric": 164048,
+    "metric": 163034,
     "metricLabel": "family",
-    "description": "항전·비행제어·자율비행 분야는 최근 10년 우선권 기준 164,048개 패밀리, 417,221개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 76,450개입니다.",
+    "description": "항전·비행제어·자율비행 분야는 최근 10년 우선권 기준 163,034개 패밀리, 413,412개 공개문헌이 수집되었습니다. 최근 5년 패밀리는 75,135개입니다.",
     "countryFamilyCounts": {
-      "US": 46393,
-      "CN": 116540,
-      "KR": 16873,
-      "WO": 25742,
-      "EP": 18430,
-      "JP": 14611,
-      "TW": 1365,
-      "ZA": 164,
-      "DE": 9003,
-      "CO": 39,
-      "RU": 1033,
-      "CA": 2836,
-      "SE": 380,
-      "AU": 2616,
-      "UA": 22,
-      "BR": 996,
+      "US": 45926,
+      "CN": 115955,
+      "KR": 16722,
+      "WO": 25474,
+      "EP": 18237,
+      "JP": 14482,
+      "TW": 1351,
+      "RU": 1001,
+      "ZA": 161,
+      "CO": 38,
+      "AU": 2590,
+      "DE": 8901,
       "CL": 119,
-      "IL": 517,
-      "SG": 453,
-      "EC": 10,
-      "AT": 91,
-      "MX": 541,
+      "CA": 2789,
+      "BR": 981,
+      "SE": 378,
+      "UA": 22,
       "TR": 116,
-      "AR": 41,
-      "GB": 1669,
+      "IL": 511,
+      "IT": 343,
       "PH": 70,
-      "PL": 293,
+      "MY": 66,
+      "GB": 1647,
       "BE": 45,
-      "FR": 1607,
-      "MY": 71,
-      "IT": 346,
-      "DK": 211,
-      "NZ": 84,
-      "PT": 64,
-      "NL": 145,
-      "ES": 879,
+      "FR": 1580,
+      "MX": 513,
+      "DK": 208,
+      "EC": 10,
+      "AT": 90,
+      "PL": 287,
+      "SG": 443,
+      "AR": 41,
+      "ES": 864,
+      "FI": 173,
+      "NL": 143,
       "HU": 59,
-      "FI": 175,
-      "HR": 32,
       "CZ": 26,
-      "CH": 45,
-      "PE": 43,
-      "RS": 18,
-      "HK": 7,
-      "JO": 10,
+      "HR": 32,
+      "CH": 43,
+      "PT": 63,
+      "SA": 61,
       "LT": 20,
-      "NO": 99,
-      "RO": 4,
       "LU": 157,
-      "SA": 62,
+      "NO": 98,
+      "HK": 6,
+      "NZ": 81,
       "MA": 26,
+      "JO": 10,
+      "RS": 18,
+      "PE": 43,
+      "RO": 4,
+      "GR": 18,
       "SM": 6,
-      "GR": 20,
-      "DO": 3,
       "CR": 6,
       "CY": 4,
       "EA": 25,
-      "PY": 4,
-      "BG": 6,
       "MD": 1,
+      "PY": 4,
+      "DO": 3,
       "SI": 22,
+      "BG": 6,
       "CU": 2,
       "EE": 2,
-      "UY": 4,
       "IS": 1,
+      "UY": 4,
       "SK": 1,
       "IE": 2
     },
     "regionFamilyCounts": {
-      "NORTH_AMERICA": 46543,
-      "EAST_ASIA": 134487,
-      "INTERNATIONAL": 25742,
-      "EUROPE": 28124,
-      "AFRICA": 182,
-      "LATIN_AMERICA": 1117,
-      "OTHER_WORLD": 1908,
-      "OCEANIA": 2624,
-      "MIDDLE_EAST": 687
+      "NORTH_AMERICA": 46075,
+      "EAST_ASIA": 133758,
+      "INTERNATIONAL": 25474,
+      "EUROPE": 27827,
+      "OTHER_WORLD": 1862,
+      "AFRICA": 179,
+      "LATIN_AMERICA": 1101,
+      "OCEANIA": 2598,
+      "MIDDLE_EAST": 680
     },
     "topApplicants": [
       {
         "key": "TOYOTA MOTOR CO LTD",
-        "count": 2323
+        "count": 2315
       },
       {
         "key": "TOYOTA MOTOR CORP",
-        "count": 2115
+        "count": 2109
       },
       {
         "key": "UNIV BEIHANG",
-        "count": 1410
+        "count": 1404
       },
       {
         "key": "HONDA MOTOR CO LTD",
-        "count": 1390
+        "count": 1376
       },
       {
         "key": "HYUNDAI MOTOR CO LTD",
-        "count": 1384
-      },
-      {
-        "key": "FORD GLOBAL TECH LLC",
-        "count": 1101
-      },
-      {
-        "key": "BOSCH GMBH ROBERT",
-        "count": 1095
+        "count": 1367
       },
       {
         "key": "UNIV NANJING AERONAUTICS & ASTRONAUTICS",
-        "count": 1092
+        "count": 1089
+      },
+      {
+        "key": "BOSCH GMBH ROBERT",
+        "count": 1085
+      },
+      {
+        "key": "BEIJING INSTITUTE TECH",
+        "count": 1084
       }
     ],
     "topCpcCodes": [
       {
         "key": "G05D1",
-        "count": 620928
+        "count": 615800
       },
       {
         "key": "G01C21",
-        "count": 476481
+        "count": 472375
       },
       {
         "key": "G08G5",
-        "count": 171618
+        "count": 170044
       },
       {
         "key": "G08G1",
-        "count": 152590
+        "count": 150686
       },
       {
         "key": "G06V20",
-        "count": 82157
+        "count": 81379
       },
       {
         "key": "G06Q10",
-        "count": 77771
+        "count": 76957
       },
       {
         "key": "H04W4",
-        "count": 76426
+        "count": 75476
       },
       {
         "key": "B60W30",
-        "count": 68941
+        "count": 67800
       },
       {
         "key": "G06N3",
-        "count": 66417
+        "count": 66163
       },
       {
         "key": "B60W60",
-        "count": 64847
+        "count": 64307
       }
     ],
     "graphFocusNode": "field:aviation_avionics_flight_control_autonomy"

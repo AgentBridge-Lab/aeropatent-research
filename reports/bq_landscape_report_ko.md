@@ -1,7 +1,7 @@
 # BigQuery 항공우주·항공 특허 본수집 리포트
 
-집계 산출물 생성시각: 2026-10-01T22:31:20.871Z
-집계기준일: 20261002
+집계 산출물 생성시각: 2026-11-01T21:54:00.807Z
+집계기준일: 20261102
 수집일: 미확인 — 집계 생성시각을 수집일로 사용하지 않음
 
 ## 수집 범위
@@ -9,42 +9,42 @@
 - 원천: Google Patents BigQuery public dataset
 - 수집 방식: CPC 접두어 후보 수집. 원문 기준의 항공우주 적용 여부는 검증 전입니다.
 - 기간 기준: 최근 10년 priority_date
-- 분야-공보 행 (분야 간 중복 포함): 2,572,239 rows
-- 공개문헌: 2,041,681 publications
-- 패밀리: 753,369 families
+- 분야-공보 행 (분야 간 중복 포함): 2,548,000 rows
+- 공개문헌: 2,022,287 publications
+- 패밀리: 748,133 families
 - 분야: 9 fields
 - 공개국가/관할: 73 codes
 
 ## 핵심 분야
 
-1. 우주재료·TPS·코팅: 231,774 families, recent5 90,917, momentum 0.1987
-2. GNC·랑데부·온오빗 서비스: 167,178 families, recent5 78,087, momentum 0.2567
-3. 항전·비행제어·자율비행: 164,048 families, recent5 76,450, momentum 0.2553
-4. 위성통신·LEO 네트워크: 146,374 families, recent5 70,114, momentum 0.2386
-5. SAR·원격탐사 페이로드: 123,043 families, recent5 62,474, momentum 0.2595
-6. 항공 구조·복합재·공력: 50,841 families, recent5 18,377, momentum 0.1495
+1. 우주재료·TPS·코팅: 229,908 families, recent5 89,045, momentum 0.1922
+2. GNC·랑데부·온오빗 서비스: 166,138 families, recent5 76,765, momentum 0.2506
+3. 항전·비행제어·자율비행: 163,034 families, recent5 75,135, momentum 0.2493
+4. 위성통신·LEO 네트워크: 145,346 families, recent5 68,895, momentum 0.2296
+5. SAR·원격탐사 페이로드: 122,460 families, recent5 61,331, momentum 0.2488
+6. 항공 구조·복합재·공력: 50,443 families, recent5 17,909, momentum 0.1423
 
 ## 주요 공개국가
 
-1. 중국(CN): 527,867 families / 774,682 publications
-2. 미국(US): 208,727 families / 401,431 publications
-3. PCT(WO): 159,376 families / 168,364 publications
-4. 유럽특허청(EP): 110,492 families / 215,312 publications
-5. 한국(KR): 98,190 families / 145,107 publications
-6. 일본(JP): 71,688 families / 132,459 publications
-7. DE(DE): 30,094 families / 34,751 publications
-8. TW(TW): 20,679 families / 34,614 publications
-9. CA(CA): 14,694 families / 18,533 publications
-10. AU(AU): 10,004 families / 17,410 publications
+1. 중국(CN): 524,702 families / 769,635 publications
+2. 미국(US): 206,637 families / 396,754 publications
+3. PCT(WO): 158,071 families / 166,955 publications
+4. 유럽특허청(EP): 109,515 families / 212,967 publications
+5. 한국(KR): 97,203 families / 143,436 publications
+6. 일본(JP): 70,995 families / 131,057 publications
+7. DE(DE): 29,768 families / 34,336 publications
+8. TW(TW): 20,495 families / 34,250 publications
+9. CA(CA): 14,478 families / 18,207 publications
+10. AU(AU): 9,896 families / 17,191 publications
 
 ## 최근 비중과 KR 관측 비중의 탐색 점수
 
-1. 발사체 추진·회수: publication gap score 0.2513, assignee gap score 0.2532
-2. SAR·원격탐사 페이로드: publication gap score 0.2362, assignee gap score 0.2388
-3. GNC·랑데부·온오빗 서비스: publication gap score 0.2327, assignee gap score 0.235
-4. 항전·비행제어·자율비행: publication gap score 0.2308, assignee gap score 0.233
-5. 위성통신·LEO 네트워크: publication gap score 0.2154, assignee gap score 0.2142
-6. 민간항공 추진·전기·수소·SAF: publication gap score 0.1797, assignee gap score 0.1843
+1. 발사체 추진·회수: publication gap score 0.2424, assignee gap score 0.2442
+2. GNC·랑데부·온오빗 서비스: publication gap score 0.2271, assignee gap score 0.2294
+3. SAR·원격탐사 페이로드: publication gap score 0.2267, assignee gap score 0.2292
+4. 항전·비행제어·자율비행: publication gap score 0.2253, assignee gap score 0.2275
+5. 위성통신·LEO 네트워크: publication gap score 0.2076, assignee gap score 0.2063
+6. 민간항공 추진·전기·수소·SAF: publication gap score 0.1727, assignee gap score 0.1772
 
 ## 지표의 분모와 한계
 

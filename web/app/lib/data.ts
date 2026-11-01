@@ -23,7 +23,7 @@ export const SAMPLE_BASIS_NOTE = `수동 선정 대표 문헌 ${SAMPLE_SIZE}건 
 export const SAMPLE_DATE_BASIS_NOTE = '표본 날짜는 원천 출원일 기준이며 출원일이 없으면 공개연도를 사용합니다. 원천 날짜의 불일치는 개별 문헌에 표시합니다.';
 export const SAMPLE_SCORE_NOTE = '표본 정렬점수 = 0.56 + min(0.22, 매칭어 수 × 0.045) + min(0.12, 기록된 패밀리 관할 수 × 0.025), 상한 0.99. 인용·기술가치·법적 강도의 지표가 아닙니다.';
 export const OFFICE_SHARE_BASIS_NOTE = '표시 5개 공개 관할의 패밀리-관할 관계 수 합계를 분모로 사용합니다. 동일 패밀리가 여러 관할에 중복되므로 고유 패밀리의 국가별 점유율이 아닙니다.';
-export const DATA_PROVENANCE_NOTE = "전체 CPC 후보군 집계기준일 2026-10-02. 실제 수집일 미확인. 보관 manifest 2026-06-28 (2,522,788행), 현재 집계 2,572,239행. 원시 스냅숏 로컬 존재. 심층 연도·피인용 자료는 별도 2016–2025 우선일 코호트입니다.";
+export const DATA_PROVENANCE_NOTE = "전체 CPC 후보군 집계기준일 2026-11-02. 실제 수집일 미확인. 보관 manifest 2026-06-28 (2,522,788행), 현재 집계 2,548,000행. 원시 스냅숏 로컬 존재. 심층 연도·피인용 자료는 별도 2016–2025 우선일 코호트입니다.";
 
 export type CountryCode = "US" | "EP" | "JP" | "CN" | "KR";
 export type FieldId = "space_launch_propulsion_recovery" | "space_satellite_bus_thermal_power" | "space_comm_leo_network" | "space_remote_sensing_payload" | "space_gnc_rendezvous_servicing" | "space_materials_tps_coatings" | "aviation_propulsion_sustainable" | "aviation_structures_aero_composites" | "aviation_avionics_flight_control_autonomy";
@@ -142,44 +142,44 @@ export interface LandscapeSummary {
 
 export const LANDSCAPE_SUMMARY: LandscapeSummary = {
   "snapshot_id": "aeropatent.bigquery.landscape.v1",
-  "generated_at": "2026-10-01T22:31:20.871Z",
-  "analysis_date": "20261002",
+  "generated_at": "2026-11-01T21:54:00.807Z",
+  "analysis_date": "20261102",
   "collection_date": null,
-  "collection_date_status": "실제 수집일 미확인. 보관 manifest 2026-06-28 (2,522,788행), 현재 집계 2,572,239행. 원시 스냅숏 로컬 존재.",
-  "recent5_start_date": "20211002",
-  "recent3_start_date": "20231002",
-  "family_count": 753369,
-  "publication_count": 2041681,
-  "row_count": 2572239,
+  "collection_date_status": "실제 수집일 미확인. 보관 manifest 2026-06-28 (2,522,788행), 현재 집계 2,548,000행. 원시 스냅숏 로컬 존재.",
+  "recent5_start_date": "20211102",
+  "recent3_start_date": "20231102",
+  "family_count": 748133,
+  "publication_count": 2022287,
+  "row_count": 2548000,
   "current_year": 2026,
   "recent5_start_year": 2021,
   "recent3_start_year": 2023
 };
 export const LANDSCAPE_COUNTRIES = {
   "US": {
-    "family_count": 208727,
-    "publication_count": 401431,
-    "recent5_family_count": 61018
+    "family_count": 206637,
+    "publication_count": 396754,
+    "recent5_family_count": 58970
   },
   "EP": {
-    "family_count": 110492,
-    "publication_count": 215312,
-    "recent5_family_count": 36464
+    "family_count": 109515,
+    "publication_count": 212967,
+    "recent5_family_count": 35338
   },
   "CN": {
-    "family_count": 527867,
-    "publication_count": 774682,
-    "recent5_family_count": 246600
+    "family_count": 524702,
+    "publication_count": 769635,
+    "recent5_family_count": 242384
   },
   "JP": {
-    "family_count": 71688,
-    "publication_count": 132459,
-    "recent5_family_count": 20942
+    "family_count": 70995,
+    "publication_count": 131057,
+    "recent5_family_count": 20294
   },
   "KR": {
-    "family_count": 98190,
-    "publication_count": 145107,
-    "recent5_family_count": 37554
+    "family_count": 97203,
+    "publication_count": 143436,
+    "recent5_family_count": 36539
   }
 } as Record<CountryCode, { family_count: number; publication_count: number; recent5_family_count: number }>;
 
@@ -187,7 +187,7 @@ export const LANDSCAPE_COUNTRIES = {
 export const YEARLY_FAMILY_TREND: YearPoint[] = [
   {
     "year": 2016,
-    "count": 22051
+    "count": 16812
   },
   {
     "year": 2017,
@@ -270,17 +270,17 @@ export const FIELDS: Field[] = [
     "label_en": "Launch vehicle, propulsion, and recovery",
     "color": "#e54b4b",
     "summary_ko": "발사체·추진·회수 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
-    "family_count": 17535,
-    "publication_count": 37721,
-    "recent5_family_count": 8608,
-    "recent3_family_count": 4696,
-    "recent_momentum": 0.2678,
+    "family_count": 17410,
+    "publication_count": 37428,
+    "recent5_family_count": 8487,
+    "recent3_family_count": 4497,
+    "recent_momentum": 0.2583,
     "country_family_counts": {
-      "US": 2967,
-      "EP": 1510,
-      "JP": 713,
-      "CN": 11997,
-      "KR": 1055
+      "US": 2939,
+      "EP": 1498,
+      "JP": 710,
+      "CN": 11933,
+      "KR": 1037
     },
     "top_applicants": [
       {
@@ -289,19 +289,19 @@ export const FIELDS: Field[] = [
       },
       {
         "name": "SHANGHAI SATELLITE ENG INST",
-        "count": 443
+        "count": 441
       },
       {
         "name": "UNIV BEIHANG",
-        "count": 405
+        "count": 404
       },
       {
         "name": "UNIV NORTHWESTERN POLYTECHNICAL",
-        "count": 378
+        "count": 376
       },
       {
         "name": "BEIJING INST SPACECRAFT SYSTEM ENGINEERING",
-        "count": 367
+        "count": 366
       },
       {
         "name": "SHANGHAI AEROSPACE SYSTEM ENGINEERING INST",
@@ -313,17 +313,17 @@ export const FIELDS: Field[] = [
       },
       {
         "name": "BEIJING INST CONTROL ENG",
-        "count": 333
+        "count": 328
       }
     ],
     "top_cpc_codes": [
       {
         "code": "B64G1",
-        "count": 100690
+        "count": 99977
       },
       {
         "code": "F02K9",
-        "count": 26702
+        "count": 26538
       },
       {
         "code": "H04B7",
@@ -331,23 +331,23 @@ export const FIELDS: Field[] = [
       },
       {
         "code": "F03H1",
-        "count": 2728
+        "count": 2692
       },
       {
         "code": "H01Q1",
-        "count": 2441
+        "count": 2427
       },
       {
         "code": "B64G3",
-        "count": 1821
+        "count": 1818
       },
       {
         "code": "G06T2207",
         "count": 1733
       },
       {
-        "code": "F05D2260",
-        "count": 1416
+        "code": "Y02E10",
+        "count": 1405
       }
     ],
     "query_terms": [
@@ -358,7 +358,7 @@ export const FIELDS: Field[] = [
       "recovery"
     ],
     "report_bullets": [
-      "발사체·추진·회수 검색축에서 17,535개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "발사체·추진·회수 검색축에서 17,410개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
       "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
@@ -372,17 +372,17 @@ export const FIELDS: Field[] = [
     "label_en": "Satellite bus, thermal control, and power",
     "color": "#f4b942",
     "summary_ko": "위성체·열·전력 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
-    "family_count": 30299,
-    "publication_count": 65824,
-    "recent5_family_count": 10800,
-    "recent3_family_count": 4793,
-    "recent_momentum": 0.1582,
+    "family_count": 29971,
+    "publication_count": 65044,
+    "recent5_family_count": 10550,
+    "recent3_family_count": 4554,
+    "recent_momentum": 0.1519,
     "country_family_counts": {
-      "US": 10915,
-      "EP": 2017,
-      "JP": 1299,
-      "CN": 13537,
-      "KR": 6136
+      "US": 10753,
+      "EP": 2001,
+      "JP": 1288,
+      "CN": 13462,
+      "KR": 6026
     },
     "top_applicants": [
       {
@@ -391,15 +391,15 @@ export const FIELDS: Field[] = [
       },
       {
         "name": "SHANGHAI SATELLITE ENG INST",
-        "count": 452
+        "count": 450
       },
       {
         "name": "BEIJING INST SPACECRAFT SYSTEM ENGINEERING",
-        "count": 397
+        "count": 395
       },
       {
         "name": "LG ELECTRONICS INC",
-        "count": 373
+        "count": 359
       },
       {
         "name": "SHANGHAI AEROSPACE SYSTEM ENGINEERING INST",
@@ -407,7 +407,7 @@ export const FIELDS: Field[] = [
       },
       {
         "name": "BEIJING INST CONTROL ENG",
-        "count": 306
+        "count": 302
       },
       {
         "name": "UNIV BEIHANG",
@@ -415,41 +415,41 @@ export const FIELDS: Field[] = [
       },
       {
         "name": "SHANGHAI ENG CT MICROSATELLITES",
-        "count": 235
+        "count": 232
       }
     ],
     "top_cpc_codes": [
       {
         "code": "B64G1",
-        "count": 100690
+        "count": 99977
       },
       {
         "code": "F28D15",
-        "count": 45986
+        "count": 45616
       },
       {
         "code": "H10F77",
-        "count": 41456
+        "count": 40338
       },
       {
         "code": "H01L31",
-        "count": 39917
+        "count": 38965
       },
       {
         "code": "H05K7",
-        "count": 20116
+        "count": 20013
       },
       {
         "code": "H10F39",
-        "count": 15711
+        "count": 15298
       },
       {
         "code": "Y02E10",
-        "count": 15520
+        "count": 15062
       },
       {
         "code": "H10F19",
-        "count": 13819
+        "count": 13540
       }
     ],
     "query_terms": [
@@ -460,7 +460,7 @@ export const FIELDS: Field[] = [
       "solar array"
     ],
     "report_bullets": [
-      "위성체·열·전력 검색축에서 30,299개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "위성체·열·전력 검색축에서 29,971개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
       "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
@@ -474,84 +474,84 @@ export const FIELDS: Field[] = [
     "label_en": "Satellite communications and LEO networks",
     "color": "#2ca58d",
     "summary_ko": "우주통신·LEO 네트워크 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
-    "family_count": 146374,
-    "publication_count": 483166,
-    "recent5_family_count": 70114,
-    "recent3_family_count": 34919,
-    "recent_momentum": 0.2386,
+    "family_count": 145346,
+    "publication_count": 478982,
+    "recent5_family_count": 68895,
+    "recent3_family_count": 33377,
+    "recent_momentum": 0.2296,
     "country_family_counts": {
-      "US": 60029,
-      "EP": 34708,
-      "JP": 11938,
-      "CN": 98474,
-      "KR": 16517
+      "US": 59512,
+      "EP": 34484,
+      "JP": 11833,
+      "CN": 97851,
+      "KR": 16397
     },
     "top_applicants": [
       {
         "name": "HUAWEI TECH CO LTD",
-        "count": 8014
+        "count": 7964
       },
       {
         "name": "QUALCOMM INC",
-        "count": 7706
+        "count": 7655
       },
       {
         "name": "SAMSUNG ELECTRONICS CO LTD",
-        "count": 4784
+        "count": 4762
       },
       {
         "name": "LG ELECTRONICS INC",
-        "count": 3150
+        "count": 3124
       },
       {
         "name": "ERICSSON TELEFON AB L M",
-        "count": 3067
+        "count": 3041
       },
       {
         "name": "ZTE CORP",
-        "count": 2424
+        "count": 2403
       },
       {
         "name": "NOKIA TECHNOLOGIES OY",
-        "count": 2106
+        "count": 2100
       },
       {
         "name": "CISCO TECH INC",
-        "count": 1922
+        "count": 1906
       }
     ],
     "top_cpc_codes": [
       {
         "code": "H04B7",
-        "count": 852021
+        "count": 844087
       },
       {
         "code": "H04L5",
-        "count": 410736
+        "count": 407800
       },
       {
         "code": "H04W72",
-        "count": 372223
+        "count": 369070
       },
       {
         "code": "H04L45",
-        "count": 330352
+        "count": 327065
       },
       {
         "code": "H04W84",
-        "count": 276574
+        "count": 273396
       },
       {
         "code": "H04W76",
-        "count": 168730
+        "count": 167549
       },
       {
         "code": "H04L1",
-        "count": 153531
+        "count": 152196
       },
       {
         "code": "H04W24",
-        "count": 149807
+        "count": 148762
       }
     ],
     "query_terms": [
@@ -562,7 +562,7 @@ export const FIELDS: Field[] = [
       "antenna"
     ],
     "report_bullets": [
-      "우주통신·LEO 네트워크 검색축에서 146,374개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "우주통신·LEO 네트워크 검색축에서 145,346개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
       "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
@@ -576,34 +576,34 @@ export const FIELDS: Field[] = [
     "label_en": "SAR and remote-sensing payload",
     "color": "#4d8cf5",
     "summary_ko": "원격탐사·탑재체 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
-    "family_count": 123043,
-    "publication_count": 328930,
-    "recent5_family_count": 62474,
-    "recent3_family_count": 31926,
-    "recent_momentum": 0.2595,
+    "family_count": 122460,
+    "publication_count": 326569,
+    "recent5_family_count": 61331,
+    "recent3_family_count": 30469,
+    "recent_momentum": 0.2488,
     "country_family_counts": {
-      "US": 35351,
-      "EP": 17682,
-      "JP": 11639,
-      "CN": 85450,
-      "KR": 13142
+      "US": 35082,
+      "EP": 17565,
+      "JP": 11550,
+      "CN": 85135,
+      "KR": 13061
     },
     "top_applicants": [
       {
         "name": "UNIV XIDIAN",
-        "count": 2228
+        "count": 2222
       },
       {
         "name": "BOSCH GMBH ROBERT",
-        "count": 1905
+        "count": 1891
       },
       {
         "name": "HUAWEI TECH CO LTD",
-        "count": 1141
+        "count": 1140
       },
       {
         "name": "SAMSUNG ELECTRONICS CO LTD",
-        "count": 1117
+        "count": 1116
       },
       {
         "name": "BEIJING INSTITUTE TECH",
@@ -615,45 +615,45 @@ export const FIELDS: Field[] = [
       },
       {
         "name": "QUALCOMM INC",
-        "count": 906
+        "count": 905
       },
       {
         "name": "SONY SEMICONDUCTOR SOLUTIONS CORP",
-        "count": 866
+        "count": 864
       }
     ],
     "top_cpc_codes": [
       {
         "code": "G01S7",
-        "count": 632034
+        "count": 627235
       },
       {
         "code": "G01S13",
-        "count": 402489
+        "count": 399201
       },
       {
         "code": "G01S17",
-        "count": 299069
+        "count": 295992
       },
       {
         "code": "G01J3",
-        "count": 181962
+        "count": 179501
       },
       {
         "code": "G01N21",
-        "count": 74817
+        "count": 74062
       },
       {
         "code": "G01S15",
-        "count": 64280
+        "count": 63689
       },
       {
         "code": "G01S2013",
-        "count": 61634
+        "count": 60874
       },
       {
         "code": "A61B8",
-        "count": 54230
+        "count": 53703
       }
     ],
     "query_terms": [
@@ -664,7 +664,7 @@ export const FIELDS: Field[] = [
       "image processing"
     ],
     "report_bullets": [
-      "원격탐사·탑재체 검색축에서 123,043개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "원격탐사·탑재체 검색축에서 122,460개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
       "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
@@ -678,38 +678,38 @@ export const FIELDS: Field[] = [
     "label_en": "GNC, rendezvous, docking, and on-orbit servicing",
     "color": "#8b5cf6",
     "summary_ko": "GNC·랑데부·서비스 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
-    "family_count": 167178,
-    "publication_count": 419667,
-    "recent5_family_count": 78087,
-    "recent3_family_count": 42922,
-    "recent_momentum": 0.2567,
+    "family_count": 166138,
+    "publication_count": 415852,
+    "recent5_family_count": 76765,
+    "recent3_family_count": 41633,
+    "recent_momentum": 0.2506,
     "country_family_counts": {
-      "US": 44868,
-      "EP": 17300,
-      "JP": 14638,
-      "CN": 120301,
-      "KR": 16634
+      "US": 44405,
+      "EP": 17113,
+      "JP": 14511,
+      "CN": 119692,
+      "KR": 16489
     },
     "top_applicants": [
       {
         "name": "TOYOTA MOTOR CO LTD",
-        "count": 2319
+        "count": 2311
       },
       {
         "name": "TOYOTA MOTOR CORP",
-        "count": 2113
+        "count": 2107
       },
       {
         "name": "UNIV BEIHANG",
-        "count": 1551
+        "count": 1546
       },
       {
         "name": "HONDA MOTOR CO LTD",
-        "count": 1383
+        "count": 1369
       },
       {
         "name": "HYUNDAI MOTOR CO LTD",
-        "count": 1369
+        "count": 1352
       },
       {
         "name": "BEIJING INSTITUTE TECH",
@@ -717,45 +717,45 @@ export const FIELDS: Field[] = [
       },
       {
         "name": "UNIV NORTHWESTERN POLYTECHNICAL",
-        "count": 1212
+        "count": 1207
       },
       {
         "name": "UNIV NANJING AERONAUTICS & ASTRONAUTICS",
-        "count": 1103
+        "count": 1098
       }
     ],
     "top_cpc_codes": [
       {
         "code": "G05D1",
-        "count": 620928
+        "count": 615800
       },
       {
         "code": "G01C21",
-        "count": 476481
+        "count": 472375
       },
       {
         "code": "G08G1",
-        "count": 150380
+        "count": 148513
       },
       {
         "code": "B64G1",
-        "count": 100690
+        "count": 99977
       },
       {
         "code": "G06V20",
-        "count": 80432
+        "count": 79680
       },
       {
         "code": "G06Q10",
-        "count": 74772
+        "count": 73997
       },
       {
         "code": "G08G5",
-        "count": 74015
+        "count": 72951
       },
       {
         "code": "H04W4",
-        "count": 72108
+        "count": 71169
       }
     ],
     "query_terms": [
@@ -766,7 +766,7 @@ export const FIELDS: Field[] = [
       "on-orbit servicing"
     ],
     "report_bullets": [
-      "GNC·랑데부·서비스 검색축에서 167,178개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "GNC·랑데부·서비스 검색축에서 166,138개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
       "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
@@ -780,84 +780,84 @@ export const FIELDS: Field[] = [
     "label_en": "Space materials, TPS, and coatings",
     "color": "#d65a9d",
     "summary_ko": "우주재료·TPS·코팅 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
-    "family_count": 231774,
-    "publication_count": 609280,
-    "recent5_family_count": 90917,
-    "recent3_family_count": 46059,
-    "recent_momentum": 0.1987,
+    "family_count": 229908,
+    "publication_count": 602293,
+    "recent5_family_count": 89045,
+    "recent3_family_count": 44179,
+    "recent_momentum": 0.1922,
     "country_family_counts": {
-      "US": 41424,
-      "EP": 28066,
-      "JP": 29443,
-      "CN": 178957,
-      "KR": 38186
+      "US": 40908,
+      "EP": 27738,
+      "JP": 29115,
+      "CN": 177571,
+      "KR": 37750
     },
     "top_applicants": [
       {
         "name": "NITTO DENKO CORP",
-        "count": 1656
+        "count": 1642
       },
       {
         "name": "FUJIFILM CORP",
-        "count": 910
+        "count": 902
       },
       {
         "name": "AGC INC",
-        "count": 808
+        "count": 803
       },
       {
         "name": "LG CHEMICAL LTD",
-        "count": 806
+        "count": 799
       },
       {
         "name": "SAINT GOBAIN",
-        "count": 785
+        "count": 778
       },
       {
         "name": "SUMITOMO CHEMICAL CO",
-        "count": 741
+        "count": 732
       },
       {
         "name": "SAMSUNG DISPLAY CO LTD",
-        "count": 684
+        "count": 668
       },
       {
         "name": "TOYO BOSEKI",
-        "count": 601
+        "count": 598
       }
     ],
     "top_cpc_codes": [
       {
         "code": "C04B2235",
-        "count": 571426
+        "count": 565546
       },
       {
         "code": "B32B27",
-        "count": 508733
+        "count": 502159
       },
       {
         "code": "B32B2307",
-        "count": 443817
+        "count": 438333
       },
       {
         "code": "C04B35",
-        "count": 311212
+        "count": 307957
       },
       {
         "code": "C09D5",
-        "count": 233939
+        "count": 230812
       },
       {
         "code": "C09D7",
-        "count": 198013
+        "count": 195587
       },
       {
         "code": "B32B7",
-        "count": 187888
+        "count": 185400
       },
       {
         "code": "B32B5",
-        "count": 180846
+        "count": 178861
       }
     ],
     "query_terms": [
@@ -868,7 +868,7 @@ export const FIELDS: Field[] = [
       "ceramic"
     ],
     "report_bullets": [
-      "우주재료·TPS·코팅 검색축에서 231,774개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "우주재료·TPS·코팅 검색축에서 229,908개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
       "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
@@ -882,84 +882,84 @@ export const FIELDS: Field[] = [
     "label_en": "Commercial aviation propulsion, electric, hydrogen, and SAF",
     "color": "#00a7a7",
     "summary_ko": "민간/상용항공 추진·SAF 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
-    "family_count": 27439,
-    "publication_count": 86172,
-    "recent5_family_count": 11702,
-    "recent3_family_count": 5279,
-    "recent_momentum": 0.1924,
+    "family_count": 27232,
+    "publication_count": 85321,
+    "recent5_family_count": 11425,
+    "recent3_family_count": 5035,
+    "recent_momentum": 0.1849,
     "country_family_counts": {
-      "US": 12881,
-      "EP": 8026,
-      "JP": 1835,
-      "CN": 14397,
-      "KR": 2455
+      "US": 12763,
+      "EP": 7954,
+      "JP": 1813,
+      "CN": 14314,
+      "KR": 2403
     },
     "top_applicants": [
       {
         "name": "GEN ELECTRIC",
-        "count": 1907
+        "count": 1884
       },
       {
         "name": "SAFRAN AIRCRAFT ENGINES",
-        "count": 1221
+        "count": 1215
       },
       {
         "name": "ROLLS ROYCE PLC",
-        "count": 997
+        "count": 993
       },
       {
         "name": "RTX CORP",
-        "count": 988
+        "count": 985
       },
       {
         "name": "RAYTHEON TECH CORP",
-        "count": 980
+        "count": 974
       },
       {
         "name": "PRATT & WHITNEY CANADA",
-        "count": 973
+        "count": 968
       },
       {
         "name": "UNITED TECHNOLOGIES CORP",
-        "count": 694
+        "count": 683
       },
       {
         "name": "AIRBUS OPERATIONS SAS",
-        "count": 588
+        "count": 584
       }
     ],
     "top_cpc_codes": [
       {
         "code": "F02C7",
-        "count": 127518
+        "count": 126438
       },
       {
         "code": "B64D27",
-        "count": 78606
+        "count": 78045
       },
       {
         "code": "F05D2260",
-        "count": 65654
+        "count": 65128
       },
       {
         "code": "F05D2220",
-        "count": 40989
+        "count": 40592
       },
       {
         "code": "F01D25",
-        "count": 36574
+        "count": 36190
       },
       {
         "code": "F23R3",
-        "count": 33326
+        "count": 32576
       },
       {
         "code": "F05D2240",
-        "count": 29310
+        "count": 29061
       },
       {
         "code": "Y02T50",
-        "count": 25731
+        "count": 25499
       }
     ],
     "query_terms": [
@@ -970,7 +970,7 @@ export const FIELDS: Field[] = [
       "combustor"
     ],
     "report_bullets": [
-      "민간/상용항공 추진·SAF 검색축에서 27,439개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "민간/상용항공 추진·SAF 검색축에서 27,232개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
       "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
@@ -984,46 +984,46 @@ export const FIELDS: Field[] = [
     "label_en": "Aircraft structures, composites, and aerodynamics",
     "color": "#5c8dff",
     "summary_ko": "항공 구조·공력·복합재 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
-    "family_count": 50841,
-    "publication_count": 124258,
-    "recent5_family_count": 18377,
-    "recent3_family_count": 7599,
-    "recent_momentum": 0.1495,
+    "family_count": 50443,
+    "publication_count": 123099,
+    "recent5_family_count": 17909,
+    "recent3_family_count": 7176,
+    "recent_momentum": 0.1423,
     "country_family_counts": {
-      "US": 14452,
-      "EP": 6461,
-      "JP": 3255,
-      "CN": 28163,
-      "KR": 9454
+      "US": 14269,
+      "EP": 6406,
+      "JP": 3230,
+      "CN": 28028,
+      "KR": 9358
     },
     "top_applicants": [
       {
         "name": "BOEING CO",
-        "count": 1283
+        "count": 1275
       },
       {
         "name": "SZ DJI TECHNOLOGY CO LTD",
-        "count": 446
+        "count": 433
       },
       {
         "name": "UNIV NANJING AERONAUTICS & ASTRONAUTICS",
-        "count": 424
+        "count": 423
       },
       {
         "name": "AIRBUS OPERATIONS GMBH",
-        "count": 374
+        "count": 373
       },
       {
         "name": "UNIV BEIHANG",
-        "count": 368
+        "count": 364
       },
       {
         "name": "AIRBUS OPERATIONS LTD",
-        "count": 345
+        "count": 341
       },
       {
         "name": "UNIV NORTHWESTERN POLYTECHNICAL",
-        "count": 265
+        "count": 263
       },
       {
         "name": "SAFRAN AIRCRAFT ENGINES",
@@ -1033,35 +1033,35 @@ export const FIELDS: Field[] = [
     "top_cpc_codes": [
       {
         "code": "B29C70",
-        "count": 179241
+        "count": 177539
       },
       {
         "code": "B64C39",
-        "count": 50150
+        "count": 49743
       },
       {
         "code": "B64C3",
-        "count": 38196
+        "count": 37854
       },
       {
         "code": "B64U2101",
-        "count": 37296
+        "count": 36954
       },
       {
         "code": "B29L2031",
-        "count": 33991
+        "count": 33738
       },
       {
         "code": "G05D1",
-        "count": 29617
+        "count": 29284
       },
       {
         "code": "B64U10",
-        "count": 28640
+        "count": 28282
       },
       {
         "code": "G08G5",
-        "count": 27310
+        "count": 26972
       }
     ],
     "query_terms": [
@@ -1072,7 +1072,7 @@ export const FIELDS: Field[] = [
       "fuselage"
     ],
     "report_bullets": [
-      "항공 구조·공력·복합재 검색축에서 50,841개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "항공 구조·공력·복합재 검색축에서 50,443개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
       "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
@@ -1086,84 +1086,84 @@ export const FIELDS: Field[] = [
     "label_en": "Avionics, flight control, and autonomy",
     "color": "#7c5cff",
     "summary_ko": "항공전자·비행제어·자율운항 검색축의 CPC 접두어 후보군입니다. 분야 적용 여부는 원문 검증 전이며, 세부 기술축은 후속 검색을 위한 안내입니다.",
-    "family_count": 164048,
-    "publication_count": 417221,
-    "recent5_family_count": 76450,
-    "recent3_family_count": 41880,
-    "recent_momentum": 0.2553,
+    "family_count": 163034,
+    "publication_count": 413412,
+    "recent5_family_count": 75135,
+    "recent3_family_count": 40640,
+    "recent_momentum": 0.2493,
     "country_family_counts": {
-      "US": 46393,
-      "EP": 18430,
-      "JP": 14611,
-      "CN": 116540,
-      "KR": 16873
+      "US": 45926,
+      "EP": 18237,
+      "JP": 14482,
+      "CN": 115955,
+      "KR": 16722
     },
     "top_applicants": [
       {
         "name": "TOYOTA MOTOR CO LTD",
-        "count": 2323
+        "count": 2315
       },
       {
         "name": "TOYOTA MOTOR CORP",
-        "count": 2115
+        "count": 2109
       },
       {
         "name": "UNIV BEIHANG",
-        "count": 1410
+        "count": 1404
       },
       {
         "name": "HONDA MOTOR CO LTD",
-        "count": 1390
+        "count": 1376
       },
       {
         "name": "HYUNDAI MOTOR CO LTD",
-        "count": 1384
-      },
-      {
-        "name": "FORD GLOBAL TECH LLC",
-        "count": 1101
-      },
-      {
-        "name": "BOSCH GMBH ROBERT",
-        "count": 1095
+        "count": 1367
       },
       {
         "name": "UNIV NANJING AERONAUTICS & ASTRONAUTICS",
-        "count": 1092
+        "count": 1089
+      },
+      {
+        "name": "BOSCH GMBH ROBERT",
+        "count": 1085
+      },
+      {
+        "name": "BEIJING INSTITUTE TECH",
+        "count": 1084
       }
     ],
     "top_cpc_codes": [
       {
         "code": "G05D1",
-        "count": 620928
+        "count": 615800
       },
       {
         "code": "G01C21",
-        "count": 476481
+        "count": 472375
       },
       {
         "code": "G08G5",
-        "count": 171618
+        "count": 170044
       },
       {
         "code": "G08G1",
-        "count": 152590
+        "count": 150686
       },
       {
         "code": "G06V20",
-        "count": 82157
+        "count": 81379
       },
       {
         "code": "G06Q10",
-        "count": 77771
+        "count": 76957
       },
       {
         "code": "H04W4",
-        "count": 76426
+        "count": 75476
       },
       {
         "code": "B60W30",
-        "count": 68941
+        "count": 67800
       }
     ],
     "query_terms": [
@@ -1174,7 +1174,7 @@ export const FIELDS: Field[] = [
       "detect and avoid"
     ],
     "report_bullets": [
-      "항공전자·비행제어·자율운항 검색축에서 164,048개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
+      "항공전자·비행제어·자율운항 검색축에서 163,034개 고유 패밀리가 집계되었습니다. CPC 후보 수이며 검증된 항공우주 특허 수가 아닙니다.",
       "기술별 구성요소와 적용 환경을 원문에서 확인한 뒤 비교 범위를 좁혀야 합니다."
     ],
     "risk_notes": [
@@ -1185,18 +1185,18 @@ export const FIELDS: Field[] = [
 export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
   "space_launch_propulsion_recovery": {
     "label_ko": "발사체 추진·회수",
-    "momentum_recent3_share": 0.2678,
-    "korea_publication_gap_score": 0.2513,
-    "korea_assignee_gap_score": 0.2532,
-    "cr5": 0.1196,
+    "momentum_recent3_share": 0.2583,
+    "korea_publication_gap_score": 0.2424,
+    "korea_assignee_gap_score": 0.2442,
+    "cr5": 0.1201,
     "region_family_counts": {
-      "NORTH_AMERICA": 2993,
-      "EAST_ASIA": 13444,
-      "INTERNATIONAL": 1935,
-      "EUROPE": 2061,
-      "OTHER_WORLD": 1071,
-      "MIDDLE_EAST": 126,
+      "NORTH_AMERICA": 2965,
+      "EAST_ASIA": 13362,
+      "INTERNATIONAL": 1920,
+      "EUROPE": 2046,
+      "OTHER_WORLD": 1056,
       "OCEANIA": 216,
+      "MIDDLE_EAST": 126,
       "AFRICA": 21,
       "LATIN_AMERICA": 51
     },
@@ -1286,18 +1286,18 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
   },
   "space_satellite_bus_thermal_power": {
     "label_ko": "위성 플랫폼·열제어·전력",
-    "momentum_recent3_share": 0.1582,
-    "korea_publication_gap_score": 0.1353,
-    "korea_assignee_gap_score": 0.1379,
-    "cr5": 0.0679,
+    "momentum_recent3_share": 0.1519,
+    "korea_publication_gap_score": 0.1306,
+    "korea_assignee_gap_score": 0.1329,
+    "cr5": 0.068,
     "region_family_counts": {
-      "NORTH_AMERICA": 10950,
-      "EAST_ASIA": 20187,
-      "INTERNATIONAL": 2964,
-      "EUROPE": 2785,
-      "OTHER_WORLD": 818,
-      "MIDDLE_EAST": 135,
+      "NORTH_AMERICA": 10788,
+      "EAST_ASIA": 19999,
+      "INTERNATIONAL": 2938,
+      "EUROPE": 2762,
+      "OTHER_WORLD": 806,
       "OCEANIA": 241,
+      "MIDDLE_EAST": 135,
       "AFRICA": 31,
       "LATIN_AMERICA": 85
     },
@@ -1387,20 +1387,20 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
   },
   "space_comm_leo_network": {
     "label_ko": "위성통신·LEO 네트워크",
-    "momentum_recent3_share": 0.2386,
-    "korea_publication_gap_score": 0.2154,
-    "korea_assignee_gap_score": 0.2142,
+    "momentum_recent3_share": 0.2296,
+    "korea_publication_gap_score": 0.2076,
+    "korea_assignee_gap_score": 0.2063,
     "cr5": 0.1826,
     "region_family_counts": {
-      "NORTH_AMERICA": 60208,
-      "EAST_ASIA": 111557,
-      "INTERNATIONAL": 54004,
-      "EUROPE": 37546,
-      "AFRICA": 304,
-      "OTHER_WORLD": 1771,
-      "LATIN_AMERICA": 2378,
-      "MIDDLE_EAST": 594,
-      "OCEANIA": 2267,
+      "NORTH_AMERICA": 59688,
+      "EAST_ASIA": 110822,
+      "INTERNATIONAL": 53654,
+      "EUROPE": 37292,
+      "OTHER_WORLD": 1739,
+      "AFRICA": 299,
+      "LATIN_AMERICA": 2338,
+      "MIDDLE_EAST": 589,
+      "OCEANIA": 2246,
       "SOUTH_ASIA": 4
     },
     "yearly_families": {
@@ -1489,20 +1489,20 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
   },
   "space_remote_sensing_payload": {
     "label_ko": "SAR·원격탐사 페이로드",
-    "momentum_recent3_share": 0.2595,
-    "korea_publication_gap_score": 0.2362,
-    "korea_assignee_gap_score": 0.2388,
-    "cr5": 0.0602,
+    "momentum_recent3_share": 0.2488,
+    "korea_publication_gap_score": 0.2267,
+    "korea_assignee_gap_score": 0.2292,
+    "cr5": 0.0603,
     "region_family_counts": {
-      "NORTH_AMERICA": 35483,
-      "EAST_ASIA": 98985,
-      "INTERNATIONAL": 24714,
-      "EUROPE": 27862,
-      "MIDDLE_EAST": 793,
-      "OTHER_WORLD": 1820,
-      "AFRICA": 114,
-      "LATIN_AMERICA": 532,
-      "OCEANIA": 1386,
+      "NORTH_AMERICA": 35213,
+      "EAST_ASIA": 98572,
+      "INTERNATIONAL": 24569,
+      "EUROPE": 27667,
+      "OTHER_WORLD": 1785,
+      "MIDDLE_EAST": 787,
+      "AFRICA": 109,
+      "LATIN_AMERICA": 527,
+      "OCEANIA": 1376,
       "SOUTH_ASIA": 1
     },
     "yearly_families": {
@@ -1591,20 +1591,20 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
   },
   "space_gnc_rendezvous_servicing": {
     "label_ko": "GNC·랑데부·온오빗 서비스",
-    "momentum_recent3_share": 0.2567,
-    "korea_publication_gap_score": 0.2327,
-    "korea_assignee_gap_score": 0.235,
-    "cr5": 0.0522,
+    "momentum_recent3_share": 0.2506,
+    "korea_publication_gap_score": 0.2271,
+    "korea_assignee_gap_score": 0.2294,
+    "cr5": 0.0523,
     "region_family_counts": {
-      "NORTH_AMERICA": 45014,
-      "EAST_ASIA": 138161,
-      "INTERNATIONAL": 25793,
-      "EUROPE": 26839,
-      "AFRICA": 181,
-      "LATIN_AMERICA": 968,
-      "OTHER_WORLD": 2438,
-      "MIDDLE_EAST": 681,
-      "OCEANIA": 2656
+      "NORTH_AMERICA": 44550,
+      "EAST_ASIA": 137412,
+      "INTERNATIONAL": 25523,
+      "EUROPE": 26553,
+      "OTHER_WORLD": 2385,
+      "AFRICA": 178,
+      "LATIN_AMERICA": 954,
+      "OCEANIA": 2630,
+      "MIDDLE_EAST": 675
     },
     "yearly_families": {
       "2016": 13465,
@@ -1692,20 +1692,20 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
   },
   "space_materials_tps_coatings": {
     "label_ko": "우주재료·TPS·코팅",
-    "momentum_recent3_share": 0.1987,
-    "korea_publication_gap_score": 0.1688,
-    "korea_assignee_gap_score": 0.1786,
+    "momentum_recent3_share": 0.1922,
+    "korea_publication_gap_score": 0.1635,
+    "korea_assignee_gap_score": 0.1728,
     "cr5": 0.0214,
     "region_family_counts": {
-      "NORTH_AMERICA": 42045,
-      "EAST_ASIA": 206696,
-      "INTERNATIONAL": 46037,
-      "EUROPE": 35407,
-      "OTHER_WORLD": 3982,
-      "MIDDLE_EAST": 847,
-      "LATIN_AMERICA": 3336,
-      "AFRICA": 670,
-      "OCEANIA": 3089,
+      "NORTH_AMERICA": 41525,
+      "EAST_ASIA": 205044,
+      "INTERNATIONAL": 45576,
+      "EUROPE": 35003,
+      "OTHER_WORLD": 3901,
+      "AFRICA": 660,
+      "MIDDLE_EAST": 829,
+      "LATIN_AMERICA": 3280,
+      "OCEANIA": 3042,
       "SOUTH_ASIA": 5
     },
     "yearly_families": {
@@ -1794,20 +1794,20 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
   },
   "aviation_propulsion_sustainable": {
     "label_ko": "민간항공 추진·전기·수소·SAF",
-    "momentum_recent3_share": 0.1924,
-    "korea_publication_gap_score": 0.1797,
-    "korea_assignee_gap_score": 0.1843,
-    "cr5": 0.2221,
+    "momentum_recent3_share": 0.1849,
+    "korea_publication_gap_score": 0.1727,
+    "korea_assignee_gap_score": 0.1772,
+    "cr5": 0.2222,
     "region_family_counts": {
-      "NORTH_AMERICA": 12933,
-      "EAST_ASIA": 16677,
-      "INTERNATIONAL": 4044,
-      "EUROPE": 11146,
-      "OTHER_WORLD": 628,
-      "OCEANIA": 290,
+      "NORTH_AMERICA": 12814,
+      "EAST_ASIA": 16549,
+      "INTERNATIONAL": 4013,
+      "EUROPE": 11053,
+      "OTHER_WORLD": 618,
       "AFRICA": 21,
-      "MIDDLE_EAST": 134,
-      "LATIN_AMERICA": 223
+      "OCEANIA": 287,
+      "MIDDLE_EAST": 133,
+      "LATIN_AMERICA": 221
     },
     "yearly_families": {
       "2016": 2978,
@@ -1895,20 +1895,20 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
   },
   "aviation_structures_aero_composites": {
     "label_ko": "항공 구조·복합재·공력",
-    "momentum_recent3_share": 0.1495,
-    "korea_publication_gap_score": 0.1232,
-    "korea_assignee_gap_score": 0.1251,
+    "momentum_recent3_share": 0.1423,
+    "korea_publication_gap_score": 0.1174,
+    "korea_assignee_gap_score": 0.1192,
     "cr5": 0.0569,
     "region_family_counts": {
-      "NORTH_AMERICA": 14533,
-      "EAST_ASIA": 37518,
-      "INTERNATIONAL": 6764,
-      "EUROPE": 9490,
-      "OTHER_WORLD": 1108,
-      "AFRICA": 100,
-      "LATIN_AMERICA": 668,
-      "MIDDLE_EAST": 360,
-      "OCEANIA": 761,
+      "NORTH_AMERICA": 14349,
+      "EAST_ASIA": 37302,
+      "INTERNATIONAL": 6708,
+      "EUROPE": 9390,
+      "OTHER_WORLD": 1097,
+      "AFRICA": 99,
+      "MIDDLE_EAST": 359,
+      "LATIN_AMERICA": 659,
+      "OCEANIA": 754,
       "SOUTH_ASIA": 1
     },
     "yearly_families": {
@@ -1997,20 +1997,20 @@ export const FIELD_ENRICHMENT: Partial<Record<FieldId, FieldEnrichment>> = {
   },
   "aviation_avionics_flight_control_autonomy": {
     "label_ko": "항전·비행제어·자율비행",
-    "momentum_recent3_share": 0.2553,
-    "korea_publication_gap_score": 0.2308,
-    "korea_assignee_gap_score": 0.233,
+    "momentum_recent3_share": 0.2493,
+    "korea_publication_gap_score": 0.2253,
+    "korea_assignee_gap_score": 0.2275,
     "cr5": 0.0526,
     "region_family_counts": {
-      "NORTH_AMERICA": 46543,
-      "EAST_ASIA": 134487,
-      "INTERNATIONAL": 25742,
-      "EUROPE": 28124,
-      "AFRICA": 182,
-      "LATIN_AMERICA": 1117,
-      "OTHER_WORLD": 1908,
-      "OCEANIA": 2624,
-      "MIDDLE_EAST": 687
+      "NORTH_AMERICA": 46075,
+      "EAST_ASIA": 133758,
+      "INTERNATIONAL": 25474,
+      "EUROPE": 27827,
+      "OTHER_WORLD": 1862,
+      "AFRICA": 179,
+      "LATIN_AMERICA": 1101,
+      "OCEANIA": 2598,
+      "MIDDLE_EAST": 680
     },
     "yearly_families": {
       "2016": 13402,
@@ -2207,6 +2207,12 @@ export const SUBFIELDS: Subfield[] = [
     "label_en": "LEO satellite constellation"
   },
   {
+    "id": "space_gnc_rendezvous_servicing__gnc-rpo",
+    "field": "space_gnc_rendezvous_servicing",
+    "label_ko": "GNC/RPO 핵심",
+    "label_en": "GNC/RPO 핵심"
+  },
+  {
     "id": "space_gnc_rendezvous_servicing__proximity-operation",
     "field": "space_gnc_rendezvous_servicing",
     "label_ko": "근접운용",
@@ -2235,12 +2241,6 @@ export const SUBFIELDS: Subfield[] = [
     "field": "space_gnc_rendezvous_servicing",
     "label_ko": "자세제어",
     "label_en": "attitude control"
-  },
-  {
-    "id": "space_gnc_rendezvous_servicing__gnc-rpo",
-    "field": "space_gnc_rendezvous_servicing",
-    "label_ko": "GNC/RPO 핵심",
-    "label_en": "GNC/RPO 핵심"
   },
   {
     "id": "space_launch_propulsion_recovery__rocket-engine",
@@ -2333,6 +2333,12 @@ export const SUBFIELDS: Subfield[] = [
     "label_en": "재료·TPS 핵심"
   },
   {
+    "id": "space_remote_sensing_payload__sar-imaging",
+    "field": "space_remote_sensing_payload",
+    "label_ko": "SAR 영상화",
+    "label_en": "SAR imaging"
+  },
+  {
     "id": "space_remote_sensing_payload__wide-swath",
     "field": "space_remote_sensing_payload",
     "label_ko": "광역 관측폭",
@@ -2373,12 +2379,6 @@ export const SUBFIELDS: Subfield[] = [
     "field": "space_remote_sensing_payload",
     "label_ko": "합성개구레이더(SAR)",
     "label_en": "SAR"
-  },
-  {
-    "id": "space_remote_sensing_payload__sar-imaging",
-    "field": "space_remote_sensing_payload",
-    "label_ko": "SAR 영상화",
-    "label_en": "SAR imaging"
   },
   {
     "id": "space_satellite_bus_thermal_power__thermal-control",

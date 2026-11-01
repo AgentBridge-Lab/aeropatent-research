@@ -1,7 +1,7 @@
 {
-  "rowCount": 2572239,
-  "publicationCount": 2041681,
-  "familyCount": 753369,
+  "rowCount": 2548000,
+  "publicationCount": 2022287,
+  "familyCount": 748133,
   "fieldCount": 9,
   "publicationCountryCount": 73,
   "displayCountries": [
@@ -12,12 +12,12 @@
     "KR"
   ],
   "analysisTimeZone": "Asia/Seoul",
-  "analysisDate": 20261002,
+  "analysisDate": 20261102,
   "currentYear": 2026,
   "recent5StartYear": 2021,
   "recent3StartYear": 2023,
-  "recent5StartDate": 20211002,
-  "recent3StartDate": 20231002,
+  "recent5StartDate": 20211102,
+  "recent3StartDate": 20231102,
   "topField": {
     "id": "space_materials_tps_coatings",
     "domain": "space",
@@ -25,175 +25,175 @@
     "shortLabelKo": "재료·TPS",
     "labelEn": "Space materials, TPS, and coatings",
     "color": "#d65a9d",
-    "familyCount": 231774,
-    "publicationCount": 609280,
-    "recent5FamilyCount": 90917,
-    "recent3FamilyCount": 46059,
-    "recentMomentum": 0.1987,
+    "familyCount": 229908,
+    "publicationCount": 602293,
+    "recent5FamilyCount": 89045,
+    "recent3FamilyCount": 44179,
+    "recentMomentum": 0.1922,
     "countryFamilyCounts": {
-      "US": 41424,
-      "CN": 178957,
-      "KR": 38186,
-      "WO": 46037,
-      "EP": 28066,
-      "JP": 29443,
-      "RU": 1603,
-      "BE": 184,
-      "DK": 482,
-      "TW": 13108,
-      "UA": 151,
-      "DE": 5998,
-      "HU": 402,
-      "IL": 585,
-      "BR": 2808,
-      "ZA": 515,
-      "SE": 369,
-      "EA": 154,
-      "IT": 918,
-      "ES": 2609,
-      "CA": 5185,
-      "CL": 310,
-      "CH": 183,
-      "PL": 1912,
-      "SA": 92,
-      "SG": 531,
-      "AU": 3075,
-      "AR": 481,
-      "MY": 470,
-      "NL": 354,
+      "US": 40908,
+      "CN": 177571,
+      "KR": 37750,
+      "WO": 45576,
+      "JP": 29115,
+      "EP": 27738,
+      "RU": 1558,
+      "TW": 12987,
+      "UA": 147,
+      "BE": 183,
+      "DK": 466,
+      "ZA": 511,
+      "DE": 5925,
+      "HU": 392,
+      "IL": 571,
+      "IT": 913,
+      "EA": 149,
+      "BR": 2753,
+      "CA": 5096,
+      "CH": 181,
+      "SA": 88,
+      "SG": 515,
+      "CL": 305,
+      "SE": 364,
+      "ES": 2551,
+      "AR": 476,
+      "AU": 3028,
+      "AT": 228,
+      "PL": 1875,
+      "TR": 186,
+      "NL": 351,
+      "GB": 1397,
+      "CO": 333,
+      "FR": 1992,
+      "MY": 457,
+      "MX": 3925,
+      "PE": 154,
+      "PT": 361,
       "LT": 79,
-      "MX": 3982,
-      "NO": 47,
-      "AT": 231,
-      "CO": 339,
-      "GB": 1412,
+      "CZ": 278,
       "RO": 27,
-      "FR": 2014,
-      "CZ": 279,
-      "PE": 156,
-      "PT": 371,
-      "PY": 17,
-      "TR": 187,
-      "PH": 264,
-      "RS": 138,
-      "HR": 132,
-      "SI": 127,
+      "SI": 124,
+      "NO": 46,
+      "FI": 416,
+      "HR": 131,
+      "RS": 136,
       "LU": 157,
-      "MA": 216,
-      "FI": 422,
+      "MA": 210,
+      "PY": 17,
+      "JO": 26,
       "IE": 7,
       "GE": 6,
-      "JO": 26,
       "BG": 30,
+      "PH": 257,
       "EC": 26,
-      "CR": 37,
-      "SK": 19,
-      "NZ": 132,
       "LV": 6,
-      "MD": 2,
+      "CR": 36,
+      "SK": 19,
+      "NZ": 127,
+      "MD": 1,
       "DO": 12,
       "CY": 12,
-      "GR": 59,
       "EE": 2,
-      "IN": 5,
+      "GR": 58,
       "SM": 17,
-      "TN": 11,
-      "HK": 9,
+      "IN": 5,
+      "UY": 23,
+      "HK": 8,
+      "TN": 10,
       "CU": 1,
       "NI": 1,
-      "UY": 23,
       "IS": 1
     },
     "regionFamilyCounts": {
-      "NORTH_AMERICA": 42045,
-      "EAST_ASIA": 206696,
-      "INTERNATIONAL": 46037,
-      "EUROPE": 35407,
-      "OTHER_WORLD": 3982,
-      "MIDDLE_EAST": 847,
-      "LATIN_AMERICA": 3336,
-      "AFRICA": 670,
-      "OCEANIA": 3089,
+      "NORTH_AMERICA": 41525,
+      "EAST_ASIA": 205044,
+      "INTERNATIONAL": 45576,
+      "EUROPE": 35003,
+      "OTHER_WORLD": 3901,
+      "AFRICA": 660,
+      "MIDDLE_EAST": 829,
+      "LATIN_AMERICA": 3280,
+      "OCEANIA": 3042,
       "SOUTH_ASIA": 5
     },
     "topApplicants": [
       {
         "key": "NITTO DENKO CORP",
-        "count": 1656
+        "count": 1642
       },
       {
         "key": "FUJIFILM CORP",
-        "count": 910
+        "count": 902
       },
       {
         "key": "AGC INC",
-        "count": 808
+        "count": 803
       },
       {
         "key": "LG CHEMICAL LTD",
-        "count": 806
+        "count": 799
       },
       {
         "key": "SAINT GOBAIN",
-        "count": 785
+        "count": 778
       },
       {
         "key": "SUMITOMO CHEMICAL CO",
-        "count": 741
+        "count": 732
       },
       {
         "key": "SAMSUNG DISPLAY CO LTD",
-        "count": 684
+        "count": 668
       },
       {
         "key": "TOYO BOSEKI",
-        "count": 601
+        "count": 598
       }
     ],
     "topCpcCodes": [
       {
         "key": "C04B2235",
-        "count": 571426
+        "count": 565546
       },
       {
         "key": "B32B27",
-        "count": 508733
+        "count": 502159
       },
       {
         "key": "B32B2307",
-        "count": 443817
+        "count": 438333
       },
       {
         "key": "C04B35",
-        "count": 311212
+        "count": 307957
       },
       {
         "key": "C09D5",
-        "count": 233939
+        "count": 230812
       },
       {
         "key": "C09D7",
-        "count": 198013
+        "count": 195587
       },
       {
         "key": "B32B7",
-        "count": 187888
+        "count": 185400
       },
       {
         "key": "B32B5",
-        "count": 180846
+        "count": 178861
       },
       {
         "key": "B32B15",
-        "count": 161068
+        "count": 159084
       },
       {
         "key": "B32B37",
-        "count": 145298
+        "count": 143470
       }
     ],
-    "koreaPublicationGapOpportunityScore": 0.1688,
-    "koreaAssigneeGapOpportunityScore": 0.1786
+    "koreaPublicationGapOpportunityScore": 0.1635,
+    "koreaAssigneeGapOpportunityScore": 0.1728
   },
   "fastestRecentMomentumField": {
     "id": "space_launch_propulsion_recovery",
@@ -202,75 +202,75 @@
     "shortLabelKo": "발사체",
     "labelEn": "Launch vehicle, propulsion, and recovery",
     "color": "#e54b4b",
-    "familyCount": 17535,
-    "publicationCount": 37721,
-    "recent5FamilyCount": 8608,
-    "recent3FamilyCount": 4696,
-    "recentMomentum": 0.2678,
+    "familyCount": 17410,
+    "publicationCount": 37428,
+    "recent5FamilyCount": 8487,
+    "recent3FamilyCount": 4497,
+    "recentMomentum": 0.2583,
     "countryFamilyCounts": {
-      "US": 2967,
-      "CN": 11997,
-      "JP": 713,
-      "KR": 1055,
-      "WO": 1935,
-      "CA": 320,
+      "US": 2939,
+      "CN": 11933,
+      "JP": 710,
+      "WO": 1920,
       "DE": 309,
-      "EP": 1510,
-      "RU": 973,
-      "TW": 36,
-      "IL": 104,
+      "KR": 1037,
+      "RU": 960,
+      "CA": 317,
+      "EP": 1498,
       "AU": 210,
+      "IL": 104,
       "SG": 16,
-      "GB": 178,
+      "TW": 36,
+      "GB": 177,
+      "FR": 369,
       "ZA": 18,
+      "ES": 207,
       "IT": 73,
-      "ES": 209,
-      "FR": 377,
-      "EA": 16,
-      "LT": 5,
-      "CZ": 11,
+      "LT": 4,
+      "EA": 15,
       "GR": 2,
-      "DK": 12,
-      "AT": 13,
       "PL": 69,
+      "DK": 12,
       "BR": 40,
+      "CZ": 11,
+      "AR": 8,
+      "AT": 13,
+      "NO": 2,
       "PT": 9,
       "NZ": 20,
-      "NO": 2,
-      "AR": 8,
-      "LU": 10,
-      "BG": 7,
-      "TR": 21,
-      "MX": 17,
       "CH": 6,
+      "BG": 7,
+      "LU": 10,
+      "MX": 17,
+      "TR": 21,
       "FI": 13,
       "MA": 5,
-      "EC": 3,
       "RO": 6,
-      "SE": 12,
-      "BE": 2,
       "NL": 6,
-      "MY": 2,
-      "HU": 9,
       "UA": 9,
+      "BE": 2,
+      "MY": 2,
+      "SE": 12,
+      "EC": 3,
       "SI": 4,
       "SA": 2,
-      "CO": 3,
-      "IE": 1,
-      "UY": 3,
+      "HU": 8,
       "MD": 1,
+      "CO": 3,
+      "UY": 3,
+      "IE": 1,
+      "CL": 1,
       "PH": 1,
-      "RS": 1,
-      "CL": 1
+      "RS": 1
     },
     "regionFamilyCounts": {
-      "NORTH_AMERICA": 2993,
-      "EAST_ASIA": 13444,
-      "INTERNATIONAL": 1935,
-      "EUROPE": 2061,
-      "OTHER_WORLD": 1071,
-      "MIDDLE_EAST": 126,
+      "NORTH_AMERICA": 2965,
+      "EAST_ASIA": 13362,
+      "INTERNATIONAL": 1920,
+      "EUROPE": 2046,
+      "OTHER_WORLD": 1056,
       "OCEANIA": 216,
+      "MIDDLE_EAST": 126,
       "AFRICA": 21,
       "LATIN_AMERICA": 51
     },
@@ -281,19 +281,19 @@
       },
       {
         "key": "SHANGHAI SATELLITE ENG INST",
-        "count": 443
+        "count": 441
       },
       {
         "key": "UNIV BEIHANG",
-        "count": 405
+        "count": 404
       },
       {
         "key": "UNIV NORTHWESTERN POLYTECHNICAL",
-        "count": 378
+        "count": 376
       },
       {
         "key": "BEIJING INST SPACECRAFT SYSTEM ENGINEERING",
-        "count": 367
+        "count": 366
       },
       {
         "key": "SHANGHAI AEROSPACE SYSTEM ENGINEERING INST",
@@ -305,17 +305,17 @@
       },
       {
         "key": "BEIJING INST CONTROL ENG",
-        "count": 333
+        "count": 328
       }
     ],
     "topCpcCodes": [
       {
         "key": "B64G1",
-        "count": 100690
+        "count": 99977
       },
       {
         "key": "F02K9",
-        "count": 26702
+        "count": 26538
       },
       {
         "key": "H04B7",
@@ -323,35 +323,35 @@
       },
       {
         "key": "F03H1",
-        "count": 2728
+        "count": 2692
       },
       {
         "key": "H01Q1",
-        "count": 2441
+        "count": 2427
       },
       {
         "key": "B64G3",
-        "count": 1821
+        "count": 1818
       },
       {
         "key": "G06T2207",
         "count": 1733
       },
       {
-        "key": "F05D2260",
-        "count": 1416
-      },
-      {
         "key": "Y02E10",
-        "count": 1416
+        "count": 1405
       },
       {
         "key": "G01S13",
         "count": 1387
+      },
+      {
+        "key": "F05D2260",
+        "count": 1344
       }
     ],
-    "koreaPublicationGapOpportunityScore": 0.2513,
-    "koreaAssigneeGapOpportunityScore": 0.2532
+    "koreaPublicationGapOpportunityScore": 0.2424,
+    "koreaAssigneeGapOpportunityScore": 0.2442
   },
   "topKoreaOpportunityField": {
     "id": "space_launch_propulsion_recovery",
@@ -360,75 +360,75 @@
     "shortLabelKo": "발사체",
     "labelEn": "Launch vehicle, propulsion, and recovery",
     "color": "#e54b4b",
-    "familyCount": 17535,
-    "publicationCount": 37721,
-    "recent5FamilyCount": 8608,
-    "recent3FamilyCount": 4696,
-    "recentMomentum": 0.2678,
+    "familyCount": 17410,
+    "publicationCount": 37428,
+    "recent5FamilyCount": 8487,
+    "recent3FamilyCount": 4497,
+    "recentMomentum": 0.2583,
     "countryFamilyCounts": {
-      "US": 2967,
-      "CN": 11997,
-      "JP": 713,
-      "KR": 1055,
-      "WO": 1935,
-      "CA": 320,
+      "US": 2939,
+      "CN": 11933,
+      "JP": 710,
+      "WO": 1920,
       "DE": 309,
-      "EP": 1510,
-      "RU": 973,
-      "TW": 36,
-      "IL": 104,
+      "KR": 1037,
+      "RU": 960,
+      "CA": 317,
+      "EP": 1498,
       "AU": 210,
+      "IL": 104,
       "SG": 16,
-      "GB": 178,
+      "TW": 36,
+      "GB": 177,
+      "FR": 369,
       "ZA": 18,
+      "ES": 207,
       "IT": 73,
-      "ES": 209,
-      "FR": 377,
-      "EA": 16,
-      "LT": 5,
-      "CZ": 11,
+      "LT": 4,
+      "EA": 15,
       "GR": 2,
-      "DK": 12,
-      "AT": 13,
       "PL": 69,
+      "DK": 12,
       "BR": 40,
+      "CZ": 11,
+      "AR": 8,
+      "AT": 13,
+      "NO": 2,
       "PT": 9,
       "NZ": 20,
-      "NO": 2,
-      "AR": 8,
-      "LU": 10,
-      "BG": 7,
-      "TR": 21,
-      "MX": 17,
       "CH": 6,
+      "BG": 7,
+      "LU": 10,
+      "MX": 17,
+      "TR": 21,
       "FI": 13,
       "MA": 5,
-      "EC": 3,
       "RO": 6,
-      "SE": 12,
-      "BE": 2,
       "NL": 6,
-      "MY": 2,
-      "HU": 9,
       "UA": 9,
+      "BE": 2,
+      "MY": 2,
+      "SE": 12,
+      "EC": 3,
       "SI": 4,
       "SA": 2,
-      "CO": 3,
-      "IE": 1,
-      "UY": 3,
+      "HU": 8,
       "MD": 1,
+      "CO": 3,
+      "UY": 3,
+      "IE": 1,
+      "CL": 1,
       "PH": 1,
-      "RS": 1,
-      "CL": 1
+      "RS": 1
     },
     "regionFamilyCounts": {
-      "NORTH_AMERICA": 2993,
-      "EAST_ASIA": 13444,
-      "INTERNATIONAL": 1935,
-      "EUROPE": 2061,
-      "OTHER_WORLD": 1071,
-      "MIDDLE_EAST": 126,
+      "NORTH_AMERICA": 2965,
+      "EAST_ASIA": 13362,
+      "INTERNATIONAL": 1920,
+      "EUROPE": 2046,
+      "OTHER_WORLD": 1056,
       "OCEANIA": 216,
+      "MIDDLE_EAST": 126,
       "AFRICA": 21,
       "LATIN_AMERICA": 51
     },
@@ -439,19 +439,19 @@
       },
       {
         "key": "SHANGHAI SATELLITE ENG INST",
-        "count": 443
+        "count": 441
       },
       {
         "key": "UNIV BEIHANG",
-        "count": 405
+        "count": 404
       },
       {
         "key": "UNIV NORTHWESTERN POLYTECHNICAL",
-        "count": 378
+        "count": 376
       },
       {
         "key": "BEIJING INST SPACECRAFT SYSTEM ENGINEERING",
-        "count": 367
+        "count": 366
       },
       {
         "key": "SHANGHAI AEROSPACE SYSTEM ENGINEERING INST",
@@ -463,17 +463,17 @@
       },
       {
         "key": "BEIJING INST CONTROL ENG",
-        "count": 333
+        "count": 328
       }
     ],
     "topCpcCodes": [
       {
         "key": "B64G1",
-        "count": 100690
+        "count": 99977
       },
       {
         "key": "F02K9",
-        "count": 26702
+        "count": 26538
       },
       {
         "key": "H04B7",
@@ -481,34 +481,34 @@
       },
       {
         "key": "F03H1",
-        "count": 2728
+        "count": 2692
       },
       {
         "key": "H01Q1",
-        "count": 2441
+        "count": 2427
       },
       {
         "key": "B64G3",
-        "count": 1821
+        "count": 1818
       },
       {
         "key": "G06T2207",
         "count": 1733
       },
       {
-        "key": "F05D2260",
-        "count": 1416
-      },
-      {
         "key": "Y02E10",
-        "count": 1416
+        "count": 1405
       },
       {
         "key": "G01S13",
         "count": 1387
+      },
+      {
+        "key": "F05D2260",
+        "count": 1344
       }
     ],
-    "koreaPublicationGapOpportunityScore": 0.2513,
-    "koreaAssigneeGapOpportunityScore": 0.2532
+    "koreaPublicationGapOpportunityScore": 0.2424,
+    "koreaAssigneeGapOpportunityScore": 0.2442
   }
 }

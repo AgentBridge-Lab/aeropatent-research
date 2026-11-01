@@ -947,8 +947,8 @@
       ],
       "family_count": 2,
       "publication_count": 2,
-      "mean_similarity": 0.741577,
-      "min_similarity": 0.741577,
+      "mean_similarity": 0.741576,
+      "min_similarity": 0.741576,
       "representative_id": "patent.US10717836B1",
       "representative_title": "Alternative resin systems for thermal protection materials"
     },
@@ -1082,7 +1082,7 @@
     {
       "source_family": "25010171",
       "target_family": "90054160",
-      "similarity": 0.758882
+      "similarity": 0.758881
     },
     {
       "source_family": "22990259",
@@ -1107,7 +1107,7 @@
     {
       "source_family": "71611893",
       "target_family": "publication:WO2011131694A1",
-      "similarity": 0.741577
+      "similarity": 0.741576
     },
     {
       "source_family": "45891750",
@@ -1172,7 +1172,7 @@
     {
       "source_family": "51334283",
       "target_family": "64739481",
-      "similarity": 0.707024
+      "similarity": 0.707025
     },
     {
       "source_family": "51334283",
@@ -1222,7 +1222,7 @@
     {
       "source_family": "53448830",
       "target_family": "83355024",
-      "similarity": 0.678863
+      "similarity": 0.678862
     },
     {
       "source_family": "59383471",
@@ -1297,7 +1297,7 @@
     {
       "source_family": "57448491",
       "target_family": "publication:US20190023422A1",
-      "similarity": 0.653901
+      "similarity": 0.653902
     },
     {
       "source_family": "57007537",
@@ -1376,5 +1376,5 @@
     }
   ],
   "source_file_hash": "ccf159c6b58f0283f70770f1560c33c144a8e48773e068b1625c3e4b8009121d",
-  "generated_at": "2026-10-26T13:04:34.443568+00:00"
+  "generated_at": "2026-11-01T21:57:26.185168+00:00"
 }
